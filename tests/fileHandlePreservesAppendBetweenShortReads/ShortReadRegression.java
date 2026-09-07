@@ -93,9 +93,8 @@ public final class ShortReadRegression {
             int count = handle.read(2L, destination, 3, 20);
             if (count != 13) failures.add(mode + ": expected byte count 13, actual " + count);
             actual = new String(destination, StandardCharsets.UTF_8);
-            String expected = "---prefixtailend---------";
             // Construct the suffix from the unchanged destination capacity, not returned count.
-            expected = "---prefixtailend" + "-".repeat(25 - 3 - 13);
+            String expected = "---prefixtailend" + "-".repeat(25 - 3 - 13);
             if (!expected.equals(actual)) failures.add(mode + ": expected '" + expected + "', actual '" + actual + "'");
             if (handle.read(15L, destination, 0, 1) != -1) failures.add(mode + ": reading physical EOF must return -1");
           } else if (mode.equals("buffer-tail")) {

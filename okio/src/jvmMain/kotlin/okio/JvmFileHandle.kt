@@ -48,7 +48,7 @@ internal class JvmFileHandle(
     randomAccessFile.seek(fileOffset)
     var bytesRead = 0
     while (bytesRead < byteCount) {
-      val readResult = randomAccessFile.read(array, arrayOffset, byteCount - bytesRead)
+      val readResult = randomAccessFile.read(array, arrayOffset + bytesRead, byteCount - bytesRead)
       if (readResult == -1) {
         if (bytesRead == 0) return -1
         break
