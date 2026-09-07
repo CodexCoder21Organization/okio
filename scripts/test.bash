@@ -19,9 +19,12 @@ java -Xmx512m -cp "$compiler_cp" org.jetbrains.kotlin.cli.jvm.K2JVMCompiler \
   -no-stdlib -no-reflect -classpath "$runtime_cp" -d "$build_dir/classes" \
   "$repo_dir/okio/src/jvmMain/kotlin/okio/JvmFileHandle.kt"
 javac -cp "$runtime_cp" -d "$build_dir/harness" \
-  "$repo_dir/tests/fileHandlePreservesAppendBetweenShortReads/ShortReadRegression.java"
+  "$repo_dir/tests/fileHandlePreservesAppendBetweenShortReads/ShortReadRegression.java" \
+  "$repo_dir/tests/fileHandlePreservesAppendBetweenShortReads/ReplaceFileHandleAgent.java"
 printf 'Manifest-Version: 1.0\nPremain-Class: ShortReadRegression\n\n' > "$build_dir/manifest.mf"
 jar cfm "$build_dir/ordering-agent.jar" "$build_dir/manifest.mf" -C "$build_dir/harness" .
+printf 'Manifest-Version: 1.0\nPremain-Class: ReplaceFileHandleAgent\n\n' > "$build_dir/replacement-manifest.mf"
+jar cfm "$build_dir/replacement-agent.jar" "$build_dir/replacement-manifest.mf" -C "$build_dir/harness" .
 # Build a local validation copy of the published jar with exactly the compiled upstream class.
 # This is never uploaded and does not modify any Maven or kompile cache.
 python3 - "$runtime_cp" "$build_dir" <<'PY'
