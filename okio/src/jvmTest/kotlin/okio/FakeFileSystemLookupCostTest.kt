@@ -27,9 +27,10 @@ class FakeFileSystemLookupCostTest {
     val fileSystem = FakeFileSystem()
     val bean = ManagementFactory.getThreadMXBean() as com.sun.management.ThreadMXBean
     assertTrue(bean.isThreadAllocatedMemorySupported)
+    val allocationWasEnabled = bean.isThreadAllocatedMemoryEnabled
     bean.isThreadAllocatedMemoryEnabled = true
     val threadId = Thread.currentThread().id
-    val paths = listOf(64, 128).map { depth ->
+    val paths = listOf(64, 256).map { depth ->
       ("/" + List(depth) { "segment" }.joinToString("/")).toPath()
     }
     try {
@@ -44,12 +45,16 @@ class FakeFileSystemLookupCostTest {
         bean.getThreadAllocatedBytes(threadId) - before
       }
       assertTrue(
-        allocations[1] <= allocations[0] * 3,
-        "Doubling lookup depth must have linear allocation cost: " +
-          "depth 64=${allocations[0]}, depth 128=${allocations[1]} bytes",
+        allocations[1] <= allocations[0] * 6,
+        "Quadrupling lookup depth must have linear allocation cost: " +
+          "depth 64=${allocations[0]}, depth 256=${allocations[1]} bytes",
       )
     } finally {
-      fileSystem.checkNoOpenFiles()
+      try {
+        fileSystem.checkNoOpenFiles()
+      } finally {
+        bean.isThreadAllocatedMemoryEnabled = allocationWasEnabled
+      }
     }
   }
 }

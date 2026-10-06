@@ -565,7 +565,9 @@ class FakeFileSystem private constructor(
     var parent: Directory? = null
     var lastSegment: ByteString? = null
     var current: Element = root
-    var currentPath: Path = rootPath
+    // The canonical input already contains every ordinary prefix. Materialize a new path
+    // only when a link changes it or an error needs an intermediate prefix.
+    var currentPath: Path? = null
 
     var segmentsTraversed = 0
     val segments = canonicalPath.segmentsBytes
@@ -574,11 +576,11 @@ class FakeFileSystem private constructor(
 
       // Push the newest segment.
       if (current !is Directory) {
-        throw IOException("not a directory: $currentPath")
+        throw IOException("not a directory: ${currentPath ?: pathPrefix(canonicalPath, segmentsTraversed)}")
       }
       parent = current
       current = current.children[segment] ?: break
-      currentPath /= segment
+      currentPath = currentPath?.resolve(segment)
       segmentsTraversed++
 
       // If it's a symlink, recurse to follow it.
@@ -587,7 +589,8 @@ class FakeFileSystem private constructor(
       if (current is Symlink && followSymlinks) {
         current.access(nowMillis = clockNowMillis())
         // We wanna normalize it in case the target is relative and starts with `..`.
-        currentPath = currentPath.parent!!.resolve(current.target, normalize = true)
+        currentPath = (currentPath ?: pathPrefix(canonicalPath, segmentsTraversed))
+          .parent!!.resolve(current.target, normalize = true)
         val symlinkLookupResult = lookupPath(
           canonicalPath = currentPath,
           recurseCount = recurseCount + 1,
@@ -602,10 +605,10 @@ class FakeFileSystem private constructor(
 
     return when (segmentsTraversed) {
       segments.size -> {
-        PathLookupResult(currentPath, parent, lastSegment, current) // The file.
+        PathLookupResult(currentPath ?: canonicalPath, parent, lastSegment, current) // The file.
       }
       segments.size - 1 -> {
-        PathLookupResult(currentPath, parent, lastSegment, null) // The enclosing directory.
+        PathLookupResult(currentPath ?: canonicalPath.parent!!, parent, lastSegment, null) // The enclosing directory.
       }
       else -> null // We found nothing.
     }
@@ -804,4 +807,10 @@ class FakeFileSystem private constructor(
   }
 
   override fun toString() = "FakeFileSystem"
+}
+
+private fun pathPrefix(path: Path, count: Int): Path {
+  var result = path.root!!
+  for (segment in path.segmentsBytes.take(count)) result /= segment
+  return result
 }
