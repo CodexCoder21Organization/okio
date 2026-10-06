@@ -608,7 +608,7 @@ class FakeFileSystem private constructor(
         PathLookupResult(currentPath ?: canonicalPath, parent, lastSegment, current) // The file.
       }
       segments.size - 1 -> {
-        PathLookupResult(currentPath ?: canonicalPath.parent!!, parent, lastSegment, null) // The enclosing directory.
+        PathLookupResult(currentPath ?: canonicalPath.parent ?: pathPrefix(canonicalPath, segmentsTraversed), parent, lastSegment, null) // The enclosing directory.
       }
       else -> null // We found nothing.
     }

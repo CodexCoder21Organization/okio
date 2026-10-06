@@ -42,6 +42,22 @@ class FakeFileSystemLookupPathBehaviorTest {
   }
 
   @Test
+  fun missingFinalDotDotPathKeepsMissingBehavior() {
+    val fs = FakeFileSystem()
+    try {
+      fs.createDirectories("/a/b".toPath())
+      val path = "/a/b/..".toPath()
+      assertNull(fs.metadataOrNull(path))
+      assertEquals(
+        "no such file: /a/b/..",
+        assertFailsWith<FileNotFoundException> { fs.canonicalize(path) }.message,
+      )
+    } finally {
+      fs.checkNoOpenFiles()
+    }
+  }
+
+  @Test
   fun notADirectoryReportsTheResolvedPrefix() {
     val fs = FakeFileSystem().apply { allowSymlinks = true }
     try {
