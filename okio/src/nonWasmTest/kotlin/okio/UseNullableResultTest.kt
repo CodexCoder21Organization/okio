@@ -6,8 +6,85 @@ import kotlin.test.assertFailsWith
 import kotlin.test.assertNull
 import kotlin.test.assertSame
 import kotlin.test.assertTrue
+import okio.Path.Companion.toPath
+import okio.fakefilesystem.FakeFileSystem
 
 class UseNullableResultTest {
+  @Test
+  fun fileSystemReadPreservesNullAndClosesExactlyOnce() {
+    val delegate = FakeFileSystem()
+    val path = "/record".toPath()
+    delegate.write(path) { writeUtf8("legacy record") }
+    var closeCount = 0
+    val fileSystem = object : ForwardingFileSystem(delegate) {
+      override fun source(file: Path): Source {
+        return object : ForwardingSource(super.source(file)) {
+          override fun close() {
+            closeCount++
+            super.close()
+          }
+        }
+      }
+    }
+
+    val result = runCatching {
+      fileSystem.read(path) {
+        readUtf8()
+        null
+      }
+    }
+
+    assertEquals(1, closeCount)
+    assertTrue(result.isSuccess, "read rejected a nullable block result: ${result.exceptionOrNull()}")
+    assertNull(result.getOrThrow())
+    delegate.checkNoOpenFiles()
+  }
+
+  @Test
+  fun fileSystemWritePreservesNullAndClosesExactlyOnce() {
+    val delegate = FakeFileSystem()
+    val path = "/record".toPath()
+    var closeCount = 0
+    val fileSystem = object : ForwardingFileSystem(delegate) {
+      override fun sink(file: Path, mustCreate: Boolean): Sink {
+        return object : ForwardingSink(super.sink(file, mustCreate)) {
+          override fun close() {
+            closeCount++
+            super.close()
+          }
+        }
+      }
+    }
+
+    val result = runCatching {
+      fileSystem.write(path) {
+        writeUtf8("legacy record")
+        null
+      }
+    }
+
+    assertEquals(1, closeCount)
+    assertTrue(result.isSuccess, "write rejected a nullable block result: ${result.exceptionOrNull()}")
+    assertNull(result.getOrThrow())
+    assertEquals("legacy record", delegate.read(path) { readUtf8() })
+    delegate.checkNoOpenFiles()
+  }
+
+  @Test
+  fun nullReceiverAcceptsNullResult() {
+    val source: Source? = null
+
+    val result = runCatching {
+      source.use {
+        assertNull(it)
+        null
+      }
+    }
+
+    assertTrue(result.isSuccess, "use rejected a nullable block result: ${result.exceptionOrNull()}")
+    assertNull(result.getOrThrow())
+  }
+
   @Test
   fun nullResultClosesExactlyOnce() {
     var closeCount = 0
@@ -18,7 +95,7 @@ class UseNullableResultTest {
       }
     }
 
-    val result = runCatching { sink.use { null as String? } }
+    val result = runCatching { sink.use { null } }
 
     assertEquals(1, closeCount)
     assertTrue(result.isSuccess, "use rejected a nullable block result: ${result.exceptionOrNull()}")
@@ -55,7 +132,7 @@ class UseNullableResultTest {
       }
     }
 
-    val thrown = assertFailsWith<IOException> { sink.use { null as String? } }
+    val thrown = assertFailsWith<IOException> { sink.use { null } }
 
     assertEquals(1, closeCount)
     assertSame(failure, thrown)
