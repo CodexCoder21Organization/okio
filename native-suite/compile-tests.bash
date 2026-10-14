@@ -15,7 +15,7 @@ if [[ ! -s "$fixed_jar" ]]; then
 fi
 
 slot=
-for attempt in $(seq 1 20); do
+for attempt in $(seq 1 10); do
   for number in 1 2 4; do
     candidate="$out/build-slot-$number"
     if mkdir "$candidate" 2>/dev/null; then
@@ -27,12 +27,12 @@ for attempt in $(seq 1 20); do
   if [[ -n "$slot" ]]; then
     break
   fi
-  if (( attempt < 20 )); then
+  if (( attempt < 10 )); then
     sleep 30
   fi
 done
 if [[ -z "$slot" ]]; then
-  printf 'Could not acquire build slot 1, 2, or 4 within 10 minutes.\n' >&2
+  printf 'Could not acquire build slot 1, 2, or 4 within the bounded wait.\n' >&2
   exit 3
 fi
 trap 'rm -f "$slot/owner"; rmdir "$slot"' EXIT
