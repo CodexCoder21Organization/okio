@@ -1,0 +1,26 @@
+Created autostash: a2332fc7
+Current branch wip/okiofix1-nullable-use is up to date.
+Applied autostash.
+Filesystem      Size  Used Avail Use% Mounted on
+overlay         309G  208G  102G  68% /
+expanded-red-compile exit 0
+expanded-red exit 1
+expanded-red {'tests': 7, 'failures': 4, 'errors': 0, 'skipped': 0}
+green-compile exit 0
+green-1 exit 0
+green-1 {'tests': 7, 'failures': 0, 'errors': 0, 'skipped': 0}
+green-2 exit 0
+green-2 {'tests': 7, 'failures': 0, 'errors': 0, 'skipped': 0}
+green-3 exit 0
+green-3 {'tests': 7, 'failures': 0, 'errors': 0, 'skipped': 0}
+mutation-compile exit 0
+mutation exit 1
+mutation {'tests': 7, 'failures': 4, 'errors': 0, 'skipped': 0}
+short-read-compile exit 0
+short-read-agent exit 0
+short-read-1 exit 0
+short-read-1 {'name': 'JUnit Vintage', 'tests': '1', 'skipped': '0', 'failures': '0', 'errors': '0', 'time': '0.635', 'hostname': 'cbef45b72539', 'timestamp': '2026-10-14T20:22:22'}
+short-read-2 exit 0
+short-read-2 {'name': 'JUnit Vintage', 'tests': '1', 'skipped': '0', 'failures': '0', 'errors': '0', 'time': '0.728', 'hostname': 'cbef45b72539', 'timestamp': '2026-10-14T20:22:27'}
+short-read-3 exit 0
+short-read-3 {'name': 'JUnit Vintage', 'tests': '1', 'skipped': '0', 'failures': '0', 'errors': '0', 'time': '0.313', 'hostname': 'cbef45b72539', 'timestamp': '2026-10-14T20:22:31'}

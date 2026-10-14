@@ -1,0 +1,69 @@
+
+Failures (4):
+  JUnit Vintage:UseNullableResultTest:fileSystemReadPreservesNullAndClosesExactlyOnce
+    MethodSource [className = 'okio.UseNullableResultTest', methodName = 'fileSystemReadPreservesNullAndClosesExactlyOnce', methodParameterTypes = '']
+    => java.lang.AssertionError: read rejected a nullable block result: java.lang.NullPointerException
+       org.junit.Assert.fail(Assert.java:89)
+       kotlin.test.junit.JUnitAsserter.fail(JUnitSupport.kt:56)
+       kotlin.test.Asserter$DefaultImpls.assertTrue(Assertions.kt:652)
+       kotlin.test.junit.JUnitAsserter.assertTrue(JUnitSupport.kt:30)
+       kotlin.test.Asserter$DefaultImpls.assertTrue(Assertions.kt:662)
+       kotlin.test.junit.JUnitAsserter.assertTrue(JUnitSupport.kt:30)
+       kotlin.test.AssertionsKt__AssertionsKt.assertTrue(Assertions.kt:44)
+       kotlin.test.AssertionsKt.assertTrue(Unknown Source)
+       okio.UseNullableResultTest.fileSystemReadPreservesNullAndClosesExactlyOnce(UseNullableResultTest.kt:38)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+  JUnit Vintage:UseNullableResultTest:fileSystemWritePreservesNullAndClosesExactlyOnce
+    MethodSource [className = 'okio.UseNullableResultTest', methodName = 'fileSystemWritePreservesNullAndClosesExactlyOnce', methodParameterTypes = '']
+    => java.lang.AssertionError: write rejected a nullable block result: java.lang.NullPointerException
+       org.junit.Assert.fail(Assert.java:89)
+       kotlin.test.junit.JUnitAsserter.fail(JUnitSupport.kt:56)
+       kotlin.test.Asserter$DefaultImpls.assertTrue(Assertions.kt:652)
+       kotlin.test.junit.JUnitAsserter.assertTrue(JUnitSupport.kt:30)
+       kotlin.test.Asserter$DefaultImpls.assertTrue(Assertions.kt:662)
+       kotlin.test.junit.JUnitAsserter.assertTrue(JUnitSupport.kt:30)
+       kotlin.test.AssertionsKt__AssertionsKt.assertTrue(Assertions.kt:44)
+       kotlin.test.AssertionsKt.assertTrue(Unknown Source)
+       okio.UseNullableResultTest.fileSystemWritePreservesNullAndClosesExactlyOnce(UseNullableResultTest.kt:67)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+  JUnit Vintage:UseNullableResultTest:nullResultClosesExactlyOnce
+    MethodSource [className = 'okio.UseNullableResultTest', methodName = 'nullResultClosesExactlyOnce', methodParameterTypes = '']
+    => java.lang.AssertionError: use rejected a nullable block result: java.lang.NullPointerException
+       org.junit.Assert.fail(Assert.java:89)
+       kotlin.test.junit.JUnitAsserter.fail(JUnitSupport.kt:56)
+       kotlin.test.Asserter$DefaultImpls.assertTrue(Assertions.kt:652)
+       kotlin.test.junit.JUnitAsserter.assertTrue(JUnitSupport.kt:30)
+       kotlin.test.Asserter$DefaultImpls.assertTrue(Assertions.kt:662)
+       kotlin.test.junit.JUnitAsserter.assertTrue(JUnitSupport.kt:30)
+       kotlin.test.AssertionsKt__AssertionsKt.assertTrue(Assertions.kt:44)
+       kotlin.test.AssertionsKt.assertTrue(Unknown Source)
+       okio.UseNullableResultTest.nullResultClosesExactlyOnce(UseNullableResultTest.kt:101)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+  JUnit Vintage:UseNullableResultTest:nullReceiverAcceptsNullResult
+    MethodSource [className = 'okio.UseNullableResultTest', methodName = 'nullReceiverAcceptsNullResult', methodParameterTypes = '']
+    => java.lang.AssertionError: use rejected a nullable block result: java.lang.NullPointerException
+       org.junit.Assert.fail(Assert.java:89)
+       kotlin.test.junit.JUnitAsserter.fail(JUnitSupport.kt:56)
+       kotlin.test.Asserter$DefaultImpls.assertTrue(Assertions.kt:652)
+       kotlin.test.junit.JUnitAsserter.assertTrue(JUnitSupport.kt:30)
+       kotlin.test.Asserter$DefaultImpls.assertTrue(Assertions.kt:662)
+       kotlin.test.junit.JUnitAsserter.assertTrue(JUnitSupport.kt:30)
+       kotlin.test.AssertionsKt__AssertionsKt.assertTrue(Assertions.kt:44)
+       kotlin.test.AssertionsKt.assertTrue(Unknown Source)
+       okio.UseNullableResultTest.nullReceiverAcceptsNullResult(UseNullableResultTest.kt:84)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+
+Test run finished after 1458 ms
+[         4 containers found      ]
+[         0 containers skipped    ]
+[         4 containers started    ]
+[         0 containers aborted    ]
+[         4 containers successful ]
+[         0 containers failed     ]
+[         7 tests found           ]
+[         0 tests skipped         ]
+[         7 tests started         ]
+[         0 tests aborted         ]
+[         3 tests successful      ]
+[         4 tests failed          ]
+

@@ -1,0 +1,30 @@
+
+Failures (1):
+  JUnit Vintage:UseNullableResultTest:nullResultClosesExactlyOnce
+    MethodSource [className = 'okio.UseNullableResultTest', methodName = 'nullResultClosesExactlyOnce', methodParameterTypes = '']
+    => java.lang.AssertionError: use rejected a nullable block result: java.lang.NullPointerException
+       org.junit.Assert.fail(Assert.java:89)
+       kotlin.test.junit.JUnitAsserter.fail(JUnitSupport.kt:56)
+       kotlin.test.Asserter$DefaultImpls.assertTrue(Assertions.kt:652)
+       kotlin.test.junit.JUnitAsserter.assertTrue(JUnitSupport.kt:30)
+       kotlin.test.Asserter$DefaultImpls.assertTrue(Assertions.kt:662)
+       kotlin.test.junit.JUnitAsserter.assertTrue(JUnitSupport.kt:30)
+       kotlin.test.AssertionsKt__AssertionsKt.assertTrue(Assertions.kt:44)
+       kotlin.test.AssertionsKt.assertTrue(Unknown Source)
+       okio.UseNullableResultTest.nullResultClosesExactlyOnce(UseNullableResultTest.kt:24)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+
+Test run finished after 402 ms
+[         4 containers found      ]
+[         0 containers skipped    ]
+[         4 containers started    ]
+[         0 containers aborted    ]
+[         4 containers successful ]
+[         0 containers failed     ]
+[         4 tests found           ]
+[         0 tests skipped         ]
+[         4 tests started         ]
+[         0 tests aborted         ]
+[         3 tests successful      ]
+[         1 tests failed          ]
+

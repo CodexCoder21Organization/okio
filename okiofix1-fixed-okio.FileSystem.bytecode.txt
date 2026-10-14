@@ -1,0 +1,798 @@
+Compiled from "FileSystem.kt"
+public abstract class okio.FileSystem {
+  public static final okio.FileSystem$Companion Companion;
+
+  public static final okio.FileSystem SYSTEM;
+
+  public static final okio.Path SYSTEM_TEMPORARY_DIRECTORY;
+
+  public static final okio.FileSystem RESOURCES;
+
+  public okio.FileSystem();
+    Code:
+       0: aload_0
+       1: invokespecial #8                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public abstract okio.Path canonicalize(okio.Path) throws java.io.IOException;
+
+  public final okio.FileMetadata metadata(okio.Path) throws java.io.IOException;
+    Code:
+       0: aload_1
+       1: ldc           #19                 // String path
+       3: invokestatic  #25                 // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+       6: aload_0
+       7: aload_1
+       8: invokestatic  #31                 // Method "okio/internal/-FileSystem".commonMetadata:(Lokio/FileSystem;Lokio/Path;)Lokio/FileMetadata;
+      11: areturn
+
+  public abstract okio.FileMetadata metadataOrNull(okio.Path) throws java.io.IOException;
+
+  public final boolean exists(okio.Path) throws java.io.IOException;
+    Code:
+       0: aload_1
+       1: ldc           #19                 // String path
+       3: invokestatic  #25                 // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+       6: aload_0
+       7: aload_1
+       8: invokestatic  #40                 // Method "okio/internal/-FileSystem".commonExists:(Lokio/FileSystem;Lokio/Path;)Z
+      11: ireturn
+
+  public abstract java.util.List<okio.Path> list(okio.Path) throws java.io.IOException;
+
+  public abstract java.util.List<okio.Path> listOrNull(okio.Path);
+
+  public kotlin.sequences.Sequence<okio.Path> listRecursively(okio.Path, boolean);
+    Code:
+       0: aload_1
+       1: ldc           #49                 // String dir
+       3: invokestatic  #25                 // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+       6: aload_0
+       7: aload_1
+       8: iload_2
+       9: invokestatic  #53                 // Method "okio/internal/-FileSystem".commonListRecursively:(Lokio/FileSystem;Lokio/Path;Z)Lkotlin/sequences/Sequence;
+      12: areturn
+
+  public static kotlin.sequences.Sequence listRecursively$default(okio.FileSystem, okio.Path, boolean, int, java.lang.Object);
+    Code:
+       0: aload         4
+       2: ifnull        15
+       5: new           #59                 // class java/lang/UnsupportedOperationException
+       8: dup
+       9: ldc           #61                 // String Super calls with default arguments not supported in this target, function: listRecursively
+      11: invokespecial #64                 // Method java/lang/UnsupportedOperationException."<init>":(Ljava/lang/String;)V
+      14: athrow
+      15: iload_3
+      16: iconst_2
+      17: iand
+      18: ifeq          23
+      21: iconst_0
+      22: istore_2
+      23: aload_0
+      24: aload_1
+      25: iload_2
+      26: invokevirtual #66                 // Method listRecursively:(Lokio/Path;Z)Lkotlin/sequences/Sequence;
+      29: areturn
+
+  public final kotlin.sequences.Sequence<okio.Path> listRecursively(okio.Path);
+    Code:
+       0: aload_1
+       1: ldc           #49                 // String dir
+       3: invokestatic  #25                 // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+       6: aload_0
+       7: aload_1
+       8: iconst_0
+       9: invokevirtual #66                 // Method listRecursively:(Lokio/Path;Z)Lkotlin/sequences/Sequence;
+      12: areturn
+
+  public abstract okio.FileHandle openReadOnly(okio.Path) throws java.io.IOException;
+
+  public abstract okio.FileHandle openReadWrite(okio.Path, boolean, boolean) throws java.io.IOException;
+
+  public static okio.FileHandle openReadWrite$default(okio.FileSystem, okio.Path, boolean, boolean, int, java.lang.Object) throws java.io.IOException;
+    Code:
+       0: aload         5
+       2: ifnull        15
+       5: new           #59                 // class java/lang/UnsupportedOperationException
+       8: dup
+       9: ldc           #76                 // String Super calls with default arguments not supported in this target, function: openReadWrite
+      11: invokespecial #64                 // Method java/lang/UnsupportedOperationException."<init>":(Ljava/lang/String;)V
+      14: athrow
+      15: iload         4
+      17: iconst_2
+      18: iand
+      19: ifeq          24
+      22: iconst_0
+      23: istore_2
+      24: iload         4
+      26: iconst_4
+      27: iand
+      28: ifeq          33
+      31: iconst_0
+      32: istore_3
+      33: aload_0
+      34: aload_1
+      35: iload_2
+      36: iload_3
+      37: invokevirtual #78                 // Method openReadWrite:(Lokio/Path;ZZ)Lokio/FileHandle;
+      40: areturn
+
+  public final okio.FileHandle openReadWrite(okio.Path) throws java.io.IOException;
+    Code:
+       0: aload_1
+       1: ldc           #80                 // String file
+       3: invokestatic  #25                 // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+       6: aload_0
+       7: aload_1
+       8: iconst_0
+       9: iconst_0
+      10: invokevirtual #78                 // Method openReadWrite:(Lokio/Path;ZZ)Lokio/FileHandle;
+      13: areturn
+
+  public abstract okio.Source source(okio.Path) throws java.io.IOException;
+
+  public final <T> T -read(okio.Path, kotlin.jvm.functions.Function1<? super okio.BufferedSource, ? extends T>) throws java.io.IOException;
+    Code:
+       0: aload_1
+       1: ldc           #80                 // String file
+       3: invokestatic  #25                 // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+       6: aload_2
+       7: ldc           #91                 // String readerAction
+       9: invokestatic  #25                 // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+      12: iconst_0
+      13: istore_3
+      14: aload_0
+      15: aload_1
+      16: invokevirtual #93                 // Method source:(Lokio/Path;)Lokio/Source;
+      19: invokestatic  #99                 // Method okio/Okio.buffer:(Lokio/Source;)Lokio/BufferedSource;
+      22: checkcast     #101                // class java/io/Closeable
+      25: astore        4
+      27: iconst_0
+      28: istore        5
+      30: aconst_null
+      31: astore        6
+      33: nop
+      34: aload         4
+      36: checkcast     #103                // class okio/BufferedSource
+      39: astore        7
+      41: iconst_0
+      42: istore        8
+      44: aload_2
+      45: aload         7
+      47: invokeinterface #109,  2          // InterfaceMethod kotlin/jvm/functions/Function1.invoke:(Ljava/lang/Object;)Ljava/lang/Object;
+      52: astore        8
+      54: iconst_1
+      55: invokestatic  #115                // Method kotlin/jvm/internal/InlineMarker.finallyStart:(I)V
+      58: nop
+      59: aload         4
+      61: dup
+      62: ifnull        73
+      65: invokeinterface #118,  1          // InterfaceMethod java/io/Closeable.close:()V
+      70: goto          86
+      73: pop
+      74: goto          86
+      77: astore        9
+      79: aload         9
+      81: astore        6
+      83: goto          86
+      86: iconst_1
+      87: invokestatic  #121                // Method kotlin/jvm/internal/InlineMarker.finallyEnd:(I)V
+      90: goto          206
+      93: astore        9
+      95: aload         9
+      97: astore        6
+      99: aconst_null
+     100: astore        8
+     102: iconst_1
+     103: invokestatic  #115                // Method kotlin/jvm/internal/InlineMarker.finallyStart:(I)V
+     106: nop
+     107: aload         4
+     109: dup
+     110: ifnull        121
+     113: invokeinterface #118,  1          // InterfaceMethod java/io/Closeable.close:()V
+     118: goto          146
+     121: pop
+     122: goto          146
+     125: astore        9
+     127: aload         6
+     129: ifnonnull     139
+     132: aload         9
+     134: astore        6
+     136: goto          146
+     139: aload         6
+     141: aload         9
+     143: invokestatic  #127                // Method kotlin/ExceptionsKt.addSuppressed:(Ljava/lang/Throwable;Ljava/lang/Throwable;)V
+     146: iconst_1
+     147: invokestatic  #121                // Method kotlin/jvm/internal/InlineMarker.finallyEnd:(I)V
+     150: goto          206
+     153: astore        9
+     155: iconst_1
+     156: invokestatic  #115                // Method kotlin/jvm/internal/InlineMarker.finallyStart:(I)V
+     159: nop
+     160: aload         4
+     162: dup
+     163: ifnull        174
+     166: invokeinterface #118,  1          // InterfaceMethod java/io/Closeable.close:()V
+     171: goto          199
+     174: pop
+     175: goto          199
+     178: astore        10
+     180: aload         6
+     182: ifnonnull     192
+     185: aload         10
+     187: astore        6
+     189: goto          199
+     192: aload         6
+     194: aload         10
+     196: invokestatic  #127                // Method kotlin/ExceptionsKt.addSuppressed:(Ljava/lang/Throwable;Ljava/lang/Throwable;)V
+     199: iconst_1
+     200: invokestatic  #121                // Method kotlin/jvm/internal/InlineMarker.finallyEnd:(I)V
+     203: aload         9
+     205: athrow
+     206: aload         8
+     208: astore        7
+     210: aload         6
+     212: dup
+     213: ifnull        217
+     216: athrow
+     217: pop
+     218: aload         7
+     220: areturn
+    Exception table:
+       from    to  target type
+          58    74    77   Class java/lang/Throwable
+          33    54    93   Class java/lang/Throwable
+         106   122   125   Class java/lang/Throwable
+          33    54   153   any
+          93   102   153   any
+         153   155   153   any
+         159   175   178   Class java/lang/Throwable
+
+  public abstract okio.Sink sink(okio.Path, boolean) throws java.io.IOException;
+
+  public static okio.Sink sink$default(okio.FileSystem, okio.Path, boolean, int, java.lang.Object) throws java.io.IOException;
+    Code:
+       0: aload         4
+       2: ifnull        15
+       5: new           #59                 // class java/lang/UnsupportedOperationException
+       8: dup
+       9: ldc           #149                // String Super calls with default arguments not supported in this target, function: sink
+      11: invokespecial #64                 // Method java/lang/UnsupportedOperationException."<init>":(Ljava/lang/String;)V
+      14: athrow
+      15: iload_3
+      16: iconst_2
+      17: iand
+      18: ifeq          23
+      21: iconst_0
+      22: istore_2
+      23: aload_0
+      24: aload_1
+      25: iload_2
+      26: invokevirtual #151                // Method sink:(Lokio/Path;Z)Lokio/Sink;
+      29: areturn
+
+  public final okio.Sink sink(okio.Path) throws java.io.IOException;
+    Code:
+       0: aload_1
+       1: ldc           #80                 // String file
+       3: invokestatic  #25                 // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+       6: aload_0
+       7: aload_1
+       8: iconst_0
+       9: invokevirtual #151                // Method sink:(Lokio/Path;Z)Lokio/Sink;
+      12: areturn
+
+  public final <T> T -write(okio.Path, boolean, kotlin.jvm.functions.Function1<? super okio.BufferedSink, ? extends T>) throws java.io.IOException;
+    Code:
+       0: aload_1
+       1: ldc           #80                 // String file
+       3: invokestatic  #25                 // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+       6: aload_3
+       7: ldc           #157                // String writerAction
+       9: invokestatic  #25                 // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+      12: iconst_0
+      13: istore        4
+      15: aload_0
+      16: aload_1
+      17: iload_2
+      18: invokevirtual #151                // Method sink:(Lokio/Path;Z)Lokio/Sink;
+      21: invokestatic  #160                // Method okio/Okio.buffer:(Lokio/Sink;)Lokio/BufferedSink;
+      24: checkcast     #101                // class java/io/Closeable
+      27: astore        5
+      29: iconst_0
+      30: istore        6
+      32: aconst_null
+      33: astore        7
+      35: nop
+      36: aload         5
+      38: checkcast     #162                // class okio/BufferedSink
+      41: astore        8
+      43: iconst_0
+      44: istore        9
+      46: aload_3
+      47: aload         8
+      49: invokeinterface #109,  2          // InterfaceMethod kotlin/jvm/functions/Function1.invoke:(Ljava/lang/Object;)Ljava/lang/Object;
+      54: astore        9
+      56: iconst_1
+      57: invokestatic  #115                // Method kotlin/jvm/internal/InlineMarker.finallyStart:(I)V
+      60: nop
+      61: aload         5
+      63: dup
+      64: ifnull        75
+      67: invokeinterface #118,  1          // InterfaceMethod java/io/Closeable.close:()V
+      72: goto          88
+      75: pop
+      76: goto          88
+      79: astore        10
+      81: aload         10
+      83: astore        7
+      85: goto          88
+      88: iconst_1
+      89: invokestatic  #121                // Method kotlin/jvm/internal/InlineMarker.finallyEnd:(I)V
+      92: goto          208
+      95: astore        10
+      97: aload         10
+      99: astore        7
+     101: aconst_null
+     102: astore        9
+     104: iconst_1
+     105: invokestatic  #115                // Method kotlin/jvm/internal/InlineMarker.finallyStart:(I)V
+     108: nop
+     109: aload         5
+     111: dup
+     112: ifnull        123
+     115: invokeinterface #118,  1          // InterfaceMethod java/io/Closeable.close:()V
+     120: goto          148
+     123: pop
+     124: goto          148
+     127: astore        10
+     129: aload         7
+     131: ifnonnull     141
+     134: aload         10
+     136: astore        7
+     138: goto          148
+     141: aload         7
+     143: aload         10
+     145: invokestatic  #127                // Method kotlin/ExceptionsKt.addSuppressed:(Ljava/lang/Throwable;Ljava/lang/Throwable;)V
+     148: iconst_1
+     149: invokestatic  #121                // Method kotlin/jvm/internal/InlineMarker.finallyEnd:(I)V
+     152: goto          208
+     155: astore        10
+     157: iconst_1
+     158: invokestatic  #115                // Method kotlin/jvm/internal/InlineMarker.finallyStart:(I)V
+     161: nop
+     162: aload         5
+     164: dup
+     165: ifnull        176
+     168: invokeinterface #118,  1          // InterfaceMethod java/io/Closeable.close:()V
+     173: goto          201
+     176: pop
+     177: goto          201
+     180: astore        11
+     182: aload         7
+     184: ifnonnull     194
+     187: aload         11
+     189: astore        7
+     191: goto          201
+     194: aload         7
+     196: aload         11
+     198: invokestatic  #127                // Method kotlin/ExceptionsKt.addSuppressed:(Ljava/lang/Throwable;Ljava/lang/Throwable;)V
+     201: iconst_1
+     202: invokestatic  #121                // Method kotlin/jvm/internal/InlineMarker.finallyEnd:(I)V
+     205: aload         10
+     207: athrow
+     208: aload         9
+     210: astore        8
+     212: aload         7
+     214: dup
+     215: ifnull        219
+     218: athrow
+     219: pop
+     220: aload         8
+     222: areturn
+    Exception table:
+       from    to  target type
+          60    76    79   Class java/lang/Throwable
+          35    56    95   Class java/lang/Throwable
+         108   124   127   Class java/lang/Throwable
+          35    56   155   any
+          95   104   155   any
+         155   157   155   any
+         161   177   180   Class java/lang/Throwable
+
+  public static java.lang.Object -write$default(okio.FileSystem, okio.Path, boolean, kotlin.jvm.functions.Function1, int, java.lang.Object) throws java.io.IOException;
+    Code:
+       0: aload         5
+       2: ifnull        15
+       5: new           #59                 // class java/lang/UnsupportedOperationException
+       8: dup
+       9: ldc           #170                // String Super calls with default arguments not supported in this target, function: write
+      11: invokespecial #64                 // Method java/lang/UnsupportedOperationException."<init>":(Ljava/lang/String;)V
+      14: athrow
+      15: iload         4
+      17: iconst_2
+      18: iand
+      19: ifeq          24
+      22: iconst_0
+      23: istore_2
+      24: aload_1
+      25: ldc           #80                 // String file
+      27: invokestatic  #25                 // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+      30: aload_3
+      31: ldc           #157                // String writerAction
+      33: invokestatic  #25                 // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+      36: iconst_0
+      37: istore        4
+      39: aload_0
+      40: aload_1
+      41: iload_2
+      42: invokevirtual #151                // Method sink:(Lokio/Path;Z)Lokio/Sink;
+      45: invokestatic  #160                // Method okio/Okio.buffer:(Lokio/Sink;)Lokio/BufferedSink;
+      48: checkcast     #101                // class java/io/Closeable
+      51: astore        5
+      53: iconst_0
+      54: istore        6
+      56: aconst_null
+      57: astore        7
+      59: nop
+      60: aload         5
+      62: checkcast     #162                // class okio/BufferedSink
+      65: astore        8
+      67: iconst_0
+      68: istore        9
+      70: aload_3
+      71: aload         8
+      73: invokeinterface #109,  2          // InterfaceMethod kotlin/jvm/functions/Function1.invoke:(Ljava/lang/Object;)Ljava/lang/Object;
+      78: astore        9
+      80: iconst_1
+      81: invokestatic  #115                // Method kotlin/jvm/internal/InlineMarker.finallyStart:(I)V
+      84: nop
+      85: aload         5
+      87: dup
+      88: ifnull        99
+      91: invokeinterface #118,  1          // InterfaceMethod java/io/Closeable.close:()V
+      96: goto          109
+      99: pop
+     100: goto          109
+     103: astore        10
+     105: aload         10
+     107: astore        7
+     109: iconst_1
+     110: invokestatic  #121                // Method kotlin/jvm/internal/InlineMarker.finallyEnd:(I)V
+     113: goto          229
+     116: astore        10
+     118: aload         10
+     120: astore        7
+     122: aconst_null
+     123: astore        9
+     125: iconst_1
+     126: invokestatic  #115                // Method kotlin/jvm/internal/InlineMarker.finallyStart:(I)V
+     129: nop
+     130: aload         5
+     132: dup
+     133: ifnull        144
+     136: invokeinterface #118,  1          // InterfaceMethod java/io/Closeable.close:()V
+     141: goto          169
+     144: pop
+     145: goto          169
+     148: astore        10
+     150: aload         7
+     152: ifnonnull     162
+     155: aload         10
+     157: astore        7
+     159: goto          169
+     162: aload         7
+     164: aload         10
+     166: invokestatic  #127                // Method kotlin/ExceptionsKt.addSuppressed:(Ljava/lang/Throwable;Ljava/lang/Throwable;)V
+     169: iconst_1
+     170: invokestatic  #121                // Method kotlin/jvm/internal/InlineMarker.finallyEnd:(I)V
+     173: goto          229
+     176: astore        10
+     178: iconst_1
+     179: invokestatic  #115                // Method kotlin/jvm/internal/InlineMarker.finallyStart:(I)V
+     182: nop
+     183: aload         5
+     185: dup
+     186: ifnull        197
+     189: invokeinterface #118,  1          // InterfaceMethod java/io/Closeable.close:()V
+     194: goto          222
+     197: pop
+     198: goto          222
+     201: astore        11
+     203: aload         7
+     205: ifnonnull     215
+     208: aload         11
+     210: astore        7
+     212: goto          222
+     215: aload         7
+     217: aload         11
+     219: invokestatic  #127                // Method kotlin/ExceptionsKt.addSuppressed:(Ljava/lang/Throwable;Ljava/lang/Throwable;)V
+     222: iconst_1
+     223: invokestatic  #121                // Method kotlin/jvm/internal/InlineMarker.finallyEnd:(I)V
+     226: aload         10
+     228: athrow
+     229: aload         9
+     231: astore        8
+     233: aload         7
+     235: dup
+     236: ifnull        240
+     239: athrow
+     240: pop
+     241: aload         8
+     243: areturn
+    Exception table:
+       from    to  target type
+          84   100   103   Class java/lang/Throwable
+          59    80   116   Class java/lang/Throwable
+         129   145   148   Class java/lang/Throwable
+          59    80   176   any
+         116   125   176   any
+         176   178   176   any
+         182   198   201   Class java/lang/Throwable
+
+  public abstract okio.Sink appendingSink(okio.Path, boolean) throws java.io.IOException;
+
+  public static okio.Sink appendingSink$default(okio.FileSystem, okio.Path, boolean, int, java.lang.Object) throws java.io.IOException;
+    Code:
+       0: aload         4
+       2: ifnull        15
+       5: new           #59                 // class java/lang/UnsupportedOperationException
+       8: dup
+       9: ldc           #175                // String Super calls with default arguments not supported in this target, function: appendingSink
+      11: invokespecial #64                 // Method java/lang/UnsupportedOperationException."<init>":(Ljava/lang/String;)V
+      14: athrow
+      15: iload_3
+      16: iconst_2
+      17: iand
+      18: ifeq          23
+      21: iconst_0
+      22: istore_2
+      23: aload_0
+      24: aload_1
+      25: iload_2
+      26: invokevirtual #177                // Method appendingSink:(Lokio/Path;Z)Lokio/Sink;
+      29: areturn
+
+  public final okio.Sink appendingSink(okio.Path) throws java.io.IOException;
+    Code:
+       0: aload_1
+       1: ldc           #80                 // String file
+       3: invokestatic  #25                 // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+       6: aload_0
+       7: aload_1
+       8: iconst_0
+       9: invokevirtual #177                // Method appendingSink:(Lokio/Path;Z)Lokio/Sink;
+      12: areturn
+
+  public abstract void createDirectory(okio.Path, boolean) throws java.io.IOException;
+
+  public static void createDirectory$default(okio.FileSystem, okio.Path, boolean, int, java.lang.Object) throws java.io.IOException;
+    Code:
+       0: aload         4
+       2: ifnull        15
+       5: new           #59                 // class java/lang/UnsupportedOperationException
+       8: dup
+       9: ldc           #183                // String Super calls with default arguments not supported in this target, function: createDirectory
+      11: invokespecial #64                 // Method java/lang/UnsupportedOperationException."<init>":(Ljava/lang/String;)V
+      14: athrow
+      15: iload_3
+      16: iconst_2
+      17: iand
+      18: ifeq          23
+      21: iconst_0
+      22: istore_2
+      23: aload_0
+      24: aload_1
+      25: iload_2
+      26: invokevirtual #185                // Method createDirectory:(Lokio/Path;Z)V
+      29: return
+
+  public final void createDirectory(okio.Path) throws java.io.IOException;
+    Code:
+       0: aload_1
+       1: ldc           #49                 // String dir
+       3: invokestatic  #25                 // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+       6: aload_0
+       7: aload_1
+       8: iconst_0
+       9: invokevirtual #185                // Method createDirectory:(Lokio/Path;Z)V
+      12: return
+
+  public final void createDirectories(okio.Path, boolean) throws java.io.IOException;
+    Code:
+       0: aload_1
+       1: ldc           #49                 // String dir
+       3: invokestatic  #25                 // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+       6: aload_0
+       7: aload_1
+       8: iload_2
+       9: invokestatic  #191                // Method "okio/internal/-FileSystem".commonCreateDirectories:(Lokio/FileSystem;Lokio/Path;Z)V
+      12: return
+
+  public static void createDirectories$default(okio.FileSystem, okio.Path, boolean, int, java.lang.Object) throws java.io.IOException;
+    Code:
+       0: aload         4
+       2: ifnull        15
+       5: new           #59                 // class java/lang/UnsupportedOperationException
+       8: dup
+       9: ldc           #194                // String Super calls with default arguments not supported in this target, function: createDirectories
+      11: invokespecial #64                 // Method java/lang/UnsupportedOperationException."<init>":(Ljava/lang/String;)V
+      14: athrow
+      15: iload_3
+      16: iconst_2
+      17: iand
+      18: ifeq          23
+      21: iconst_0
+      22: istore_2
+      23: aload_0
+      24: aload_1
+      25: iload_2
+      26: invokevirtual #196                // Method createDirectories:(Lokio/Path;Z)V
+      29: return
+
+  public final void createDirectories(okio.Path) throws java.io.IOException;
+    Code:
+       0: aload_1
+       1: ldc           #49                 // String dir
+       3: invokestatic  #25                 // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+       6: aload_0
+       7: aload_1
+       8: iconst_0
+       9: invokevirtual #196                // Method createDirectories:(Lokio/Path;Z)V
+      12: return
+
+  public abstract void atomicMove(okio.Path, okio.Path) throws java.io.IOException;
+
+  public void copy(okio.Path, okio.Path) throws java.io.IOException;
+    Code:
+       0: aload_1
+       1: ldc           #200                // String source
+       3: invokestatic  #25                 // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+       6: aload_2
+       7: ldc           #202                // String target
+       9: invokestatic  #25                 // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+      12: aload_0
+      13: aload_1
+      14: aload_2
+      15: invokestatic  #206                // Method "okio/internal/-FileSystem".commonCopy:(Lokio/FileSystem;Lokio/Path;Lokio/Path;)V
+      18: return
+
+  public abstract void delete(okio.Path, boolean) throws java.io.IOException;
+
+  public static void delete$default(okio.FileSystem, okio.Path, boolean, int, java.lang.Object) throws java.io.IOException;
+    Code:
+       0: aload         4
+       2: ifnull        15
+       5: new           #59                 // class java/lang/UnsupportedOperationException
+       8: dup
+       9: ldc           #210                // String Super calls with default arguments not supported in this target, function: delete
+      11: invokespecial #64                 // Method java/lang/UnsupportedOperationException."<init>":(Ljava/lang/String;)V
+      14: athrow
+      15: iload_3
+      16: iconst_2
+      17: iand
+      18: ifeq          23
+      21: iconst_0
+      22: istore_2
+      23: aload_0
+      24: aload_1
+      25: iload_2
+      26: invokevirtual #212                // Method delete:(Lokio/Path;Z)V
+      29: return
+
+  public final void delete(okio.Path) throws java.io.IOException;
+    Code:
+       0: aload_1
+       1: ldc           #19                 // String path
+       3: invokestatic  #25                 // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+       6: aload_0
+       7: aload_1
+       8: iconst_0
+       9: invokevirtual #212                // Method delete:(Lokio/Path;Z)V
+      12: return
+
+  public void deleteRecursively(okio.Path, boolean) throws java.io.IOException;
+    Code:
+       0: aload_1
+       1: ldc           #215                // String fileOrDirectory
+       3: invokestatic  #25                 // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+       6: aload_0
+       7: aload_1
+       8: iload_2
+       9: invokestatic  #218                // Method "okio/internal/-FileSystem".commonDeleteRecursively:(Lokio/FileSystem;Lokio/Path;Z)V
+      12: return
+
+  public static void deleteRecursively$default(okio.FileSystem, okio.Path, boolean, int, java.lang.Object) throws java.io.IOException;
+    Code:
+       0: aload         4
+       2: ifnull        15
+       5: new           #59                 // class java/lang/UnsupportedOperationException
+       8: dup
+       9: ldc           #222                // String Super calls with default arguments not supported in this target, function: deleteRecursively
+      11: invokespecial #64                 // Method java/lang/UnsupportedOperationException."<init>":(Ljava/lang/String;)V
+      14: athrow
+      15: iload_3
+      16: iconst_2
+      17: iand
+      18: ifeq          23
+      21: iconst_0
+      22: istore_2
+      23: aload_0
+      24: aload_1
+      25: iload_2
+      26: invokevirtual #224                // Method deleteRecursively:(Lokio/Path;Z)V
+      29: return
+
+  public final void deleteRecursively(okio.Path) throws java.io.IOException;
+    Code:
+       0: aload_1
+       1: ldc           #215                // String fileOrDirectory
+       3: invokestatic  #25                 // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+       6: aload_0
+       7: aload_1
+       8: iconst_0
+       9: invokevirtual #224                // Method deleteRecursively:(Lokio/Path;Z)V
+      12: return
+
+  public abstract void createSymlink(okio.Path, okio.Path) throws java.io.IOException;
+
+  public static final okio.FileSystem get(java.nio.file.FileSystem);
+    Code:
+       0: getstatic     #232                // Field Companion:Lokio/FileSystem$Companion;
+       3: aload_0
+       4: invokevirtual #236                // Method okio/FileSystem$Companion.get:(Ljava/nio/file/FileSystem;)Lokio/FileSystem;
+       7: areturn
+
+  static {};
+    Code:
+       0: new           #234                // class okio/FileSystem$Companion
+       3: dup
+       4: aconst_null
+       5: invokespecial #244                // Method okio/FileSystem$Companion."<init>":(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+       8: putstatic     #232                // Field Companion:Lokio/FileSystem$Companion;
+      11: getstatic     #232                // Field Companion:Lokio/FileSystem$Companion;
+      14: astore_0
+      15: iconst_0
+      16: istore_1
+      17: nop
+      18: ldc           #246                // String java.nio.file.Files
+      20: invokestatic  #252                // Method java/lang/Class.forName:(Ljava/lang/String;)Ljava/lang/Class;
+      23: pop
+      24: new           #254                // class okio/NioSystemFileSystem
+      27: dup
+      28: invokespecial #255                // Method okio/NioSystemFileSystem."<init>":()V
+      31: checkcast     #257                // class okio/JvmSystemFileSystem
+      34: goto          45
+      37: astore_2
+      38: new           #257                // class okio/JvmSystemFileSystem
+      41: dup
+      42: invokespecial #258                // Method okio/JvmSystemFileSystem."<init>":()V
+      45: checkcast     #2                  // class okio/FileSystem
+      48: putstatic     #261                // Field SYSTEM:Lokio/FileSystem;
+      51: getstatic     #264                // Field okio/Path.Companion:Lokio/Path$Companion;
+      54: ldc_w         #266                // String java.io.tmpdir
+      57: invokestatic  #272                // Method java/lang/System.getProperty:(Ljava/lang/String;)Ljava/lang/String;
+      60: dup
+      61: ldc_w         #274                // String getProperty(\"java.io.tmpdir\")
+      64: invokestatic  #277                // Method kotlin/jvm/internal/Intrinsics.checkNotNullExpressionValue:(Ljava/lang/Object;Ljava/lang/String;)V
+      67: iconst_0
+      68: iconst_1
+      69: aconst_null
+      70: invokestatic  #283                // Method okio/Path$Companion.get$default:(Lokio/Path$Companion;Ljava/lang/String;ZILjava/lang/Object;)Lokio/Path;
+      73: putstatic     #286                // Field SYSTEM_TEMPORARY_DIRECTORY:Lokio/Path;
+      76: new           #288                // class okio/internal/ResourceFileSystem
+      79: dup
+      80: ldc_w         #288                // class okio/internal/ResourceFileSystem
+      83: invokevirtual #292                // Method java/lang/Class.getClassLoader:()Ljava/lang/ClassLoader;
+      86: dup
+      87: ldc_w         #294                // String ResourceFileSystem::class.java.classLoader
+      90: invokestatic  #277                // Method kotlin/jvm/internal/Intrinsics.checkNotNullExpressionValue:(Ljava/lang/Object;Ljava/lang/String;)V
+      93: iconst_0
+      94: invokespecial #297                // Method okio/internal/ResourceFileSystem."<init>":(Ljava/lang/ClassLoader;Z)V
+      97: checkcast     #2                  // class okio/FileSystem
+     100: putstatic     #300                // Field RESOURCES:Lokio/FileSystem;
+     103: return
+    Exception table:
+       from    to  target type
+          17    37    37   Class java/lang/ClassNotFoundException
+}

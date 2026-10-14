@@ -1,0 +1,135 @@
+Compiled from "Okio.kt"
+final class okio.Okio__OkioKt {
+  public static final okio.BufferedSource buffer(okio.Source);
+    Code:
+       0: aload_0
+       1: ldc           #9                  // String <this>
+       3: invokestatic  #15                 // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+       6: new           #17                 // class okio/RealBufferedSource
+       9: dup
+      10: aload_0
+      11: invokespecial #21                 // Method okio/RealBufferedSource."<init>":(Lokio/Source;)V
+      14: checkcast     #23                 // class okio/BufferedSource
+      17: areturn
+
+  public static final okio.BufferedSink buffer(okio.Sink);
+    Code:
+       0: aload_0
+       1: ldc           #9                  // String <this>
+       3: invokestatic  #15                 // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+       6: new           #28                 // class okio/RealBufferedSink
+       9: dup
+      10: aload_0
+      11: invokespecial #31                 // Method okio/RealBufferedSink."<init>":(Lokio/Sink;)V
+      14: checkcast     #33                 // class okio/BufferedSink
+      17: areturn
+
+  public static final okio.Sink blackhole();
+    Code:
+       0: new           #40                 // class okio/BlackholeSink
+       3: dup
+       4: invokespecial #43                 // Method okio/BlackholeSink."<init>":()V
+       7: checkcast     #45                 // class okio/Sink
+      10: areturn
+
+  public static final <T extends java.io.Closeable, R> R use(T, kotlin.jvm.functions.Function1<? super T, ? extends R>);
+    Code:
+       0: aload_1
+       1: ldc           #52                 // String block
+       3: invokestatic  #15                 // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+       6: iconst_0
+       7: istore_2
+       8: aconst_null
+       9: astore_3
+      10: nop
+      11: aload_1
+      12: aload_0
+      13: invokeinterface #58,  2           // InterfaceMethod kotlin/jvm/functions/Function1.invoke:(Ljava/lang/Object;)Ljava/lang/Object;
+      18: astore        5
+      20: iconst_1
+      21: invokestatic  #64                 // Method kotlin/jvm/internal/InlineMarker.finallyStart:(I)V
+      24: nop
+      25: aload_0
+      26: dup
+      27: ifnull        38
+      30: invokeinterface #69,  1           // InterfaceMethod java/io/Closeable.close:()V
+      35: goto          50
+      38: pop
+      39: goto          50
+      42: astore        6
+      44: aload         6
+      46: astore_3
+      47: goto          50
+      50: iconst_1
+      51: invokestatic  #72                 // Method kotlin/jvm/internal/InlineMarker.finallyEnd:(I)V
+      54: goto          161
+      57: astore        6
+      59: aload         6
+      61: astore_3
+      62: aconst_null
+      63: astore        5
+      65: iconst_1
+      66: invokestatic  #64                 // Method kotlin/jvm/internal/InlineMarker.finallyStart:(I)V
+      69: nop
+      70: aload_0
+      71: dup
+      72: ifnull        83
+      75: invokeinterface #69,  1           // InterfaceMethod java/io/Closeable.close:()V
+      80: goto          105
+      83: pop
+      84: goto          105
+      87: astore        6
+      89: aload_3
+      90: ifnonnull     99
+      93: aload         6
+      95: astore_3
+      96: goto          105
+      99: aload_3
+     100: aload         6
+     102: invokestatic  #78                 // Method kotlin/ExceptionsKt.addSuppressed:(Ljava/lang/Throwable;Ljava/lang/Throwable;)V
+     105: iconst_1
+     106: invokestatic  #72                 // Method kotlin/jvm/internal/InlineMarker.finallyEnd:(I)V
+     109: goto          161
+     112: astore        6
+     114: iconst_1
+     115: invokestatic  #64                 // Method kotlin/jvm/internal/InlineMarker.finallyStart:(I)V
+     118: nop
+     119: aload_0
+     120: dup
+     121: ifnull        132
+     124: invokeinterface #69,  1           // InterfaceMethod java/io/Closeable.close:()V
+     129: goto          154
+     132: pop
+     133: goto          154
+     136: astore        7
+     138: aload_3
+     139: ifnonnull     148
+     142: aload         7
+     144: astore_3
+     145: goto          154
+     148: aload_3
+     149: aload         7
+     151: invokestatic  #78                 // Method kotlin/ExceptionsKt.addSuppressed:(Ljava/lang/Throwable;Ljava/lang/Throwable;)V
+     154: iconst_1
+     155: invokestatic  #72                 // Method kotlin/jvm/internal/InlineMarker.finallyEnd:(I)V
+     158: aload         6
+     160: athrow
+     161: aload         5
+     163: astore        4
+     165: aload_3
+     166: dup
+     167: ifnull        171
+     170: athrow
+     171: pop
+     172: aload         4
+     174: areturn
+    Exception table:
+       from    to  target type
+          24    39    42   Class java/lang/Throwable
+          69    84    87   Class java/lang/Throwable
+          10    20    57   Class java/lang/Throwable
+         118   133   136   Class java/lang/Throwable
+          10    20   112   any
+          57    65   112   any
+         112   114   112   any
+}

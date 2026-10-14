@@ -1,0 +1,533 @@
+Filesystem      Size  Used Avail Use% Mounted on
+overlay         309G  207G  103G  67% /
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::compareAndSwapObject has been called by scala.runtime.LazyVals$ (file:/home/u/bin/cs)
+WARNING: Please consider reporting this to the maintainers of class scala.runtime.LazyVals$
+WARNING: sun.misc.Unsafe::compareAndSwapObject will be removed in a future release
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::compareAndSwapObject has been called by scala.runtime.LazyVals$ (file:/home/u/bin/cs)
+WARNING: Please consider reporting this to the maintainers of class scala.runtime.LazyVals$
+WARNING: sun.misc.Unsafe::compareAndSwapObject will be removed in a future release
+Downloading https://maven-central.storage-download.googleapis.com/maven2/org/jetbrains/kotlin/kotlin-stdlib/1.8.0/kotlin-stdlib-1.8.0.pom
+Downloaded https://maven-central.storage-download.googleapis.com/maven2/org/jetbrains/kotlin/kotlin-stdlib/1.8.0/kotlin-stdlib-1.8.0.pom
+Downloading https://maven-central.storage-download.googleapis.com/maven2/org/jetbrains/kotlin/kotlin-stdlib/1.8.0/kotlin-stdlib-1.8.0.pom.sha1
+Downloaded https://maven-central.storage-download.googleapis.com/maven2/org/jetbrains/kotlin/kotlin-stdlib/1.8.0/kotlin-stdlib-1.8.0.pom.sha1
+Downloading https://maven-central.storage-download.googleapis.com/maven2/org/jetbrains/kotlin/kotlin-stdlib-common/1.8.0/kotlin-stdlib-common-1.8.0.pom
+Downloaded https://maven-central.storage-download.googleapis.com/maven2/org/jetbrains/kotlin/kotlin-stdlib-common/1.8.0/kotlin-stdlib-common-1.8.0.pom
+Downloading https://maven-central.storage-download.googleapis.com/maven2/org/jetbrains/kotlin/kotlin-stdlib-common/1.8.0/kotlin-stdlib-common-1.8.0.pom.sha1
+Downloaded https://maven-central.storage-download.googleapis.com/maven2/org/jetbrains/kotlin/kotlin-stdlib-common/1.8.0/kotlin-stdlib-common-1.8.0.pom.sha1
+Downloading https://maven-central.storage-download.googleapis.com/maven2/org/jetbrains/kotlin/kotlin-stdlib-common/1.8.0/kotlin-stdlib-common-1.8.0.jar
+Downloading https://maven-central.storage-download.googleapis.com/maven2/org/jetbrains/kotlin/kotlin-stdlib/1.8.0/kotlin-stdlib-1.8.0.jar
+Downloaded https://maven-central.storage-download.googleapis.com/maven2/org/jetbrains/kotlin/kotlin-stdlib-common/1.8.0/kotlin-stdlib-common-1.8.0.jar
+Downloading https://maven-central.storage-download.googleapis.com/maven2/org/jetbrains/kotlin/kotlin-stdlib-common/1.8.0/kotlin-stdlib-common-1.8.0.jar.sha1
+Downloaded https://maven-central.storage-download.googleapis.com/maven2/org/jetbrains/kotlin/kotlin-stdlib-common/1.8.0/kotlin-stdlib-common-1.8.0.jar.sha1
+Downloaded https://maven-central.storage-download.googleapis.com/maven2/org/jetbrains/kotlin/kotlin-stdlib/1.8.0/kotlin-stdlib-1.8.0.jar
+Downloading https://maven-central.storage-download.googleapis.com/maven2/org/jetbrains/kotlin/kotlin-stdlib/1.8.0/kotlin-stdlib-1.8.0.jar.sha1
+Downloaded https://maven-central.storage-download.googleapis.com/maven2/org/jetbrains/kotlin/kotlin-stdlib/1.8.0/kotlin-stdlib-1.8.0.jar.sha1
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/FileHandle.kt:165:9: warning: name shadowed: source
+    var source = source
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/FileHandle.kt:244:9: warning: name shadowed: sink
+    var sink = sink
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:147:9: warning: name shadowed: path
+    val path = onPathParameter(path, "canonicalize", "path")
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:154:9: warning: name shadowed: path
+    val path = onPathParameter(path, "metadataOrNull", "path")
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:164:9: warning: name shadowed: dir
+    val dir = onPathParameter(dir, "list", "dir")
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:172:9: warning: name shadowed: dir
+    val dir = onPathParameter(dir, "listOrNull", "dir")
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:180:9: warning: name shadowed: dir
+    val dir = onPathParameter(dir, "listRecursively", "dir")
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:187:9: warning: name shadowed: file
+    val file = onPathParameter(file, "openReadOnly", "file")
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:193:9: warning: name shadowed: file
+    val file = onPathParameter(file, "openReadWrite", "file")
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:199:9: warning: name shadowed: file
+    val file = onPathParameter(file, "source", "file")
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:205:9: warning: name shadowed: file
+    val file = onPathParameter(file, "sink", "file")
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:211:9: warning: name shadowed: file
+    val file = onPathParameter(file, "appendingSink", "file")
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:217:9: warning: name shadowed: dir
+    val dir = onPathParameter(dir, "createDirectory", "dir")
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:223:9: warning: name shadowed: source
+    val source = onPathParameter(source, "atomicMove", "source")
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:224:9: warning: name shadowed: target
+    val target = onPathParameter(target, "atomicMove", "target")
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:230:9: warning: name shadowed: path
+    val path = onPathParameter(path, "delete", "path")
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:236:9: warning: name shadowed: source
+    val source = onPathParameter(source, "createSymlink", "source")
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:237:9: warning: name shadowed: target
+    val target = onPathParameter(target, "createSymlink", "target")
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/Options.kt:121:11: warning: name shadowed: fromIndex
+      var fromIndex = fromIndex
+          ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/Util.kt:59:10: warning: expected performance impact from inlining is insignificant. Inlining works best for functions with parameters of functional types
+internal inline infix fun Int.leftRotate(bitCount: Int): Int {
+         ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/Util.kt:63:10: warning: expected performance impact from inlining is insignificant. Inlining works best for functions with parameters of functional types
+internal inline infix fun Long.rightRotate(bitCount: Int): Long {
+         ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:62:7: warning: name shadowed: segment
+  var segment = segment
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:63:7: warning: name shadowed: segmentPos
+  var segmentPos = segmentPos
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:244:7: warning: name shadowed: offset
+  var offset = offset
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:245:7: warning: name shadowed: byteCount
+  var byteCount = byteCount
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:423:7: warning: name shadowed: byteCount
+  var byteCount = byteCount
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:449:7: warning: name shadowed: v
+  var v = v
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:543:7: warning: name shadowed: v
+  var v = v
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:610:7: warning: name shadowed: offset
+  var offset = offset
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1125:7: warning: name shadowed: byteCount
+  var byteCount = byteCount
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1183:7: warning: name shadowed: byteCount
+  var byteCount = byteCount
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1276:7: warning: name shadowed: byteCount
+  var byteCount = byteCount
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1285:7: warning: name shadowed: fromIndex
+  var fromIndex = fromIndex
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1286:7: warning: name shadowed: toIndex
+  var toIndex = toIndex
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1293:9: warning: name shadowed: s
+    var s = s ?: return -1L
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1294:9: warning: name shadowed: offset
+    var offset = offset
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1319:7: warning: name shadowed: fromIndex
+  var fromIndex = fromIndex
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1324:9: warning: name shadowed: s
+    var s = s ?: return -1L
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1325:9: warning: name shadowed: offset
+    var offset = offset
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1354:7: warning: name shadowed: fromIndex
+  var fromIndex = fromIndex
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1358:9: warning: name shadowed: s
+    var s = s ?: return -1L
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1359:9: warning: name shadowed: offset
+    var offset = offset
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1549:7: warning: name shadowed: unsafeCursor
+  val unsafeCursor = resolveDefaultParameter(unsafeCursor)
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1558:7: warning: name shadowed: unsafeCursor
+  val unsafeCursor = resolveDefaultParameter(unsafeCursor)
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/ByteString.kt:131:7: warning: name shadowed: endIndex
+  val endIndex = resolveDefaultParameter(endIndex)
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/ByteString.kt:223:7: warning: name shadowed: fromIndex
+  val fromIndex = resolveDefaultParameter(fromIndex)
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/ByteString.kt:275:7: warning: name shadowed: byteCount
+  val byteCount = resolveDefaultParameter(byteCount)
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/FileSystem.kt:50:17: warning: 'addFirst(E!): Unit' is deprecated. Overrides deprecated member in 'kotlin.collections.AbstractMutableList'. This member is not fully supported by Kotlin compiler, so it may be absent or have different signature in next major version
+    directories.addFirst(path)
+                ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/FileSystem.kt:94:11: warning: 'addLast(E!): Unit' is deprecated. Overrides deprecated member in 'kotlin.collections.AbstractMutableList'. This member is not fully supported by Kotlin compiler, so it may be absent or have different signature in next major version
+    stack.addLast(dir)
+          ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/FileSystem.kt:132:13: warning: 'addLast(E!): Unit' is deprecated. Overrides deprecated member in 'kotlin.collections.AbstractMutableList'. This member is not fully supported by Kotlin compiler, so it may be absent or have different signature in next major version
+      stack.addLast(symlinkPath)
+            ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/FileSystem.kt:138:15: warning: 'removeLast(): E!' is deprecated. Overrides deprecated member in 'kotlin.collections.AbstractMutableList'. This member is not fully supported by Kotlin compiler, so it may be absent or have different signature in next major version
+        stack.removeLast()
+              ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/RealBufferedSink.kt:105:7: warning: name shadowed: byteCount
+  var byteCount = byteCount
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/RealBufferedSource.kt:301:7: warning: name shadowed: byteCount
+  var byteCount = byteCount
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/RealBufferedSource.kt:314:7: warning: name shadowed: fromIndex
+  var fromIndex = fromIndex
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/RealBufferedSource.kt:334:7: warning: name shadowed: fromIndex
+  var fromIndex = fromIndex
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/RealBufferedSource.kt:350:7: warning: name shadowed: fromIndex
+  var fromIndex = fromIndex
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/SegmentedByteString.kt:104:7: warning: name shadowed: endIndex
+  val endIndex = resolveDefaultParameter(endIndex)
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/SegmentedByteString.kt:160:54: warning: name shadowed: offset
+  forEachSegment(offset, offset + byteCount) { data, offset, byteCount ->
+                                                     ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/SegmentedByteString.kt:160:62: warning: name shadowed: byteCount
+  forEachSegment(offset, offset + byteCount) { data, offset, byteCount ->
+                                                             ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/SegmentedByteString.kt:181:7: warning: name shadowed: otherOffset
+  var otherOffset = otherOffset
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/SegmentedByteString.kt:182:54: warning: name shadowed: offset
+  forEachSegment(offset, offset + byteCount) { data, offset, byteCount ->
+                                                     ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/SegmentedByteString.kt:182:62: warning: name shadowed: byteCount
+  forEachSegment(offset, offset + byteCount) { data, offset, byteCount ->
+                                                             ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/SegmentedByteString.kt:201:7: warning: name shadowed: otherOffset
+  var otherOffset = otherOffset
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/SegmentedByteString.kt:202:54: warning: name shadowed: offset
+  forEachSegment(offset, offset + byteCount) { data, offset, byteCount ->
+                                                     ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/SegmentedByteString.kt:202:62: warning: name shadowed: byteCount
+  forEachSegment(offset, offset + byteCount) { data, offset, byteCount ->
+                                                             ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/SegmentedByteString.kt:218:7: warning: name shadowed: targetOffset
+  var targetOffset = targetOffset
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/SegmentedByteString.kt:219:54: warning: name shadowed: offset
+  forEachSegment(offset, offset + byteCount) { data, offset, byteCount ->
+                                                     ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/SegmentedByteString.kt:219:62: warning: name shadowed: byteCount
+  forEachSegment(offset, offset + byteCount) { data, offset, byteCount ->
+                                                             ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/jvmMain/kotlin/okio/AsyncTimeout.kt:184:41: warning: variable 'timedOut' initializer is redundant
+          var timedOut: AsyncTimeout? = null
+                                        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/jvmMain/kotlin/okio/Buffer.kt:83:16: warning: this declaration overrides deprecated member but not marked as deprecated itself. This deprecation won't be inherited in future releases. Please add @Deprecated annotation or suppress. See https://youtrack.jetbrains.com/issue/KT-47902 for details
+  override fun buffer() = this
+               ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/jvmMain/kotlin/okio/Buffer.kt:152:9: warning: name shadowed: offset
+    var offset = offset
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/jvmMain/kotlin/okio/Buffer.kt:153:9: warning: name shadowed: byteCount
+    var byteCount = byteCount
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/jvmMain/kotlin/okio/Buffer.kt:192:9: warning: name shadowed: byteCount
+    var byteCount = byteCount
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/jvmMain/kotlin/okio/Buffer.kt:232:9: warning: name shadowed: byteCount
+    var byteCount = byteCount
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/jvmMain/kotlin/okio/DeprecatedUpgrade.kt:20:12: warning: '`-DeprecatedOkio`' is deprecated. changed in Okio 2.x
+val Okio = `-DeprecatedOkio`
+           ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/jvmMain/kotlin/okio/DeprecatedUpgrade.kt:21:12: warning: '`-DeprecatedUtf8`' is deprecated. changed in Okio 2.x
+val Utf8 = `-DeprecatedUtf8`
+           ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/jvmMain/kotlin/okio/GzipSource.kt:175:9: warning: name shadowed: offset
+    var offset = offset
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/jvmMain/kotlin/okio/GzipSource.kt:176:9: warning: name shadowed: byteCount
+    var byteCount = byteCount
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/jvmMain/kotlin/okio/Pipe.kt:59:11: warning: name shadowed: byteCount
+      var byteCount = byteCount
+          ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/jvmMain/kotlin/okio/RealBufferedSink.kt:53:16: warning: this declaration overrides deprecated member but not marked as deprecated itself. This deprecation won't be inherited in future releases. Please add @Deprecated annotation or suppress. See https://youtrack.jetbrains.com/issue/KT-47902 for details
+  override fun buffer() = bufferField
+               ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/jvmMain/kotlin/okio/RealBufferedSource.kt:64:16: warning: this declaration overrides deprecated member but not marked as deprecated itself. This deprecation won't be inherited in future releases. Please add @Deprecated annotation or suppress. See https://youtrack.jetbrains.com/issue/KT-47902 for details
+  override fun buffer() = bufferField
+               ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/jvmMain/kotlin/okio/SegmentPool.kt:126:46: warning: 'getter for id: Long' is deprecated. Deprecated in Java
+    val hashBucket = (Thread.currentThread().id and (HASH_BUCKET_COUNT - 1L)).toInt()
+                                             ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/jvmMain/kotlin/okio/Timeout.kt:230:21: warning: this class shouldn't be used in Kotlin. Use kotlin.Any instead.
+        (monitor as Object).wait() // There is no timeout: wait forever.
+                    ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/jvmMain/kotlin/okio/Timeout.kt:249:21: warning: this class shouldn't be used in Kotlin. Use kotlin.Any instead.
+        (monitor as Object).wait(waitMillis, (waitNanos - waitMillis * 1000000L).toInt())
+                    ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/FileHandle.kt:165:9: warning: name shadowed: source
+    var source = source
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/FileHandle.kt:244:9: warning: name shadowed: sink
+    var sink = sink
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:147:9: warning: name shadowed: path
+    val path = onPathParameter(path, "canonicalize", "path")
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:154:9: warning: name shadowed: path
+    val path = onPathParameter(path, "metadataOrNull", "path")
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:164:9: warning: name shadowed: dir
+    val dir = onPathParameter(dir, "list", "dir")
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:172:9: warning: name shadowed: dir
+    val dir = onPathParameter(dir, "listOrNull", "dir")
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:180:9: warning: name shadowed: dir
+    val dir = onPathParameter(dir, "listRecursively", "dir")
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:187:9: warning: name shadowed: file
+    val file = onPathParameter(file, "openReadOnly", "file")
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:193:9: warning: name shadowed: file
+    val file = onPathParameter(file, "openReadWrite", "file")
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:199:9: warning: name shadowed: file
+    val file = onPathParameter(file, "source", "file")
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:205:9: warning: name shadowed: file
+    val file = onPathParameter(file, "sink", "file")
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:211:9: warning: name shadowed: file
+    val file = onPathParameter(file, "appendingSink", "file")
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:217:9: warning: name shadowed: dir
+    val dir = onPathParameter(dir, "createDirectory", "dir")
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:223:9: warning: name shadowed: source
+    val source = onPathParameter(source, "atomicMove", "source")
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:224:9: warning: name shadowed: target
+    val target = onPathParameter(target, "atomicMove", "target")
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:230:9: warning: name shadowed: path
+    val path = onPathParameter(path, "delete", "path")
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:236:9: warning: name shadowed: source
+    val source = onPathParameter(source, "createSymlink", "source")
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:237:9: warning: name shadowed: target
+    val target = onPathParameter(target, "createSymlink", "target")
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/Options.kt:121:11: warning: name shadowed: fromIndex
+      var fromIndex = fromIndex
+          ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/Util.kt:59:10: warning: expected performance impact from inlining is insignificant. Inlining works best for functions with parameters of functional types
+internal inline infix fun Int.leftRotate(bitCount: Int): Int {
+         ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/Util.kt:63:10: warning: expected performance impact from inlining is insignificant. Inlining works best for functions with parameters of functional types
+internal inline infix fun Long.rightRotate(bitCount: Int): Long {
+         ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:62:7: warning: name shadowed: segment
+  var segment = segment
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:63:7: warning: name shadowed: segmentPos
+  var segmentPos = segmentPos
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:244:7: warning: name shadowed: offset
+  var offset = offset
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:245:7: warning: name shadowed: byteCount
+  var byteCount = byteCount
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:423:7: warning: name shadowed: byteCount
+  var byteCount = byteCount
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:449:7: warning: name shadowed: v
+  var v = v
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:543:7: warning: name shadowed: v
+  var v = v
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:610:7: warning: name shadowed: offset
+  var offset = offset
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1125:7: warning: name shadowed: byteCount
+  var byteCount = byteCount
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1183:7: warning: name shadowed: byteCount
+  var byteCount = byteCount
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1276:7: warning: name shadowed: byteCount
+  var byteCount = byteCount
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1285:7: warning: name shadowed: fromIndex
+  var fromIndex = fromIndex
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1286:7: warning: name shadowed: toIndex
+  var toIndex = toIndex
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1293:9: warning: name shadowed: s
+    var s = s ?: return -1L
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1294:9: warning: name shadowed: offset
+    var offset = offset
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1319:7: warning: name shadowed: fromIndex
+  var fromIndex = fromIndex
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1324:9: warning: name shadowed: s
+    var s = s ?: return -1L
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1325:9: warning: name shadowed: offset
+    var offset = offset
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1354:7: warning: name shadowed: fromIndex
+  var fromIndex = fromIndex
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1358:9: warning: name shadowed: s
+    var s = s ?: return -1L
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1359:9: warning: name shadowed: offset
+    var offset = offset
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1549:7: warning: name shadowed: unsafeCursor
+  val unsafeCursor = resolveDefaultParameter(unsafeCursor)
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1558:7: warning: name shadowed: unsafeCursor
+  val unsafeCursor = resolveDefaultParameter(unsafeCursor)
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/ByteString.kt:131:7: warning: name shadowed: endIndex
+  val endIndex = resolveDefaultParameter(endIndex)
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/ByteString.kt:223:7: warning: name shadowed: fromIndex
+  val fromIndex = resolveDefaultParameter(fromIndex)
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/ByteString.kt:275:7: warning: name shadowed: byteCount
+  val byteCount = resolveDefaultParameter(byteCount)
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/FileSystem.kt:50:17: warning: 'addFirst(E!): Unit' is deprecated. Overrides deprecated member in 'kotlin.collections.AbstractMutableList'. This member is not fully supported by Kotlin compiler, so it may be absent or have different signature in next major version
+    directories.addFirst(path)
+                ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/FileSystem.kt:94:11: warning: 'addLast(E!): Unit' is deprecated. Overrides deprecated member in 'kotlin.collections.AbstractMutableList'. This member is not fully supported by Kotlin compiler, so it may be absent or have different signature in next major version
+    stack.addLast(dir)
+          ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/FileSystem.kt:132:13: warning: 'addLast(E!): Unit' is deprecated. Overrides deprecated member in 'kotlin.collections.AbstractMutableList'. This member is not fully supported by Kotlin compiler, so it may be absent or have different signature in next major version
+      stack.addLast(symlinkPath)
+            ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/FileSystem.kt:138:15: warning: 'removeLast(): E!' is deprecated. Overrides deprecated member in 'kotlin.collections.AbstractMutableList'. This member is not fully supported by Kotlin compiler, so it may be absent or have different signature in next major version
+        stack.removeLast()
+              ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/RealBufferedSink.kt:105:7: warning: name shadowed: byteCount
+  var byteCount = byteCount
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/RealBufferedSource.kt:301:7: warning: name shadowed: byteCount
+  var byteCount = byteCount
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/RealBufferedSource.kt:314:7: warning: name shadowed: fromIndex
+  var fromIndex = fromIndex
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/RealBufferedSource.kt:334:7: warning: name shadowed: fromIndex
+  var fromIndex = fromIndex
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/RealBufferedSource.kt:350:7: warning: name shadowed: fromIndex
+  var fromIndex = fromIndex
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/SegmentedByteString.kt:104:7: warning: name shadowed: endIndex
+  val endIndex = resolveDefaultParameter(endIndex)
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/SegmentedByteString.kt:160:54: warning: name shadowed: offset
+  forEachSegment(offset, offset + byteCount) { data, offset, byteCount ->
+                                                     ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/SegmentedByteString.kt:160:62: warning: name shadowed: byteCount
+  forEachSegment(offset, offset + byteCount) { data, offset, byteCount ->
+                                                             ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/SegmentedByteString.kt:181:7: warning: name shadowed: otherOffset
+  var otherOffset = otherOffset
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/SegmentedByteString.kt:182:54: warning: name shadowed: offset
+  forEachSegment(offset, offset + byteCount) { data, offset, byteCount ->
+                                                     ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/SegmentedByteString.kt:182:62: warning: name shadowed: byteCount
+  forEachSegment(offset, offset + byteCount) { data, offset, byteCount ->
+                                                             ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/SegmentedByteString.kt:201:7: warning: name shadowed: otherOffset
+  var otherOffset = otherOffset
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/SegmentedByteString.kt:202:54: warning: name shadowed: offset
+  forEachSegment(offset, offset + byteCount) { data, offset, byteCount ->
+                                                     ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/SegmentedByteString.kt:202:62: warning: name shadowed: byteCount
+  forEachSegment(offset, offset + byteCount) { data, offset, byteCount ->
+                                                             ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/SegmentedByteString.kt:218:7: warning: name shadowed: targetOffset
+  var targetOffset = targetOffset
+      ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/SegmentedByteString.kt:219:54: warning: name shadowed: offset
+  forEachSegment(offset, offset + byteCount) { data, offset, byteCount ->
+                                                     ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/commonMain/kotlin/okio/internal/SegmentedByteString.kt:219:62: warning: name shadowed: byteCount
+  forEachSegment(offset, offset + byteCount) { data, offset, byteCount ->
+                                                             ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/jvmMain/kotlin/okio/AsyncTimeout.kt:184:41: warning: variable 'timedOut' initializer is redundant
+          var timedOut: AsyncTimeout? = null
+                                        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/jvmMain/kotlin/okio/Buffer.kt:83:16: warning: this declaration overrides deprecated member but not marked as deprecated itself. This deprecation won't be inherited in future releases. Please add @Deprecated annotation or suppress. See https://youtrack.jetbrains.com/issue/KT-47902 for details
+  override fun buffer() = this
+               ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/jvmMain/kotlin/okio/Buffer.kt:152:9: warning: name shadowed: offset
+    var offset = offset
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/jvmMain/kotlin/okio/Buffer.kt:153:9: warning: name shadowed: byteCount
+    var byteCount = byteCount
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/jvmMain/kotlin/okio/Buffer.kt:192:9: warning: name shadowed: byteCount
+    var byteCount = byteCount
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/jvmMain/kotlin/okio/Buffer.kt:232:9: warning: name shadowed: byteCount
+    var byteCount = byteCount
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/jvmMain/kotlin/okio/DeprecatedUpgrade.kt:20:12: warning: '`-DeprecatedOkio`' is deprecated. changed in Okio 2.x
+val Okio = `-DeprecatedOkio`
+           ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/jvmMain/kotlin/okio/DeprecatedUpgrade.kt:21:12: warning: '`-DeprecatedUtf8`' is deprecated. changed in Okio 2.x
+val Utf8 = `-DeprecatedUtf8`
+           ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/jvmMain/kotlin/okio/GzipSource.kt:175:9: warning: name shadowed: offset
+    var offset = offset
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/jvmMain/kotlin/okio/GzipSource.kt:176:9: warning: name shadowed: byteCount
+    var byteCount = byteCount
+        ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/jvmMain/kotlin/okio/Pipe.kt:59:11: warning: name shadowed: byteCount
+      var byteCount = byteCount
+          ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/jvmMain/kotlin/okio/RealBufferedSink.kt:53:16: warning: this declaration overrides deprecated member but not marked as deprecated itself. This deprecation won't be inherited in future releases. Please add @Deprecated annotation or suppress. See https://youtrack.jetbrains.com/issue/KT-47902 for details
+  override fun buffer() = bufferField
+               ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/jvmMain/kotlin/okio/RealBufferedSource.kt:64:16: warning: this declaration overrides deprecated member but not marked as deprecated itself. This deprecation won't be inherited in future releases. Please add @Deprecated annotation or suppress. See https://youtrack.jetbrains.com/issue/KT-47902 for details
+  override fun buffer() = bufferField
+               ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/jvmMain/kotlin/okio/SegmentPool.kt:126:46: warning: 'getter for id: Long' is deprecated. Deprecated in Java
+    val hashBucket = (Thread.currentThread().id and (HASH_BUCKET_COUNT - 1L)).toInt()
+                                             ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/jvmMain/kotlin/okio/Timeout.kt:230:21: warning: this class shouldn't be used in Kotlin. Use kotlin.Any instead.
+        (monitor as Object).wait() // There is no timeout: wait forever.
+                    ^
+/home/u/lanes/util20261014/out/nullable-use-daou3x8p/okio/src/jvmMain/kotlin/okio/Timeout.kt:249:21: warning: this class shouldn't be used in Kotlin. Use kotlin.Any instead.
+        (monitor as Object).wait(waitMillis, (waitNanos - waitMillis * 1000000L).toInt())
+                    ^
+Updated class bodies: okio/FileSystem.class, okio/Okio__OkioKt.class, okio/ZipFileSystem.class, okio/internal/-FileSystem.class
+c95af313fc9017f8dd356de73428f664009895c65c748abb07d2ce12c4c34e64  okio-jvm-3.4.0-r576-short-read-2.jar
+ba63e01956c2128e1eed2c0f576a461c4fda7bd29fb8d5650d7559dea391a438  okio-jvm-3.4.0-r576-short-read-2.pom
