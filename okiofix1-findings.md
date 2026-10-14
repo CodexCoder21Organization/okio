@@ -3,8 +3,8 @@
 ## Plan and scope
 - [completed] Verify the published 3.4.0 source base and correction ancestry; historical build-commit marker is absent (see limitation).
 - [completed] Add public use tests, show baseline failure, checkpoint the tests.
-- [in progress] Build and focused gates complete (3/3); run the existing JVM suite once.
-- [pending] Publish exactly one absent coordinate, verify downloaded POM/JAR and bytecode, then open a non-draft PR. No merges or deployments.
+- [completed] Build and focused gates complete (3/3); existing JVM suite run once, with three runner-directory checks verified after correcting setup.
+- [in progress] Exactly one coordinate published and verified; create the non-draft PR. No merges or deployments.
 
 ## 2026-10-14 20:13 UTC
 OBSERVED: Read common.md with every addendum, repository README, Testing Architecture (required sections), Engineering Philosophy, reviewer F3, and the Maven publisher README. The publisher README URL in the brief returns 404; the actual repository is https://github.com/CodexCoder21Organization/community.kotlin.maven.artifact.publishing.cli . The fork README has no build/publish procedure; the short-read branch has a focused compiler/validation procedure in tests/fileHandlePreservesAppendBetweenShortReads/README.md.
@@ -83,3 +83,20 @@ OBSERVED: The verified published coordinate remains available. Product head is u
 ## 2026-10-14 20:46 UTC — native compile running
 OBSERVED: A permitted slot opened and the final corrected native test compile is now running, reusing the six successfully compiled helper sources and including the six tracked hash-function test sources. No existing native test has executed yet. The suite will run once immediately after successful compilation.
 OBSERVED: Process start verification shows this lane began at 20:09:14 UTC (60-minute deadline 21:09:14), so the worker absolute process stop is 21:05 UTC with time reserved for the final PR/report. This is a shell scheduling limit only; no test timeout has been changed.
+
+## 2026-10-14 20:50 UTC — existing suite executing
+OBSERVED: Corrected native compilation succeeded: 62 original Kotlin test sources (including six symlink-target hash-function sources), 23 Java sources, three original JVM resources; helper classes reused. The single complete JUnit run began at about 20:48:34 UTC with the fixed jar first, the local zip binary available, 512 MB heap matching Gradle Test default, a hard command deadline, and XML reports. It is still executing; no complete native-suite pass count is claimed yet.
+OBSERVED: Fresh origin/main fetch/rebase at 20:49:56 made no change; head remains 4b8a55bdf22fab69e8c1c2423015231fd6ad13b4. No PR already exists for this branch. Native results and final PR are the only remaining work.
+
+## 2026-10-14 20:53 UTC — complete native-suite counts
+OBSERVED: One existing JVM suite invocation completed in 227.9 seconds: XML 4,844 tests, 4,794 passes, 3 failures, 0 errors, 47 unchanged skips (console separates 26 ignored and 21 assumption-aborted tests). This is the only full-suite invocation. Complete XML is at native-suite/reports/TEST-junit-vintage.xml on the evidence branch; the full console log will be preserved too.
+OBSERVED: All three failures are canonicalizeDotReturnsCurrentWorkingDirectory in NioDefaultFileSystemWrappingFileSystemTest, JvmSystemFileSystemTest, and NioSystemFileSystemTest. Each full stack points to AbstractFileSystemTest.kt:75 and reports the actual cwd /home/u/lanes/util20261014/workspace/okiofix1. Its unchanged assertion requires a physical canonical cwd ending /okio/okio (or platform-specific alternatives). I launched the manual suite from the user-mandated checkout root; that was the runner setup mistake. No nullable-result assertion or other test failed.
+OBSERVED: The worker is constructing a real lane-local build/nullable-use/native-cwd/okio/okio directory, then running only those three failed methods once with identical classpath, test source, assertions, limits and artifact. No system property is used to pretend a different directory, and no full-suite rerun is planned.
+
+## FLAKES ENCOUNTERED
+No intermittent failure observed. The three first-attempt existing-test failures above are deterministic runner-directory errors, not ignored results. Their exact assertion, full stacks and correction are preserved; targeted corrected-directory verification is pending. Reference report: https://github.com/CodexCoder21Organization/okio/blob/wip/okiofix1-evidence/native-suite/reports/TEST-junit-vintage.xml .
+
+## 2026-10-14 20:54 UTC — all validation complete
+OBSERVED: Corrected-directory XML proves all three previously failed methods pass: 3 tests, 3 passes, 0 errors/failures/skips. The actual cwd is lane-local build/nullable-use/native-cwd/okio/okio; no user.dir property or changed assertion is used. Full original suite report remains unchanged and separate. No more test batches will run.
+Brief item states: (1) DONE: canonical source base/tag a161b07f/parent-3.4.0 and short-read source c1166213 identified; 10ded1cc contains both short-read and nullable fe6ac99a. Historical artifact does not record a single build commit, so no such identifier is invented. (2) DONE: failing-first native public tests and close-on-throw pin, fixed 3/3 and product-only rollback. (3) DONE: existing JVM suite run once with exact counts above; deterministic runner-directory setup corrected and three affected methods pass. (4) DONE: exactly one artifact published, both served URLs200, hash equality and zero result checkNotNull plus direct Java1/1 XML. (5) IN PROGRESS: create non-draft PR at unchanged reviewed head, then stop.
+Final validation totals remain reported separately: new tests21 first-attempt passes; short-read3/3 test invocations covering9 schedules; full existing suite4794 passes/3 setup failures/47 existing skips out of4844; corrected setup3/3; published direct Java API1/1. No intermittent failure, existing-test edit, new skip, timeout/iteration change, additional publication, merge or deployment.

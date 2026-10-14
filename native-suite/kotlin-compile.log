@@ -1,0 +1,45 @@
+warning: unable to find kotlin-stdlib.jar in the Kotlin home directory. Pass either '-no-stdlib' to prevent adding it to the classpath, or the correct '-kotlin-home'
+warning: unable to find kotlin-script-runtime.jar in the Kotlin home directory. Pass either '-no-stdlib' to prevent adding it to the classpath, or the correct '-kotlin-home'
+warning: unable to find kotlin-reflect.jar in the Kotlin home directory. Pass either '-no-reflect' or '-no-stdlib' to prevent adding it to the classpath, or the correct '-kotlin-home'
+build/nullable-use/source/okio/src/commonTest/kotlin/okio/FakeFileSystemTest.kt:208:51: warning: parameter 'source' is never used, could be renamed to _
+    val exception = fileSystem.source(path).use { source ->
+                                                  ^
+build/nullable-use/source/okio/src/commonTest/kotlin/okio/FakeFileSystemTest.kt:230:49: warning: parameter 'source' is never used, could be renamed to _
+    val exception = fileSystem.sink(path).use { source ->
+                                                ^
+build/nullable-use/source/okio/src/hashFunctions/kotlin/okio/internal/Md5.kt:77:9: warning: name shadowed: pos
+    var pos = pos
+        ^
+build/nullable-use/source/okio/src/hashFunctions/kotlin/okio/internal/Sha1.kt:78:9: warning: name shadowed: pos
+    var pos = pos
+        ^
+build/nullable-use/source/okio/src/hashFunctions/kotlin/okio/internal/Sha256.kt:81:9: warning: name shadowed: pos
+    var pos = pos
+        ^
+build/nullable-use/source/okio/src/hashFunctions/kotlin/okio/internal/Sha512.kt:81:9: warning: name shadowed: pos
+    var pos = pos
+        ^
+build/nullable-use/source/okio/src/jvmTest/kotlin/okio/PipeKotlinTest.kt:802:39: warning: this class shouldn't be used in Kotlin. Use kotlin.Any instead.
+          (this@TimeoutWritingSink as Object).notifyAll()
+                                      ^
+build/nullable-use/source/okio/src/jvmTest/kotlin/okio/PipeKotlinTest.kt:811:20: warning: this class shouldn't be used in Kotlin. Use kotlin.Any instead.
+          (this as Object).wait()
+                   ^
+build/nullable-use/source/okio/src/jvmTest/kotlin/okio/PipeKotlinTest.kt:831:40: warning: this class shouldn't be used in Kotlin. Use kotlin.Any instead.
+          (this@TimeoutFlushingSink as Object).notifyAll()
+                                       ^
+build/nullable-use/source/okio/src/jvmTest/kotlin/okio/PipeKotlinTest.kt:842:20: warning: this class shouldn't be used in Kotlin. Use kotlin.Any instead.
+          (this as Object).wait()
+                   ^
+build/nullable-use/source/okio/src/jvmTest/kotlin/okio/PipeKotlinTest.kt:859:39: warning: this class shouldn't be used in Kotlin. Use kotlin.Any instead.
+          (this@TimeoutClosingSink as Object).notifyAll()
+                                      ^
+build/nullable-use/source/okio/src/jvmTest/kotlin/okio/PipeKotlinTest.kt:872:20: warning: this class shouldn't be used in Kotlin. Use kotlin.Any instead.
+          (this as Object).wait()
+                   ^
+build/nullable-use/source/okio/src/jvmTest/kotlin/okio/TestUtil.kt:73:13: warning: name shadowed: byteCount
+        var byteCount = byteCount
+            ^
+build/nullable-use/source/okio/src/jvmTest/kotlin/okio/TestUtil.kt:126:17: warning: condition 'b1 == null' is always 'false'
+    assertFalse(b1 == null)
+                ^

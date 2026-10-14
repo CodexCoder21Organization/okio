@@ -1,0 +1,51 @@
+Test plan execution started. Number of static tests: 3
+╷
+├─ JUnit Jupiter
+└─ JUnit Jupiter finished after 239 ms.
+├─ JUnit Vintage
+│  ├─ NioDefaultFileSystemWrappingFileSystemTest
+│  │  ├─ canonicalizeDotReturnsCurrentWorkingDirectory
+│  │  │       tags: []
+│  │  │   uniqueId: [engine:junit-vintage]/[runner:okio.NioDefaultFileSystemWrappingFileSystemTest]/[test:canonicalizeDotReturnsCurrentWorkingDirectory(okio.NioDefaultFileSystemWrappingFileSystemTest)]
+│  │  │     parent: [engine:junit-vintage]/[runner:okio.NioDefaultFileSystemWrappingFileSystemTest]
+│  │  │     source: MethodSource [className = 'okio.NioDefaultFileSystemWrappingFileSystemTest', methodName = 'canonicalizeDotReturnsCurrentWorkingDirectory', methodParameterTypes = '']
+│  │  │   duration: 514 ms
+│  │  │     status: ✔ SUCCESSFUL
+│  └─ NioDefaultFileSystemWrappingFileSystemTest finished after 577 ms.
+│  ├─ NioSystemFileSystemTest
+│  │  ├─ canonicalizeDotReturnsCurrentWorkingDirectory
+│  │  │       tags: []
+│  │  │   uniqueId: [engine:junit-vintage]/[runner:okio.NioSystemFileSystemTest]/[test:canonicalizeDotReturnsCurrentWorkingDirectory(okio.NioSystemFileSystemTest)]
+│  │  │     parent: [engine:junit-vintage]/[runner:okio.NioSystemFileSystemTest]
+│  │  │     source: MethodSource [className = 'okio.NioSystemFileSystemTest', methodName = 'canonicalizeDotReturnsCurrentWorkingDirectory', methodParameterTypes = '']
+│  │  │   duration: 28 ms
+│  │  │     status: ✔ SUCCESSFUL
+│  └─ NioSystemFileSystemTest finished after 34 ms.
+│  ├─ JvmSystemFileSystemTest
+│  │  ├─ canonicalizeDotReturnsCurrentWorkingDirectory
+│  │  │       tags: []
+│  │  │   uniqueId: [engine:junit-vintage]/[runner:okio.JvmSystemFileSystemTest]/[test:canonicalizeDotReturnsCurrentWorkingDirectory(okio.JvmSystemFileSystemTest)]
+│  │  │     parent: [engine:junit-vintage]/[runner:okio.JvmSystemFileSystemTest]
+│  │  │     source: MethodSource [className = 'okio.JvmSystemFileSystemTest', methodName = 'canonicalizeDotReturnsCurrentWorkingDirectory', methodParameterTypes = '']
+│  │  │   duration: 12 ms
+│  │  │     status: ✔ SUCCESSFUL
+│  └─ JvmSystemFileSystemTest finished after 20 ms.
+└─ JUnit Vintage finished after 855 ms.
+├─ JUnit Platform Suite
+└─ JUnit Platform Suite finished after 34 ms.
+Test plan execution finished. Number of all tests: 3
+
+Test run finished after 1404 ms
+[         6 containers found      ]
+[         0 containers skipped    ]
+[         6 containers started    ]
+[         0 containers aborted    ]
+[         6 containers successful ]
+[         0 containers failed     ]
+[         3 tests found           ]
+[         0 tests skipped         ]
+[         3 tests started         ]
+[         0 tests aborted         ]
+[         3 tests successful      ]
+[         0 tests failed          ]
+
