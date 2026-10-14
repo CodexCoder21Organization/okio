@@ -1,0 +1,63 @@
+warning: unable to find kotlin-stdlib.jar in the Kotlin home directory. Pass either '-no-stdlib' to prevent adding it to the classpath, or the correct '-kotlin-home'
+warning: unable to find kotlin-script-runtime.jar in the Kotlin home directory. Pass either '-no-stdlib' to prevent adding it to the classpath, or the correct '-kotlin-home'
+warning: unable to find kotlin-reflect.jar in the Kotlin home directory. Pass either '-no-reflect' or '-no-stdlib' to prevent adding it to the classpath, or the correct '-kotlin-home'
+build/nullable-use/source/okio/src/jvmTest/java/okio/MessageDigestConsistencyTest.kt:22:22: error: unresolved reference: HashFunction
+import okio.internal.HashFunction
+                     ^
+build/nullable-use/source/okio/src/jvmTest/java/okio/MessageDigestConsistencyTest.kt:23:22: error: unresolved reference: Md5
+import okio.internal.Md5
+                     ^
+build/nullable-use/source/okio/src/jvmTest/java/okio/MessageDigestConsistencyTest.kt:24:22: error: unresolved reference: Sha1
+import okio.internal.Sha1
+                     ^
+build/nullable-use/source/okio/src/jvmTest/java/okio/MessageDigestConsistencyTest.kt:25:22: error: unresolved reference: Sha256
+import okio.internal.Sha256
+                     ^
+build/nullable-use/source/okio/src/jvmTest/java/okio/MessageDigestConsistencyTest.kt:26:22: error: unresolved reference: Sha512
+import okio.internal.Sha512
+                     ^
+build/nullable-use/source/okio/src/jvmTest/java/okio/MessageDigestConsistencyTest.kt:36:21: error: unresolved reference: Sha1
+    test("SHA-1") { Sha1() }
+                    ^
+build/nullable-use/source/okio/src/jvmTest/java/okio/MessageDigestConsistencyTest.kt:40:23: error: unresolved reference: Sha256
+    test("SHA-256") { Sha256() }
+                      ^
+build/nullable-use/source/okio/src/jvmTest/java/okio/MessageDigestConsistencyTest.kt:44:23: error: unresolved reference: Sha512
+    test("SHA-512") { Sha512() }
+                      ^
+build/nullable-use/source/okio/src/jvmTest/java/okio/MessageDigestConsistencyTest.kt:48:19: error: unresolved reference: Md5
+    test("MD5") { Md5() }
+                  ^
+build/nullable-use/source/okio/src/jvmTest/java/okio/MessageDigestConsistencyTest.kt:51:62: error: unresolved reference: HashFunction
+  private fun test(algorithm: String, newHashFunction: () -> HashFunction) {
+                                                             ^
+build/nullable-use/source/okio/src/jvmTest/java/okio/MessageDigestConsistencyTest.kt:66:19: error: unresolved reference: HashFunction
+    hashFunction: HashFunction,
+                  ^
+build/nullable-use/source/okio/src/jvmTest/java/okio/internal/HmacTest.kt:101:54: error: unresolved reference: Hmac
+      internal val HmacFactory: (key: ByteString) -> Hmac,
+                                                     ^
+build/nullable-use/source/okio/src/jvmTest/java/okio/internal/HmacTest.kt:103:25: error: unresolved reference: Hmac
+      SHA_1("HmacSha1", Hmac.Companion::sha1),
+                        ^
+build/nullable-use/source/okio/src/jvmTest/java/okio/internal/HmacTest.kt:103:41: error: callable reference resolution ambiguity: 
+public open var `<Error property>`: [Error type: Error property type] defined in root package
+public open fun `<Error function>`(): [Error type: Return type for function cannot be resolved] defined in root package
+      SHA_1("HmacSha1", Hmac.Companion::sha1),
+                                        ^
+build/nullable-use/source/okio/src/jvmTest/java/okio/internal/HmacTest.kt:104:29: error: unresolved reference: Hmac
+      SHA_256("HmacSha256", Hmac.Companion::sha256),
+                            ^
+build/nullable-use/source/okio/src/jvmTest/java/okio/internal/HmacTest.kt:104:45: error: callable reference resolution ambiguity: 
+public open var `<Error property>`: [Error type: Error property type] defined in root package
+public open fun `<Error function>`(): [Error type: Return type for function cannot be resolved] defined in root package
+      SHA_256("HmacSha256", Hmac.Companion::sha256),
+                                            ^
+build/nullable-use/source/okio/src/jvmTest/java/okio/internal/HmacTest.kt:105:29: error: unresolved reference: Hmac
+      SHA_512("HmacSha512", Hmac.Companion::sha512),
+                            ^
+build/nullable-use/source/okio/src/jvmTest/java/okio/internal/HmacTest.kt:105:45: error: callable reference resolution ambiguity: 
+public open var `<Error property>`: [Error type: Error property type] defined in root package
+public open fun `<Error function>`(): [Error type: Return type for function cannot be resolved] defined in root package
+      SHA_512("HmacSha512", Hmac.Companion::sha512),
+                                            ^

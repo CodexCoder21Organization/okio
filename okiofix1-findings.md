@@ -1,9 +1,9 @@
 # okiofix1 findings
 
 ## Plan and scope
-- [in progress] Verify the published 3.4.0 artifact provenance and source corrections.
-- [pending] Add public use tests, show baseline failure, checkpoint the tests.
-- [pending] Build the compatible nullable correction, pass the new and neighbour gates 3/3, and run the existing JVM suite once.
+- [completed] Verify the published 3.4.0 source base and correction ancestry; historical build-commit marker is absent (see limitation).
+- [completed] Add public use tests, show baseline failure, checkpoint the tests.
+- [in progress] Build and focused gates complete (3/3); run the existing JVM suite once.
 - [pending] Publish exactly one absent coordinate, verify downloaded POM/JAR and bytecode, then open a non-draft PR. No merges or deployments.
 
 ## 2026-10-14 20:13 UTC
@@ -47,3 +47,18 @@ OBSERVED: Expanded baseline XML has 7 tests: 4 expected nullable-result assertio
 OBSERVED: Public signatures of all four affected classes equal the prior jar under javap -public. Fixed Okio.use contains zero Intrinsics.checkNotNull result calls. JvmFileHandle SHA-256 remains 0d0b267a4f569a349ac5d4fc61dcdf64288af006fe1b594b6a6533691873b03c; Watchdog remains a5b056b06fae51ceb2b350deba29c0c3294772b0d55d1065991ba62e24b5657b.
 OBSERVED: Dedicated test coverage and source/packaging review passes are recorded in out/okiofix1-review.md. No review gaps found; no existing test changes. The single existing JVM suite run is next and is still required before publication.
 Plan state: provenance/source corrections verified (historical release has no build-commit marker; source base/tag and short-read source commit are identified), failing-first tests done, focused gates and mutation done, existing full JVM suite in progress, publication and PR pending.
+
+## 2026-10-14 20:27 UTC — suite preparation
+OBSERVED: Code checkpoint is https://github.com/CodexCoder21Organization/okio/commit/4b8a55bdf22fab69e8c1c2423015231fd6ad13b4 . Initial evidence checkpoint is https://github.com/CodexCoder21Organization/okio/tree/wip/okiofix1-evidence . All focused gates, bytecode/public-signature checks and independent review notes are preserved there.
+OBSERVED: The unchanged native suite helper compiled successfully. Before any test execution, runtime review found the helper output directory was absent from the worker runtime classpath; this was corrected. A stock okio-jvm transitive entry was also removed even though the fixed jar was first. The test compiler was stopped once during preparation to cap its JVM at 768 MB; no test had executed, so this is neither a failed test nor a passing test run.
+OBSERVED: zip was absent, and apt-get download zip could not locate its package because local package metadata is empty. The upstream ZipBuilder requires the real executable. Downloaded official Debian bookworm zip_3.0-13_amd64.deb into this lane and extracted it under build/nullable-use/tools; zip -v succeeds. Worker will prefix only its test process PATH with that tool directory. No system changes or test skips. Suite compilation remains in progress; no test verdict yet.
+
+## Challenges for the orchestrator — native suite prerequisites
+The base image lacks zip and package metadata. Unchanged upstream ZipBuilder invokes zip, so full JVM suite setup must provide it before execution. A lane-local extraction of https://deb.debian.org/debian/pool/main/z/zip/zip_3.0-13_amd64.deb provides the actual tool without editing tests. The native helper module is a Gradle project dependency and is not published as okio-testing-support:3.4.0; manual suite compilation must compile its six original common/JVM source files and include that output at compile and runtime.
+
+## Source review summary
+OBSERVED: git diff --stat origin/main...HEAD reports three files, 294 inserted lines, no existing-test edits. README.md records the compatible coordinate, nullable result contract, rebuild requirement and repeatable build command. UseNullableResultTest.kt adds seven independent public-API cases covering null results, null receivers, read/write integration, exactly-one-close, and exception ordering. buildNullableUseBackport.py builds the immutable nullable correction and preserves every unrelated prior binary entry and POM dependency. No generated build or test output is tracked on the product branch.
+
+## 2026-10-14 20:32 UTC — native compile preparation correction
+OBSERVED: The first completed native test compilation found unresolved HashFunction/Md5/Sha1/Sha256/Sha512/Hmac references before any test execution. Complete compiler diagnostics are preserved in build/nullable-use/suite/kotlin-compile-setup-1.log and will be pushed with evidence. The extracted source correctly preserves src/jvmTest/hashFunctions -> ../hashFunctions/kotlin; file enumeration did not follow that link. Adding its six original source files restores the original Gradle test source set. No upstream source/test file was changed.
+OBSERVED: Corrected compile is waiting for one of permitted slots 1, 2 or 4, with a ten-minute acquisition deadline. All are currently owned by other lanes. The prior native helper output is retained; no tests have run, and no native-suite pass count is claimed. The artifact-specific fixed gates remain complete and saved remotely.

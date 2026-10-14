@@ -25,3 +25,16 @@
 - OBSERVED: `dependencies.all.cp` includes fakefilesystem 3.4.0, datetime 0.4.0, AssertJ 3.24.2, Jimfs 1.3.0, Kotlin test/JUnit dependencies, and their required transitive jars. `com.squareup.okio:okio` is excluded, so the fixed jar will be the only Okio implementation at compile and runtime.
 - OBSERVED: `compile-tests.bash` and `run-suite.bash` are syntax-checked and stored only under the ignored suite directory. The compile script waits up to 10 minutes for build slot 1, 2, or 4 and releases its slot on exit. The run script emits JUnit XML into the same disposable directory.
 - OBSERVED: Parent confirmed the fixed jar is still building. Suite compilation and execution remain pending that signal.
+
+## Compile preparation stop
+
+- OBSERVED: The first suite Kotlin compiler was stopped before it completed after the parent asked for a 768 MB compiler heap cap. The helper module compile had already succeeded, and its output remains in `suite/support-classes`; it will be reused. This was a preparation stop, not a test attempt or test failure.
+- OBSERVED: Reviewing the classpath found `okio-jvm:3.4.0` still arrived transitively even though the multiplatform `okio` coordinate was excluded. I regenerated the classpath with both coordinates excluded. The only remaining `com.squareup.okio` jars are fakefilesystem metadata and fakefilesystem-jvm 3.4.0; the fixed jar is the only Okio implementation jar.
+- OBSERVED: The compile script now caps the test compiler at 768 MB and uses javac `-source 8 -target 8`, matching the upstream Gradle source/target setup. The test runtime classpath now includes the already compiled testing-support classes and uses a 512 MB heap.
+
+## Compile source-set correction
+
+- OBSERVED: The first completed compiler attempt exited 1 before Java compilation or test execution. The unchanged JVM tests import `okio.internal.HashFunction`, `Md5`, `Sha1`, `Sha256`, `Sha512`, and `Hmac`; these sources are absent from the fixed JVM production jar.
+- OBSERVED: Parent verified that upstream Gradle config points `jvmTest` at `src/jvmTest/hashFunctions`, which is a tracked symlink to `../hashFunctions/kotlin`. The extracted source copy preserved this valid symlink and its target; my initial manual source enumeration did not follow the symlink, so it omitted these six unchanged test-side sources.
+- OBSERVED: Preserved the complete first compiler output as `build/nullable-use/suite/kotlin-compile-setup-1.log`. Updated only the disposable compile script to add the original `src/hashFunctions/kotlin/**/*.kt` files to JVM test compilation. No source or test files were changed.
+- INFER: With this source-set linkage restored, the manual compile now matches the original Gradle JVM test compilation inputs for the missing hash functions.
