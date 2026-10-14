@@ -11,8 +11,14 @@ and ready to solve new problems.
 Compatible 3.4.0 JVM artifact
 ---------------------------
 
-The fork publishes `com.squareup.okio:okio-jvm:3.4.0-r576-short-read-2` for
-consumers retaining the 3.4.0 API. It preserves the short-read correction in
+The fork publishes `com.squareup.okio:okio-jvm:3.4.0.2` for
+consumers retaining the 3.4.0 API. Version `3.4.0.2` is upstream 3.4.0 plus
+the short-read and nullable-result corrections. The fourth numeric segment
+sorts above `3.4.0` and below `3.5.0`, so ordinary dependency resolution selects
+it over transitive `3.4.0` requests. It contains the same corrected class bodies
+as `3.4.0-r576-short-read-2`; the older hyphenated version sorts below the plain
+release in the consumer build API. This compatible release publishes only
+`okio-jvm`, which is the module produced by the backport build script. It preserves the short-read correction in
 `3.4.0-r576-short-read-1` and allows `use`, `FileSystem.read`, and
 `FileSystem.write` blocks to return null. Resources still close when the block
 returns or throws. Consumers must rebuild after updating the dependency because
