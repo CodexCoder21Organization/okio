@@ -79,3 +79,7 @@ OBSERVED: Publication, served-file verification, source/focused gates and review
 ## 2026-10-14 20:44 UTC — final bounded suite opportunity
 OBSERVED: Second resource acquisition exited 3 at 20:44:07 with all permitted slots occupied and no compiler/test execution. The worker is taking one final acquisition window with absolute deadline 20:50 UTC. If acquired, compilation and one suite run must terminate by 20:59 UTC; otherwise the final report and PR will explicitly mark this required gate incomplete. This changes no test timeout or iteration and does not repeat a test: none of the existing suite has executed yet.
 OBSERVED: The verified published coordinate remains available. Product head is unchanged at 4b8a55bdf22fab69e8c1c2423015231fd6ad13b4; all source/focused gate and published probe XML, publication log, checksums and review notes are remote on wip/okiofix1-evidence.
+
+## 2026-10-14 20:46 UTC — native compile running
+OBSERVED: A permitted slot opened and the final corrected native test compile is now running, reusing the six successfully compiled helper sources and including the six tracked hash-function test sources. No existing native test has executed yet. The suite will run once immediately after successful compilation.
+OBSERVED: Process start verification shows this lane began at 20:09:14 UTC (60-minute deadline 21:09:14), so the worker absolute process stop is 21:05 UTC with time reserved for the final PR/report. This is a shell scheduling limit only; no test timeout has been changed.
