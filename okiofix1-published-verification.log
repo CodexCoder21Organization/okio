@@ -1,0 +1,27 @@
+pom HTTP 200 bytes 1913
+pom SHA-256 ba63e01956c2128e1eed2c0f576a461c4fda7bd29fb8d5650d7559dea391a438
+jar HTTP 200 bytes 358278
+jar SHA-256 c95af313fc9017f8dd356de73428f664009895c65c748abb07d2ce12c4c34e64
+Published dependencies: [('kotlin-stdlib-jdk8', '1.8.0'), ('kotlin-stdlib-common', '1.8.0')]
+Published Okio.use: zero checkNotNull result calls
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::compareAndSwapObject has been called by scala.runtime.LazyVals$ (file:/home/u/bin/cs)
+WARNING: Please consider reporting this to the maintainers of class scala.runtime.LazyVals$
+WARNING: sun.misc.Unsafe::compareAndSwapObject will be removed in a future release
+Published public Okio.use returns null; close count=1
+
+Test run finished after 743 ms
+[         4 containers found      ]
+[         0 containers skipped    ]
+[         4 containers started    ]
+[         0 containers aborted    ]
+[         4 containers successful ]
+[         0 containers failed     ]
+[         1 tests found           ]
+[         0 tests skipped         ]
+[         1 tests started         ]
+[         0 tests aborted         ]
+[         1 tests successful      ]
+[         0 tests failed          ]
+
+Published public Java API XML: 1/1, no result check and exactly one close
