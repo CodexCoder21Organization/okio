@@ -13,7 +13,7 @@ BASE = 'a161b07fb1b459371458ae6d9508ec31df280428'
 NULLABLE_FIX = 'fe6ac99a29ec207c9c5f4421f3fed62fd5bc9d45'
 PREVIOUS_VERSION = '3.4.0-r576-short-read-1'
 PREVIOUS_SHA256 = 'b0f2a8296acb1818a03f370ecea763e273224a04d6c0046c190ebb0a82a77061'
-VERSION = '3.4.0-r576-short-read-2'
+VERSION = '3.4.0.2'
 ARTIFACT = 'okio-jvm'
 REPOSITORY = 'https://kotlin.directory/com/squareup/okio/okio-jvm'
 
@@ -65,7 +65,7 @@ def main():
             target.write_bytes(subprocess.check_output(['git', '-C', str(root), 'show', f'{BASE}:{path}'], timeout=30))
             sources.append(target)
         common = [str(path) for path in sources if '/commonMain/' in str(path)]
-        compiler_args = ['java', '-Xmx768m', '-cp', compiler, 'org.jetbrains.kotlin.cli.jvm.K2JVMCompiler',
+        compiler_args = ['java', '-Xmx2g', '-cp', compiler, 'org.jetbrains.kotlin.cli.jvm.K2JVMCompiler',
                          '-no-stdlib', '-no-reflect', '-language-version', '1.8', '-api-version', '1.8',
                          '-jvm-target', '1.8', '-module-name', 'okio', '-Xjvm-default=all', '-Xmulti-platform',
                          '-Xcommon-sources=' + ','.join(common), '-cp', dependencies]
@@ -87,7 +87,7 @@ def main():
             entries = {name: previous.read(name) for name in previous.namelist()}
             entries.update(changed)
             entries['META-INF/MANIFEST.MF'] = entries['META-INF/MANIFEST.MF'].replace(
-                f'Bundle-Version: 3.4.0.r576-short-read-1'.encode(), f'Bundle-Version: 3.4.0.r576-short-read-2'.encode())
+                f'Bundle-Version: 3.4.0.r576-short-read-1'.encode(), f'Bundle-Version: {VERSION}'.encode())
             archive(output / f'{ARTIFACT}-{VERSION}.jar', entries)
             print('Updated class bodies: ' + ', '.join(sorted(changed)))
             for name in ['okio/JvmFileHandle.class', 'okio/AsyncTimeout$Watchdog.class']:
