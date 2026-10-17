@@ -22,3 +22,16 @@ None observed.
 OBSERVED: Fork build and test script completed once. Native XML has 70/70 passing first-attempt rows, zero failures/errors/skips/earlier attempts: 39 new rows, 27 prior directory rows and four registry rows. Console lists registry trials 1 through 20, each PASS. Build performed all-class public javap comparison against -2 and reproduced the recorded -3 JAR checksum. Local slot was released.
 OBSERVED: Audited original red and mutation XML: red files contain 18 + 18 + 3 assertion failures; product-only controls contain 36 + 3 assertion failures; prior 31 neighbors pass in their combined controls. No compilation error, skipped row or earlier attempt is counted. Accepted original gate has 70/70 green rows.
 INFER: Terminal dangling symlinks may leave a resolved parent paired with the original basename in createDirectory/createSymlink/atomicMove. A callback can create such a link before admission; the ensuing insertion may replace an unrelated populated directory in the resolved parent. Designing a public proof before counting this as a finding.
+
+## Review invariants for the dangling-link proof
+| Entry operation | Ownership and required result | Re-entry condition | Public proof |
+|---|---|---|---|
+| createDirectory | Filesystem owns entries; unrelated /parent/target/child survives | clock creates /target -> /parent/missing | directoryAdmissionPreservesUnrelatedDirectory |
+| createSymlink | Filesystem owns entries; unrelated directory survives | same one-shot callback | symlinkAdmissionPreservesUnrelatedDirectory |
+| atomicMove | Filesystem owns source/destination; unrelated directory survives | same one-shot callback | moveAdmissionPreservesUnrelatedDirectory |
+No product edits are authorized or made; these tests live only on the evidence branch.
+
+## 09:07 UTC — new public finding reproduced
+OBSERVED: moveAdmissionPreservesUnrelatedDirectory is assertion-red 3/3 on the exact-head rebuilt -3 artifact. Each one-shot clock callback creates /target -> /parent/missing while /parent/target/child already contains confirmed bytes. atomicMove(/source, /target) returns normally, removes /source, replaces unrelated /parent/target with the source File and makes its child inaccessible. No thread scheduling, external service, private access or timing trigger is involved.
+The mechanism is atomicMove pairing the dereferenced destination parent with canonicalTarget.nameBytes instead of the destination entry's own parent/name, and the evidence that demonstrates it is three native assertion failures plus lookupPath lines 596–598 and atomicMove lines 435/453. For a dangling final link lookupPath carries its referent parent but retains the Symlink element, so the directory check cannot detect /parent/target, which is not the requested destination.
+REFUTED: The preliminary same-shape directory/symlink suspicion is wrong: both createDirectory and createSymlink reject the retained Symlink element. Six exploratory rows report those correct IOException outcomes as errors because the first probe expected a normal return; those are fixture expectations, not six product failures or accepted red proofs. Their child-preservation assertions will be retained while treating rejection as the correct result. Atomic move's three assertion rows already demonstrate the product defect independently.

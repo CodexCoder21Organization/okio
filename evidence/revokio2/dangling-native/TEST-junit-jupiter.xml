@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="JUnit Jupiter" tests="9" skipped="0" failures="3" errors="6" time="0.143" hostname="848d7dea7ad7" timestamp="2026-10-17T09:07:02">
+<properties>
+<property name="file.encoding" value="UTF-8"/>
+<property name="file.separator" value="/"/>
+<property name="java.class.path" value=".git/revokio2-probe-classes:.git/revokio2-artifact/okio-fakefilesystem-jvm-3.4.0-r576-registry-lock-3.jar:/home/hostusr/.cache/coursier/v1/https/token%40kotlin.directory/com/squareup/okio/okio-jvm/3.4.0.2/okio-jvm-3.4.0.2.jar:/home/hostusr/.cache/coursier/v1/https/repo1.maven.org/maven2/org/jetbrains/kotlinx/kotlinx-datetime-jvm/0.4.0/kotlinx-datetime-jvm-0.4.0.jar:/home/hostusr/.cache/coursier/v1/https/repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/1.10.0/junit-platform-console-standalone-1.10.0.jar:/home/hostusr/.cache/coursier/v1/https/token%40kotlin.directory/org/jetbrains/kotlin/kotlin-stdlib-jdk8/1.8.0/kotlin-stdlib-jdk8-1.8.0.jar:/home/hostusr/.cache/coursier/v1/https/token%40kotlin.directory/org/jetbrains/kotlin/kotlin-stdlib-common/1.8.0/kotlin-stdlib-common-1.8.0.jar:/home/hostusr/.cache/coursier/v1/https/repo1.maven.org/maven2/org/jetbrains/kotlin/kotlin-stdlib/1.8.0/kotlin-stdlib-1.8.0.jar:/home/hostusr/.cache/coursier/v1/https/token%40kotlin.directory/org/jetbrains/kotlin/kotlin-stdlib-jdk7/1.8.0/kotlin-stdlib-jdk7-1.8.0.jar:/home/hostusr/.cache/coursier/v1/https/repo1.maven.org/maven2/org/jetbrains/annotations/13.0/annotations-13.0.jar"/>
+<property name="java.class.version" value="65.0"/>
+<property name="java.home" value="/usr/lib/jvm/temurin-21-jdk-arm64"/>
+<property name="java.io.tmpdir" value="/tmp"/>
+<property name="java.library.path" value="/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib"/>
+<property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+<property name="java.runtime.version" value="21.0.12.1+1-LTS"/>
+<property name="java.specification.name" value="Java Platform API Specification"/>
+<property name="java.specification.vendor" value="Oracle Corporation"/>
+<property name="java.specification.version" value="21"/>
+<property name="java.vendor" value="Eclipse Adoptium"/>
+<property name="java.vendor.url" value="https://adoptium.net/"/>
+<property name="java.vendor.url.bug" value="https://github.com/adoptium/adoptium-support/issues"/>
+<property name="java.vendor.version" value="Temurin-21.0.12.1+1"/>
+<property name="java.version" value="21.0.12.1"/>
+<property name="java.version.date" value="2026-08-18"/>
+<property name="java.vm.compressedOopsMode" value="32-bit"/>
+<property name="java.vm.info" value="mixed mode, sharing"/>
+<property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+<property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+<property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+<property name="java.vm.specification.version" value="21"/>
+<property name="java.vm.vendor" value="Eclipse Adoptium"/>
+<property name="java.vm.version" value="21.0.12.1+1-LTS"/>
+<property name="jdk.debug" value="release"/>
+<property name="line.separator" value="
+"/>
+<property name="native.encoding" value="UTF-8"/>
+<property name="os.arch" value="aarch64"/>
+<property name="os.name" value="Linux"/>
+<property name="os.version" value="6.12.54-linuxkit"/>
+<property name="path.separator" value=":"/>
+<property name="stderr.encoding" value="UTF-8"/>
+<property name="stdout.encoding" value="UTF-8"/>
+<property name="sun.arch.data.model" value="64"/>
+<property name="sun.boot.library.path" value="/usr/lib/jvm/temurin-21-jdk-arm64/lib"/>
+<property name="sun.cpu.endian" value="little"/>
+<property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+<property name="sun.java.command" value="org.junit.platform.console.ConsoleLauncher execute --select-class DanglingAdmissionReviewTest --reports-dir evidence/revokio2/dangling-native --disable-banner --disable-ansi-colors"/>
+<property name="sun.java.launcher" value="SUN_STANDARD"/>
+<property name="sun.jnu.encoding" value="UTF-8"/>
+<property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+<property name="user.dir" value="/tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/revokio2"/>
+<property name="user.home" value="/home/hostusr"/>
+<property name="user.language" value="en"/>
+<property name="user.name" value="hostusr"/>
+<property name="user.timezone" value="Etc/UTC"/>
+</properties>
+<testcase name="moveAdmissionPreservesUnrelatedDirectory()[3]" classname="DanglingAdmissionReviewTest" time="0.004">
+<failure message="Multiple Failures (2 failures)
+	org.opentest4j.AssertionFailedError: Admission to /target must preserve unrelated /parent/target directory type. ==&gt; expected: &lt;true&gt; but was: &lt;false&gt;
+	org.opentest4j.AssertionFailedError: Admission to /target must preserve unrelated /parent/target/child. ==&gt; expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.MultipleFailuresError"><![CDATA[org.opentest4j.MultipleFailuresError: Multiple Failures (2 failures)
+	org.opentest4j.AssertionFailedError: Admission to /target must preserve unrelated /parent/target directory type. ==> expected: <true> but was: <false>
+	org.opentest4j.AssertionFailedError: Admission to /target must preserve unrelated /parent/target/child. ==> expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:80)
+	at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:44)
+	at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:38)
+	at org.junit.jupiter.api.Assertions.assertAll(Assertions.java:2940)
+	at DanglingAdmissionReviewTest.check(DanglingAdmissionReviewTest.java:55)
+	at DanglingAdmissionReviewTest.moveAdmissionPreservesUnrelatedDirectory(DanglingAdmissionReviewTest.java:20)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.IntPipeline$1$1.accept(IntPipeline.java:180)
+	at java.base/java.util.stream.Streams$RangeIntSpliterator.forEachRemaining(Streams.java:108)
+	at java.base/java.util.Spliterator$OfInt.forEachRemaining(Spliterator.java:712)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1708)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	Suppressed: org.opentest4j.AssertionFailedError: Admission to /target must preserve unrelated /parent/target directory type. ==> expected: <true> but was: <false>
+		at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+		at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+		at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+		at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+		at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+		at DanglingAdmissionReviewTest.lambda$check$1(DanglingAdmissionReviewTest.java:56)
+		at org.junit.jupiter.api.AssertAll.lambda$assertAll$0(AssertAll.java:68)
+		at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+		at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
+		at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+		at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+		at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+		at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+		at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+		at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:77)
+		... 31 more
+	Suppressed: org.opentest4j.AssertionFailedError: Admission to /target must preserve unrelated /parent/target/child. ==> expected: <true> but was: <false>
+		at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+		at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+		at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+		at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+		at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+		at DanglingAdmissionReviewTest.lambda$check$2(DanglingAdmissionReviewTest.java:57)
+		at org.junit.jupiter.api.AssertAll.lambda$assertAll$0(AssertAll.java:68)
+		at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+		at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
+		at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+		at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+		at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+		at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+		at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+		at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:77)
+		... 31 more
+]]></failure>
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:DanglingAdmissionReviewTest]/[test-template:moveAdmissionPreservesUnrelatedDirectory()]/[test-template-invocation:#3]
+display-name: repetition 3 of 3
+]]></system-out>
+</testcase>
+<testcase name="moveAdmissionPreservesUnrelatedDirectory()[2]" classname="DanglingAdmissionReviewTest" time="0.006">
+<failure message="Multiple Failures (2 failures)
+	org.opentest4j.AssertionFailedError: Admission to /target must preserve unrelated /parent/target directory type. ==&gt; expected: &lt;true&gt; but was: &lt;false&gt;
+	org.opentest4j.AssertionFailedError: Admission to /target must preserve unrelated /parent/target/child. ==&gt; expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.MultipleFailuresError"><![CDATA[org.opentest4j.MultipleFailuresError: Multiple Failures (2 failures)
+	org.opentest4j.AssertionFailedError: Admission to /target must preserve unrelated /parent/target directory type. ==> expected: <true> but was: <false>
+	org.opentest4j.AssertionFailedError: Admission to /target must preserve unrelated /parent/target/child. ==> expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:80)
+	at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:44)
+	at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:38)
+	at org.junit.jupiter.api.Assertions.assertAll(Assertions.java:2940)
+	at DanglingAdmissionReviewTest.check(DanglingAdmissionReviewTest.java:55)
+	at DanglingAdmissionReviewTest.moveAdmissionPreservesUnrelatedDirectory(DanglingAdmissionReviewTest.java:20)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.IntPipeline$1$1.accept(IntPipeline.java:180)
+	at java.base/java.util.stream.Streams$RangeIntSpliterator.forEachRemaining(Streams.java:104)
+	at java.base/java.util.Spliterator$OfInt.forEachRemaining(Spliterator.java:712)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1708)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	Suppressed: org.opentest4j.AssertionFailedError: Admission to /target must preserve unrelated /parent/target directory type. ==> expected: <true> but was: <false>
+		at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+		at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+		at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+		at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+		at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+		at DanglingAdmissionReviewTest.lambda$check$1(DanglingAdmissionReviewTest.java:56)
+		at org.junit.jupiter.api.AssertAll.lambda$assertAll$0(AssertAll.java:68)
+		at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+		at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
+		at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+		at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+		at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+		at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+		at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+		at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:77)
+		... 31 more
+	Suppressed: org.opentest4j.AssertionFailedError: Admission to /target must preserve unrelated /parent/target/child. ==> expected: <true> but was: <false>
+		at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+		at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+		at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+		at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+		at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+		at DanglingAdmissionReviewTest.lambda$check$2(DanglingAdmissionReviewTest.java:57)
+		at org.junit.jupiter.api.AssertAll.lambda$assertAll$0(AssertAll.java:68)
+		at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+		at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
+		at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+		at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+		at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+		at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+		at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+		at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:77)
+		... 31 more
+]]></failure>
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:DanglingAdmissionReviewTest]/[test-template:moveAdmissionPreservesUnrelatedDirectory()]/[test-template-invocation:#2]
+display-name: repetition 2 of 3
+]]></system-out>
+</testcase>
+<testcase name="moveAdmissionPreservesUnrelatedDirectory()[1]" classname="DanglingAdmissionReviewTest" time="0.061">
+<failure message="Multiple Failures (2 failures)
+	org.opentest4j.AssertionFailedError: Admission to /target must preserve unrelated /parent/target directory type. ==&gt; expected: &lt;true&gt; but was: &lt;false&gt;
+	org.opentest4j.AssertionFailedError: Admission to /target must preserve unrelated /parent/target/child. ==&gt; expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.MultipleFailuresError"><![CDATA[org.opentest4j.MultipleFailuresError: Multiple Failures (2 failures)
+	org.opentest4j.AssertionFailedError: Admission to /target must preserve unrelated /parent/target directory type. ==> expected: <true> but was: <false>
+	org.opentest4j.AssertionFailedError: Admission to /target must preserve unrelated /parent/target/child. ==> expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:80)
+	at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:44)
+	at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:38)
+	at org.junit.jupiter.api.Assertions.assertAll(Assertions.java:2940)
+	at DanglingAdmissionReviewTest.check(DanglingAdmissionReviewTest.java:55)
+	at DanglingAdmissionReviewTest.moveAdmissionPreservesUnrelatedDirectory(DanglingAdmissionReviewTest.java:20)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.IntPipeline$1$1.accept(IntPipeline.java:180)
+	at java.base/java.util.stream.Streams$RangeIntSpliterator.forEachRemaining(Streams.java:104)
+	at java.base/java.util.Spliterator$OfInt.forEachRemaining(Spliterator.java:712)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1708)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	Suppressed: org.opentest4j.AssertionFailedError: Admission to /target must preserve unrelated /parent/target directory type. ==> expected: <true> but was: <false>
+		at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+		at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+		at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+		at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+		at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+		at DanglingAdmissionReviewTest.lambda$check$1(DanglingAdmissionReviewTest.java:56)
+		at org.junit.jupiter.api.AssertAll.lambda$assertAll$0(AssertAll.java:68)
+		at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+		at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
+		at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+		at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+		at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+		at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+		at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+		at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:77)
+		... 31 more
+	Suppressed: org.opentest4j.AssertionFailedError: Admission to /target must preserve unrelated /parent/target/child. ==> expected: <true> but was: <false>
+		at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+		at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+		at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+		at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+		at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+		at DanglingAdmissionReviewTest.lambda$check$2(DanglingAdmissionReviewTest.java:57)
+		at org.junit.jupiter.api.AssertAll.lambda$assertAll$0(AssertAll.java:68)
+		at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+		at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
+		at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+		at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+		at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+		at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+		at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+		at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:77)
+		... 31 more
+]]></failure>
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:DanglingAdmissionReviewTest]/[test-template:moveAdmissionPreservesUnrelatedDirectory()]/[test-template-invocation:#1]
+display-name: repetition 1 of 3
+]]></system-out>
+</testcase>
+<testcase name="symlinkAdmissionPreservesUnrelatedDirectory()[3]" classname="DanglingAdmissionReviewTest" time="0.003">
+<error message="already exists: /target" type="java.io.IOException"><![CDATA[java.io.IOException: already exists: /target
+	at okio.fakefilesystem.FakeFileSystem.createSymlink(FakeFileSystem.kt:502)
+	at DanglingAdmissionReviewTest.check(DanglingAdmissionReviewTest.java:46)
+	at DanglingAdmissionReviewTest.symlinkAdmissionPreservesUnrelatedDirectory(DanglingAdmissionReviewTest.java:18)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.IntPipeline$1$1.accept(IntPipeline.java:180)
+	at java.base/java.util.stream.Streams$RangeIntSpliterator.forEachRemaining(Streams.java:108)
+	at java.base/java.util.Spliterator$OfInt.forEachRemaining(Spliterator.java:712)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1708)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+]]></error>
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:DanglingAdmissionReviewTest]/[test-template:symlinkAdmissionPreservesUnrelatedDirectory()]/[test-template-invocation:#3]
+display-name: repetition 3 of 3
+]]></system-out>
+</testcase>
+<testcase name="directoryAdmissionPreservesUnrelatedDirectory()[3]" classname="DanglingAdmissionReviewTest" time="0.002">
+<error message="already exists: /target" type="java.io.IOException"><![CDATA[java.io.IOException: already exists: /target
+	at okio.fakefilesystem.FakeFileSystem.createDirectory(FakeFileSystem.kt:409)
+	at DanglingAdmissionReviewTest.check(DanglingAdmissionReviewTest.java:45)
+	at DanglingAdmissionReviewTest.directoryAdmissionPreservesUnrelatedDirectory(DanglingAdmissionReviewTest.java:16)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.IntPipeline$1$1.accept(IntPipeline.java:180)
+	at java.base/java.util.stream.Streams$RangeIntSpliterator.forEachRemaining(Streams.java:108)
+	at java.base/java.util.Spliterator$OfInt.forEachRemaining(Spliterator.java:712)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1708)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+]]></error>
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:DanglingAdmissionReviewTest]/[test-template:directoryAdmissionPreservesUnrelatedDirectory()]/[test-template-invocation:#3]
+display-name: repetition 3 of 3
+]]></system-out>
+</testcase>
+<testcase name="directoryAdmissionPreservesUnrelatedDirectory()[2]" classname="DanglingAdmissionReviewTest" time="0.001">
+<error message="already exists: /target" type="java.io.IOException"><![CDATA[java.io.IOException: already exists: /target
+	at okio.fakefilesystem.FakeFileSystem.createDirectory(FakeFileSystem.kt:409)
+	at DanglingAdmissionReviewTest.check(DanglingAdmissionReviewTest.java:45)
+	at DanglingAdmissionReviewTest.directoryAdmissionPreservesUnrelatedDirectory(DanglingAdmissionReviewTest.java:16)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.IntPipeline$1$1.accept(IntPipeline.java:180)
+	at java.base/java.util.stream.Streams$RangeIntSpliterator.forEachRemaining(Streams.java:104)
+	at java.base/java.util.Spliterator$OfInt.forEachRemaining(Spliterator.java:712)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1708)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+]]></error>
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:DanglingAdmissionReviewTest]/[test-template:directoryAdmissionPreservesUnrelatedDirectory()]/[test-template-invocation:#2]
+display-name: repetition 2 of 3
+]]></system-out>
+</testcase>
+<testcase name="symlinkAdmissionPreservesUnrelatedDirectory()[1]" classname="DanglingAdmissionReviewTest" time="0.001">
+<error message="already exists: /target" type="java.io.IOException"><![CDATA[java.io.IOException: already exists: /target
+	at okio.fakefilesystem.FakeFileSystem.createSymlink(FakeFileSystem.kt:502)
+	at DanglingAdmissionReviewTest.check(DanglingAdmissionReviewTest.java:46)
+	at DanglingAdmissionReviewTest.symlinkAdmissionPreservesUnrelatedDirectory(DanglingAdmissionReviewTest.java:18)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.IntPipeline$1$1.accept(IntPipeline.java:180)
+	at java.base/java.util.stream.Streams$RangeIntSpliterator.forEachRemaining(Streams.java:104)
+	at java.base/java.util.Spliterator$OfInt.forEachRemaining(Spliterator.java:712)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1708)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+]]></error>
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:DanglingAdmissionReviewTest]/[test-template:symlinkAdmissionPreservesUnrelatedDirectory()]/[test-template-invocation:#1]
+display-name: repetition 1 of 3
+]]></system-out>
+</testcase>
+<testcase name="directoryAdmissionPreservesUnrelatedDirectory()[1]" classname="DanglingAdmissionReviewTest" time="0.001">
+<error message="already exists: /target" type="java.io.IOException"><![CDATA[java.io.IOException: already exists: /target
+	at okio.fakefilesystem.FakeFileSystem.createDirectory(FakeFileSystem.kt:409)
+	at DanglingAdmissionReviewTest.check(DanglingAdmissionReviewTest.java:45)
+	at DanglingAdmissionReviewTest.directoryAdmissionPreservesUnrelatedDirectory(DanglingAdmissionReviewTest.java:16)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.IntPipeline$1$1.accept(IntPipeline.java:180)
+	at java.base/java.util.stream.Streams$RangeIntSpliterator.forEachRemaining(Streams.java:104)
+	at java.base/java.util.Spliterator$OfInt.forEachRemaining(Spliterator.java:712)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1708)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+]]></error>
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:DanglingAdmissionReviewTest]/[test-template:directoryAdmissionPreservesUnrelatedDirectory()]/[test-template-invocation:#1]
+display-name: repetition 1 of 3
+]]></system-out>
+</testcase>
+<testcase name="symlinkAdmissionPreservesUnrelatedDirectory()[2]" classname="DanglingAdmissionReviewTest" time="0.002">
+<error message="already exists: /target" type="java.io.IOException"><![CDATA[java.io.IOException: already exists: /target
+	at okio.fakefilesystem.FakeFileSystem.createSymlink(FakeFileSystem.kt:502)
+	at DanglingAdmissionReviewTest.check(DanglingAdmissionReviewTest.java:46)
+	at DanglingAdmissionReviewTest.symlinkAdmissionPreservesUnrelatedDirectory(DanglingAdmissionReviewTest.java:18)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.IntPipeline$1$1.accept(IntPipeline.java:180)
+	at java.base/java.util.stream.Streams$RangeIntSpliterator.forEachRemaining(Streams.java:104)
+	at java.base/java.util.Spliterator$OfInt.forEachRemaining(Spliterator.java:712)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1708)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+]]></error>
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:DanglingAdmissionReviewTest]/[test-template:symlinkAdmissionPreservesUnrelatedDirectory()]/[test-template-invocation:#2]
+display-name: repetition 2 of 3
+]]></system-out>
+</testcase>
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]
+display-name: JUnit Jupiter
+]]></system-out>
+</testsuite>
