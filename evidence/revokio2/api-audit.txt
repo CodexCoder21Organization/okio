@@ -1,0 +1,6 @@
+3.4.0-r576-registry-lock-1 1f6dbb73ed4c0f32adcb914e77eaf40b9f4217990742554ebb1603681097e72c
+3.4.0-r576-registry-lock-2 21e60aadff3bf4906847103742c28b6a197349ecf58f132bd4eebf07e4c9e7a4
+3.4.0-r576-registry-lock-3 3b04c346df6fb6ebe04c80d7d5bec07e2410b0be9f588a385537ff2b353c1e4a
+All 11 class names and public javap declarations are identical across -1/-2/-3.
+Exact-head rebuilt -3 equals served -3 byte for byte.
+POMs differ only by project version; dependencies are unchanged.

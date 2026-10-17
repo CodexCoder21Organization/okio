@@ -1,0 +1,206 @@
+╷
+├─ JUnit Jupiter ✔
+│  └─ ReadLookupReviewTest ✔
+│     ├─ canonicalizeRejectsAPathAbsentThroughoutItsCallback() ✔
+│     │  ├─ repetition 1 of 3 ✘ Canonicalization must reject a path absent before and after its callback. ==> Expected java.io.IOException to be thrown, but nothing was thrown.
+│     │  ├─ repetition 2 of 3 ✘ Canonicalization must reject a path absent before and after its callback. ==> Expected java.io.IOException to be thrown, but nothing was thrown.
+│     │  └─ repetition 3 of 3 ✘ Canonicalization must reject a path absent before and after its callback. ==> Expected java.io.IOException to be thrown, but nothing was thrown.
+│     ├─ metadataDoesNotReturnAnEntryNeverAtTheRequestedPath() ✔
+│     │  ├─ repetition 1 of 3 ✘ Metadata must not use an entry created only in the retired parent. ==> expected: <null> but was: <FileMetadata(isDirectory, createdAt=0, lastModifiedAt=0, lastAccessedAt=0)>
+│     │  ├─ repetition 2 of 3 ✘ Metadata must not use an entry created only in the retired parent. ==> expected: <null> but was: <FileMetadata(isDirectory, createdAt=0, lastModifiedAt=0, lastAccessedAt=0)>
+│     │  └─ repetition 3 of 3 ✘ Metadata must not use an entry created only in the retired parent. ==> expected: <null> but was: <FileMetadata(isDirectory, createdAt=0, lastModifiedAt=0, lastAccessedAt=0)>
+│     ├─ createDirectoriesCreatesTheRequestedDirectory() ✔
+│     │  ├─ repetition 1 of 3 ✘ Successful createDirectories must create the requested directory, not accept metadata from a retired parent. ==> expected: <true> but was: <false>
+│     │  ├─ repetition 2 of 3 ✘ Successful createDirectories must create the requested directory, not accept metadata from a retired parent. ==> expected: <true> but was: <false>
+│     │  └─ repetition 3 of 3 ✘ Successful createDirectories must create the requested directory, not accept metadata from a retired parent. ==> expected: <true> but was: <false>
+│     └─ listDoesNotReturnAChildNeverAtTheRequestedPath() ✔
+│        ├─ repetition 1 of 3 ✘ Listing must not map a retired parent's new child into the current alias. ==> expected: <[]> but was: <[/alias/ghost]>
+│        ├─ repetition 2 of 3 ✘ Listing must not map a retired parent's new child into the current alias. ==> expected: <[]> but was: <[/alias/ghost]>
+│        └─ repetition 3 of 3 ✘ Listing must not map a retired parent's new child into the current alias. ==> expected: <[]> but was: <[/alias/ghost]>
+├─ JUnit Vintage ✔
+└─ JUnit Platform Suite ✔
+
+Failures (12):
+  JUnit Jupiter:ReadLookupReviewTest:canonicalizeRejectsAPathAbsentThroughoutItsCallback():repetition 1 of 3
+    MethodSource [className = 'ReadLookupReviewTest', methodName = 'canonicalizeRejectsAPathAbsentThroughoutItsCallback', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Canonicalization must reject a path absent before and after its callback. ==> Expected java.io.IOException to be thrown, but nothing was thrown.
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:39)
+       org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3127)
+       ReadLookupReviewTest.canonicalizeRejectsAPathAbsentThroughoutItsCallback(ReadLookupReviewTest.java:47)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       [...]
+  JUnit Jupiter:ReadLookupReviewTest:canonicalizeRejectsAPathAbsentThroughoutItsCallback():repetition 2 of 3
+    MethodSource [className = 'ReadLookupReviewTest', methodName = 'canonicalizeRejectsAPathAbsentThroughoutItsCallback', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Canonicalization must reject a path absent before and after its callback. ==> Expected java.io.IOException to be thrown, but nothing was thrown.
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:39)
+       org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3127)
+       ReadLookupReviewTest.canonicalizeRejectsAPathAbsentThroughoutItsCallback(ReadLookupReviewTest.java:47)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       [...]
+  JUnit Jupiter:ReadLookupReviewTest:canonicalizeRejectsAPathAbsentThroughoutItsCallback():repetition 3 of 3
+    MethodSource [className = 'ReadLookupReviewTest', methodName = 'canonicalizeRejectsAPathAbsentThroughoutItsCallback', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Canonicalization must reject a path absent before and after its callback. ==> Expected java.io.IOException to be thrown, but nothing was thrown.
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:39)
+       org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3127)
+       ReadLookupReviewTest.canonicalizeRejectsAPathAbsentThroughoutItsCallback(ReadLookupReviewTest.java:47)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       [...]
+  JUnit Jupiter:ReadLookupReviewTest:metadataDoesNotReturnAnEntryNeverAtTheRequestedPath():repetition 1 of 3
+    MethodSource [className = 'ReadLookupReviewTest', methodName = 'metadataDoesNotReturnAnEntryNeverAtTheRequestedPath', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Metadata must not use an entry created only in the retired parent. ==> expected: <null> but was: <FileMetadata(isDirectory, createdAt=0, lastModifiedAt=0, lastAccessedAt=0)>
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+       org.junit.jupiter.api.AssertNull.failNotNull(AssertNull.java:50)
+       org.junit.jupiter.api.AssertNull.assertNull(AssertNull.java:35)
+       org.junit.jupiter.api.Assertions.assertNull(Assertions.java:283)
+       ReadLookupReviewTest.metadataDoesNotReturnAnEntryNeverAtTheRequestedPath(ReadLookupReviewTest.java:41)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       [...]
+  JUnit Jupiter:ReadLookupReviewTest:metadataDoesNotReturnAnEntryNeverAtTheRequestedPath():repetition 2 of 3
+    MethodSource [className = 'ReadLookupReviewTest', methodName = 'metadataDoesNotReturnAnEntryNeverAtTheRequestedPath', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Metadata must not use an entry created only in the retired parent. ==> expected: <null> but was: <FileMetadata(isDirectory, createdAt=0, lastModifiedAt=0, lastAccessedAt=0)>
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+       org.junit.jupiter.api.AssertNull.failNotNull(AssertNull.java:50)
+       org.junit.jupiter.api.AssertNull.assertNull(AssertNull.java:35)
+       org.junit.jupiter.api.Assertions.assertNull(Assertions.java:283)
+       ReadLookupReviewTest.metadataDoesNotReturnAnEntryNeverAtTheRequestedPath(ReadLookupReviewTest.java:41)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       [...]
+  JUnit Jupiter:ReadLookupReviewTest:metadataDoesNotReturnAnEntryNeverAtTheRequestedPath():repetition 3 of 3
+    MethodSource [className = 'ReadLookupReviewTest', methodName = 'metadataDoesNotReturnAnEntryNeverAtTheRequestedPath', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Metadata must not use an entry created only in the retired parent. ==> expected: <null> but was: <FileMetadata(isDirectory, createdAt=0, lastModifiedAt=0, lastAccessedAt=0)>
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+       org.junit.jupiter.api.AssertNull.failNotNull(AssertNull.java:50)
+       org.junit.jupiter.api.AssertNull.assertNull(AssertNull.java:35)
+       org.junit.jupiter.api.Assertions.assertNull(Assertions.java:283)
+       ReadLookupReviewTest.metadataDoesNotReturnAnEntryNeverAtTheRequestedPath(ReadLookupReviewTest.java:41)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       [...]
+  JUnit Jupiter:ReadLookupReviewTest:createDirectoriesCreatesTheRequestedDirectory():repetition 1 of 3
+    MethodSource [className = 'ReadLookupReviewTest', methodName = 'createDirectoriesCreatesTheRequestedDirectory', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Successful createDirectories must create the requested directory, not accept metadata from a retired parent. ==> expected: <true> but was: <false>
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+       org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+       org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+       org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+       ReadLookupReviewTest.createDirectoriesCreatesTheRequestedDirectory(ReadLookupReviewTest.java:61)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       [...]
+  JUnit Jupiter:ReadLookupReviewTest:createDirectoriesCreatesTheRequestedDirectory():repetition 2 of 3
+    MethodSource [className = 'ReadLookupReviewTest', methodName = 'createDirectoriesCreatesTheRequestedDirectory', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Successful createDirectories must create the requested directory, not accept metadata from a retired parent. ==> expected: <true> but was: <false>
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+       org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+       org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+       org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+       ReadLookupReviewTest.createDirectoriesCreatesTheRequestedDirectory(ReadLookupReviewTest.java:61)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       [...]
+  JUnit Jupiter:ReadLookupReviewTest:createDirectoriesCreatesTheRequestedDirectory():repetition 3 of 3
+    MethodSource [className = 'ReadLookupReviewTest', methodName = 'createDirectoriesCreatesTheRequestedDirectory', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Successful createDirectories must create the requested directory, not accept metadata from a retired parent. ==> expected: <true> but was: <false>
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+       org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+       org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+       org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+       ReadLookupReviewTest.createDirectoriesCreatesTheRequestedDirectory(ReadLookupReviewTest.java:61)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       [...]
+  JUnit Jupiter:ReadLookupReviewTest:listDoesNotReturnAChildNeverAtTheRequestedPath():repetition 1 of 3
+    MethodSource [className = 'ReadLookupReviewTest', methodName = 'listDoesNotReturnAChildNeverAtTheRequestedPath', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Listing must not map a retired parent's new child into the current alias. ==> expected: <[]> but was: <[/alias/ghost]>
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+       org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+       org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+       org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1152)
+       ReadLookupReviewTest.listDoesNotReturnAChildNeverAtTheRequestedPath(ReadLookupReviewTest.java:53)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       [...]
+  JUnit Jupiter:ReadLookupReviewTest:listDoesNotReturnAChildNeverAtTheRequestedPath():repetition 2 of 3
+    MethodSource [className = 'ReadLookupReviewTest', methodName = 'listDoesNotReturnAChildNeverAtTheRequestedPath', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Listing must not map a retired parent's new child into the current alias. ==> expected: <[]> but was: <[/alias/ghost]>
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+       org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+       org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+       org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1152)
+       ReadLookupReviewTest.listDoesNotReturnAChildNeverAtTheRequestedPath(ReadLookupReviewTest.java:53)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       [...]
+  JUnit Jupiter:ReadLookupReviewTest:listDoesNotReturnAChildNeverAtTheRequestedPath():repetition 3 of 3
+    MethodSource [className = 'ReadLookupReviewTest', methodName = 'listDoesNotReturnAChildNeverAtTheRequestedPath', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Listing must not map a retired parent's new child into the current alias. ==> expected: <[]> but was: <[/alias/ghost]>
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+       org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+       org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+       org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1152)
+       ReadLookupReviewTest.listDoesNotReturnAChildNeverAtTheRequestedPath(ReadLookupReviewTest.java:53)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       [...]
+
+Test run finished after 163 ms
+[         8 containers found      ]
+[         0 containers skipped    ]
+[         8 containers started    ]
+[         0 containers aborted    ]
+[         8 containers successful ]
+[         0 containers failed     ]
+[        12 tests found           ]
+[         0 tests skipped         ]
+[        12 tests started         ]
+[         0 tests aborted         ]
+[         0 tests successful      ]
+[        12 tests failed          ]
+
