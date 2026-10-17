@@ -1,0 +1,11 @@
+{
+  "candidate": "d5151e217294a9b0aa4b6a2210fdf09c977c383d",
+  "run": "https://github.com/CodexCoder21Organization/okio/actions/runs/39020635632",
+  "first_attempt_rows": 94,
+  "new_rows": 24,
+  "prior_rows": 70,
+  "jar_sha256": "a711455100fde7bc16432e583216d10b58f66bba72e1c424363a8718d622eace",
+  "pom_sha256": "28f6648942e359711ab1530b68e8cebe71bb3f5e4516fb52fe4794173a6430e0",
+  "served_bytes_equal_gate": true,
+  "public_api_equal_previous": true
+}

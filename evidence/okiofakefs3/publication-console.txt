@@ -1,0 +1,2 @@
+Successfully published artifact(s):
+  com.squareup.okio:okio-fakefilesystem-jvm:3.4.0-r576-registry-lock-4

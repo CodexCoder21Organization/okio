@@ -1,0 +1,568 @@
+admission	Set up job	﻿2026-10-17T09:18:46.2186992Z Current runner version: '2.337.0'
+admission	Set up job	2026-10-17T09:18:46.2208993Z ##[group]Runner Image Provisioner
+admission	Set up job	2026-10-17T09:18:46.2209916Z Hosted Compute Agent
+admission	Set up job	2026-10-17T09:18:46.2210405Z Version: 20261012.601
+admission	Set up job	2026-10-17T09:18:46.2210997Z Commit: f3dc54e1fb89da6852db922499a0233137369e1d
+admission	Set up job	2026-10-17T09:18:46.2211618Z Build Date: 2026-10-12T17:48:21Z
+admission	Set up job	2026-10-17T09:18:46.2212229Z Worker ID: {67584f9e-bac2-4e46-bd52-c57703e61b8f}
+admission	Set up job	2026-10-17T09:18:46.2212820Z Region: mexicocentral
+admission	Set up job	2026-10-17T09:18:46.2213288Z Cloud: Azure
+admission	Set up job	2026-10-17T09:18:46.2213768Z ##[endgroup]
+admission	Set up job	2026-10-17T09:18:46.2215075Z ##[group]Operating System
+admission	Set up job	2026-10-17T09:18:46.2215943Z Ubuntu
+admission	Set up job	2026-10-17T09:18:46.2216387Z 24.04.5
+admission	Set up job	2026-10-17T09:18:46.2216818Z LTS
+admission	Set up job	2026-10-17T09:18:46.2217281Z ##[endgroup]
+admission	Set up job	2026-10-17T09:18:46.2217795Z ##[group]Runner Image
+admission	Set up job	2026-10-17T09:18:46.2218294Z Image: ubuntu-24.04
+admission	Set up job	2026-10-17T09:18:46.2218811Z Version: 20261012.334.1
+admission	Set up job	2026-10-17T09:18:46.2219815Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261012.334/images/ubuntu/Ubuntu2404-Readme.md
+admission	Set up job	2026-10-17T09:18:46.2221287Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261012.334
+admission	Set up job	2026-10-17T09:18:46.2222042Z ##[endgroup]
+admission	Set up job	2026-10-17T09:18:46.2222984Z ##[group]GITHUB_TOKEN Permissions
+admission	Set up job	2026-10-17T09:18:46.2224684Z Contents: read
+admission	Set up job	2026-10-17T09:18:46.2225263Z Metadata: read
+admission	Set up job	2026-10-17T09:18:46.2225797Z ##[endgroup]
+admission	Set up job	2026-10-17T09:18:46.2227545Z Secret source: Actions
+admission	Set up job	2026-10-17T09:18:46.2228299Z Cache mode: write
+admission	Set up job	2026-10-17T09:18:46.2228888Z Prepare workflow directory
+admission	Set up job	2026-10-17T09:18:46.2494266Z Prepare all required actions
+admission	Set up job	2026-10-17T09:18:46.2547999Z Getting action download info
+admission	Set up job	2026-10-17T09:18:46.5557210Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+admission	Set up job	2026-10-17T09:18:46.9855041Z Download action repository 'actions/setup-java@v4' (SHA:cf277c60eb25467037889841efdb72551f06f6c3)
+admission	Set up job	2026-10-17T09:18:47.9933503Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+admission	Set up job	2026-10-17T09:18:48.2686753Z Complete job name: admission
+admission	Run actions/checkout@v4	﻿2026-10-17T09:18:48.3431564Z ##[group]Run actions/checkout@v4
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.3432705Z with:
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.3433468Z   ref: d5151e217294a9b0aa4b6a2210fdf09c977c383d
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.3434428Z   fetch-depth: 0
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.3435237Z   repository: CodexCoder21Organization/okio
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.3442721Z   token: ***
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.3443441Z   ssh-strict: true
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.3444175Z   ssh-user: git
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.3444921Z   persist-credentials: true
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.3445732Z   clean: true
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.3446482Z   sparse-checkout-cone-mode: true
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.3447350Z   fetch-tags: false
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.3448110Z   show-progress: true
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.3448852Z   lfs: false
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.3449583Z   submodules: false
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.3450423Z   set-safe-directory: true
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.3451271Z   allow-unsafe-pr-checkout: false
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.3452361Z ##[endgroup]
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.4287134Z Syncing repository: CodexCoder21Organization/okio
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.4290322Z ##[group]Getting Git version info
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.4291473Z Working directory is '/home/runner/work/okio/okio'
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.4293195Z [command]/usr/bin/git version
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.4392988Z git version 2.55.0
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.4408851Z ##[endgroup]
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.4421352Z Temporarily overriding HOME='/home/runner/work/_temp/c34f6298-6aa0-4d38-85d6-45ecbf3c87e9' before making global git config changes
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.4424233Z Adding repository directory to the temporary git global config as a safe directory
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.4426696Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/okio/okio
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.6018015Z Deleting the contents of '/home/runner/work/okio/okio'
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.6022775Z ##[group]Initializing the repository
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.6027136Z [command]/usr/bin/git init /home/runner/work/okio/okio
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.6134941Z hint: Using 'master' as the name for the initial branch. This default branch name
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.6137508Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.6139927Z hint: to use in all of your new repositories, which will suppress this warning,
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.6141723Z hint: call:
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.6142689Z hint:
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.6143833Z hint: 	git config --global init.defaultBranch <name>
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.6145211Z hint:
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.6146605Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.6148778Z hint: 'development'. The just-created branch can be renamed via this command:
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.6150658Z hint:
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.6151602Z hint: 	git branch -m <name>
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.6152812Z hint:
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.6153896Z hint: Disable this message with "git config set advice.defaultBranchName false"
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.6155458Z Initialized empty Git repository in /home/runner/work/okio/okio/.git/
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.6158470Z [command]/usr/bin/git remote add origin https://github.com/CodexCoder21Organization/okio
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.6190584Z ##[endgroup]
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.6192368Z ##[group]Disabling automatic garbage collection
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.6194018Z [command]/usr/bin/git config --local gc.auto 0
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.6219506Z ##[endgroup]
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.6221373Z ##[group]Setting up auth
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.6225264Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.6251955Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.6556135Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.6582843Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.6765227Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.6790532Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.6979404Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.8835823Z ##[endgroup]
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.8836527Z ##[group]Fetching the repository
+admission	Run actions/checkout@v4	2026-10-17T09:18:48.8844600Z [command]/usr/bin/git -c protocol.version=2 fetch --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/*
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5888442Z From https://github.com/CodexCoder21Organization/okio
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5889231Z  * [new branch]        bquenaudon.2026-04-20.windowspath -> origin/bquenaudon.2026-04-20.windowspath
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5890181Z  * [new branch]        egorand/220325/publish-release-actions -> origin/egorand/220325/publish-release-actions
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5891083Z  * [new branch]        fix/fake-filesystem-lookup-cost -> origin/fix/fake-filesystem-lookup-cost
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5891915Z  * [new branch]        fix/preserve-short-read-buffer-offset-uA -> origin/fix/preserve-short-read-buffer-offset-uA
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5892585Z  * [new branch]        gh-pages                -> origin/gh-pages
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5893095Z  * [new branch]        ghpages-javadocs        -> origin/ghpages-javadocs
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5893617Z  * [new branch]        ghpages-javadocs-2x     -> origin/ghpages-javadocs-2x
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5894210Z  * [new branch]        jakew/top-level-common/2019-04-04 -> origin/jakew/top-level-common/2019-04-04
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5895033Z  * [new branch]        jw.equals-constant-time.2026-04-09 -> origin/jw.equals-constant-time.2026-04-09
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5895783Z  * [new branch]        jw.fixed-length-source.2024-09-12 -> origin/jw.fixed-length-source.2024-09-12
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5896685Z  * [new branch]        jw/agp/2022-03-25       -> origin/jw/agp/2022-03-25
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5897249Z  * [new branch]        jw/no-with-java/2022-03-11 -> origin/jw/no-with-java/2022-03-11
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5897856Z  * [new branch]        jw/toolchain/2022-03-29 -> origin/jw/toolchain/2022-03-29
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5898572Z  * [new branch]        jwilson.0601.toFraction_toIndex -> origin/jwilson.0601.toFraction_toIndex
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5899284Z  * [new branch]        jwilson.0607.coroutines -> origin/jwilson.0607.coroutines
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5900157Z  * [new branch]        jwilson.0711.compress_benchmark -> origin/jwilson.0711.compress_benchmark
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5900843Z  * [new branch]        jwilson.0716.sample_less -> origin/jwilson.0716.sample_less
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5901418Z  * [new branch]        jwilson.0723.xxx        -> origin/jwilson.0723.xxx
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5901966Z  * [new branch]        jwilson.1024.docs       -> origin/jwilson.1024.docs
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5902546Z  * [new branch]        jwilson.1101.coroutines -> origin/jwilson.1101.coroutines
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5903307Z  * [new branch]        jwilson.1105.useIgnorableReturnValue -> origin/jwilson.1105.useIgnorableReturnValue
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5904077Z  * [new branch]        jwilson.1114.timeout_hacking -> origin/jwilson.1114.timeout_hacking
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5904751Z  * [new branch]        jwilson.1206.hierarchical -> origin/jwilson.1206.hierarchical
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5905546Z  * [new branch]        ktabouguia/07-08-async-timeout-benchmark -> origin/ktabouguia/07-08-async-timeout-benchmark
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5906390Z  * [new branch]        ktabouguia/07-21-improved-heap -> origin/ktabouguia/07-21-improved-heap
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5907341Z  * [new branch]        ktabouguia/async-timeout-heap -> origin/ktabouguia/async-timeout-heap
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5908092Z  * [new branch]        ktabouguia/lock-free-min-heap -> origin/ktabouguia/lock-free-min-heap
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5908678Z  * [new branch]        main                    -> origin/main
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5909561Z  * [new branch]        mattrob33-base64-padding -> origin/mattrob33-base64-padding
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5911115Z  * [new branch]        okio-kotlinx.io         -> origin/okio-kotlinx.io
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5921031Z  * [new branch]        okio_1_14               -> origin/okio_1_14
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5921682Z  * [new branch]        okio_1x                 -> origin/okio_1x
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5922172Z  * [new branch]        okio_2_4                -> origin/okio_2_4
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5922670Z  * [new branch]        okio_2x                 -> origin/okio_2x
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5923119Z  * [new branch]        okio_3_16               -> origin/okio_3_16
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5923585Z  * [new branch]        okio_3_18               -> origin/okio_3_18
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5924115Z  * [new branch]        ray/new-hotness-structure -> origin/ray/new-hotness-structure
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5925083Z  * [new branch]        renovate/com.diffplug.spotless-spotless-plugin-gradle-8.x -> origin/renovate/com.diffplug.spotless-spotless-plugin-gradle-8.x
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5926004Z  * [new branch]        renovate/kotlin-monorepo -> origin/renovate/kotlin-monorepo
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5926629Z  * [new branch]        renovate/migrate-config -> origin/renovate/migrate-config
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5927331Z  * [new branch]        wip/fleetstatus6-release-order -> origin/wip/fleetstatus6-release-order
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5928021Z  * [new branch]        wip/gha-run/okiofakefs3 -> origin/wip/gha-run/okiofakefs3
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5928584Z  * [new branch]        wip/okiofakefs1         -> origin/wip/okiofakefs1
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5929073Z  * [new branch]        wip/okiofakefs1-evidence -> origin/wip/okiofakefs1-evidence
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5929464Z  * [new branch]        wip/okiofakefs2-evidence -> origin/wip/okiofakefs2-evidence
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5930094Z  * [new branch]        wip/okiofakefs3-evidence -> origin/wip/okiofakefs3-evidence
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5930694Z  * [new branch]        wip/okiofix1-evidence   -> origin/wip/okiofix1-evidence
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5931119Z  * [new branch]        wip/okiofix1-nullable-use -> origin/wip/okiofix1-nullable-use
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5931626Z  * [new branch]        wip/revokio1-evidence   -> origin/wip/revokio1-evidence
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5932287Z  * [new branch]        wip/revokio2-evidence   -> origin/wip/revokio2-evidence
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5932791Z  * [new tag]           2.2.2                   -> 2.2.2
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5933193Z  * [new tag]           2.4.1                   -> 2.4.1
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5933477Z  * [new tag]           3.10.0                  -> 3.10.0
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5933778Z  * [new tag]           3.10.1                  -> 3.10.1
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5934177Z  * [new tag]           3.10.2                  -> 3.10.2
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5934579Z  * [new tag]           3.16.2                  -> 3.16.2
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5934841Z  * [new tag]           3.9.1                   -> 3.9.1
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5935143Z  * [new tag]           okio-parent-0.5.0       -> okio-parent-0.5.0
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5935468Z  * [new tag]           okio-parent-0.6.0       -> okio-parent-0.6.0
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5935777Z  * [new tag]           okio-parent-0.6.1       -> okio-parent-0.6.1
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5936083Z  * [new tag]           okio-parent-0.7.0       -> okio-parent-0.7.0
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5936382Z  * [new tag]           okio-parent-0.8.0       -> okio-parent-0.8.0
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5936681Z  * [new tag]           okio-parent-0.9.0       -> okio-parent-0.9.0
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5936990Z  * [new tag]           okio-parent-1.0.0       -> okio-parent-1.0.0
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5937434Z  * [new tag]           okio-parent-1.0.1       -> okio-parent-1.0.1
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5937747Z  * [new tag]           okio-parent-1.1.0       -> okio-parent-1.1.0
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5938065Z  * [new tag]           okio-parent-1.10.0      -> okio-parent-1.10.0
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5938403Z  * [new tag]           okio-parent-1.11.0      -> okio-parent-1.11.0
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5938914Z  * [new tag]           okio-parent-1.12.0      -> okio-parent-1.12.0
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5939515Z  * [new tag]           okio-parent-1.13.0      -> okio-parent-1.13.0
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5940012Z  * [new tag]           okio-parent-1.14.0      -> okio-parent-1.14.0
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5940334Z  * [new tag]           okio-parent-1.14.1      -> okio-parent-1.14.1
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5940644Z  * [new tag]           okio-parent-1.15.0      -> okio-parent-1.15.0
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5940954Z  * [new tag]           okio-parent-1.16.0      -> okio-parent-1.16.0
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5941256Z  * [new tag]           okio-parent-1.17.0      -> okio-parent-1.17.0
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5941558Z  * [new tag]           okio-parent-1.17.1      -> okio-parent-1.17.1
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5941863Z  * [new tag]           okio-parent-1.17.2      -> okio-parent-1.17.2
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5942163Z  * [new tag]           okio-parent-1.17.3      -> okio-parent-1.17.3
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5942475Z  * [new tag]           okio-parent-1.17.4      -> okio-parent-1.17.4
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5942792Z  * [new tag]           okio-parent-1.17.5      -> okio-parent-1.17.5
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5943103Z  * [new tag]           okio-parent-1.17.6      -> okio-parent-1.17.6
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5943411Z  * [new tag]           okio-parent-1.2.0       -> okio-parent-1.2.0
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5943716Z  * [new tag]           okio-parent-1.3.0       -> okio-parent-1.3.0
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5944021Z  * [new tag]           okio-parent-1.4.0       -> okio-parent-1.4.0
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5944322Z  * [new tag]           okio-parent-1.5.0       -> okio-parent-1.5.0
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5944621Z  * [new tag]           okio-parent-1.6.0       -> okio-parent-1.6.0
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5944989Z  * [new tag]           okio-parent-1.7.0       -> okio-parent-1.7.0
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5945390Z  * [new tag]           okio-parent-1.8.0       -> okio-parent-1.8.0
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5945905Z  * [new tag]           okio-parent-1.9.0       -> okio-parent-1.9.0
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5946202Z  * [new tag]           okio-parent-2.0.0       -> okio-parent-2.0.0
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5946533Z  * [new tag]           okio-parent-2.0.0-RC1   -> okio-parent-2.0.0-RC1
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.5946856Z  * [new tag]           okio-parent-2.1.0       -> okio-parent-2.1.0
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6018078Z  * [new tag]           okio-parent-2.2.0       -> okio-parent-2.2.0
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6018772Z  * [new tag]           okio-parent-2.2.1       -> okio-parent-2.2.1
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6019326Z  * [new tag]           parent-2.10.0           -> parent-2.10.0
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6019869Z  * [new tag]           parent-2.3.0            -> parent-2.3.0
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6020324Z  * [new tag]           parent-2.4.0            -> parent-2.4.0
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6020766Z  * [new tag]           parent-2.4.2            -> parent-2.4.2
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6021204Z  * [new tag]           parent-2.4.3            -> parent-2.4.3
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6021638Z  * [new tag]           parent-2.5.0            -> parent-2.5.0
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6022055Z  * [new tag]           parent-2.6.0            -> parent-2.6.0
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6022448Z  * [new tag]           parent-2.7.0            -> parent-2.7.0
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6022908Z  * [new tag]           parent-2.8.0            -> parent-2.8.0
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6023344Z  * [new tag]           parent-2.9.0            -> parent-2.9.0
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6023757Z  * [new tag]           parent-3.0.0            -> parent-3.0.0
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6024212Z  * [new tag]           parent-3.0.0-alpha.1    -> parent-3.0.0-alpha.1
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6024733Z  * [new tag]           parent-3.0.0-alpha.10   -> parent-3.0.0-alpha.10
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6025277Z  * [new tag]           parent-3.0.0-alpha.11   -> parent-3.0.0-alpha.11
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6025786Z  * [new tag]           parent-3.0.0-alpha.2    -> parent-3.0.0-alpha.2
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6026302Z  * [new tag]           parent-3.0.0-alpha.3    -> parent-3.0.0-alpha.3
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6026848Z  * [new tag]           parent-3.0.0-alpha.4    -> parent-3.0.0-alpha.4
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6027625Z  * [new tag]           parent-3.0.0-alpha.5    -> parent-3.0.0-alpha.5
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6028210Z  * [new tag]           parent-3.0.0-alpha.6    -> parent-3.0.0-alpha.6
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6028932Z  * [new tag]           parent-3.0.0-alpha.7    -> parent-3.0.0-alpha.7
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6029500Z  * [new tag]           parent-3.0.0-alpha.8    -> parent-3.0.0-alpha.8
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6030399Z  * [new tag]           parent-3.0.0-alpha.9    -> parent-3.0.0-alpha.9
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6030841Z  * [new tag]           parent-3.1.0            -> parent-3.1.0
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6031303Z  * [new tag]           parent-3.11.0           -> parent-3.11.0
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6031768Z  * [new tag]           parent-3.12.0           -> parent-3.12.0
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6032238Z  * [new tag]           parent-3.13.0           -> parent-3.13.0
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6032673Z  * [new tag]           parent-3.14.0           -> parent-3.14.0
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6033096Z  * [new tag]           parent-3.15.0           -> parent-3.15.0
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6033589Z  * [new tag]           parent-3.16.0           -> parent-3.16.0
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6034018Z  * [new tag]           parent-3.16.1           -> parent-3.16.1
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6034465Z  * [new tag]           parent-3.16.2           -> parent-3.16.2
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6034890Z  * [new tag]           parent-3.16.3           -> parent-3.16.3
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6035297Z  * [new tag]           parent-3.16.4           -> parent-3.16.4
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6035732Z  * [new tag]           parent-3.17.0           -> parent-3.17.0
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6036175Z  * [new tag]           parent-3.18.0           -> parent-3.18.0
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6036474Z  * [new tag]           parent-3.18.1           -> parent-3.18.1
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6036904Z  * [new tag]           parent-3.18.2           -> parent-3.18.2
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6037596Z  * [new tag]           parent-3.2.0            -> parent-3.2.0
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6038008Z  * [new tag]           parent-3.3.0            -> parent-3.3.0
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6038409Z  * [new tag]           parent-3.4.0            -> parent-3.4.0
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6038799Z  * [new tag]           parent-3.5.0            -> parent-3.5.0
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6039223Z  * [new tag]           parent-3.6.0            -> parent-3.6.0
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6039616Z  * [new tag]           parent-3.7.0            -> parent-3.7.0
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6040244Z  * [new tag]           parent-3.8.0            -> parent-3.8.0
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6040688Z  * [new tag]           parent-3.9.0            -> parent-3.9.0
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6041965Z [command]/usr/bin/git rev-parse --verify --quiet d5151e217294a9b0aa4b6a2210fdf09c977c383d^{object}
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6042425Z d5151e217294a9b0aa4b6a2210fdf09c977c383d
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6043075Z ##[endgroup]
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6043385Z ##[group]Determining the checkout info
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6043727Z ##[endgroup]
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6043932Z [command]/usr/bin/git sparse-checkout disable
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6044516Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6045208Z ##[group]Checking out the ref
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6045557Z [command]/usr/bin/git checkout --progress --force d5151e217294a9b0aa4b6a2210fdf09c977c383d
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6398019Z Note: switching to 'd5151e217294a9b0aa4b6a2210fdf09c977c383d'.
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6398439Z 
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6398708Z You are in 'detached HEAD' state. You can look around, make experimental
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6399335Z changes and commit them, and you can discard any commits you make in this
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6400079Z state without impacting any branches by switching back to a branch.
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6400413Z 
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6400660Z If you want to create a new branch to retain commits you create, you may
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6401058Z do so (now or later) by using -c with the switch command. Example:
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6401285Z 
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6401392Z   git switch -c <new-branch-name>
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6401757Z 
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6401852Z Or undo this operation with:
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6401984Z 
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6402064Z   git switch -
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6402173Z 
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6402350Z Turn off this advice by setting config variable advice.detachedHead to false
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6402594Z 
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6402817Z HEAD is now at d5151e21 Resolve current symlink paths within each filesystem transaction
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6408052Z ##[endgroup]
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6445873Z [command]/usr/bin/git log -1 --format=%H
+admission	Run actions/checkout@v4	2026-10-17T09:18:50.6468004Z d5151e217294a9b0aa4b6a2210fdf09c977c383d
+admission	Run actions/setup-java@v4	﻿2026-10-17T09:18:50.6698106Z ##[group]Run actions/setup-java@v4
+admission	Run actions/setup-java@v4	2026-10-17T09:18:50.6698368Z with:
+admission	Run actions/setup-java@v4	2026-10-17T09:18:50.6698543Z   distribution: temurin
+admission	Run actions/setup-java@v4	2026-10-17T09:18:50.6698733Z   java-version: 21
+admission	Run actions/setup-java@v4	2026-10-17T09:18:50.6698912Z   java-package: jdk
+admission	Run actions/setup-java@v4	2026-10-17T09:18:50.6699107Z   check-latest: false
+admission	Run actions/setup-java@v4	2026-10-17T09:18:50.6699283Z   server-id: github
+admission	Run actions/setup-java@v4	2026-10-17T09:18:50.6699458Z   server-username: GITHUB_ACTOR
+admission	Run actions/setup-java@v4	2026-10-17T09:18:50.6699818Z   server-password: GITHUB_TOKEN
+admission	Run actions/setup-java@v4	2026-10-17T09:18:50.6700028Z   overwrite-settings: true
+admission	Run actions/setup-java@v4	2026-10-17T09:18:50.6700221Z   job-status: success
+admission	Run actions/setup-java@v4	2026-10-17T09:18:50.6702276Z   token: ***
+admission	Run actions/setup-java@v4	2026-10-17T09:18:50.6702458Z ##[endgroup]
+admission	Run actions/setup-java@v4	2026-10-17T09:18:50.8085939Z ##[warning]setup-java v4 is deprecated and will no longer receive updates. Please migrate to actions/setup-java@v5.
+admission	Run actions/setup-java@v4	2026-10-17T09:18:50.8092266Z ##[group]Installed distributions
+admission	Run actions/setup-java@v4	2026-10-17T09:18:50.8266014Z Resolved Java 21.0.12+1 from tool-cache
+admission	Run actions/setup-java@v4	2026-10-17T09:18:50.8266565Z Setting Java 21.0.12+1 as the default
+admission	Run actions/setup-java@v4	2026-10-17T09:18:50.8275588Z (node:2114) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+admission	Run actions/setup-java@v4	2026-10-17T09:18:50.8276341Z (Use `node --trace-deprecation ...` to show where the warning was created)
+admission	Run actions/setup-java@v4	2026-10-17T09:18:50.8278644Z Creating toolchains.xml for JDK version 21 from temurin
+admission	Run actions/setup-java@v4	2026-10-17T09:18:50.8334939Z Writing to /home/runner/.m2/toolchains.xml
+admission	Run actions/setup-java@v4	2026-10-17T09:18:50.8335279Z 
+admission	Run actions/setup-java@v4	2026-10-17T09:18:50.8335416Z Java configuration:
+admission	Run actions/setup-java@v4	2026-10-17T09:18:50.8335735Z   Distribution: temurin
+admission	Run actions/setup-java@v4	2026-10-17T09:18:50.8336055Z   Version: 21.0.12+1
+admission	Run actions/setup-java@v4	2026-10-17T09:18:50.8336508Z   Path: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.12-1/x64
+admission	Run actions/setup-java@v4	2026-10-17T09:18:50.8336861Z 
+admission	Run actions/setup-java@v4	2026-10-17T09:18:50.8337319Z ##[endgroup]
+admission	Run actions/setup-java@v4	2026-10-17T09:18:50.8353601Z Creating settings.xml with server-id: github
+admission	Run actions/setup-java@v4	2026-10-17T09:18:50.8376324Z Writing to /home/runner/.m2/settings.xml
+admission	Install Coursier	﻿2026-10-17T09:18:50.8509923Z ##[group]Run mkdir -p "$RUNNER_TEMP/bin"
+admission	Install Coursier	2026-10-17T09:18:50.8510285Z [36;1mmkdir -p "$RUNNER_TEMP/bin"[0m
+admission	Install Coursier	2026-10-17T09:18:50.8552188Z [36;1mcurl -fL https://github.com/coursier/launchers/raw/master/cs-x86_64-pc-linux.gz -o "$RUNNER_TEMP/coursier.gz"[0m
+admission	Install Coursier	2026-10-17T09:18:50.8552848Z [36;1mgzip -dc "$RUNNER_TEMP/coursier.gz" > "$RUNNER_TEMP/bin/coursier"[0m
+admission	Install Coursier	2026-10-17T09:18:50.8553173Z [36;1mchmod +x "$RUNNER_TEMP/bin/coursier"[0m
+admission	Install Coursier	2026-10-17T09:18:50.8553434Z [36;1mecho "$RUNNER_TEMP/bin" >> "$GITHUB_PATH"[0m
+admission	Install Coursier	2026-10-17T09:18:50.9709371Z shell: /usr/bin/bash -e {0}
+admission	Install Coursier	2026-10-17T09:18:50.9709895Z env:
+admission	Install Coursier	2026-10-17T09:18:50.9710218Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.12-1/x64
+admission	Install Coursier	2026-10-17T09:18:50.9710622Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.12-1/x64
+admission	Install Coursier	2026-10-17T09:18:50.9710926Z ##[endgroup]
+admission	Install Coursier	2026-10-17T09:18:51.0024409Z   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+admission	Install Coursier	2026-10-17T09:18:51.0024996Z                                  Dload  Upload   Total   Spent    Left  Speed
+admission	Install Coursier	2026-10-17T09:18:51.0025382Z 
+admission	Install Coursier	2026-10-17T09:18:51.2601499Z   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+admission	Install Coursier	2026-10-17T09:18:51.2602121Z   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+admission	Install Coursier	2026-10-17T09:18:52.3222543Z 
+admission	Install Coursier	2026-10-17T09:18:52.3799387Z   0 28.8M    0 39935    0     0  30255      0  0:16:39  0:00:01  0:16:38 30255
+admission	Install Coursier	2026-10-17T09:18:52.3800140Z 100 28.8M  100 28.8M    0     0  20.9M      0  0:00:01  0:00:01 --:--:--  505M
+admission	Build exact candidate and check public API	﻿2026-10-17T09:18:52.8938032Z ##[group]Run test "$(git rev-parse HEAD)" = d5151e217294a9b0aa4b6a2210fdf09c977c383d
+admission	Build exact candidate and check public API	2026-10-17T09:18:52.8938534Z [36;1mtest "$(git rev-parse HEAD)" = d5151e217294a9b0aa4b6a2210fdf09c977c383d[0m
+admission	Build exact candidate and check public API	2026-10-17T09:18:52.8939085Z [36;1mtimeout 600 python3 scripts/buildFakeFilesystemDirectoryBackport.py --output-directory "$RUNNER_TEMP/gate/artifact"[0m
+admission	Build exact candidate and check public API	2026-10-17T09:18:52.8993296Z shell: /usr/bin/bash -e {0}
+admission	Build exact candidate and check public API	2026-10-17T09:18:52.8993510Z env:
+admission	Build exact candidate and check public API	2026-10-17T09:18:52.8993757Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.12-1/x64
+admission	Build exact candidate and check public API	2026-10-17T09:18:52.8994137Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.12-1/x64
+admission	Build exact candidate and check public API	2026-10-17T09:18:52.8994429Z   LC_ALL: C.UTF-8
+admission	Build exact candidate and check public API	2026-10-17T09:18:52.8994600Z ##[endgroup]
+admission	Build exact candidate and check public API	2026-10-17T09:18:52.9573470Z WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+admission	Build exact candidate and check public API	2026-10-17T09:18:52.9574658Z WARNING: sun.misc.Unsafe::compareAndSwapObject has been called by scala.runtime.LazyVals$ (file:/home/runner/work/_temp/bin/coursier)
+admission	Build exact candidate and check public API	2026-10-17T09:18:52.9575703Z WARNING: Please consider reporting this to the maintainers of class scala.runtime.LazyVals$
+admission	Build exact candidate and check public API	2026-10-17T09:18:52.9576448Z WARNING: sun.misc.Unsafe::compareAndSwapObject will be removed in a future release
+admission	Build exact candidate and check public API	2026-10-17T09:18:54.9809433Z WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+admission	Build exact candidate and check public API	2026-10-17T09:18:54.9810693Z WARNING: sun.misc.Unsafe::compareAndSwapObject has been called by scala.runtime.LazyVals$ (file:/home/runner/work/_temp/bin/coursier)
+admission	Build exact candidate and check public API	2026-10-17T09:18:54.9812211Z WARNING: Please consider reporting this to the maintainers of class scala.runtime.LazyVals$
+admission	Build exact candidate and check public API	2026-10-17T09:18:54.9812968Z WARNING: sun.misc.Unsafe::compareAndSwapObject will be removed in a future release
+admission	Build exact candidate and check public API	2026-10-17T09:19:10.4693926Z Public javap API is identical to -3 for all previous classes.
+admission	Build exact candidate and check public API	2026-10-17T09:19:10.4694805Z a711455100fde7bc16432e583216d10b58f66bba72e1c424363a8718d622eace  okio-fakefilesystem-jvm-3.4.0-r576-registry-lock-4.jar
+admission	Build exact candidate and check public API	2026-10-17T09:19:10.4695486Z 28f6648942e359711ab1530b68e8cebe71bb3f5e4516fb52fe4794173a6430e0  okio-fakefilesystem-jvm-3.4.0-r576-registry-lock-4.pom
+admission	Run public admission and retained directory and registry tests	﻿2026-10-17T09:19:10.4811777Z ##[group]Run timeout 180 scripts/testFakeFilesystemDirectoryBackport.bash "$RUNNER_TEMP/gate/artifact" "$RUNNER_TEMP/gate/native"
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:10.4812516Z [36;1mtimeout 180 scripts/testFakeFilesystemDirectoryBackport.bash "$RUNNER_TEMP/gate/artifact" "$RUNNER_TEMP/gate/native"[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:10.4867124Z shell: /usr/bin/bash -e {0}
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:10.4867346Z env:
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:10.4867603Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.12-1/x64
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:10.4867995Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.12-1/x64
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:10.4868296Z   LC_ALL: C.UTF-8
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:10.4868463Z ##[endgroup]
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:10.5362834Z WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:10.5363890Z WARNING: sun.misc.Unsafe::compareAndSwapObject has been called by scala.runtime.LazyVals$ (file:/home/runner/work/_temp/bin/coursier)
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:10.5364822Z WARNING: Please consider reporting this to the maintainers of class scala.runtime.LazyVals$
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:10.5365650Z WARNING: sun.misc.Unsafe::compareAndSwapObject will be removed in a future release
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:12.2219297Z WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:12.2220461Z WARNING: sun.misc.Unsafe::compareAndSwapObject has been called by scala.runtime.LazyVals$ (file:/home/runner/work/_temp/bin/coursier)
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:19.3101197Z WARNING: Please consider reporting this to the maintainers of class scala.runtime.LazyVals$
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:19.3102130Z WARNING: sun.misc.Unsafe::compareAndSwapObject will be removed in a future release
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:19.3102704Z R576 trial 1: PASS
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:19.5187790Z R576 trial 2: PASS
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:19.6570899Z R576 trial 3: PASS
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:19.7930561Z R576 trial 4: PASS
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:19.9331113Z R576 trial 5: PASS
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:20.0766523Z R576 trial 6: PASS
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:20.2142804Z R576 trial 7: PASS
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:20.3661461Z R576 trial 8: PASS
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:20.5156493Z R576 trial 9: PASS
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:20.6605607Z R576 trial 10: PASS
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:20.7948458Z R576 trial 11: PASS
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:20.9336464Z R576 trial 12: PASS
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:21.0764557Z R576 trial 13: PASS
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:21.2130853Z R576 trial 14: PASS
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:21.3549218Z R576 trial 15: PASS
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:21.4967653Z R576 trial 16: PASS
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:21.6394964Z R576 trial 17: PASS
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:21.7773087Z R576 trial 18: PASS
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:21.9193045Z R576 trial 19: PASS
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.0616166Z R576 trial 20: PASS
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2844948Z [36m╷[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2845775Z [36m├─[0m [36mJUnit Jupiter[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2850675Z [36m│  ├─[0m [36mReadLookupReviewTest[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2870805Z [36m│  │  ├─[0m [36mcanonicalizeRejectsAPathAbsentThroughoutItsCallback()[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2890642Z [36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2891322Z [36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2891828Z [36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2892532Z [36m│  │  ├─[0m [36mmetadataDoesNotReturnAnEntryNeverAtTheRequestedPath()[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2893239Z [36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2893731Z [36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2894224Z [36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2894881Z [36m│  │  ├─[0m [36mcreateDirectoriesCreatesTheRequestedDirectory()[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2895525Z [36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2896458Z [36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2896947Z [36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2897612Z [36m│  │  └─[0m [36mlistDoesNotReturnAChildNeverAtTheRequestedPath()[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2898620Z [36m│  │     ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2899104Z [36m│  │     ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2899579Z [36m│  │     └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2900328Z [36m│  ├─[0m [36mSymlinkResolutionBoundaryTest[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2900998Z [36m│  │  ├─[0m [36mcanonicalizeRejectsDanglingFinalLink()[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2901599Z [36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2902090Z [36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2902563Z [36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2903236Z [36m│  │  ├─[0m [36mexistingDanglingDestinationReplacesOnlyTheLink()[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2903882Z [36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2904361Z [36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2904856Z [36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2905503Z [36m│  │  └─[0m [36mexistingLiveDestinationReplacesOnlyTheLink()[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2906134Z [36m│  │     ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2906605Z [36m│  │     ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2907083Z [36m│  │     └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2907547Z [36m│  ├─[0m [36mDirectoryProof[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2908218Z [36m│  │  └─[0m [36mreentrantDirectoryCreationPreservesCommittedChild()[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2908904Z [36m│  │     ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2909416Z [36m│  │     ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2910059Z [36m│  │     └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2910597Z [36m│  ├─[0m [36mDirectoryConcurrencyTest[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2911214Z [36m│  │  ├─[0m [36mexistingDirectoryPreservesChild()[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2911776Z [36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2912259Z [36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2912738Z [36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2913392Z [36m│  │  ├─[0m [36mreentrantMustCreateRejectsCommittedDirectory()[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2914029Z [36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2914511Z [36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2914992Z [36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2915693Z [36m│  │  ├─[0m [36mconcurrentCreateDirectoriesPreservesCommittedChild()[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2916368Z [36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2916845Z [36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2917340Z [36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2917938Z [36m│  │  ├─[0m [36mexistingFileIsNotReplacedByDirectory()[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2918527Z [36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2919006Z [36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2919492Z [36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2920263Z [36m│  │  ├─[0m [36mreentrantSymlinkParentPreservesCommittedChild()[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2920914Z [36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2921720Z [36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2922203Z [36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2922783Z [36m│  │  ├─[0m [36mconcurrentMustCreateAdmitsOneCaller()[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2923368Z [36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2924041Z [36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2924512Z [36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2925074Z [36m│  │  ├─[0m [36mexistingRootMustCreateIsRejected()[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2925617Z [36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2926069Z [36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2926553Z [36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2927197Z [36m│  │  └─[0m [36mreentrantRootCreationPreservesCommittedChild()[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2927852Z [36m│  │     ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2928293Z [36m│  │     ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2928670Z [36m│  │     └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2928976Z [36m│  ├─[0m [36mNeighborEntryReviewTest[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2929402Z [36m│  │  ├─[0m [36mmovePreservesDirectoryCreatedBySourceLookupClock()[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2930038Z [36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2930334Z [36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2930618Z [36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2931015Z [36m│  │  ├─[0m [36msymlinkCreationPreservesDirectoryCreatedByClock()[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2931406Z [36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2931694Z [36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2931988Z [36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2932363Z [36m│  │  └─[0m [36mmustCreateOpenPreservesDirectoryCreatedByClock()[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2932766Z [36m│  │     ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2933045Z [36m│  │     ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2933334Z [36m│  │     └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2933649Z [36m│  ├─[0m [36mEntryAdmissionConcurrencyTest[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2934057Z [36m│  │  ├─[0m [36mconcurrentSymlinkPreservesCommittedDirectory()[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2934431Z [36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2934712Z [36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2934997Z [36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2935358Z [36m│  │  ├─[0m [36mconcurrentOpenPreservesCommittedDirectory()[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2935728Z [36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2936007Z [36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2936288Z [36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2936648Z [36m│  │  └─[0m [36mconcurrentMovePreservesCommittedDirectory()[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2937024Z [36m│  │     ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2937312Z [36m│  │     ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2937598Z [36m│  │     └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2937906Z [36m│  ├─[0m [36mEntryAdmissionBoundaryTest[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2938302Z [36m│  │  ├─[0m [36mappendingSinkRejectsDirectoryCreatedByClock()[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2938667Z [36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2938949Z [36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2939419Z [36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2940111Z [36m│  │  ├─[0m [36mmustExistRejectsFileDeletedByClock()[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2940459Z [36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2940745Z [36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2941193Z [36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2941528Z [36m│  │  ├─[0m [36mmustCreateRejectsFileCreatedByClock()[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2941864Z [36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2942145Z [36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2942424Z [36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2942759Z [36m│  │  ├─[0m [36mreadOnlyReadsFileReplacedByClock()[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2943099Z [36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2943407Z [36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2943696Z [36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2944074Z [36m│  │  ├─[0m [36mdeleteResolvesCurrentSymlinkParentAfterClock()[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2944449Z [36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2944749Z [36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2945033Z [36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2945376Z [36m│  │  └─[0m [36msinkRejectsDirectoryCreatedByClock()[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2945708Z [36m│  │     ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2945998Z [36m│  │     ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2946357Z [36m│  │     └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2946886Z [36m│  ├─[0m [36mEntryMetadataAdmissionTest[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2947577Z [36m│  │  └─[0m [36mmetadataUpdateResolvesCurrentSymlinkParentAfterClock()[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2948243Z [36m│  │     ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2948544Z [36m│  │     ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2948848Z [36m│  │     └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2949164Z [36m│  ├─[0m [36mRegistryConcurrencyTest[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2949508Z [36m│  │  └─[0m [34mconcurrentDistinctFileOpenClose()[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2950032Z [36m│  └─[0m [36mDanglingAdmissionReviewTest[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2950570Z [36m│     └─[0m [36mmoveAdmissionPreservesUnrelatedDirectory()[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2951032Z [36m│        ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2951475Z [36m│        ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2951921Z [36m│        └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2952377Z [36m├─[0m [36mJUnit Vintage[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2952687Z [36m│  └─[0m [36mFakeFileSystemRegistryTest[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2953080Z [36m│     ├─[0m [34mclockFailureOnCloseStillRemovesRegistration[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2953491Z [36m│     ├─[0m [34mclockReentryCannotAdmitTwoWriters[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2954060Z [36m│     └─[0m [34mopenPathsIsASnapshotAndSourcesRetainRegistration[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2954459Z [36m└─[0m [36mJUnit Platform Suite[0m [32m✔[0m
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2954616Z 
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2954712Z Test run finished after 3619 ms
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2954923Z [        44 containers found      ]
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2955133Z [         0 containers skipped    ]
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2955334Z [        44 containers started    ]
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2955525Z [         0 containers aborted    ]
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2955720Z [        44 containers successful ]
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2955919Z [         0 containers failed     ]
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2956125Z [        94 tests found           ]
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2956325Z [         0 tests skipped         ]
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2956518Z [        94 tests started         ]
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2956709Z [         0 tests aborted         ]
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2956909Z [        94 tests successful      ]
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2957104Z [         0 tests failed          ]
+admission	Run public admission and retained directory and registry tests	2026-10-17T09:19:22.2957231Z 
+admission	Run actions/upload-artifact@v4	﻿2026-10-17T09:19:22.3135787Z ##[group]Run actions/upload-artifact@v4
+admission	Run actions/upload-artifact@v4	2026-10-17T09:19:22.3136042Z with:
+admission	Run actions/upload-artifact@v4	2026-10-17T09:19:22.3136215Z   name: okiofakefs3-gate
+admission	Run actions/upload-artifact@v4	2026-10-17T09:19:22.3136419Z   path: /home/runner/work/_temp/gate
+admission	Run actions/upload-artifact@v4	2026-10-17T09:19:22.3136645Z   if-no-files-found: warn
+admission	Run actions/upload-artifact@v4	2026-10-17T09:19:22.3136843Z   compression-level: 6
+admission	Run actions/upload-artifact@v4	2026-10-17T09:19:22.3137028Z   overwrite: false
+admission	Run actions/upload-artifact@v4	2026-10-17T09:19:22.3137207Z   include-hidden-files: false
+admission	Run actions/upload-artifact@v4	2026-10-17T09:19:22.3137401Z env:
+admission	Run actions/upload-artifact@v4	2026-10-17T09:19:22.3137646Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.12-1/x64
+admission	Run actions/upload-artifact@v4	2026-10-17T09:19:22.3138044Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.12-1/x64
+admission	Run actions/upload-artifact@v4	2026-10-17T09:19:22.3138339Z ##[endgroup]
+admission	Run actions/upload-artifact@v4	2026-10-17T09:19:22.4515842Z (node:2817) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+admission	Run actions/upload-artifact@v4	2026-10-17T09:19:22.4516771Z (Use `node --trace-deprecation ...` to show where the warning was created)
+admission	Run actions/upload-artifact@v4	2026-10-17T09:19:22.4568688Z With the provided path, there will be 5 files uploaded
+admission	Run actions/upload-artifact@v4	2026-10-17T09:19:22.4572558Z Artifact name is valid!
+admission	Run actions/upload-artifact@v4	2026-10-17T09:19:22.4573087Z Root directory input is valid!
+admission	Run actions/upload-artifact@v4	2026-10-17T09:19:22.7878058Z Beginning upload of artifact content to blob storage
+admission	Run actions/upload-artifact@v4	2026-10-17T09:19:22.8085598Z (node:2817) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+admission	Run actions/upload-artifact@v4	2026-10-17T09:19:23.0823136Z Uploaded bytes 33685
+admission	Run actions/upload-artifact@v4	2026-10-17T09:19:23.1552678Z Finished uploading artifact content to blob storage!
+admission	Run actions/upload-artifact@v4	2026-10-17T09:19:23.1553536Z SHA256 digest of uploaded artifact zip is da883b2ee17a50a40c894baccde3bb4c7289e5bf678e4419e142e92887248b9b
+admission	Run actions/upload-artifact@v4	2026-10-17T09:19:23.1554198Z Finalizing artifact upload
+admission	Run actions/upload-artifact@v4	2026-10-17T09:19:23.3897105Z Artifact okiofakefs3-gate.zip successfully finalized. Artifact ID 12096149343
+admission	Run actions/upload-artifact@v4	2026-10-17T09:19:23.3897838Z Artifact okiofakefs3-gate has been successfully uploaded! Final size is 33685 bytes. Artifact ID is 12096149343
+admission	Run actions/upload-artifact@v4	2026-10-17T09:19:23.3903135Z Artifact download URL: https://github.com/CodexCoder21Organization/okio/actions/runs/39020635632/artifacts/12096149343
+admission	Post Run actions/setup-java@v4	﻿2026-10-17T09:19:23.4072440Z Post job cleanup.
+admission	Post Run actions/setup-java@v4	2026-10-17T09:19:23.5175676Z (node:2829) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+admission	Post Run actions/setup-java@v4	2026-10-17T09:19:23.5176306Z (Use `node --trace-deprecation ...` to show where the warning was created)
+admission	Post Run actions/checkout@v4	﻿2026-10-17T09:19:23.5311995Z Post job cleanup.
+admission	Post Run actions/checkout@v4	2026-10-17T09:19:23.6001423Z [command]/usr/bin/git version
+admission	Post Run actions/checkout@v4	2026-10-17T09:19:23.6036953Z git version 2.55.0
+admission	Post Run actions/checkout@v4	2026-10-17T09:19:23.6066136Z Temporarily overriding HOME='/home/runner/work/_temp/082386ad-ee10-4558-9fc0-2b3cf6b448f6' before making global git config changes
+admission	Post Run actions/checkout@v4	2026-10-17T09:19:23.6067228Z Adding repository directory to the temporary git global config as a safe directory
+admission	Post Run actions/checkout@v4	2026-10-17T09:19:23.6071641Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/okio/okio
+admission	Post Run actions/checkout@v4	2026-10-17T09:19:23.6110406Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+admission	Post Run actions/checkout@v4	2026-10-17T09:19:23.6137451Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+admission	Post Run actions/checkout@v4	2026-10-17T09:19:23.6346386Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+admission	Post Run actions/checkout@v4	2026-10-17T09:19:23.6373095Z http.https://github.com/.extraheader
+admission	Post Run actions/checkout@v4	2026-10-17T09:19:23.6383924Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+admission	Post Run actions/checkout@v4	2026-10-17T09:19:23.6416903Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+admission	Post Run actions/checkout@v4	2026-10-17T09:19:23.6625192Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+admission	Post Run actions/checkout@v4	2026-10-17T09:19:23.6657540Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+admission	Complete job	﻿2026-10-17T09:19:23.6971338Z Cleaning up orphan processes
+admission	Complete job	2026-10-17T09:19:23.7203376Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-java@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
