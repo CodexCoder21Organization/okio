@@ -27,5 +27,6 @@ javac -J-Xmx256m -cp "$okioClasspath" -d "$okioTemporary/classes" \
 java -Xmx256m -cp "$okioTemporary/classes:$okioClasspath" \
   org.junit.platform.console.ConsoleLauncher execute \
   --select-class DirectoryProof --select-class DirectoryConcurrencyTest \
+  --select-class NeighborEntryReviewTest --select-class EntryAdmissionConcurrencyTest \
   --select-class okio.fakefilesystem.FakeFileSystemRegistryTest \
   --select-class RegistryConcurrencyTest --reports-dir "$okioReports" --disable-banner
