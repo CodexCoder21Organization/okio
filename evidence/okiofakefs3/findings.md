@@ -96,6 +96,6 @@ OBSERVED: No unexpected first-attempt test failure. Deliberate red proofs and pr
 ## Challenges for the orchestrator — final
 No ecosystem workaround was required. Only the early served-file check noted above preceded publication completion; terminal publication and served-byte verification succeeded.
 
-## Final cleanup — 09:25 UTC
+## Final cleanup — 09:23 UTC
 OBSERVED: Temporary wip/gha-run/okiofakefs3 branch deleted locally and remotely after terminal gate success. All tracked test/control/publication commands have terminal outcomes. ps -eo pid,args -ww (with parent IDs to exclude the current inspection command) finds zero remaining lane build/test/publication processes; no lane-owned build slot remains. Temporary build/artifact directories are removed after their evidence is pushed. Working tree is clean, and no test ran after the accepted gate.
 OBSERVED: Durable evidence is https://github.com/CodexCoder21Organization/okio/tree/wip/okiofakefs3-evidence/evidence/okiofakefs3 . No -final.md file is written by this lane. Source head remains d5151e217294a9b0aa4b6a2210fdf09c977c383d.
