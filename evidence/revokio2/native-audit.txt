@@ -1,0 +1,38 @@
+original red: 49 rows, 31 pass, 18 assertion failures, 0 errors, 0 skips, 0 earlier attempts
+boundary red: 18 rows, 0 pass, 18 assertion failures, 0 errors, 0 skips, 0 earlier attempts
+metadata red: 3 rows, 0 pass, 3 assertion failures, 0 errors, 0 skips, 0 earlier attempts
+product-only control: 67 rows, 31 pass, 36 assertion failures, 0 errors, 0 skips, 0 earlier attempts
+metadata product-only control: 3 rows, 0 pass, 3 assertion failures, 0 errors, 0 skips, 0 earlier attempts
+original accepted gate: 70 rows, 70 pass, 0 assertion failures, 0 errors, 0 skips, 0 earlier attempts
+  new scenario EntryAdmissionBoundaryTest.appendingSinkRejectsDirectoryCreatedByClock: 3 first-attempt rows
+  new scenario EntryAdmissionBoundaryTest.deleteResolvesCurrentSymlinkParentAfterClock: 3 first-attempt rows
+  new scenario EntryAdmissionBoundaryTest.mustCreateRejectsFileCreatedByClock: 3 first-attempt rows
+  new scenario EntryAdmissionBoundaryTest.mustExistRejectsFileDeletedByClock: 3 first-attempt rows
+  new scenario EntryAdmissionBoundaryTest.readOnlyReadsFileReplacedByClock: 3 first-attempt rows
+  new scenario EntryAdmissionBoundaryTest.sinkRejectsDirectoryCreatedByClock: 3 first-attempt rows
+  new scenario EntryAdmissionConcurrencyTest.concurrentMovePreservesCommittedDirectory: 3 first-attempt rows
+  new scenario EntryAdmissionConcurrencyTest.concurrentOpenPreservesCommittedDirectory: 3 first-attempt rows
+  new scenario EntryAdmissionConcurrencyTest.concurrentSymlinkPreservesCommittedDirectory: 3 first-attempt rows
+  new scenario EntryMetadataAdmissionTest.metadataUpdateResolvesCurrentSymlinkParentAfterClock: 3 first-attempt rows
+  new scenario NeighborEntryReviewTest.movePreservesDirectoryCreatedBySourceLookupClock: 3 first-attempt rows
+  new scenario NeighborEntryReviewTest.mustCreateOpenPreservesDirectoryCreatedByClock: 3 first-attempt rows
+  new scenario NeighborEntryReviewTest.symlinkCreationPreservesDirectoryCreatedByClock: 3 first-attempt rows
+independent exact-head script: 70 rows, 70 pass, 0 assertion failures, 0 errors, 0 skips, 0 earlier attempts
+  new scenario EntryAdmissionBoundaryTest.appendingSinkRejectsDirectoryCreatedByClock: 3 first-attempt rows
+  new scenario EntryAdmissionBoundaryTest.deleteResolvesCurrentSymlinkParentAfterClock: 3 first-attempt rows
+  new scenario EntryAdmissionBoundaryTest.mustCreateRejectsFileCreatedByClock: 3 first-attempt rows
+  new scenario EntryAdmissionBoundaryTest.mustExistRejectsFileDeletedByClock: 3 first-attempt rows
+  new scenario EntryAdmissionBoundaryTest.readOnlyReadsFileReplacedByClock: 3 first-attempt rows
+  new scenario EntryAdmissionBoundaryTest.sinkRejectsDirectoryCreatedByClock: 3 first-attempt rows
+  new scenario EntryAdmissionConcurrencyTest.concurrentMovePreservesCommittedDirectory: 3 first-attempt rows
+  new scenario EntryAdmissionConcurrencyTest.concurrentOpenPreservesCommittedDirectory: 3 first-attempt rows
+  new scenario EntryAdmissionConcurrencyTest.concurrentSymlinkPreservesCommittedDirectory: 3 first-attempt rows
+  new scenario EntryMetadataAdmissionTest.metadataUpdateResolvesCurrentSymlinkParentAfterClock: 3 first-attempt rows
+  new scenario NeighborEntryReviewTest.movePreservesDirectoryCreatedBySourceLookupClock: 3 first-attempt rows
+  new scenario NeighborEntryReviewTest.mustCreateOpenPreservesDirectoryCreatedByClock: 3 first-attempt rows
+  new scenario NeighborEntryReviewTest.symlinkCreationPreservesDirectoryCreatedByClock: 3 first-attempt rows
+move review probe with two refuted exploratory methods: 9 rows, 0 pass, 3 assertion failures, 6 errors, 0 skips, 0 earlier attempts
+read-path review probe: 12 rows, 0 pass, 12 assertion failures, 0 errors, 0 skips, 0 earlier attempts
+.git/revokio2-prior/evidence/okiofakefs2/gate-console.log: exactly 20 PASS trials, numbered 1 through 20
+evidence/revokio2/build-test-console.txt: exactly 20 PASS trials, numbered 1 through 20
+All four prior directory/registry source files are byte-identical to -2.
