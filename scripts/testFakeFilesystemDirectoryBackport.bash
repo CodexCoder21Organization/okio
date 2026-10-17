@@ -26,7 +26,7 @@ javac -J-Xmx256m -cp "$okioClasspath" -d "$okioTemporary/classes" \
   "$okioRoot"/backports/fakefilesystem-3.4.0/tests/*.java
 java -Xmx256m -cp "$okioTemporary/classes:$okioClasspath" \
   org.junit.platform.console.ConsoleLauncher execute \
-  --select-method DanglingAdmissionReviewTest#moveAdmissionPreservesUnrelatedDirectory --select-class ReadLookupReviewTest \
+  --select-method DanglingAdmissionReviewTest#moveAdmissionPreservesUnrelatedDirectory --select-class ReadLookupReviewTest --select-class SymlinkResolutionBoundaryTest \
   --select-class DirectoryProof --select-class DirectoryConcurrencyTest \
   --select-class NeighborEntryReviewTest --select-class EntryAdmissionConcurrencyTest --select-class EntryAdmissionBoundaryTest --select-class EntryMetadataAdmissionTest \
   --select-class okio.fakefilesystem.FakeFileSystemRegistryTest \
