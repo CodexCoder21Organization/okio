@@ -1,0 +1,437 @@
+[36m╷[0m
+[36m├─[0m [36mJUnit Jupiter[0m [32m✔[0m
+[36m│  ├─[0m [36mDirectoryProof[0m [32m✔[0m
+[36m│  │  └─[0m [36mreentrantDirectoryCreationPreservesCommittedChild()[0m [32m✔[0m
+[36m│  │     ├─[0m [31mrepetition 1 of 3[0m [31m✘[0m [31mA directory creation must preserve a child committed by a re-entering caller. ==> expected: <true> but was: <false>[0m
+[36m│  │     ├─[0m [31mrepetition 2 of 3[0m [31m✘[0m [31mA directory creation must preserve a child committed by a re-entering caller. ==> expected: <true> but was: <false>[0m
+[36m│  │     └─[0m [31mrepetition 3 of 3[0m [31m✘[0m [31mA directory creation must preserve a child committed by a re-entering caller. ==> expected: <true> but was: <false>[0m
+[36m│  └─[0m [36mDirectoryConcurrencyTest[0m [32m✔[0m
+[36m│     ├─[0m [36mexistingDirectoryPreservesChild()[0m [32m✔[0m
+[36m│     │  ├─[0m [31mrepetition 1 of 3[0m [31m✘[0m [31mDirectory creation must preserve a committed child. ==> expected: <true> but was: <false>[0m
+[36m│     │  ├─[0m [31mrepetition 2 of 3[0m [31m✘[0m [31mDirectory creation must preserve a committed child. ==> expected: <true> but was: <false>[0m
+[36m│     │  └─[0m [31mrepetition 3 of 3[0m [31m✘[0m [31mDirectory creation must preserve a committed child. ==> expected: <true> but was: <false>[0m
+[36m│     ├─[0m [36mreentrantMustCreateRejectsCommittedDirectory()[0m [32m✔[0m
+[36m│     │  ├─[0m [31mrepetition 1 of 3[0m [31m✘[0m [31mExpected java.io.IOException to be thrown, but nothing was thrown.[0m
+[36m│     │  ├─[0m [31mrepetition 2 of 3[0m [31m✘[0m [31mExpected java.io.IOException to be thrown, but nothing was thrown.[0m
+[36m│     │  └─[0m [31mrepetition 3 of 3[0m [31m✘[0m [31mExpected java.io.IOException to be thrown, but nothing was thrown.[0m
+[36m│     ├─[0m [36mconcurrentCreateDirectoriesPreservesCommittedChild()[0m [32m✔[0m
+[36m│     │  ├─[0m [31mrepetition 1 of 3[0m [31m✘[0m [31mDirectory creation must preserve a committed child. ==> expected: <true> but was: <false>[0m
+[36m│     │  ├─[0m [31mrepetition 2 of 3[0m [31m✘[0m [31mDirectory creation must preserve a committed child. ==> expected: <true> but was: <false>[0m
+[36m│     │  └─[0m [31mrepetition 3 of 3[0m [31m✘[0m [31mDirectory creation must preserve a committed child. ==> expected: <true> but was: <false>[0m
+[36m│     ├─[0m [36mexistingFileIsNotReplacedByDirectory()[0m [32m✔[0m
+[36m│     │  ├─[0m [31mrepetition 1 of 3[0m [31m✘[0m [31mExpected java.io.IOException to be thrown, but nothing was thrown.[0m
+[36m│     │  ├─[0m [31mrepetition 2 of 3[0m [31m✘[0m [31mExpected java.io.IOException to be thrown, but nothing was thrown.[0m
+[36m│     │  └─[0m [31mrepetition 3 of 3[0m [31m✘[0m [31mExpected java.io.IOException to be thrown, but nothing was thrown.[0m
+[36m│     ├─[0m [36mreentrantSymlinkParentPreservesCommittedChild()[0m [32m✔[0m
+[36m│     │  ├─[0m [31mrepetition 1 of 3[0m [31m✘[0m [31mDirectory creation must preserve a committed child. ==> expected: <true> but was: <false>[0m
+[36m│     │  ├─[0m [31mrepetition 2 of 3[0m [31m✘[0m [31mDirectory creation must preserve a committed child. ==> expected: <true> but was: <false>[0m
+[36m│     │  └─[0m [31mrepetition 3 of 3[0m [31m✘[0m [31mDirectory creation must preserve a committed child. ==> expected: <true> but was: <false>[0m
+[36m│     ├─[0m [36mconcurrentMustCreateAdmitsOneCaller()[0m [32m✔[0m
+[36m│     │  ├─[0m [31mrepetition 1 of 3[0m [31m✘[0m [31mExactly one mustCreate caller may create the same directory. ==> expected: <1> but was: <2>[0m
+[36m│     │  ├─[0m [31mrepetition 2 of 3[0m [31m✘[0m [31mExactly one mustCreate caller may create the same directory. ==> expected: <1> but was: <2>[0m
+[36m│     │  └─[0m [31mrepetition 3 of 3[0m [31m✘[0m [31mExactly one mustCreate caller may create the same directory. ==> expected: <1> but was: <2>[0m
+[36m│     ├─[0m [36mexistingRootMustCreateIsRejected()[0m [32m✔[0m
+[36m│     │  ├─[0m [31mrepetition 1 of 3[0m [31m✘[0m [31mExpected java.io.IOException to be thrown, but nothing was thrown.[0m
+[36m│     │  ├─[0m [31mrepetition 2 of 3[0m [31m✘[0m [31mExpected java.io.IOException to be thrown, but nothing was thrown.[0m
+[36m│     │  └─[0m [31mrepetition 3 of 3[0m [31m✘[0m [31mExpected java.io.IOException to be thrown, but nothing was thrown.[0m
+[36m│     └─[0m [36mreentrantRootCreationPreservesCommittedChild()[0m [32m✔[0m
+[36m│        ├─[0m [31mrepetition 1 of 3[0m [31m✘[0m [31mDirectory creation must preserve a committed child. ==> expected: <true> but was: <false>[0m
+[36m│        ├─[0m [31mrepetition 2 of 3[0m [31m✘[0m [31mDirectory creation must preserve a committed child. ==> expected: <true> but was: <false>[0m
+[36m│        └─[0m [31mrepetition 3 of 3[0m [31m✘[0m [31mDirectory creation must preserve a committed child. ==> expected: <true> but was: <false>[0m
+[36m├─[0m [36mJUnit Vintage[0m [32m✔[0m
+[36m└─[0m [36mJUnit Platform Suite[0m [32m✔[0m
+
+Failures (27):
+  JUnit Jupiter:DirectoryProof:reentrantDirectoryCreationPreservesCommittedChild():repetition 1 of 3
+    MethodSource [className = 'DirectoryProof', methodName = 'reentrantDirectoryCreationPreservesCommittedChild', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: A directory creation must preserve a child committed by a re-entering caller. ==> expected: <true> but was: <false>
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+       org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+       org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+       org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+       DirectoryProof.reentrantDirectoryCreationPreservesCommittedChild(DirectoryProof.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       [...]
+  JUnit Jupiter:DirectoryProof:reentrantDirectoryCreationPreservesCommittedChild():repetition 2 of 3
+    MethodSource [className = 'DirectoryProof', methodName = 'reentrantDirectoryCreationPreservesCommittedChild', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: A directory creation must preserve a child committed by a re-entering caller. ==> expected: <true> but was: <false>
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+       org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+       org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+       org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+       DirectoryProof.reentrantDirectoryCreationPreservesCommittedChild(DirectoryProof.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       [...]
+  JUnit Jupiter:DirectoryProof:reentrantDirectoryCreationPreservesCommittedChild():repetition 3 of 3
+    MethodSource [className = 'DirectoryProof', methodName = 'reentrantDirectoryCreationPreservesCommittedChild', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: A directory creation must preserve a child committed by a re-entering caller. ==> expected: <true> but was: <false>
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+       org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+       org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+       org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+       DirectoryProof.reentrantDirectoryCreationPreservesCommittedChild(DirectoryProof.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       [...]
+  JUnit Jupiter:DirectoryConcurrencyTest:existingDirectoryPreservesChild():repetition 1 of 3
+    MethodSource [className = 'DirectoryConcurrencyTest', methodName = 'existingDirectoryPreservesChild', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Directory creation must preserve a committed child. ==> expected: <true> but was: <false>
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+       org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+       org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+       org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+       DirectoryConcurrencyTest.assertChild(DirectoryConcurrencyTest.java:19)
+       DirectoryConcurrencyTest.existingDirectoryPreservesChild(DirectoryConcurrencyTest.java:201)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       [...]
+  JUnit Jupiter:DirectoryConcurrencyTest:existingDirectoryPreservesChild():repetition 2 of 3
+    MethodSource [className = 'DirectoryConcurrencyTest', methodName = 'existingDirectoryPreservesChild', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Directory creation must preserve a committed child. ==> expected: <true> but was: <false>
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+       org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+       org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+       org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+       DirectoryConcurrencyTest.assertChild(DirectoryConcurrencyTest.java:19)
+       DirectoryConcurrencyTest.existingDirectoryPreservesChild(DirectoryConcurrencyTest.java:201)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       [...]
+  JUnit Jupiter:DirectoryConcurrencyTest:existingDirectoryPreservesChild():repetition 3 of 3
+    MethodSource [className = 'DirectoryConcurrencyTest', methodName = 'existingDirectoryPreservesChild', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Directory creation must preserve a committed child. ==> expected: <true> but was: <false>
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+       org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+       org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+       org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+       DirectoryConcurrencyTest.assertChild(DirectoryConcurrencyTest.java:19)
+       DirectoryConcurrencyTest.existingDirectoryPreservesChild(DirectoryConcurrencyTest.java:201)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       [...]
+  JUnit Jupiter:DirectoryConcurrencyTest:reentrantMustCreateRejectsCommittedDirectory():repetition 1 of 3
+    MethodSource [className = 'DirectoryConcurrencyTest', methodName = 'reentrantMustCreateRejectsCommittedDirectory', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Expected java.io.IOException to be thrown, but nothing was thrown.
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+       org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3111)
+       DirectoryConcurrencyTest.reentrantMustCreateRejectsCommittedDirectory(DirectoryConcurrencyTest.java:188)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       [...]
+  JUnit Jupiter:DirectoryConcurrencyTest:reentrantMustCreateRejectsCommittedDirectory():repetition 2 of 3
+    MethodSource [className = 'DirectoryConcurrencyTest', methodName = 'reentrantMustCreateRejectsCommittedDirectory', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Expected java.io.IOException to be thrown, but nothing was thrown.
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+       org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3111)
+       DirectoryConcurrencyTest.reentrantMustCreateRejectsCommittedDirectory(DirectoryConcurrencyTest.java:188)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       [...]
+  JUnit Jupiter:DirectoryConcurrencyTest:reentrantMustCreateRejectsCommittedDirectory():repetition 3 of 3
+    MethodSource [className = 'DirectoryConcurrencyTest', methodName = 'reentrantMustCreateRejectsCommittedDirectory', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Expected java.io.IOException to be thrown, but nothing was thrown.
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+       org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3111)
+       DirectoryConcurrencyTest.reentrantMustCreateRejectsCommittedDirectory(DirectoryConcurrencyTest.java:188)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       [...]
+  JUnit Jupiter:DirectoryConcurrencyTest:concurrentCreateDirectoriesPreservesCommittedChild():repetition 1 of 3
+    MethodSource [className = 'DirectoryConcurrencyTest', methodName = 'concurrentCreateDirectoriesPreservesCommittedChild', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Directory creation must preserve a committed child. ==> expected: <true> but was: <false>
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+       org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+       org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+       org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+       DirectoryConcurrencyTest.assertChild(DirectoryConcurrencyTest.java:19)
+       DirectoryConcurrencyTest.concurrentCreateDirectoriesPreservesCommittedChild(DirectoryConcurrencyTest.java:159)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       [...]
+  JUnit Jupiter:DirectoryConcurrencyTest:concurrentCreateDirectoriesPreservesCommittedChild():repetition 2 of 3
+    MethodSource [className = 'DirectoryConcurrencyTest', methodName = 'concurrentCreateDirectoriesPreservesCommittedChild', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Directory creation must preserve a committed child. ==> expected: <true> but was: <false>
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+       org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+       org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+       org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+       DirectoryConcurrencyTest.assertChild(DirectoryConcurrencyTest.java:19)
+       DirectoryConcurrencyTest.concurrentCreateDirectoriesPreservesCommittedChild(DirectoryConcurrencyTest.java:159)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       [...]
+  JUnit Jupiter:DirectoryConcurrencyTest:concurrentCreateDirectoriesPreservesCommittedChild():repetition 3 of 3
+    MethodSource [className = 'DirectoryConcurrencyTest', methodName = 'concurrentCreateDirectoriesPreservesCommittedChild', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Directory creation must preserve a committed child. ==> expected: <true> but was: <false>
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+       org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+       org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+       org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+       DirectoryConcurrencyTest.assertChild(DirectoryConcurrencyTest.java:19)
+       DirectoryConcurrencyTest.concurrentCreateDirectoriesPreservesCommittedChild(DirectoryConcurrencyTest.java:159)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       [...]
+  JUnit Jupiter:DirectoryConcurrencyTest:existingFileIsNotReplacedByDirectory():repetition 1 of 3
+    MethodSource [className = 'DirectoryConcurrencyTest', methodName = 'existingFileIsNotReplacedByDirectory', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Expected java.io.IOException to be thrown, but nothing was thrown.
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+       org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3111)
+       DirectoryConcurrencyTest.existingFileIsNotReplacedByDirectory(DirectoryConcurrencyTest.java:214)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       [...]
+  JUnit Jupiter:DirectoryConcurrencyTest:existingFileIsNotReplacedByDirectory():repetition 2 of 3
+    MethodSource [className = 'DirectoryConcurrencyTest', methodName = 'existingFileIsNotReplacedByDirectory', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Expected java.io.IOException to be thrown, but nothing was thrown.
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+       org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3111)
+       DirectoryConcurrencyTest.existingFileIsNotReplacedByDirectory(DirectoryConcurrencyTest.java:214)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       [...]
+  JUnit Jupiter:DirectoryConcurrencyTest:existingFileIsNotReplacedByDirectory():repetition 3 of 3
+    MethodSource [className = 'DirectoryConcurrencyTest', methodName = 'existingFileIsNotReplacedByDirectory', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Expected java.io.IOException to be thrown, but nothing was thrown.
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+       org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3111)
+       DirectoryConcurrencyTest.existingFileIsNotReplacedByDirectory(DirectoryConcurrencyTest.java:214)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       [...]
+  JUnit Jupiter:DirectoryConcurrencyTest:reentrantSymlinkParentPreservesCommittedChild():repetition 1 of 3
+    MethodSource [className = 'DirectoryConcurrencyTest', methodName = 'reentrantSymlinkParentPreservesCommittedChild', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Directory creation must preserve a committed child. ==> expected: <true> but was: <false>
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+       org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+       org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+       org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+       DirectoryConcurrencyTest.assertChild(DirectoryConcurrencyTest.java:19)
+       DirectoryConcurrencyTest.reentrantSymlinkParentPreservesCommittedChild(DirectoryConcurrencyTest.java:100)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       [...]
+  JUnit Jupiter:DirectoryConcurrencyTest:reentrantSymlinkParentPreservesCommittedChild():repetition 2 of 3
+    MethodSource [className = 'DirectoryConcurrencyTest', methodName = 'reentrantSymlinkParentPreservesCommittedChild', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Directory creation must preserve a committed child. ==> expected: <true> but was: <false>
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+       org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+       org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+       org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+       DirectoryConcurrencyTest.assertChild(DirectoryConcurrencyTest.java:19)
+       DirectoryConcurrencyTest.reentrantSymlinkParentPreservesCommittedChild(DirectoryConcurrencyTest.java:100)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       [...]
+  JUnit Jupiter:DirectoryConcurrencyTest:reentrantSymlinkParentPreservesCommittedChild():repetition 3 of 3
+    MethodSource [className = 'DirectoryConcurrencyTest', methodName = 'reentrantSymlinkParentPreservesCommittedChild', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Directory creation must preserve a committed child. ==> expected: <true> but was: <false>
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+       org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+       org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+       org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+       DirectoryConcurrencyTest.assertChild(DirectoryConcurrencyTest.java:19)
+       DirectoryConcurrencyTest.reentrantSymlinkParentPreservesCommittedChild(DirectoryConcurrencyTest.java:100)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       [...]
+  JUnit Jupiter:DirectoryConcurrencyTest:concurrentMustCreateAdmitsOneCaller():repetition 1 of 3
+    MethodSource [className = 'DirectoryConcurrencyTest', methodName = 'concurrentMustCreateAdmitsOneCaller', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Exactly one mustCreate caller may create the same directory. ==> expected: <1> but was: <2>
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+       org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+       org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150)
+       org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:559)
+       DirectoryConcurrencyTest.concurrentMustCreateAdmitsOneCaller(DirectoryConcurrencyTest.java:55)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       [...]
+  JUnit Jupiter:DirectoryConcurrencyTest:concurrentMustCreateAdmitsOneCaller():repetition 2 of 3
+    MethodSource [className = 'DirectoryConcurrencyTest', methodName = 'concurrentMustCreateAdmitsOneCaller', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Exactly one mustCreate caller may create the same directory. ==> expected: <1> but was: <2>
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+       org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+       org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150)
+       org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:559)
+       DirectoryConcurrencyTest.concurrentMustCreateAdmitsOneCaller(DirectoryConcurrencyTest.java:55)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       [...]
+  JUnit Jupiter:DirectoryConcurrencyTest:concurrentMustCreateAdmitsOneCaller():repetition 3 of 3
+    MethodSource [className = 'DirectoryConcurrencyTest', methodName = 'concurrentMustCreateAdmitsOneCaller', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Exactly one mustCreate caller may create the same directory. ==> expected: <1> but was: <2>
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+       org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+       org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150)
+       org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:559)
+       DirectoryConcurrencyTest.concurrentMustCreateAdmitsOneCaller(DirectoryConcurrencyTest.java:55)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       [...]
+  JUnit Jupiter:DirectoryConcurrencyTest:existingRootMustCreateIsRejected():repetition 1 of 3
+    MethodSource [className = 'DirectoryConcurrencyTest', methodName = 'existingRootMustCreateIsRejected', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Expected java.io.IOException to be thrown, but nothing was thrown.
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+       org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3111)
+       DirectoryConcurrencyTest.existingRootMustCreateIsRejected(DirectoryConcurrencyTest.java:71)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       [...]
+  JUnit Jupiter:DirectoryConcurrencyTest:existingRootMustCreateIsRejected():repetition 2 of 3
+    MethodSource [className = 'DirectoryConcurrencyTest', methodName = 'existingRootMustCreateIsRejected', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Expected java.io.IOException to be thrown, but nothing was thrown.
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+       org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3111)
+       DirectoryConcurrencyTest.existingRootMustCreateIsRejected(DirectoryConcurrencyTest.java:71)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       [...]
+  JUnit Jupiter:DirectoryConcurrencyTest:existingRootMustCreateIsRejected():repetition 3 of 3
+    MethodSource [className = 'DirectoryConcurrencyTest', methodName = 'existingRootMustCreateIsRejected', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Expected java.io.IOException to be thrown, but nothing was thrown.
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+       org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3111)
+       DirectoryConcurrencyTest.existingRootMustCreateIsRejected(DirectoryConcurrencyTest.java:71)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       [...]
+  JUnit Jupiter:DirectoryConcurrencyTest:reentrantRootCreationPreservesCommittedChild():repetition 1 of 3
+    MethodSource [className = 'DirectoryConcurrencyTest', methodName = 'reentrantRootCreationPreservesCommittedChild', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Directory creation must preserve a committed child. ==> expected: <true> but was: <false>
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+       org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+       org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+       org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+       DirectoryConcurrencyTest.assertChild(DirectoryConcurrencyTest.java:19)
+       DirectoryConcurrencyTest.reentrantRootCreationPreservesCommittedChild(DirectoryConcurrencyTest.java:124)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       [...]
+  JUnit Jupiter:DirectoryConcurrencyTest:reentrantRootCreationPreservesCommittedChild():repetition 2 of 3
+    MethodSource [className = 'DirectoryConcurrencyTest', methodName = 'reentrantRootCreationPreservesCommittedChild', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Directory creation must preserve a committed child. ==> expected: <true> but was: <false>
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+       org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+       org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+       org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+       DirectoryConcurrencyTest.assertChild(DirectoryConcurrencyTest.java:19)
+       DirectoryConcurrencyTest.reentrantRootCreationPreservesCommittedChild(DirectoryConcurrencyTest.java:124)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       [...]
+  JUnit Jupiter:DirectoryConcurrencyTest:reentrantRootCreationPreservesCommittedChild():repetition 3 of 3
+    MethodSource [className = 'DirectoryConcurrencyTest', methodName = 'reentrantRootCreationPreservesCommittedChild', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Directory creation must preserve a committed child. ==> expected: <true> but was: <false>
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+       org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+       org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+       org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+       DirectoryConcurrencyTest.assertChild(DirectoryConcurrencyTest.java:19)
+       DirectoryConcurrencyTest.reentrantRootCreationPreservesCommittedChild(DirectoryConcurrencyTest.java:124)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       [...]
+
+Test run finished after 284 ms
+[        14 containers found      ]
+[         0 containers skipped    ]
+[        14 containers started    ]
+[         0 containers aborted    ]
+[        14 containers successful ]
+[         0 containers failed     ]
+[        27 tests found           ]
+[         0 tests skipped         ]
+[        27 tests started         ]
+[         0 tests aborted         ]
+[         0 tests successful      ]
+[        27 tests failed          ]
+

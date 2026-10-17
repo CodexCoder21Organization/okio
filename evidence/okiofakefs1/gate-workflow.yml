@@ -1,0 +1,39 @@
+name: okiofakefs1 targeted gate
+on:
+  push:
+    branches: [wip/gha-run/okiofakefs1]
+permissions:
+  contents: read
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: b942f8201b3f35605a5a8c3849026c5dc978607e
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Install Coursier
+        run: |
+          curl -fsSL https://github.com/coursier/launchers/raw/master/cs-x86_64-pc-linux.gz | gzip -d > "$RUNNER_TEMP/coursier"
+          chmod +x "$RUNNER_TEMP/coursier"
+          echo "$RUNNER_TEMP" >> "$GITHUB_PATH"
+      - name: Build exact candidate and compare public API
+        run: |
+          mkdir -p .validation
+          timeout 600 python3 scripts/buildFakeFilesystemDirectoryBackport.py --output-directory .validation/artifact 2>&1 | tee .validation/build.log
+      - name: Directory cases three times and registry neighbours once
+        run: |
+          timeout 180 scripts/testFakeFilesystemDirectoryBackport.bash .validation/artifact .validation/native 2>&1 | tee .validation/tests.log
+      - name: Save native XML and tested artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: okiofakefs1-gate
+          path: .validation
+          include-hidden-files: true
