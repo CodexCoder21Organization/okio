@@ -24,6 +24,29 @@ public class DirectoryConcurrencyTest {
   }
 
   @RepeatedTest(3)
+  public void reentrantRootCreationPreservesCommittedChild() throws Exception {
+    var reference = new AtomicReference<FakeFileSystem>();
+    var armed = new AtomicBoolean(true);
+    Clock clock = new Clock() {
+      public Instant now() {
+        if (armed.compareAndSet(true, false)) {
+          try {
+            reference.get().createDirectories(path("/"), false);
+            write(reference.get(), path("/child"));
+          } catch (IOException e) { throw new AssertionError(e); }
+        }
+        return Instant.Companion.fromEpochMilliseconds(0);
+      }
+    };
+    var fs = new FakeFileSystem(clock);
+    reference.set(fs);
+    try {
+      fs.createDirectories(path("/"), false);
+      assertChild(fs, path("/child"));
+    } finally { fs.checkNoOpenFiles(); }
+  }
+
+  @RepeatedTest(3)
   public void concurrentCreateDirectoriesPreservesCommittedChild() throws Exception {
     var paused = new CountDownLatch(1);
     var resume = new CountDownLatch(1);
