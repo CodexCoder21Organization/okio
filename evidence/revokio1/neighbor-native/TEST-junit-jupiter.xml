@@ -1,0 +1,979 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="JUnit Jupiter" tests="9" skipped="0" failures="9" errors="0" time="0.067" hostname="848d7dea7ad7" timestamp="2026-10-17T06:00:17">
+<properties>
+<property name="file.encoding" value="UTF-8"/>
+<property name="file.separator" value="/"/>
+<property name="java.class.path" value="/tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/revokio1/.git/review-probe.WraIem:/tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/out/revokio1-evidence/gate/okiofakefs1-gate/artifact/okio-fakefilesystem-jvm-3.4.0-r576-registry-lock-2.jar:/home/hostusr/.cache/coursier/v1/https/token%40kotlin.directory/com/squareup/okio/okio-jvm/3.4.0.2/okio-jvm-3.4.0.2.jar:/home/hostusr/.cache/coursier/v1/https/repo1.maven.org/maven2/org/jetbrains/kotlinx/kotlinx-datetime-jvm/0.4.0/kotlinx-datetime-jvm-0.4.0.jar:/home/hostusr/.cache/coursier/v1/https/repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/1.10.0/junit-platform-console-standalone-1.10.0.jar:/home/hostusr/.cache/coursier/v1/https/token%40kotlin.directory/org/jetbrains/kotlin/kotlin-stdlib-jdk8/1.8.0/kotlin-stdlib-jdk8-1.8.0.jar:/home/hostusr/.cache/coursier/v1/https/token%40kotlin.directory/org/jetbrains/kotlin/kotlin-stdlib-common/1.8.0/kotlin-stdlib-common-1.8.0.jar:/home/hostusr/.cache/coursier/v1/https/repo1.maven.org/maven2/org/jetbrains/kotlin/kotlin-stdlib/1.8.0/kotlin-stdlib-1.8.0.jar:/home/hostusr/.cache/coursier/v1/https/token%40kotlin.directory/org/jetbrains/kotlin/kotlin-stdlib-jdk7/1.8.0/kotlin-stdlib-jdk7-1.8.0.jar:/home/hostusr/.cache/coursier/v1/https/repo1.maven.org/maven2/org/jetbrains/annotations/13.0/annotations-13.0.jar"/>
+<property name="java.class.version" value="65.0"/>
+<property name="java.home" value="/usr/lib/jvm/temurin-21-jdk-arm64"/>
+<property name="java.io.tmpdir" value="/tmp"/>
+<property name="java.library.path" value="/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib"/>
+<property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+<property name="java.runtime.version" value="21.0.12.1+1-LTS"/>
+<property name="java.specification.name" value="Java Platform API Specification"/>
+<property name="java.specification.vendor" value="Oracle Corporation"/>
+<property name="java.specification.version" value="21"/>
+<property name="java.vendor" value="Eclipse Adoptium"/>
+<property name="java.vendor.url" value="https://adoptium.net/"/>
+<property name="java.vendor.url.bug" value="https://github.com/adoptium/adoptium-support/issues"/>
+<property name="java.vendor.version" value="Temurin-21.0.12.1+1"/>
+<property name="java.version" value="21.0.12.1"/>
+<property name="java.version.date" value="2026-08-18"/>
+<property name="java.vm.compressedOopsMode" value="32-bit"/>
+<property name="java.vm.info" value="mixed mode, sharing"/>
+<property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+<property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+<property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+<property name="java.vm.specification.version" value="21"/>
+<property name="java.vm.vendor" value="Eclipse Adoptium"/>
+<property name="java.vm.version" value="21.0.12.1+1-LTS"/>
+<property name="jdk.debug" value="release"/>
+<property name="line.separator" value="
+"/>
+<property name="native.encoding" value="UTF-8"/>
+<property name="os.arch" value="aarch64"/>
+<property name="os.name" value="Linux"/>
+<property name="os.version" value="6.12.54-linuxkit"/>
+<property name="path.separator" value=":"/>
+<property name="stderr.encoding" value="UTF-8"/>
+<property name="stdout.encoding" value="UTF-8"/>
+<property name="sun.arch.data.model" value="64"/>
+<property name="sun.boot.library.path" value="/usr/lib/jvm/temurin-21-jdk-arm64/lib"/>
+<property name="sun.cpu.endian" value="little"/>
+<property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+<property name="sun.java.command" value="org.junit.platform.console.ConsoleLauncher execute --select-class NeighborEntryReviewTest --reports-dir /tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/out/revokio1-evidence/neighbor-native --disable-banner"/>
+<property name="sun.java.launcher" value="SUN_STANDARD"/>
+<property name="sun.jnu.encoding" value="UTF-8"/>
+<property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+<property name="user.dir" value="/tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/revokio1"/>
+<property name="user.home" value="/home/hostusr"/>
+<property name="user.language" value="en"/>
+<property name="user.name" value="hostusr"/>
+<property name="user.timezone" value="Etc/UTC"/>
+</properties>
+<testcase name="movePreservesDirectoryCreatedBySourceLookupClock()[3]" classname="NeighborEntryReviewTest" time="0.001">
+<failure message="Multiple Failures (4 failures)
+	org.opentest4j.AssertionFailedError: Move must reject the callback's destination directory. ==&gt; Unexpected null value, expected: &lt;java.io.IOException&gt; but was: &lt;null&gt;
+	org.opentest4j.AssertionFailedError: Move must preserve destination directory type. ==&gt; expected: &lt;true&gt; but was: &lt;false&gt;
+	java.io.IOException: not a directory: /target
+	org.opentest4j.AssertionFailedError: Rejected move must preserve its source. ==&gt; expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.MultipleFailuresError"><![CDATA[org.opentest4j.MultipleFailuresError: Multiple Failures (4 failures)
+	org.opentest4j.AssertionFailedError: Move must reject the callback's destination directory. ==> Unexpected null value, expected: <java.io.IOException> but was: <null>
+	org.opentest4j.AssertionFailedError: Move must preserve destination directory type. ==> expected: <true> but was: <false>
+	java.io.IOException: not a directory: /target
+	org.opentest4j.AssertionFailedError: Rejected move must preserve its source. ==> expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:80)
+	at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:44)
+	at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:38)
+	at org.junit.jupiter.api.Assertions.assertAll(Assertions.java:2940)
+	at NeighborEntryReviewTest.movePreservesDirectoryCreatedBySourceLookupClock(NeighborEntryReviewTest.java:85)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.IntPipeline$1$1.accept(IntPipeline.java:180)
+	at java.base/java.util.stream.Streams$RangeIntSpliterator.forEachRemaining(Streams.java:108)
+	at java.base/java.util.Spliterator$OfInt.forEachRemaining(Spliterator.java:712)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1708)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	Suppressed: org.opentest4j.AssertionFailedError: Move must reject the callback's destination directory. ==> Unexpected null value, expected: <java.io.IOException> but was: <null>
+		at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+		at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+		at org.junit.jupiter.api.AssertInstanceOf.assertInstanceOf(AssertInstanceOf.java:49)
+		at org.junit.jupiter.api.AssertInstanceOf.assertInstanceOf(AssertInstanceOf.java:35)
+		at org.junit.jupiter.api.Assertions.assertInstanceOf(Assertions.java:3616)
+		at NeighborEntryReviewTest.lambda$movePreservesDirectoryCreatedBySourceLookupClock$6(NeighborEntryReviewTest.java:86)
+		at org.junit.jupiter.api.AssertAll.lambda$assertAll$0(AssertAll.java:68)
+		at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+		at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
+		at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+		at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+		at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+		at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+		at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+		at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:77)
+		... 30 more
+	Suppressed: org.opentest4j.AssertionFailedError: Move must preserve destination directory type. ==> expected: <true> but was: <false>
+		at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+		at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+		at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+		at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+		at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+		at NeighborEntryReviewTest.lambda$movePreservesDirectoryCreatedBySourceLookupClock$7(NeighborEntryReviewTest.java:87)
+		at org.junit.jupiter.api.AssertAll.lambda$assertAll$0(AssertAll.java:68)
+		at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+		at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
+		at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+		at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+		at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+		at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+		at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+		at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:77)
+		... 30 more
+	Suppressed: java.io.IOException: not a directory: /target
+		at okio.fakefilesystem.FakeFileSystem.lookupPath(FakeFileSystem.kt:567)
+		at okio.fakefilesystem.FakeFileSystem.lookupPath$default(FakeFileSystem.kt:531)
+		at okio.fakefilesystem.FakeFileSystem.metadataOrNull(FakeFileSystem.kt:262)
+		at okio.internal.-FileSystem.commonExists(FileSystem.kt:41)
+		at okio.FileSystem.exists(FileSystem.kt:39)
+		at NeighborEntryReviewTest.lambda$movePreservesDirectoryCreatedBySourceLookupClock$8(NeighborEntryReviewTest.java:88)
+		at org.junit.jupiter.api.AssertAll.lambda$assertAll$0(AssertAll.java:68)
+		at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+		at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
+		at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+		at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+		at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+		at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+		at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+		at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:77)
+		... 30 more
+	Suppressed: org.opentest4j.AssertionFailedError: Rejected move must preserve its source. ==> expected: <true> but was: <false>
+		at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+		at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+		at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+		at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+		at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+		at NeighborEntryReviewTest.lambda$movePreservesDirectoryCreatedBySourceLookupClock$9(NeighborEntryReviewTest.java:89)
+		at org.junit.jupiter.api.AssertAll.lambda$assertAll$0(AssertAll.java:68)
+		at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+		at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
+		at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+		at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+		at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+		at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+		at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+		at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:77)
+		... 30 more
+]]></failure>
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:NeighborEntryReviewTest]/[test-template:movePreservesDirectoryCreatedBySourceLookupClock()]/[test-template-invocation:#3]
+display-name: repetition 3 of 3
+]]></system-out>
+</testcase>
+<testcase name="mustCreateOpenPreservesDirectoryCreatedByClock()[2]" classname="NeighborEntryReviewTest" time="0.001">
+<failure message="Multiple Failures (3 failures)
+	org.opentest4j.AssertionFailedError: mustCreate must reject the callback's directory. ==&gt; Unexpected null value, expected: &lt;java.io.IOException&gt; but was: &lt;null&gt;
+	org.opentest4j.AssertionFailedError: Open must preserve directory type. ==&gt; expected: &lt;true&gt; but was: &lt;false&gt;
+	java.io.IOException: not a directory: /target" type="org.opentest4j.MultipleFailuresError"><![CDATA[org.opentest4j.MultipleFailuresError: Multiple Failures (3 failures)
+	org.opentest4j.AssertionFailedError: mustCreate must reject the callback's directory. ==> Unexpected null value, expected: <java.io.IOException> but was: <null>
+	org.opentest4j.AssertionFailedError: Open must preserve directory type. ==> expected: <true> but was: <false>
+	java.io.IOException: not a directory: /target
+	at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:80)
+	at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:44)
+	at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:38)
+	at org.junit.jupiter.api.Assertions.assertAll(Assertions.java:2940)
+	at NeighborEntryReviewTest.mustCreateOpenPreservesDirectoryCreatedByClock(NeighborEntryReviewTest.java:51)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.IntPipeline$1$1.accept(IntPipeline.java:180)
+	at java.base/java.util.stream.Streams$RangeIntSpliterator.forEachRemaining(Streams.java:104)
+	at java.base/java.util.Spliterator$OfInt.forEachRemaining(Spliterator.java:712)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1708)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	Suppressed: org.opentest4j.AssertionFailedError: mustCreate must reject the callback's directory. ==> Unexpected null value, expected: <java.io.IOException> but was: <null>
+		at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+		at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+		at org.junit.jupiter.api.AssertInstanceOf.assertInstanceOf(AssertInstanceOf.java:49)
+		at org.junit.jupiter.api.AssertInstanceOf.assertInstanceOf(AssertInstanceOf.java:35)
+		at org.junit.jupiter.api.Assertions.assertInstanceOf(Assertions.java:3616)
+		at NeighborEntryReviewTest.lambda$mustCreateOpenPreservesDirectoryCreatedByClock$0(NeighborEntryReviewTest.java:52)
+		at org.junit.jupiter.api.AssertAll.lambda$assertAll$0(AssertAll.java:68)
+		at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+		at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
+		at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+		at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+		at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+		at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+		at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+		at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:77)
+		... 30 more
+	Suppressed: org.opentest4j.AssertionFailedError: Open must preserve directory type. ==> expected: <true> but was: <false>
+		at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+		at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+		at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+		at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+		at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+		at NeighborEntryReviewTest.lambda$mustCreateOpenPreservesDirectoryCreatedByClock$1(NeighborEntryReviewTest.java:53)
+		at org.junit.jupiter.api.AssertAll.lambda$assertAll$0(AssertAll.java:68)
+		at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+		at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
+		at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+		at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+		at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+		at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+		at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+		at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:77)
+		... 30 more
+	Suppressed: java.io.IOException: not a directory: /target
+		at okio.fakefilesystem.FakeFileSystem.lookupPath(FakeFileSystem.kt:567)
+		at okio.fakefilesystem.FakeFileSystem.lookupPath$default(FakeFileSystem.kt:531)
+		at okio.fakefilesystem.FakeFileSystem.metadataOrNull(FakeFileSystem.kt:262)
+		at okio.internal.-FileSystem.commonExists(FileSystem.kt:41)
+		at okio.FileSystem.exists(FileSystem.kt:39)
+		at NeighborEntryReviewTest.lambda$mustCreateOpenPreservesDirectoryCreatedByClock$2(NeighborEntryReviewTest.java:54)
+		at org.junit.jupiter.api.AssertAll.lambda$assertAll$0(AssertAll.java:68)
+		at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+		at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
+		at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+		at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+		at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+		at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+		at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+		at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:77)
+		... 30 more
+]]></failure>
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:NeighborEntryReviewTest]/[test-template:mustCreateOpenPreservesDirectoryCreatedByClock()]/[test-template-invocation:#2]
+display-name: repetition 2 of 3
+]]></system-out>
+</testcase>
+<testcase name="symlinkCreationPreservesDirectoryCreatedByClock()[3]" classname="NeighborEntryReviewTest" time="0.001">
+<failure message="Multiple Failures (3 failures)
+	org.opentest4j.AssertionFailedError: Symlink creation must reject the callback's directory. ==&gt; Unexpected null value, expected: &lt;java.io.IOException&gt; but was: &lt;null&gt;
+	org.opentest4j.AssertionFailedError: Symlink creation must preserve directory type. ==&gt; expected: &lt;true&gt; but was: &lt;false&gt;
+	org.opentest4j.AssertionFailedError: Symlink creation must preserve the callback's committed child. ==&gt; expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.MultipleFailuresError"><![CDATA[org.opentest4j.MultipleFailuresError: Multiple Failures (3 failures)
+	org.opentest4j.AssertionFailedError: Symlink creation must reject the callback's directory. ==> Unexpected null value, expected: <java.io.IOException> but was: <null>
+	org.opentest4j.AssertionFailedError: Symlink creation must preserve directory type. ==> expected: <true> but was: <false>
+	org.opentest4j.AssertionFailedError: Symlink creation must preserve the callback's committed child. ==> expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:80)
+	at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:44)
+	at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:38)
+	at org.junit.jupiter.api.Assertions.assertAll(Assertions.java:2940)
+	at NeighborEntryReviewTest.symlinkCreationPreservesDirectoryCreatedByClock(NeighborEntryReviewTest.java:67)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.IntPipeline$1$1.accept(IntPipeline.java:180)
+	at java.base/java.util.stream.Streams$RangeIntSpliterator.forEachRemaining(Streams.java:108)
+	at java.base/java.util.Spliterator$OfInt.forEachRemaining(Spliterator.java:712)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1708)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	Suppressed: org.opentest4j.AssertionFailedError: Symlink creation must reject the callback's directory. ==> Unexpected null value, expected: <java.io.IOException> but was: <null>
+		at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+		at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+		at org.junit.jupiter.api.AssertInstanceOf.assertInstanceOf(AssertInstanceOf.java:49)
+		at org.junit.jupiter.api.AssertInstanceOf.assertInstanceOf(AssertInstanceOf.java:35)
+		at org.junit.jupiter.api.Assertions.assertInstanceOf(Assertions.java:3616)
+		at NeighborEntryReviewTest.lambda$symlinkCreationPreservesDirectoryCreatedByClock$3(NeighborEntryReviewTest.java:68)
+		at org.junit.jupiter.api.AssertAll.lambda$assertAll$0(AssertAll.java:68)
+		at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+		at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
+		at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+		at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+		at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+		at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+		at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+		at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:77)
+		... 30 more
+	Suppressed: org.opentest4j.AssertionFailedError: Symlink creation must preserve directory type. ==> expected: <true> but was: <false>
+		at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+		at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+		at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+		at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+		at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+		at NeighborEntryReviewTest.lambda$symlinkCreationPreservesDirectoryCreatedByClock$4(NeighborEntryReviewTest.java:69)
+		at org.junit.jupiter.api.AssertAll.lambda$assertAll$0(AssertAll.java:68)
+		at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+		at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
+		at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+		at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+		at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+		at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+		at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+		at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:77)
+		... 30 more
+	Suppressed: org.opentest4j.AssertionFailedError: Symlink creation must preserve the callback's committed child. ==> expected: <true> but was: <false>
+		at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+		at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+		at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+		at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+		at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+		at NeighborEntryReviewTest.lambda$symlinkCreationPreservesDirectoryCreatedByClock$5(NeighborEntryReviewTest.java:70)
+		at org.junit.jupiter.api.AssertAll.lambda$assertAll$0(AssertAll.java:68)
+		at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+		at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
+		at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+		at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+		at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+		at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+		at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+		at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:77)
+		... 30 more
+]]></failure>
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:NeighborEntryReviewTest]/[test-template:symlinkCreationPreservesDirectoryCreatedByClock()]/[test-template-invocation:#3]
+display-name: repetition 3 of 3
+]]></system-out>
+</testcase>
+<testcase name="mustCreateOpenPreservesDirectoryCreatedByClock()[3]" classname="NeighborEntryReviewTest" time="0">
+<failure message="Multiple Failures (3 failures)
+	org.opentest4j.AssertionFailedError: mustCreate must reject the callback's directory. ==&gt; Unexpected null value, expected: &lt;java.io.IOException&gt; but was: &lt;null&gt;
+	org.opentest4j.AssertionFailedError: Open must preserve directory type. ==&gt; expected: &lt;true&gt; but was: &lt;false&gt;
+	java.io.IOException: not a directory: /target" type="org.opentest4j.MultipleFailuresError"><![CDATA[org.opentest4j.MultipleFailuresError: Multiple Failures (3 failures)
+	org.opentest4j.AssertionFailedError: mustCreate must reject the callback's directory. ==> Unexpected null value, expected: <java.io.IOException> but was: <null>
+	org.opentest4j.AssertionFailedError: Open must preserve directory type. ==> expected: <true> but was: <false>
+	java.io.IOException: not a directory: /target
+	at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:80)
+	at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:44)
+	at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:38)
+	at org.junit.jupiter.api.Assertions.assertAll(Assertions.java:2940)
+	at NeighborEntryReviewTest.mustCreateOpenPreservesDirectoryCreatedByClock(NeighborEntryReviewTest.java:51)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.IntPipeline$1$1.accept(IntPipeline.java:180)
+	at java.base/java.util.stream.Streams$RangeIntSpliterator.forEachRemaining(Streams.java:108)
+	at java.base/java.util.Spliterator$OfInt.forEachRemaining(Spliterator.java:712)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1708)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	Suppressed: org.opentest4j.AssertionFailedError: mustCreate must reject the callback's directory. ==> Unexpected null value, expected: <java.io.IOException> but was: <null>
+		at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+		at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+		at org.junit.jupiter.api.AssertInstanceOf.assertInstanceOf(AssertInstanceOf.java:49)
+		at org.junit.jupiter.api.AssertInstanceOf.assertInstanceOf(AssertInstanceOf.java:35)
+		at org.junit.jupiter.api.Assertions.assertInstanceOf(Assertions.java:3616)
+		at NeighborEntryReviewTest.lambda$mustCreateOpenPreservesDirectoryCreatedByClock$0(NeighborEntryReviewTest.java:52)
+		at org.junit.jupiter.api.AssertAll.lambda$assertAll$0(AssertAll.java:68)
+		at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+		at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
+		at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+		at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+		at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+		at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+		at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+		at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:77)
+		... 30 more
+	Suppressed: org.opentest4j.AssertionFailedError: Open must preserve directory type. ==> expected: <true> but was: <false>
+		at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+		at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+		at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+		at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+		at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+		at NeighborEntryReviewTest.lambda$mustCreateOpenPreservesDirectoryCreatedByClock$1(NeighborEntryReviewTest.java:53)
+		at org.junit.jupiter.api.AssertAll.lambda$assertAll$0(AssertAll.java:68)
+		at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+		at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
+		at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+		at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+		at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+		at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+		at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+		at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:77)
+		... 30 more
+	Suppressed: java.io.IOException: not a directory: /target
+		at okio.fakefilesystem.FakeFileSystem.lookupPath(FakeFileSystem.kt:567)
+		at okio.fakefilesystem.FakeFileSystem.lookupPath$default(FakeFileSystem.kt:531)
+		at okio.fakefilesystem.FakeFileSystem.metadataOrNull(FakeFileSystem.kt:262)
+		at okio.internal.-FileSystem.commonExists(FileSystem.kt:41)
+		at okio.FileSystem.exists(FileSystem.kt:39)
+		at NeighborEntryReviewTest.lambda$mustCreateOpenPreservesDirectoryCreatedByClock$2(NeighborEntryReviewTest.java:54)
+		at org.junit.jupiter.api.AssertAll.lambda$assertAll$0(AssertAll.java:68)
+		at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+		at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
+		at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+		at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+		at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+		at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+		at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+		at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:77)
+		... 30 more
+]]></failure>
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:NeighborEntryReviewTest]/[test-template:mustCreateOpenPreservesDirectoryCreatedByClock()]/[test-template-invocation:#3]
+display-name: repetition 3 of 3
+]]></system-out>
+</testcase>
+<testcase name="movePreservesDirectoryCreatedBySourceLookupClock()[1]" classname="NeighborEntryReviewTest" time="0.031">
+<failure message="Multiple Failures (4 failures)
+	org.opentest4j.AssertionFailedError: Move must reject the callback's destination directory. ==&gt; Unexpected null value, expected: &lt;java.io.IOException&gt; but was: &lt;null&gt;
+	org.opentest4j.AssertionFailedError: Move must preserve destination directory type. ==&gt; expected: &lt;true&gt; but was: &lt;false&gt;
+	java.io.IOException: not a directory: /target
+	org.opentest4j.AssertionFailedError: Rejected move must preserve its source. ==&gt; expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.MultipleFailuresError"><![CDATA[org.opentest4j.MultipleFailuresError: Multiple Failures (4 failures)
+	org.opentest4j.AssertionFailedError: Move must reject the callback's destination directory. ==> Unexpected null value, expected: <java.io.IOException> but was: <null>
+	org.opentest4j.AssertionFailedError: Move must preserve destination directory type. ==> expected: <true> but was: <false>
+	java.io.IOException: not a directory: /target
+	org.opentest4j.AssertionFailedError: Rejected move must preserve its source. ==> expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:80)
+	at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:44)
+	at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:38)
+	at org.junit.jupiter.api.Assertions.assertAll(Assertions.java:2940)
+	at NeighborEntryReviewTest.movePreservesDirectoryCreatedBySourceLookupClock(NeighborEntryReviewTest.java:85)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.IntPipeline$1$1.accept(IntPipeline.java:180)
+	at java.base/java.util.stream.Streams$RangeIntSpliterator.forEachRemaining(Streams.java:104)
+	at java.base/java.util.Spliterator$OfInt.forEachRemaining(Spliterator.java:712)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1708)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	Suppressed: org.opentest4j.AssertionFailedError: Move must reject the callback's destination directory. ==> Unexpected null value, expected: <java.io.IOException> but was: <null>
+		at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+		at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+		at org.junit.jupiter.api.AssertInstanceOf.assertInstanceOf(AssertInstanceOf.java:49)
+		at org.junit.jupiter.api.AssertInstanceOf.assertInstanceOf(AssertInstanceOf.java:35)
+		at org.junit.jupiter.api.Assertions.assertInstanceOf(Assertions.java:3616)
+		at NeighborEntryReviewTest.lambda$movePreservesDirectoryCreatedBySourceLookupClock$6(NeighborEntryReviewTest.java:86)
+		at org.junit.jupiter.api.AssertAll.lambda$assertAll$0(AssertAll.java:68)
+		at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+		at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
+		at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+		at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+		at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+		at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+		at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+		at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:77)
+		... 30 more
+	Suppressed: org.opentest4j.AssertionFailedError: Move must preserve destination directory type. ==> expected: <true> but was: <false>
+		at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+		at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+		at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+		at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+		at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+		at NeighborEntryReviewTest.lambda$movePreservesDirectoryCreatedBySourceLookupClock$7(NeighborEntryReviewTest.java:87)
+		at org.junit.jupiter.api.AssertAll.lambda$assertAll$0(AssertAll.java:68)
+		at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+		at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
+		at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+		at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+		at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+		at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+		at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+		at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:77)
+		... 30 more
+	Suppressed: java.io.IOException: not a directory: /target
+		at okio.fakefilesystem.FakeFileSystem.lookupPath(FakeFileSystem.kt:567)
+		at okio.fakefilesystem.FakeFileSystem.lookupPath$default(FakeFileSystem.kt:531)
+		at okio.fakefilesystem.FakeFileSystem.metadataOrNull(FakeFileSystem.kt:262)
+		at okio.internal.-FileSystem.commonExists(FileSystem.kt:41)
+		at okio.FileSystem.exists(FileSystem.kt:39)
+		at NeighborEntryReviewTest.lambda$movePreservesDirectoryCreatedBySourceLookupClock$8(NeighborEntryReviewTest.java:88)
+		at org.junit.jupiter.api.AssertAll.lambda$assertAll$0(AssertAll.java:68)
+		at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+		at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
+		at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+		at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+		at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+		at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+		at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+		at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:77)
+		... 30 more
+	Suppressed: org.opentest4j.AssertionFailedError: Rejected move must preserve its source. ==> expected: <true> but was: <false>
+		at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+		at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+		at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+		at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+		at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+		at NeighborEntryReviewTest.lambda$movePreservesDirectoryCreatedBySourceLookupClock$9(NeighborEntryReviewTest.java:89)
+		at org.junit.jupiter.api.AssertAll.lambda$assertAll$0(AssertAll.java:68)
+		at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+		at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
+		at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+		at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+		at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+		at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+		at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+		at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:77)
+		... 30 more
+]]></failure>
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:NeighborEntryReviewTest]/[test-template:movePreservesDirectoryCreatedBySourceLookupClock()]/[test-template-invocation:#1]
+display-name: repetition 1 of 3
+]]></system-out>
+</testcase>
+<testcase name="symlinkCreationPreservesDirectoryCreatedByClock()[2]" classname="NeighborEntryReviewTest" time="0.001">
+<failure message="Multiple Failures (3 failures)
+	org.opentest4j.AssertionFailedError: Symlink creation must reject the callback's directory. ==&gt; Unexpected null value, expected: &lt;java.io.IOException&gt; but was: &lt;null&gt;
+	org.opentest4j.AssertionFailedError: Symlink creation must preserve directory type. ==&gt; expected: &lt;true&gt; but was: &lt;false&gt;
+	org.opentest4j.AssertionFailedError: Symlink creation must preserve the callback's committed child. ==&gt; expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.MultipleFailuresError"><![CDATA[org.opentest4j.MultipleFailuresError: Multiple Failures (3 failures)
+	org.opentest4j.AssertionFailedError: Symlink creation must reject the callback's directory. ==> Unexpected null value, expected: <java.io.IOException> but was: <null>
+	org.opentest4j.AssertionFailedError: Symlink creation must preserve directory type. ==> expected: <true> but was: <false>
+	org.opentest4j.AssertionFailedError: Symlink creation must preserve the callback's committed child. ==> expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:80)
+	at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:44)
+	at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:38)
+	at org.junit.jupiter.api.Assertions.assertAll(Assertions.java:2940)
+	at NeighborEntryReviewTest.symlinkCreationPreservesDirectoryCreatedByClock(NeighborEntryReviewTest.java:67)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.IntPipeline$1$1.accept(IntPipeline.java:180)
+	at java.base/java.util.stream.Streams$RangeIntSpliterator.forEachRemaining(Streams.java:104)
+	at java.base/java.util.Spliterator$OfInt.forEachRemaining(Spliterator.java:712)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1708)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	Suppressed: org.opentest4j.AssertionFailedError: Symlink creation must reject the callback's directory. ==> Unexpected null value, expected: <java.io.IOException> but was: <null>
+		at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+		at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+		at org.junit.jupiter.api.AssertInstanceOf.assertInstanceOf(AssertInstanceOf.java:49)
+		at org.junit.jupiter.api.AssertInstanceOf.assertInstanceOf(AssertInstanceOf.java:35)
+		at org.junit.jupiter.api.Assertions.assertInstanceOf(Assertions.java:3616)
+		at NeighborEntryReviewTest.lambda$symlinkCreationPreservesDirectoryCreatedByClock$3(NeighborEntryReviewTest.java:68)
+		at org.junit.jupiter.api.AssertAll.lambda$assertAll$0(AssertAll.java:68)
+		at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+		at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
+		at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+		at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+		at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+		at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+		at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+		at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:77)
+		... 30 more
+	Suppressed: org.opentest4j.AssertionFailedError: Symlink creation must preserve directory type. ==> expected: <true> but was: <false>
+		at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+		at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+		at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+		at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+		at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+		at NeighborEntryReviewTest.lambda$symlinkCreationPreservesDirectoryCreatedByClock$4(NeighborEntryReviewTest.java:69)
+		at org.junit.jupiter.api.AssertAll.lambda$assertAll$0(AssertAll.java:68)
+		at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+		at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
+		at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+		at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+		at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+		at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+		at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+		at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:77)
+		... 30 more
+	Suppressed: org.opentest4j.AssertionFailedError: Symlink creation must preserve the callback's committed child. ==> expected: <true> but was: <false>
+		at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+		at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+		at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+		at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+		at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+		at NeighborEntryReviewTest.lambda$symlinkCreationPreservesDirectoryCreatedByClock$5(NeighborEntryReviewTest.java:70)
+		at org.junit.jupiter.api.AssertAll.lambda$assertAll$0(AssertAll.java:68)
+		at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+		at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
+		at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+		at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+		at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+		at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+		at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+		at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:77)
+		... 30 more
+]]></failure>
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:NeighborEntryReviewTest]/[test-template:symlinkCreationPreservesDirectoryCreatedByClock()]/[test-template-invocation:#2]
+display-name: repetition 2 of 3
+]]></system-out>
+</testcase>
+<testcase name="movePreservesDirectoryCreatedBySourceLookupClock()[2]" classname="NeighborEntryReviewTest" time="0.003">
+<failure message="Multiple Failures (4 failures)
+	org.opentest4j.AssertionFailedError: Move must reject the callback's destination directory. ==&gt; Unexpected null value, expected: &lt;java.io.IOException&gt; but was: &lt;null&gt;
+	org.opentest4j.AssertionFailedError: Move must preserve destination directory type. ==&gt; expected: &lt;true&gt; but was: &lt;false&gt;
+	java.io.IOException: not a directory: /target
+	org.opentest4j.AssertionFailedError: Rejected move must preserve its source. ==&gt; expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.MultipleFailuresError"><![CDATA[org.opentest4j.MultipleFailuresError: Multiple Failures (4 failures)
+	org.opentest4j.AssertionFailedError: Move must reject the callback's destination directory. ==> Unexpected null value, expected: <java.io.IOException> but was: <null>
+	org.opentest4j.AssertionFailedError: Move must preserve destination directory type. ==> expected: <true> but was: <false>
+	java.io.IOException: not a directory: /target
+	org.opentest4j.AssertionFailedError: Rejected move must preserve its source. ==> expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:80)
+	at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:44)
+	at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:38)
+	at org.junit.jupiter.api.Assertions.assertAll(Assertions.java:2940)
+	at NeighborEntryReviewTest.movePreservesDirectoryCreatedBySourceLookupClock(NeighborEntryReviewTest.java:85)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.IntPipeline$1$1.accept(IntPipeline.java:180)
+	at java.base/java.util.stream.Streams$RangeIntSpliterator.forEachRemaining(Streams.java:104)
+	at java.base/java.util.Spliterator$OfInt.forEachRemaining(Spliterator.java:712)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1708)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	Suppressed: org.opentest4j.AssertionFailedError: Move must reject the callback's destination directory. ==> Unexpected null value, expected: <java.io.IOException> but was: <null>
+		at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+		at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+		at org.junit.jupiter.api.AssertInstanceOf.assertInstanceOf(AssertInstanceOf.java:49)
+		at org.junit.jupiter.api.AssertInstanceOf.assertInstanceOf(AssertInstanceOf.java:35)
+		at org.junit.jupiter.api.Assertions.assertInstanceOf(Assertions.java:3616)
+		at NeighborEntryReviewTest.lambda$movePreservesDirectoryCreatedBySourceLookupClock$6(NeighborEntryReviewTest.java:86)
+		at org.junit.jupiter.api.AssertAll.lambda$assertAll$0(AssertAll.java:68)
+		at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+		at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
+		at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+		at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+		at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+		at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+		at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+		at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:77)
+		... 30 more
+	Suppressed: org.opentest4j.AssertionFailedError: Move must preserve destination directory type. ==> expected: <true> but was: <false>
+		at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+		at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+		at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+		at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+		at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+		at NeighborEntryReviewTest.lambda$movePreservesDirectoryCreatedBySourceLookupClock$7(NeighborEntryReviewTest.java:87)
+		at org.junit.jupiter.api.AssertAll.lambda$assertAll$0(AssertAll.java:68)
+		at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+		at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
+		at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+		at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+		at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+		at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+		at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+		at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:77)
+		... 30 more
+	Suppressed: java.io.IOException: not a directory: /target
+		at okio.fakefilesystem.FakeFileSystem.lookupPath(FakeFileSystem.kt:567)
+		at okio.fakefilesystem.FakeFileSystem.lookupPath$default(FakeFileSystem.kt:531)
+		at okio.fakefilesystem.FakeFileSystem.metadataOrNull(FakeFileSystem.kt:262)
+		at okio.internal.-FileSystem.commonExists(FileSystem.kt:41)
+		at okio.FileSystem.exists(FileSystem.kt:39)
+		at NeighborEntryReviewTest.lambda$movePreservesDirectoryCreatedBySourceLookupClock$8(NeighborEntryReviewTest.java:88)
+		at org.junit.jupiter.api.AssertAll.lambda$assertAll$0(AssertAll.java:68)
+		at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+		at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
+		at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+		at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+		at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+		at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+		at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+		at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:77)
+		... 30 more
+	Suppressed: org.opentest4j.AssertionFailedError: Rejected move must preserve its source. ==> expected: <true> but was: <false>
+		at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+		at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+		at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+		at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+		at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+		at NeighborEntryReviewTest.lambda$movePreservesDirectoryCreatedBySourceLookupClock$9(NeighborEntryReviewTest.java:89)
+		at org.junit.jupiter.api.AssertAll.lambda$assertAll$0(AssertAll.java:68)
+		at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+		at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
+		at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+		at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+		at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+		at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+		at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+		at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:77)
+		... 30 more
+]]></failure>
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:NeighborEntryReviewTest]/[test-template:movePreservesDirectoryCreatedBySourceLookupClock()]/[test-template-invocation:#2]
+display-name: repetition 2 of 3
+]]></system-out>
+</testcase>
+<testcase name="symlinkCreationPreservesDirectoryCreatedByClock()[1]" classname="NeighborEntryReviewTest" time="0.001">
+<failure message="Multiple Failures (3 failures)
+	org.opentest4j.AssertionFailedError: Symlink creation must reject the callback's directory. ==&gt; Unexpected null value, expected: &lt;java.io.IOException&gt; but was: &lt;null&gt;
+	org.opentest4j.AssertionFailedError: Symlink creation must preserve directory type. ==&gt; expected: &lt;true&gt; but was: &lt;false&gt;
+	org.opentest4j.AssertionFailedError: Symlink creation must preserve the callback's committed child. ==&gt; expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.MultipleFailuresError"><![CDATA[org.opentest4j.MultipleFailuresError: Multiple Failures (3 failures)
+	org.opentest4j.AssertionFailedError: Symlink creation must reject the callback's directory. ==> Unexpected null value, expected: <java.io.IOException> but was: <null>
+	org.opentest4j.AssertionFailedError: Symlink creation must preserve directory type. ==> expected: <true> but was: <false>
+	org.opentest4j.AssertionFailedError: Symlink creation must preserve the callback's committed child. ==> expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:80)
+	at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:44)
+	at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:38)
+	at org.junit.jupiter.api.Assertions.assertAll(Assertions.java:2940)
+	at NeighborEntryReviewTest.symlinkCreationPreservesDirectoryCreatedByClock(NeighborEntryReviewTest.java:67)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.IntPipeline$1$1.accept(IntPipeline.java:180)
+	at java.base/java.util.stream.Streams$RangeIntSpliterator.forEachRemaining(Streams.java:104)
+	at java.base/java.util.Spliterator$OfInt.forEachRemaining(Spliterator.java:712)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1708)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	Suppressed: org.opentest4j.AssertionFailedError: Symlink creation must reject the callback's directory. ==> Unexpected null value, expected: <java.io.IOException> but was: <null>
+		at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+		at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+		at org.junit.jupiter.api.AssertInstanceOf.assertInstanceOf(AssertInstanceOf.java:49)
+		at org.junit.jupiter.api.AssertInstanceOf.assertInstanceOf(AssertInstanceOf.java:35)
+		at org.junit.jupiter.api.Assertions.assertInstanceOf(Assertions.java:3616)
+		at NeighborEntryReviewTest.lambda$symlinkCreationPreservesDirectoryCreatedByClock$3(NeighborEntryReviewTest.java:68)
+		at org.junit.jupiter.api.AssertAll.lambda$assertAll$0(AssertAll.java:68)
+		at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+		at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
+		at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+		at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+		at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+		at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+		at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+		at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:77)
+		... 30 more
+	Suppressed: org.opentest4j.AssertionFailedError: Symlink creation must preserve directory type. ==> expected: <true> but was: <false>
+		at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+		at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+		at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+		at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+		at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+		at NeighborEntryReviewTest.lambda$symlinkCreationPreservesDirectoryCreatedByClock$4(NeighborEntryReviewTest.java:69)
+		at org.junit.jupiter.api.AssertAll.lambda$assertAll$0(AssertAll.java:68)
+		at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+		at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
+		at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+		at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+		at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+		at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+		at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+		at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:77)
+		... 30 more
+	Suppressed: org.opentest4j.AssertionFailedError: Symlink creation must preserve the callback's committed child. ==> expected: <true> but was: <false>
+		at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+		at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+		at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+		at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+		at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+		at NeighborEntryReviewTest.lambda$symlinkCreationPreservesDirectoryCreatedByClock$5(NeighborEntryReviewTest.java:70)
+		at org.junit.jupiter.api.AssertAll.lambda$assertAll$0(AssertAll.java:68)
+		at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+		at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
+		at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+		at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+		at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+		at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+		at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+		at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:77)
+		... 30 more
+]]></failure>
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:NeighborEntryReviewTest]/[test-template:symlinkCreationPreservesDirectoryCreatedByClock()]/[test-template-invocation:#1]
+display-name: repetition 1 of 3
+]]></system-out>
+</testcase>
+<testcase name="mustCreateOpenPreservesDirectoryCreatedByClock()[1]" classname="NeighborEntryReviewTest" time="0.001">
+<failure message="Multiple Failures (3 failures)
+	org.opentest4j.AssertionFailedError: mustCreate must reject the callback's directory. ==&gt; Unexpected null value, expected: &lt;java.io.IOException&gt; but was: &lt;null&gt;
+	org.opentest4j.AssertionFailedError: Open must preserve directory type. ==&gt; expected: &lt;true&gt; but was: &lt;false&gt;
+	java.io.IOException: not a directory: /target" type="org.opentest4j.MultipleFailuresError"><![CDATA[org.opentest4j.MultipleFailuresError: Multiple Failures (3 failures)
+	org.opentest4j.AssertionFailedError: mustCreate must reject the callback's directory. ==> Unexpected null value, expected: <java.io.IOException> but was: <null>
+	org.opentest4j.AssertionFailedError: Open must preserve directory type. ==> expected: <true> but was: <false>
+	java.io.IOException: not a directory: /target
+	at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:80)
+	at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:44)
+	at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:38)
+	at org.junit.jupiter.api.Assertions.assertAll(Assertions.java:2940)
+	at NeighborEntryReviewTest.mustCreateOpenPreservesDirectoryCreatedByClock(NeighborEntryReviewTest.java:51)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.IntPipeline$1$1.accept(IntPipeline.java:180)
+	at java.base/java.util.stream.Streams$RangeIntSpliterator.forEachRemaining(Streams.java:104)
+	at java.base/java.util.Spliterator$OfInt.forEachRemaining(Spliterator.java:712)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1708)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	Suppressed: org.opentest4j.AssertionFailedError: mustCreate must reject the callback's directory. ==> Unexpected null value, expected: <java.io.IOException> but was: <null>
+		at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+		at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+		at org.junit.jupiter.api.AssertInstanceOf.assertInstanceOf(AssertInstanceOf.java:49)
+		at org.junit.jupiter.api.AssertInstanceOf.assertInstanceOf(AssertInstanceOf.java:35)
+		at org.junit.jupiter.api.Assertions.assertInstanceOf(Assertions.java:3616)
+		at NeighborEntryReviewTest.lambda$mustCreateOpenPreservesDirectoryCreatedByClock$0(NeighborEntryReviewTest.java:52)
+		at org.junit.jupiter.api.AssertAll.lambda$assertAll$0(AssertAll.java:68)
+		at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+		at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
+		at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+		at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+		at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+		at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+		at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+		at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:77)
+		... 30 more
+	Suppressed: org.opentest4j.AssertionFailedError: Open must preserve directory type. ==> expected: <true> but was: <false>
+		at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+		at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+		at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+		at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+		at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+		at NeighborEntryReviewTest.lambda$mustCreateOpenPreservesDirectoryCreatedByClock$1(NeighborEntryReviewTest.java:53)
+		at org.junit.jupiter.api.AssertAll.lambda$assertAll$0(AssertAll.java:68)
+		at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+		at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
+		at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+		at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+		at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+		at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+		at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+		at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:77)
+		... 30 more
+	Suppressed: java.io.IOException: not a directory: /target
+		at okio.fakefilesystem.FakeFileSystem.lookupPath(FakeFileSystem.kt:567)
+		at okio.fakefilesystem.FakeFileSystem.lookupPath$default(FakeFileSystem.kt:531)
+		at okio.fakefilesystem.FakeFileSystem.metadataOrNull(FakeFileSystem.kt:262)
+		at okio.internal.-FileSystem.commonExists(FileSystem.kt:41)
+		at okio.FileSystem.exists(FileSystem.kt:39)
+		at NeighborEntryReviewTest.lambda$mustCreateOpenPreservesDirectoryCreatedByClock$2(NeighborEntryReviewTest.java:54)
+		at org.junit.jupiter.api.AssertAll.lambda$assertAll$0(AssertAll.java:68)
+		at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+		at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
+		at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+		at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+		at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+		at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+		at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+		at org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:77)
+		... 30 more
+]]></failure>
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:NeighborEntryReviewTest]/[test-template:mustCreateOpenPreservesDirectoryCreatedByClock()]/[test-template-invocation:#1]
+display-name: repetition 1 of 3
+]]></system-out>
+</testcase>
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]
+display-name: JUnit Jupiter
+]]></system-out>
+</testsuite>
