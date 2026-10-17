@@ -1,0 +1,142 @@
+Public javap API is identical to -2 for all previous classes.
+3b04c346df6fb6ebe04c80d7d5bec07e2410b0be9f588a385537ff2b353c1e4a  okio-fakefilesystem-jvm-3.4.0-r576-registry-lock-3.jar
+2fb06372ff53ad03002099420b61e3fc06cee14652b23d2a0cfc626f8560b835  okio-fakefilesystem-jvm-3.4.0-r576-registry-lock-3.pom
+R576 trial 1: PASS
+R576 trial 2: PASS
+R576 trial 3: PASS
+R576 trial 4: PASS
+R576 trial 5: PASS
+R576 trial 6: PASS
+R576 trial 7: PASS
+R576 trial 8: PASS
+R576 trial 9: PASS
+R576 trial 10: PASS
+R576 trial 11: PASS
+R576 trial 12: PASS
+R576 trial 13: PASS
+R576 trial 14: PASS
+R576 trial 15: PASS
+R576 trial 16: PASS
+R576 trial 17: PASS
+R576 trial 18: PASS
+R576 trial 19: PASS
+R576 trial 20: PASS
+[36m╷[0m
+[36m├─[0m [36mJUnit Jupiter[0m [32m✔[0m
+[36m│  ├─[0m [36mDirectoryProof[0m [32m✔[0m
+[36m│  │  └─[0m [36mreentrantDirectoryCreationPreservesCommittedChild()[0m [32m✔[0m
+[36m│  │     ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │     ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │     └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  ├─[0m [36mDirectoryConcurrencyTest[0m [32m✔[0m
+[36m│  │  ├─[0m [36mexistingDirectoryPreservesChild()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  │  ├─[0m [36mreentrantMustCreateRejectsCommittedDirectory()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  │  ├─[0m [36mconcurrentCreateDirectoriesPreservesCommittedChild()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  │  ├─[0m [36mexistingFileIsNotReplacedByDirectory()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  │  ├─[0m [36mreentrantSymlinkParentPreservesCommittedChild()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  │  ├─[0m [36mconcurrentMustCreateAdmitsOneCaller()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  │  ├─[0m [36mexistingRootMustCreateIsRejected()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  │  └─[0m [36mreentrantRootCreationPreservesCommittedChild()[0m [32m✔[0m
+[36m│  │     ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │     ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │     └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  ├─[0m [36mNeighborEntryReviewTest[0m [32m✔[0m
+[36m│  │  ├─[0m [36mmovePreservesDirectoryCreatedBySourceLookupClock()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  │  ├─[0m [36msymlinkCreationPreservesDirectoryCreatedByClock()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  │  └─[0m [36mmustCreateOpenPreservesDirectoryCreatedByClock()[0m [32m✔[0m
+[36m│  │     ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │     ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │     └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  ├─[0m [36mEntryAdmissionConcurrencyTest[0m [32m✔[0m
+[36m│  │  ├─[0m [36mconcurrentSymlinkPreservesCommittedDirectory()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  │  ├─[0m [36mconcurrentOpenPreservesCommittedDirectory()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  │  └─[0m [36mconcurrentMovePreservesCommittedDirectory()[0m [32m✔[0m
+[36m│  │     ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │     ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │     └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  ├─[0m [36mEntryAdmissionBoundaryTest[0m [32m✔[0m
+[36m│  │  ├─[0m [36mappendingSinkRejectsDirectoryCreatedByClock()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  │  ├─[0m [36mmustExistRejectsFileDeletedByClock()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  │  ├─[0m [36mmustCreateRejectsFileCreatedByClock()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  │  ├─[0m [36mreadOnlyReadsFileReplacedByClock()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  │  ├─[0m [36mdeleteResolvesCurrentSymlinkParentAfterClock()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  │  └─[0m [36msinkRejectsDirectoryCreatedByClock()[0m [32m✔[0m
+[36m│  │     ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │     ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │     └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  ├─[0m [36mEntryMetadataAdmissionTest[0m [32m✔[0m
+[36m│  │  └─[0m [36mmetadataUpdateResolvesCurrentSymlinkParentAfterClock()[0m [32m✔[0m
+[36m│  │     ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │     ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │     └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  └─[0m [36mRegistryConcurrencyTest[0m [32m✔[0m
+[36m│     └─[0m [34mconcurrentDistinctFileOpenClose()[0m [32m✔[0m
+[36m├─[0m [36mJUnit Vintage[0m [32m✔[0m
+[36m│  └─[0m [36mFakeFileSystemRegistryTest[0m [32m✔[0m
+[36m│     ├─[0m [34mclockFailureOnCloseStillRemovesRegistration[0m [32m✔[0m
+[36m│     ├─[0m [34mclockReentryCannotAdmitTwoWriters[0m [32m✔[0m
+[36m│     └─[0m [34mopenPathsIsASnapshotAndSourcesRetainRegistration[0m [32m✔[0m
+[36m└─[0m [36mJUnit Platform Suite[0m [32m✔[0m
+
+Test run finished after 2781 ms
+[        33 containers found      ]
+[         0 containers skipped    ]
+[        33 containers started    ]
+[         0 containers aborted    ]
+[        33 containers successful ]
+[         0 containers failed     ]
+[        70 tests found           ]
+[         0 tests skipped         ]
+[        70 tests started         ]
+[         0 tests aborted         ]
+[        70 tests successful      ]
+[         0 tests failed          ]
+
