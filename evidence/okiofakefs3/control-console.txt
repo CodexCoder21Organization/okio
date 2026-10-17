@@ -1,0 +1,556 @@
+Filesystem      Size  Used Avail Use% Mounted on
+overlay         1.8T  561G  1.2T  33% /
+Public javap API is identical to -3 for all previous classes.
+3b04c346df6fb6ebe04c80d7d5bec07e2410b0be9f588a385537ff2b353c1e4a  okio-fakefilesystem-jvm-3.4.0-r576-registry-lock-4.jar
+28f6648942e359711ab1530b68e8cebe71bb3f5e4516fb52fe4794173a6430e0  okio-fakefilesystem-jvm-3.4.0-r576-registry-lock-4.pom
+R576 trial 1: PASS
+R576 trial 2: PASS
+R576 trial 3: PASS
+R576 trial 4: PASS
+R576 trial 5: PASS
+R576 trial 6: PASS
+R576 trial 7: PASS
+R576 trial 8: PASS
+R576 trial 9: PASS
+R576 trial 10: PASS
+R576 trial 11: PASS
+R576 trial 12: PASS
+R576 trial 13: PASS
+R576 trial 14: PASS
+R576 trial 15: PASS
+R576 trial 16: PASS
+R576 trial 17: PASS
+R576 trial 18: PASS
+R576 trial 19: PASS
+R576 trial 20: PASS
+[36m╷[0m
+[36m├─[0m [36mJUnit Jupiter[0m [32m✔[0m
+[36m│  ├─[0m [36mReadLookupReviewTest[0m [32m✔[0m
+[36m│  │  ├─[0m [36mcanonicalizeRejectsAPathAbsentThroughoutItsCallback()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [31mrepetition 1 of 3[0m [31m✘[0m [31mCanonicalization must reject a path absent before and after its callback. ==> Expected java.io.IOException to be thrown, but nothing was thrown.[0m
+[36m│  │  │  ├─[0m [31mrepetition 2 of 3[0m [31m✘[0m [31mCanonicalization must reject a path absent before and after its callback. ==> Expected java.io.IOException to be thrown, but nothing was thrown.[0m
+[36m│  │  │  └─[0m [31mrepetition 3 of 3[0m [31m✘[0m [31mCanonicalization must reject a path absent before and after its callback. ==> Expected java.io.IOException to be thrown, but nothing was thrown.[0m
+[36m│  │  ├─[0m [36mmetadataDoesNotReturnAnEntryNeverAtTheRequestedPath()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [31mrepetition 1 of 3[0m [31m✘[0m [31mMetadata must not use an entry created only in the retired parent. ==> expected: <null> but was: <FileMetadata(isDirectory, createdAt=0, lastModifiedAt=0, lastAccessedAt=0)>[0m
+[36m│  │  │  ├─[0m [31mrepetition 2 of 3[0m [31m✘[0m [31mMetadata must not use an entry created only in the retired parent. ==> expected: <null> but was: <FileMetadata(isDirectory, createdAt=0, lastModifiedAt=0, lastAccessedAt=0)>[0m
+[36m│  │  │  └─[0m [31mrepetition 3 of 3[0m [31m✘[0m [31mMetadata must not use an entry created only in the retired parent. ==> expected: <null> but was: <FileMetadata(isDirectory, createdAt=0, lastModifiedAt=0, lastAccessedAt=0)>[0m
+[36m│  │  ├─[0m [36mcreateDirectoriesCreatesTheRequestedDirectory()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [31mrepetition 1 of 3[0m [31m✘[0m [31mSuccessful createDirectories must create the requested directory, not accept metadata from a retired parent. ==> expected: <true> but was: <false>[0m
+[36m│  │  │  ├─[0m [31mrepetition 2 of 3[0m [31m✘[0m [31mSuccessful createDirectories must create the requested directory, not accept metadata from a retired parent. ==> expected: <true> but was: <false>[0m
+[36m│  │  │  └─[0m [31mrepetition 3 of 3[0m [31m✘[0m [31mSuccessful createDirectories must create the requested directory, not accept metadata from a retired parent. ==> expected: <true> but was: <false>[0m
+[36m│  │  └─[0m [36mlistDoesNotReturnAChildNeverAtTheRequestedPath()[0m [32m✔[0m
+[36m│  │     ├─[0m [31mrepetition 1 of 3[0m [31m✘[0m [31mListing must not map a retired parent's new child into the current alias. ==> expected: <[]> but was: <[/alias/ghost]>[0m
+[36m│  │     ├─[0m [31mrepetition 2 of 3[0m [31m✘[0m [31mListing must not map a retired parent's new child into the current alias. ==> expected: <[]> but was: <[/alias/ghost]>[0m
+[36m│  │     └─[0m [31mrepetition 3 of 3[0m [31m✘[0m [31mListing must not map a retired parent's new child into the current alias. ==> expected: <[]> but was: <[/alias/ghost]>[0m
+[36m│  ├─[0m [36mSymlinkResolutionBoundaryTest[0m [32m✔[0m
+[36m│  │  ├─[0m [36mcanonicalizeRejectsDanglingFinalLink()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [31mrepetition 1 of 3[0m [31m✘[0m [31mExpected java.io.IOException to be thrown, but nothing was thrown.[0m
+[36m│  │  │  ├─[0m [31mrepetition 2 of 3[0m [31m✘[0m [31mExpected java.io.IOException to be thrown, but nothing was thrown.[0m
+[36m│  │  │  └─[0m [31mrepetition 3 of 3[0m [31m✘[0m [31mExpected java.io.IOException to be thrown, but nothing was thrown.[0m
+[36m│  │  ├─[0m [36mexistingDanglingDestinationReplacesOnlyTheLink()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [31mrepetition 1 of 3[0m [31m✘[0m [31mUnrelated directory must survive move to an existing dangling link. ==> expected: <true> but was: <false>[0m
+[36m│  │  │  ├─[0m [31mrepetition 2 of 3[0m [31m✘[0m [31mUnrelated directory must survive move to an existing dangling link. ==> expected: <true> but was: <false>[0m
+[36m│  │  │  └─[0m [31mrepetition 3 of 3[0m [31m✘[0m [31mUnrelated directory must survive move to an existing dangling link. ==> expected: <true> but was: <false>[0m
+[36m│  │  └─[0m [36mexistingLiveDestinationReplacesOnlyTheLink()[0m [32m✔[0m
+[36m│  │     ├─[0m [31mrepetition 1 of 3[0m [31m✘[0m [31mMove must preserve an unrelated entry with the original basename. ==> expected: <unrelated> but was: <source>[0m
+[36m│  │     ├─[0m [31mrepetition 2 of 3[0m [31m✘[0m [31mMove must preserve an unrelated entry with the original basename. ==> expected: <unrelated> but was: <source>[0m
+[36m│  │     └─[0m [31mrepetition 3 of 3[0m [31m✘[0m [31mMove must preserve an unrelated entry with the original basename. ==> expected: <unrelated> but was: <source>[0m
+[36m│  ├─[0m [36mDirectoryProof[0m [32m✔[0m
+[36m│  │  └─[0m [36mreentrantDirectoryCreationPreservesCommittedChild()[0m [32m✔[0m
+[36m│  │     ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │     ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │     └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  ├─[0m [36mDirectoryConcurrencyTest[0m [32m✔[0m
+[36m│  │  ├─[0m [36mexistingDirectoryPreservesChild()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  │  ├─[0m [36mreentrantMustCreateRejectsCommittedDirectory()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  │  ├─[0m [36mconcurrentCreateDirectoriesPreservesCommittedChild()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  │  ├─[0m [36mexistingFileIsNotReplacedByDirectory()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  │  ├─[0m [36mreentrantSymlinkParentPreservesCommittedChild()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  │  ├─[0m [36mconcurrentMustCreateAdmitsOneCaller()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  │  ├─[0m [36mexistingRootMustCreateIsRejected()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  │  └─[0m [36mreentrantRootCreationPreservesCommittedChild()[0m [32m✔[0m
+[36m│  │     ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │     ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │     └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  ├─[0m [36mNeighborEntryReviewTest[0m [32m✔[0m
+[36m│  │  ├─[0m [36mmovePreservesDirectoryCreatedBySourceLookupClock()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  │  ├─[0m [36msymlinkCreationPreservesDirectoryCreatedByClock()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  │  └─[0m [36mmustCreateOpenPreservesDirectoryCreatedByClock()[0m [32m✔[0m
+[36m│  │     ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │     ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │     └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  ├─[0m [36mEntryAdmissionConcurrencyTest[0m [32m✔[0m
+[36m│  │  ├─[0m [36mconcurrentSymlinkPreservesCommittedDirectory()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  │  ├─[0m [36mconcurrentOpenPreservesCommittedDirectory()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  │  └─[0m [36mconcurrentMovePreservesCommittedDirectory()[0m [32m✔[0m
+[36m│  │     ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │     ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │     └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  ├─[0m [36mEntryAdmissionBoundaryTest[0m [32m✔[0m
+[36m│  │  ├─[0m [36mappendingSinkRejectsDirectoryCreatedByClock()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  │  ├─[0m [36mmustExistRejectsFileDeletedByClock()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  │  ├─[0m [36mmustCreateRejectsFileCreatedByClock()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  │  ├─[0m [36mreadOnlyReadsFileReplacedByClock()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  │  ├─[0m [36mdeleteResolvesCurrentSymlinkParentAfterClock()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  │  └─[0m [36msinkRejectsDirectoryCreatedByClock()[0m [32m✔[0m
+[36m│  │     ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │     ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │     └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  ├─[0m [36mEntryMetadataAdmissionTest[0m [32m✔[0m
+[36m│  │  └─[0m [36mmetadataUpdateResolvesCurrentSymlinkParentAfterClock()[0m [32m✔[0m
+[36m│  │     ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │     ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │     └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  ├─[0m [36mRegistryConcurrencyTest[0m [32m✔[0m
+[36m│  │  └─[0m [34mconcurrentDistinctFileOpenClose()[0m [32m✔[0m
+[36m│  └─[0m [36mDanglingAdmissionReviewTest[0m [32m✔[0m
+[36m│     └─[0m [36mmoveAdmissionPreservesUnrelatedDirectory()[0m [32m✔[0m
+[36m│        ├─[0m [31mrepetition 1 of 3[0m [31m✘[0m [31mMultiple Failures (2 failures)[0m
+[36m│        │     [0m[31m   	org.opentest4j.AssertionFailedError: Admission to /target must preserve unrelated /parent/target directory type. ==> expected: <true> but was: <false>[0m
+[36m│        │     [0m[31m   	org.opentest4j.AssertionFailedError: Admission to /target must preserve unrelated /parent/target/child. ==> expected: <true> but was: <false>[0m
+[36m│        ├─[0m [31mrepetition 2 of 3[0m [31m✘[0m [31mMultiple Failures (2 failures)[0m
+[36m│        │     [0m[31m   	org.opentest4j.AssertionFailedError: Admission to /target must preserve unrelated /parent/target directory type. ==> expected: <true> but was: <false>[0m
+[36m│        │     [0m[31m   	org.opentest4j.AssertionFailedError: Admission to /target must preserve unrelated /parent/target/child. ==> expected: <true> but was: <false>[0m
+[36m│        └─[0m [31mrepetition 3 of 3[0m [31m✘[0m [31mMultiple Failures (2 failures)[0m
+[36m│              [0m[31m   	org.opentest4j.AssertionFailedError: Admission to /target must preserve unrelated /parent/target directory type. ==> expected: <true> but was: <false>[0m
+[36m│              [0m[31m   	org.opentest4j.AssertionFailedError: Admission to /target must preserve unrelated /parent/target/child. ==> expected: <true> but was: <false>[0m
+[36m├─[0m [36mJUnit Vintage[0m [32m✔[0m
+[36m│  └─[0m [36mFakeFileSystemRegistryTest[0m [32m✔[0m
+[36m│     ├─[0m [34mclockFailureOnCloseStillRemovesRegistration[0m [32m✔[0m
+[36m│     ├─[0m [34mclockReentryCannotAdmitTwoWriters[0m [32m✔[0m
+[36m│     └─[0m [34mopenPathsIsASnapshotAndSourcesRetainRegistration[0m [32m✔[0m
+[36m└─[0m [36mJUnit Platform Suite[0m [32m✔[0m
+
+Failures (24):
+  JUnit Jupiter:ReadLookupReviewTest:canonicalizeRejectsAPathAbsentThroughoutItsCallback():repetition 1 of 3
+    MethodSource [className = 'ReadLookupReviewTest', methodName = 'canonicalizeRejectsAPathAbsentThroughoutItsCallback', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Canonicalization must reject a path absent before and after its callback. ==> Expected java.io.IOException to be thrown, but nothing was thrown.
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:39)
+       org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3127)
+       ReadLookupReviewTest.canonicalizeRejectsAPathAbsentThroughoutItsCallback(ReadLookupReviewTest.java:47)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       [...]
+  JUnit Jupiter:ReadLookupReviewTest:canonicalizeRejectsAPathAbsentThroughoutItsCallback():repetition 2 of 3
+    MethodSource [className = 'ReadLookupReviewTest', methodName = 'canonicalizeRejectsAPathAbsentThroughoutItsCallback', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Canonicalization must reject a path absent before and after its callback. ==> Expected java.io.IOException to be thrown, but nothing was thrown.
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:39)
+       org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3127)
+       ReadLookupReviewTest.canonicalizeRejectsAPathAbsentThroughoutItsCallback(ReadLookupReviewTest.java:47)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       [...]
+  JUnit Jupiter:ReadLookupReviewTest:canonicalizeRejectsAPathAbsentThroughoutItsCallback():repetition 3 of 3
+    MethodSource [className = 'ReadLookupReviewTest', methodName = 'canonicalizeRejectsAPathAbsentThroughoutItsCallback', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Canonicalization must reject a path absent before and after its callback. ==> Expected java.io.IOException to be thrown, but nothing was thrown.
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:39)
+       org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3127)
+       ReadLookupReviewTest.canonicalizeRejectsAPathAbsentThroughoutItsCallback(ReadLookupReviewTest.java:47)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       [...]
+  JUnit Jupiter:ReadLookupReviewTest:metadataDoesNotReturnAnEntryNeverAtTheRequestedPath():repetition 1 of 3
+    MethodSource [className = 'ReadLookupReviewTest', methodName = 'metadataDoesNotReturnAnEntryNeverAtTheRequestedPath', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Metadata must not use an entry created only in the retired parent. ==> expected: <null> but was: <FileMetadata(isDirectory, createdAt=0, lastModifiedAt=0, lastAccessedAt=0)>
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+       org.junit.jupiter.api.AssertNull.failNotNull(AssertNull.java:50)
+       org.junit.jupiter.api.AssertNull.assertNull(AssertNull.java:35)
+       org.junit.jupiter.api.Assertions.assertNull(Assertions.java:283)
+       ReadLookupReviewTest.metadataDoesNotReturnAnEntryNeverAtTheRequestedPath(ReadLookupReviewTest.java:41)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       [...]
+  JUnit Jupiter:ReadLookupReviewTest:metadataDoesNotReturnAnEntryNeverAtTheRequestedPath():repetition 2 of 3
+    MethodSource [className = 'ReadLookupReviewTest', methodName = 'metadataDoesNotReturnAnEntryNeverAtTheRequestedPath', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Metadata must not use an entry created only in the retired parent. ==> expected: <null> but was: <FileMetadata(isDirectory, createdAt=0, lastModifiedAt=0, lastAccessedAt=0)>
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+       org.junit.jupiter.api.AssertNull.failNotNull(AssertNull.java:50)
+       org.junit.jupiter.api.AssertNull.assertNull(AssertNull.java:35)
+       org.junit.jupiter.api.Assertions.assertNull(Assertions.java:283)
+       ReadLookupReviewTest.metadataDoesNotReturnAnEntryNeverAtTheRequestedPath(ReadLookupReviewTest.java:41)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       [...]
+  JUnit Jupiter:ReadLookupReviewTest:metadataDoesNotReturnAnEntryNeverAtTheRequestedPath():repetition 3 of 3
+    MethodSource [className = 'ReadLookupReviewTest', methodName = 'metadataDoesNotReturnAnEntryNeverAtTheRequestedPath', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Metadata must not use an entry created only in the retired parent. ==> expected: <null> but was: <FileMetadata(isDirectory, createdAt=0, lastModifiedAt=0, lastAccessedAt=0)>
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+       org.junit.jupiter.api.AssertNull.failNotNull(AssertNull.java:50)
+       org.junit.jupiter.api.AssertNull.assertNull(AssertNull.java:35)
+       org.junit.jupiter.api.Assertions.assertNull(Assertions.java:283)
+       ReadLookupReviewTest.metadataDoesNotReturnAnEntryNeverAtTheRequestedPath(ReadLookupReviewTest.java:41)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       [...]
+  JUnit Jupiter:ReadLookupReviewTest:createDirectoriesCreatesTheRequestedDirectory():repetition 1 of 3
+    MethodSource [className = 'ReadLookupReviewTest', methodName = 'createDirectoriesCreatesTheRequestedDirectory', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Successful createDirectories must create the requested directory, not accept metadata from a retired parent. ==> expected: <true> but was: <false>
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+       org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+       org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+       org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+       ReadLookupReviewTest.createDirectoriesCreatesTheRequestedDirectory(ReadLookupReviewTest.java:61)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       [...]
+  JUnit Jupiter:ReadLookupReviewTest:createDirectoriesCreatesTheRequestedDirectory():repetition 2 of 3
+    MethodSource [className = 'ReadLookupReviewTest', methodName = 'createDirectoriesCreatesTheRequestedDirectory', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Successful createDirectories must create the requested directory, not accept metadata from a retired parent. ==> expected: <true> but was: <false>
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+       org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+       org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+       org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+       ReadLookupReviewTest.createDirectoriesCreatesTheRequestedDirectory(ReadLookupReviewTest.java:61)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       [...]
+  JUnit Jupiter:ReadLookupReviewTest:createDirectoriesCreatesTheRequestedDirectory():repetition 3 of 3
+    MethodSource [className = 'ReadLookupReviewTest', methodName = 'createDirectoriesCreatesTheRequestedDirectory', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Successful createDirectories must create the requested directory, not accept metadata from a retired parent. ==> expected: <true> but was: <false>
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+       org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+       org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+       org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+       ReadLookupReviewTest.createDirectoriesCreatesTheRequestedDirectory(ReadLookupReviewTest.java:61)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       [...]
+  JUnit Jupiter:ReadLookupReviewTest:listDoesNotReturnAChildNeverAtTheRequestedPath():repetition 1 of 3
+    MethodSource [className = 'ReadLookupReviewTest', methodName = 'listDoesNotReturnAChildNeverAtTheRequestedPath', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Listing must not map a retired parent's new child into the current alias. ==> expected: <[]> but was: <[/alias/ghost]>
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+       org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+       org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+       org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1152)
+       ReadLookupReviewTest.listDoesNotReturnAChildNeverAtTheRequestedPath(ReadLookupReviewTest.java:53)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       [...]
+  JUnit Jupiter:ReadLookupReviewTest:listDoesNotReturnAChildNeverAtTheRequestedPath():repetition 2 of 3
+    MethodSource [className = 'ReadLookupReviewTest', methodName = 'listDoesNotReturnAChildNeverAtTheRequestedPath', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Listing must not map a retired parent's new child into the current alias. ==> expected: <[]> but was: <[/alias/ghost]>
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+       org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+       org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+       org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1152)
+       ReadLookupReviewTest.listDoesNotReturnAChildNeverAtTheRequestedPath(ReadLookupReviewTest.java:53)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       [...]
+  JUnit Jupiter:ReadLookupReviewTest:listDoesNotReturnAChildNeverAtTheRequestedPath():repetition 3 of 3
+    MethodSource [className = 'ReadLookupReviewTest', methodName = 'listDoesNotReturnAChildNeverAtTheRequestedPath', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Listing must not map a retired parent's new child into the current alias. ==> expected: <[]> but was: <[/alias/ghost]>
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+       org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+       org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+       org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1152)
+       ReadLookupReviewTest.listDoesNotReturnAChildNeverAtTheRequestedPath(ReadLookupReviewTest.java:53)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       [...]
+  JUnit Jupiter:SymlinkResolutionBoundaryTest:canonicalizeRejectsDanglingFinalLink():repetition 1 of 3
+    MethodSource [className = 'SymlinkResolutionBoundaryTest', methodName = 'canonicalizeRejectsDanglingFinalLink', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Expected java.io.IOException to be thrown, but nothing was thrown.
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+       org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3111)
+       SymlinkResolutionBoundaryTest.canonicalizeRejectsDanglingFinalLink(SymlinkResolutionBoundaryTest.java:58)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       [...]
+  JUnit Jupiter:SymlinkResolutionBoundaryTest:canonicalizeRejectsDanglingFinalLink():repetition 2 of 3
+    MethodSource [className = 'SymlinkResolutionBoundaryTest', methodName = 'canonicalizeRejectsDanglingFinalLink', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Expected java.io.IOException to be thrown, but nothing was thrown.
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+       org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3111)
+       SymlinkResolutionBoundaryTest.canonicalizeRejectsDanglingFinalLink(SymlinkResolutionBoundaryTest.java:58)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       [...]
+  JUnit Jupiter:SymlinkResolutionBoundaryTest:canonicalizeRejectsDanglingFinalLink():repetition 3 of 3
+    MethodSource [className = 'SymlinkResolutionBoundaryTest', methodName = 'canonicalizeRejectsDanglingFinalLink', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Expected java.io.IOException to be thrown, but nothing was thrown.
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+       org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3111)
+       SymlinkResolutionBoundaryTest.canonicalizeRejectsDanglingFinalLink(SymlinkResolutionBoundaryTest.java:58)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       [...]
+  JUnit Jupiter:SymlinkResolutionBoundaryTest:existingDanglingDestinationReplacesOnlyTheLink():repetition 1 of 3
+    MethodSource [className = 'SymlinkResolutionBoundaryTest', methodName = 'existingDanglingDestinationReplacesOnlyTheLink', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Unrelated directory must survive move to an existing dangling link. ==> expected: <true> but was: <false>
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+       org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+       org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+       org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+       SymlinkResolutionBoundaryTest.existingDanglingDestinationReplacesOnlyTheLink(SymlinkResolutionBoundaryTest.java:26)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       [...]
+  JUnit Jupiter:SymlinkResolutionBoundaryTest:existingDanglingDestinationReplacesOnlyTheLink():repetition 2 of 3
+    MethodSource [className = 'SymlinkResolutionBoundaryTest', methodName = 'existingDanglingDestinationReplacesOnlyTheLink', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Unrelated directory must survive move to an existing dangling link. ==> expected: <true> but was: <false>
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+       org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+       org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+       org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+       SymlinkResolutionBoundaryTest.existingDanglingDestinationReplacesOnlyTheLink(SymlinkResolutionBoundaryTest.java:26)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       [...]
+  JUnit Jupiter:SymlinkResolutionBoundaryTest:existingDanglingDestinationReplacesOnlyTheLink():repetition 3 of 3
+    MethodSource [className = 'SymlinkResolutionBoundaryTest', methodName = 'existingDanglingDestinationReplacesOnlyTheLink', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Unrelated directory must survive move to an existing dangling link. ==> expected: <true> but was: <false>
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+       org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+       org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+       org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+       SymlinkResolutionBoundaryTest.existingDanglingDestinationReplacesOnlyTheLink(SymlinkResolutionBoundaryTest.java:26)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       [...]
+  JUnit Jupiter:SymlinkResolutionBoundaryTest:existingLiveDestinationReplacesOnlyTheLink():repetition 1 of 3
+    MethodSource [className = 'SymlinkResolutionBoundaryTest', methodName = 'existingLiveDestinationReplacesOnlyTheLink', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Move must preserve an unrelated entry with the original basename. ==> expected: <unrelated> but was: <source>
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+       org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+       org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+       org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1152)
+       SymlinkResolutionBoundaryTest.existingLiveDestinationReplacesOnlyTheLink(SymlinkResolutionBoundaryTest.java:44)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       [...]
+  JUnit Jupiter:SymlinkResolutionBoundaryTest:existingLiveDestinationReplacesOnlyTheLink():repetition 2 of 3
+    MethodSource [className = 'SymlinkResolutionBoundaryTest', methodName = 'existingLiveDestinationReplacesOnlyTheLink', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Move must preserve an unrelated entry with the original basename. ==> expected: <unrelated> but was: <source>
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+       org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+       org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+       org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1152)
+       SymlinkResolutionBoundaryTest.existingLiveDestinationReplacesOnlyTheLink(SymlinkResolutionBoundaryTest.java:44)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       [...]
+  JUnit Jupiter:SymlinkResolutionBoundaryTest:existingLiveDestinationReplacesOnlyTheLink():repetition 3 of 3
+    MethodSource [className = 'SymlinkResolutionBoundaryTest', methodName = 'existingLiveDestinationReplacesOnlyTheLink', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Move must preserve an unrelated entry with the original basename. ==> expected: <unrelated> but was: <source>
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+       org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+       org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+       org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1152)
+       SymlinkResolutionBoundaryTest.existingLiveDestinationReplacesOnlyTheLink(SymlinkResolutionBoundaryTest.java:44)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       [...]
+  JUnit Jupiter:DanglingAdmissionReviewTest:moveAdmissionPreservesUnrelatedDirectory():repetition 1 of 3
+    MethodSource [className = 'DanglingAdmissionReviewTest', methodName = 'moveAdmissionPreservesUnrelatedDirectory', methodParameterTypes = '']
+    => org.opentest4j.MultipleFailuresError: Multiple Failures (2 failures)
+	org.opentest4j.AssertionFailedError: Admission to /target must preserve unrelated /parent/target directory type. ==> expected: <true> but was: <false>
+	org.opentest4j.AssertionFailedError: Admission to /target must preserve unrelated /parent/target/child. ==> expected: <true> but was: <false>
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:80)
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:44)
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:38)
+       org.junit.jupiter.api.Assertions.assertAll(Assertions.java:2940)
+       DanglingAdmissionReviewTest.check(DanglingAdmissionReviewTest.java:55)
+       [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Admission to /target must preserve unrelated /parent/target directory type. ==> expected: <true> but was: <false>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+         org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+         org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+         [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Admission to /target must preserve unrelated /parent/target/child. ==> expected: <true> but was: <false>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+         org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+         org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+         [...]
+  JUnit Jupiter:DanglingAdmissionReviewTest:moveAdmissionPreservesUnrelatedDirectory():repetition 2 of 3
+    MethodSource [className = 'DanglingAdmissionReviewTest', methodName = 'moveAdmissionPreservesUnrelatedDirectory', methodParameterTypes = '']
+    => org.opentest4j.MultipleFailuresError: Multiple Failures (2 failures)
+	org.opentest4j.AssertionFailedError: Admission to /target must preserve unrelated /parent/target directory type. ==> expected: <true> but was: <false>
+	org.opentest4j.AssertionFailedError: Admission to /target must preserve unrelated /parent/target/child. ==> expected: <true> but was: <false>
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:80)
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:44)
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:38)
+       org.junit.jupiter.api.Assertions.assertAll(Assertions.java:2940)
+       DanglingAdmissionReviewTest.check(DanglingAdmissionReviewTest.java:55)
+       [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Admission to /target must preserve unrelated /parent/target directory type. ==> expected: <true> but was: <false>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+         org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+         org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+         [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Admission to /target must preserve unrelated /parent/target/child. ==> expected: <true> but was: <false>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+         org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+         org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+         [...]
+  JUnit Jupiter:DanglingAdmissionReviewTest:moveAdmissionPreservesUnrelatedDirectory():repetition 3 of 3
+    MethodSource [className = 'DanglingAdmissionReviewTest', methodName = 'moveAdmissionPreservesUnrelatedDirectory', methodParameterTypes = '']
+    => org.opentest4j.MultipleFailuresError: Multiple Failures (2 failures)
+	org.opentest4j.AssertionFailedError: Admission to /target must preserve unrelated /parent/target directory type. ==> expected: <true> but was: <false>
+	org.opentest4j.AssertionFailedError: Admission to /target must preserve unrelated /parent/target/child. ==> expected: <true> but was: <false>
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:80)
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:44)
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:38)
+       org.junit.jupiter.api.Assertions.assertAll(Assertions.java:2940)
+       DanglingAdmissionReviewTest.check(DanglingAdmissionReviewTest.java:55)
+       [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Admission to /target must preserve unrelated /parent/target directory type. ==> expected: <true> but was: <false>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+         org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+         org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+         [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Admission to /target must preserve unrelated /parent/target/child. ==> expected: <true> but was: <false>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+         org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+         org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+         [...]
+
+Test run finished after 2636 ms
+[        44 containers found      ]
+[         0 containers skipped    ]
+[        44 containers started    ]
+[         0 containers aborted    ]
+[        44 containers successful ]
+[         0 containers failed     ]
+[        94 tests found           ]
+[         0 tests skipped         ]
+[        94 tests started         ]
+[         0 tests aborted         ]
+[        70 tests successful      ]
+[        24 tests failed          ]
+
