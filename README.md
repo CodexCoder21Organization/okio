@@ -73,7 +73,10 @@ callbacks before resolving the current path under that same lock. Dangling
 links are errors where an existing target is required; metadata still describes
 the link itself. `atomicMove` replaces the destination link itself and preserves
 its referent and unrelated siblings. Inherited `createDirectories` uses current
-directory metadata rather than entries from a retired symlink parent. `createDirectory(path, mustCreate = true)`
+directory metadata rather than entries from a retired symlink parent. Compound
+methods such as `copy`, `deleteRecursively` and recursive `createDirectories` use
+separate primitive transactions and are not atomic as a whole against independent
+concurrent changes. `createDirectory(path, mustCreate = true)`
 rejects an existing entry; ordinary directory creation leaves an existing
 directory unchanged and rejects a file at the target path. The artifact retains
 the open-file registry correction from `3.4.0-r576-registry-lock-1` and its public
