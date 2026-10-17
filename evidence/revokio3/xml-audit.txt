@@ -1,0 +1,36 @@
+evidence/revokio3/native/TEST-junit-jupiter.xml: rows=91 failures=0 errors=0 skips=0 history=0
+{'SymlinkResolutionBoundaryTest': 9, 'EntryAdmissionBoundaryTest': 18, 'EntryAdmissionConcurrencyTest': 9, 'EntryMetadataAdmissionTest': 3, 'DirectoryConcurrencyTest': 24, 'DirectoryProof': 3, 'NeighborEntryReviewTest': 9, 'ReadLookupReviewTest': 12, 'DanglingAdmissionReviewTest': 3, 'RegistryConcurrencyTest': 1}
+evidence/revokio3/native/TEST-junit-vintage.xml: rows=3 failures=0 errors=0 skips=0 history=0
+{'okio.fakefilesystem.FakeFileSystemRegistryTest': 3}
+evidence/revokio3/native/TEST-junit-platform-suite.xml: rows=0 failures=0 errors=0 skips=0 history=0
+evidence/revokio3/boundaries-native/TEST-junit-jupiter.xml: rows=3 failures=0 errors=0 skips=0 history=0
+{'LookupBoundaryReviewTest': 3}
+evidence/revokio3/boundaries-native/TEST-junit-vintage.xml: rows=0 failures=0 errors=0 skips=0 history=0
+evidence/revokio3/boundaries-native/TEST-junit-platform-suite.xml: rows=0 failures=0 errors=0 skips=0 history=0
+evidence/revokio3/red-native.xml: rows=91 failures=24 errors=0 skips=0 history=0
+{'SymlinkResolutionBoundaryTest': 9, 'EntryAdmissionBoundaryTest': 18, 'EntryAdmissionConcurrencyTest': 9, 'EntryMetadataAdmissionTest': 3, 'DirectoryConcurrencyTest': 24, 'DirectoryProof': 3, 'NeighborEntryReviewTest': 9, 'ReadLookupReviewTest': 12, 'DanglingAdmissionReviewTest': 3, 'RegistryConcurrencyTest': 1}
+Failure types: {'org.opentest4j.AssertionFailedError': 21, 'org.opentest4j.MultipleFailuresError': 3}
+SymlinkResolutionBoundaryTest existingDanglingDestinationReplacesOnlyTheLink()[2]: Unrelated directory must survive move to an existing dangling link. ==> expected: <true> but was: <false>
+ReadLookupReviewTest createDirectoriesCreatesTheRequestedDirectory()[2]: Successful createDirectories must create the requested directory, not accept metadata from a retired parent. ==> expected: <true> but was: <false>
+ReadLookupReviewTest listDoesNotReturnAChildNeverAtTheRequestedPath()[1]: Listing must not map a retired parent's new child into the current alias. ==> expected: <[]> but was: <[/alias/ghost]>
+SymlinkResolutionBoundaryTest existingLiveDestinationReplacesOnlyTheLink()[3]: Move must preserve an unrelated entry with the original basename. ==> expected: <unrelated> but was: <source>
+SymlinkResolutionBoundaryTest existingLiveDestinationReplacesOnlyTheLink()[1]: Move must preserve an unrelated entry with the original basename. ==> expected: <unrelated> but was: <source>
+ReadLookupReviewTest canonicalizeRejectsAPathAbsentThroughoutItsCallback()[2]: Canonicalization must reject a path absent before and after its callback. ==> Expected java.io.IOException to be thrown, but nothing was thrown.
+SymlinkResolutionBoundaryTest canonicalizeRejectsDanglingFinalLink()[2]: Expected java.io.IOException to be thrown, but nothing was thrown.
+ReadLookupReviewTest metadataDoesNotReturnAnEntryNeverAtTheRequestedPath()[3]: Metadata must not use an entry created only in the retired parent. ==> expected: <null> but was: <FileMetadata(isDirectory, createdAt=0, lastModifiedAt=0, lastAccessedAt=0)>
+evidence/revokio3/control-native.xml: rows=91 failures=24 errors=0 skips=0 history=0
+{'SymlinkResolutionBoundaryTest': 9, 'EntryAdmissionBoundaryTest': 18, 'EntryAdmissionConcurrencyTest': 9, 'EntryMetadataAdmissionTest': 3, 'DirectoryConcurrencyTest': 24, 'DirectoryProof': 3, 'NeighborEntryReviewTest': 9, 'ReadLookupReviewTest': 12, 'DanglingAdmissionReviewTest': 3, 'RegistryConcurrencyTest': 1}
+Failure types: {'org.opentest4j.AssertionFailedError': 21, 'org.opentest4j.MultipleFailuresError': 3}
+SymlinkResolutionBoundaryTest existingDanglingDestinationReplacesOnlyTheLink()[2]: Unrelated directory must survive move to an existing dangling link. ==> expected: <true> but was: <false>
+ReadLookupReviewTest createDirectoriesCreatesTheRequestedDirectory()[2]: Successful createDirectories must create the requested directory, not accept metadata from a retired parent. ==> expected: <true> but was: <false>
+ReadLookupReviewTest listDoesNotReturnAChildNeverAtTheRequestedPath()[1]: Listing must not map a retired parent's new child into the current alias. ==> expected: <[]> but was: <[/alias/ghost]>
+SymlinkResolutionBoundaryTest existingLiveDestinationReplacesOnlyTheLink()[3]: Move must preserve an unrelated entry with the original basename. ==> expected: <unrelated> but was: <source>
+SymlinkResolutionBoundaryTest existingLiveDestinationReplacesOnlyTheLink()[1]: Move must preserve an unrelated entry with the original basename. ==> expected: <unrelated> but was: <source>
+ReadLookupReviewTest canonicalizeRejectsAPathAbsentThroughoutItsCallback()[2]: Canonicalization must reject a path absent before and after its callback. ==> Expected java.io.IOException to be thrown, but nothing was thrown.
+SymlinkResolutionBoundaryTest canonicalizeRejectsDanglingFinalLink()[2]: Expected java.io.IOException to be thrown, but nothing was thrown.
+ReadLookupReviewTest metadataDoesNotReturnAnEntryNeverAtTheRequestedPath()[3]: Metadata must not use an entry created only in the retired parent. ==> expected: <null> but was: <FileMetadata(isDirectory, createdAt=0, lastModifiedAt=0, lastAccessedAt=0)>
+revokio3-prior-gate/okiofakefs3-gate/native/TEST-junit-jupiter.xml: rows=91 failures=0 errors=0 skips=0 history=0
+{'SymlinkResolutionBoundaryTest': 9, 'EntryAdmissionBoundaryTest': 18, 'EntryAdmissionConcurrencyTest': 9, 'EntryMetadataAdmissionTest': 3, 'DirectoryConcurrencyTest': 24, 'DirectoryProof': 3, 'NeighborEntryReviewTest': 9, 'ReadLookupReviewTest': 12, 'DanglingAdmissionReviewTest': 3, 'RegistryConcurrencyTest': 1}
+revokio3-prior-gate/okiofakefs3-gate/native/TEST-junit-vintage.xml: rows=3 failures=0 errors=0 skips=0 history=0
+{'okio.fakefilesystem.FakeFileSystemRegistryTest': 3}
+revokio3-prior-gate/okiofakefs3-gate/native/TEST-junit-platform-suite.xml: rows=0 failures=0 errors=0 skips=0 history=0

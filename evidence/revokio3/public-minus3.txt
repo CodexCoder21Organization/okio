@@ -1,0 +1,114 @@
+Compiled from "FileMetadataCommon.kt"
+public final class okio.fakefilesystem.-Time {
+  public static final okio.FileMetadata newFileMetadata(boolean, boolean, okio.Path, java.lang.Long, kotlinx.datetime.Instant, kotlinx.datetime.Instant, kotlinx.datetime.Instant, java.util.Map<kotlin.reflect.KClass<?>, ? extends java.lang.Object>);
+  public static okio.FileMetadata newFileMetadata$default(boolean, boolean, okio.Path, java.lang.Long, kotlinx.datetime.Instant, kotlinx.datetime.Instant, kotlinx.datetime.Instant, java.util.Map, int, java.lang.Object);
+}
+Compiled from "FakeFileSystem.kt"
+public final class okio.fakefilesystem.FakeFileSystem extends okio.FileSystem {
+  public final kotlinx.datetime.Clock clock;
+  public okio.fakefilesystem.FakeFileSystem(kotlinx.datetime.Clock);
+  public okio.fakefilesystem.FakeFileSystem(kotlinx.datetime.Clock, int, kotlin.jvm.internal.DefaultConstructorMarker);
+  public final okio.Path getWorkingDirectory();
+  public final void setWorkingDirectory(okio.Path);
+  public final boolean getAllowMovingOpenFiles();
+  public final void setAllowMovingOpenFiles(boolean);
+  public final boolean getAllowDeletingOpenFiles();
+  public final void setAllowDeletingOpenFiles(boolean);
+  public final boolean getAllowClobberingEmptyDirectories();
+  public final void setAllowClobberingEmptyDirectories(boolean);
+  public final boolean getAllowWritesWhileWriting();
+  public final void setAllowWritesWhileWriting(boolean);
+  public final boolean getAllowReadsWhileWriting();
+  public final void setAllowReadsWhileWriting(boolean);
+  public final boolean getAllowSymlinks();
+  public final void setAllowSymlinks(boolean);
+  public final java.util.Set<okio.Path> allPaths();
+  public final java.util.List<okio.Path> openPaths();
+  public final void checkNoOpenFiles();
+  public final void emulateWindows();
+  public final void emulateUnix();
+  public okio.Path canonicalize(okio.Path);
+  public final <T> void setExtra(okio.Path, kotlin.reflect.KClass<? extends T>, T) throws java.io.IOException;
+  public okio.FileMetadata metadataOrNull(okio.Path);
+  public java.util.List<okio.Path> list(okio.Path);
+  public java.util.List<okio.Path> listOrNull(okio.Path);
+  public okio.Source source(okio.Path);
+  public okio.Sink sink(okio.Path, boolean);
+  public okio.Sink appendingSink(okio.Path, boolean);
+  public okio.FileHandle openReadOnly(okio.Path);
+  public okio.FileHandle openReadWrite(okio.Path, boolean, boolean);
+  public void createDirectory(okio.Path, boolean);
+  public void atomicMove(okio.Path, okio.Path);
+  public void delete(okio.Path, boolean);
+  public void createSymlink(okio.Path, okio.Path);
+  public java.lang.String toString();
+  public okio.fakefilesystem.FakeFileSystem();
+  public static final void access$checkOffsetAndCount(okio.fakefilesystem.FakeFileSystem, long, long, long);
+  public static final java.lang.Object access$getOpenFilesLock$p(okio.fakefilesystem.FakeFileSystem);
+  public static final java.util.List access$getOpenFiles$p(okio.fakefilesystem.FakeFileSystem);
+}
+Compiled from "FakeFileSystem.kt"
+abstract class okio.fakefilesystem.FakeFileSystem$Element {
+  public final kotlinx.datetime.Instant getCreatedAt();
+  public final kotlinx.datetime.Instant getLastModifiedAt();
+  public final void setLastModifiedAt(kotlinx.datetime.Instant);
+  public final kotlinx.datetime.Instant getLastAccessedAt();
+  public final void setLastAccessedAt(kotlinx.datetime.Instant);
+  public final java.util.Map<kotlin.reflect.KClass<?>, java.lang.Object> getExtras();
+  public final void access(kotlinx.datetime.Instant, boolean);
+  public static void access$default(okio.fakefilesystem.FakeFileSystem$Element, kotlinx.datetime.Instant, boolean, int, java.lang.Object);
+  public abstract okio.FileMetadata getMetadata();
+  public okio.fakefilesystem.FakeFileSystem$Element(kotlinx.datetime.Instant, kotlin.jvm.internal.DefaultConstructorMarker);
+}
+Compiled from "FakeFileSystem.kt"
+public final class okio.fakefilesystem.FakeFileSystem$Element$Directory extends okio.fakefilesystem.FakeFileSystem$Element {
+  public okio.fakefilesystem.FakeFileSystem$Element$Directory(kotlinx.datetime.Instant);
+  public final java.util.Map<okio.ByteString, okio.fakefilesystem.FakeFileSystem$Element> getChildren();
+  public okio.FileMetadata getMetadata();
+}
+Compiled from "FakeFileSystem.kt"
+public final class okio.fakefilesystem.FakeFileSystem$Element$File extends okio.fakefilesystem.FakeFileSystem$Element {
+  public okio.fakefilesystem.FakeFileSystem$Element$File(kotlinx.datetime.Instant);
+  public final okio.ByteString getData();
+  public final void setData(okio.ByteString);
+  public okio.FileMetadata getMetadata();
+}
+Compiled from "FakeFileSystem.kt"
+public final class okio.fakefilesystem.FakeFileSystem$Element$Symlink extends okio.fakefilesystem.FakeFileSystem$Element {
+  public okio.fakefilesystem.FakeFileSystem$Element$Symlink(kotlinx.datetime.Instant, okio.Path);
+  public final okio.Path getTarget();
+  public okio.FileMetadata getMetadata();
+}
+Compiled from "FakeFileSystem.kt"
+final class okio.fakefilesystem.FakeFileSystem$FakeFileHandle extends okio.FileHandle {
+  public okio.fakefilesystem.FakeFileSystem$FakeFileHandle(boolean, okio.fakefilesystem.FakeFileSystem$OpenFile, okio.fakefilesystem.FakeFileSystem$Element$File);
+  public java.lang.String toString();
+}
+Compiled from "FakeFileSystem.kt"
+final class okio.fakefilesystem.FakeFileSystem$OpenFile {
+  public okio.fakefilesystem.FakeFileSystem$OpenFile(okio.Path, okio.fakefilesystem.FakeFileSystem$Operation, java.lang.Throwable);
+  public final okio.Path getCanonicalPath();
+  public final okio.fakefilesystem.FakeFileSystem$Operation getOperation();
+  public final java.lang.Throwable getBacktrace();
+}
+Compiled from "FakeFileSystem.kt"
+final class okio.fakefilesystem.FakeFileSystem$Operation extends java.lang.Enum<okio.fakefilesystem.FakeFileSystem$Operation> {
+  public static final okio.fakefilesystem.FakeFileSystem$Operation READ;
+  public static final okio.fakefilesystem.FakeFileSystem$Operation WRITE;
+  public static okio.fakefilesystem.FakeFileSystem$Operation[] values();
+  public static okio.fakefilesystem.FakeFileSystem$Operation valueOf(java.lang.String);
+}
+Compiled from "FakeFileSystem.kt"
+final class okio.fakefilesystem.FakeFileSystem$PathLookupResult {
+  public okio.fakefilesystem.FakeFileSystem$PathLookupResult(okio.Path, okio.fakefilesystem.FakeFileSystem$Element$Directory, okio.ByteString, okio.fakefilesystem.FakeFileSystem$Element);
+  public final okio.Path getPath();
+  public final okio.fakefilesystem.FakeFileSystem$Element$Directory getParent();
+  public final okio.ByteString getSegment();
+  public final okio.fakefilesystem.FakeFileSystem$Element getElement();
+}
+Compiled from "FakeFileSystem.kt"
+final class okio.fakefilesystem.FakeFileSystem$checkNoOpenFiles$1 extends kotlin.jvm.internal.Lambda implements kotlin.jvm.functions.Function1<okio.fakefilesystem.FakeFileSystem$OpenFile, java.lang.CharSequence> {
+  public static final okio.fakefilesystem.FakeFileSystem$checkNoOpenFiles$1 INSTANCE;
+  public final java.lang.CharSequence invoke(okio.fakefilesystem.FakeFileSystem$OpenFile);
+  public java.lang.Object invoke(java.lang.Object);
+}
