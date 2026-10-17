@@ -3,10 +3,10 @@ Started 2026-10-17 06:07 UTC; 60-minute budget.
 
 ## Plan
 - [done] Read prior findings, named guidance sections, fork README; confirm open PR and rebase once.
-- [in progress] Adopt reviewer proofs, add ordered concurrent admissions, record red-first native XML and push tests.
-- [pending] Correct three admission transactions; audit neighboring mutators; product-only mutation control.
-- [pending] Run accepted gate: each new scenario 3/3, prior directory and registry tests once; public API identical to -2.
-- [pending] Publish authorized -3 bytes, update PR body and consumer documentation branch, push evidence and cleanup.
+- [done] Adopt reviewer proofs, add ordered concurrent admissions, record red-first native XML and push tests.
+- [done] Correct three admission transactions; audit neighboring mutators; product-only mutation control.
+- [done] Run accepted gate: each new scenario 3/3, prior directory and registry tests once; public API identical to -2.
+- [done] Publish authorized -3 bytes, update PR body and consumer documentation branch, push evidence and cleanup.
 
 ## Reading
 OBSERVED: Read Testing Architecture (Test-Driven Development, Never Calibrate a Reproducer to a Machine, Tests Must Be Hermetically Sealed, Test Verdicts Must Be Hardware-Independent); Engineering Philosophy (Reproduce a Bug Before You Fix It, A Refuted Hypothesis Is a Successful Outcome, Never Hide a Failure); fork README; supplied revokio1 and okiofakefs1 findings; reviewer public test source. No root AGENTS.md exists.
@@ -63,3 +63,41 @@ OBSERVED: Source review traces all openFilesLock regions. Open, directory, move,
 OBSERVED: Candidate is https://github.com/CodexCoder21Organization/okio/commit/ba235959c1bdf0ab615429ba250061900d4607d8 . The throwaway workflow checks out that exact SHA with full history, builds/checks the skinny JAR, compares every public declaration/class name with checksum-verified -2, then runs 39 new rows (13 scenarios x3) and all 31 prior directory/registry rows. Gate: https://github.com/CodexCoder21Organization/okio/actions/runs/39009069601 . Workflow/job/build/test bounds are 15 minutes/600 seconds/180 seconds. No workflow file is in the PR branch.
 OBSERVED: Metadata-only product control uses the rebuilt, byte-identical -2 source JAR from the mutation run: native XML reports 3/3 assertion failures, zero errors/skips. Combined product-only controls cover all 39 new rows. No accepted positive gate has run yet.
 OBSERVED: A fresh consumer checkout under this lane's .git/consumer is solely for the authorized docs branch. Its initial fetch/rebase and README reading are in progress; no consumer test or dependency edit is planned.
+
+## Accepted gate — 06:14 UTC
+OBSERVED: https://github.com/CodexCoder21Organization/okio/actions/runs/39009069601 completed successfully. Downloaded native XML has exactly 70 first-attempt rows: 39/39 new rows, 27/27 prior directory rows, four registry rows (4/4), zero failures/errors/skips and zero attempt-history elements. Each new method has precisely three rows. Console confirms all 20/20 r576 trials. This is the accepted gate; no more verification batches will run.
+OBSERVED: Exact candidate checkout is ba235959c1bdf0ab615429ba250061900d4607d8. The actual build log confirms all-class javap comparison against -2 ran and passed, as did compiled class-name equality and absence of linked atomicfu class/member references. POM dependencies are inherited unchanged; only project version differs.
+OBSERVED: Tested JAR SHA-256 is 3b04c346df6fb6ebe04c80d7d5bec07e2410b0be9f588a385537ff2b353c1e4a; tested POM SHA-256 is 2fb06372ff53ad03002099420b61e3fc06cee14652b23d2a0cfc626f8560b835. Publishing exactly these downloaded gate bytes using the authorized artifact-publisher HTTP API.
+
+## Publication and reviewable deliverables — 06:15 UTC
+OBSERVED: Authorized artifact-publisher 0.0.6 exited 0. Served JAR and POM return HTTP 200 and are byte-identical to the accepted gate artifacts: JAR 3b04c346df6fb6ebe04c80d7d5bec07e2410b0be9f588a385537ff2b353c1e4a; POM 2fb06372ff53ad03002099420b61e3fc06cee14652b23d2a0cfc626f8560b835. An independent served-POM comparison confirms only the project version changed from -2.
+OBSERVED: https://github.com/CodexCoder21Organization/okio/pull/5 remains OPEN at ba235959c1bdf0ab615429ba250061900d4607d8. REST body update was read back and compared byte-for-byte with the prepared description; the required campaign URL is unchanged. No workflow or investigation output is in the PR branch. The orchestrator owns the full-suite CI wait and merge decision.
+OBSERVED: Documentation-only commit https://github.com/CodexCoder21Organization/BuildTestEmbedded/commit/56b7756867e3cf7f12f569f4c616ce238677bd7c is pushed to https://github.com/CodexCoder21Organization/BuildTestEmbedded/tree/wip/okiofakefs1-docs . It adds the defect-3 class, -3 artifact, 39/39 new and 31/31 prior gate, public-API contract and exact served checksums to docs/r576-fakefilesystem-concurrency.md. The initial docs-branch rebase changed its prior commit identity, so the requested branch was updated with force-with-lease. No consumer dependency, source or test changed; no consumer PR is created, as this task requests the named docs branch.
+
+## Product file audit
+README.md records the -3 coordinate and current-entry behavior for opens, deletion and metadata updates.
+backports/fakefilesystem-3.4.0/src/FakeFileSystem.kt resolves current entries and checks/mutates them under the registry lock after the user clock completes.
+backports/fakefilesystem-3.4.0/tests/NeighborEntryReviewTest.java adopts the three reviewer proofs byte-for-byte.
+backports/fakefilesystem-3.4.0/tests/EntryAdmissionConcurrencyTest.java adds three ordered two-caller directory-preservation scenarios.
+backports/fakefilesystem-3.4.0/tests/EntryAdmissionBoundaryTest.java covers six public sink/open/delete boundaries.
+backports/fakefilesystem-3.4.0/tests/EntryMetadataAdmissionTest.kt covers metadata updates through the current symlink parent.
+scripts/buildFakeFilesystemDirectoryBackport.py builds -3 and checks the prior -2 checksum, class names and public declarations.
+scripts/testFakeFilesystemDirectoryBackport.bash selects -3 and the four new native test classes.
+OBSERVED: git diff --stat b942f820..HEAD reports 8 files changed, 432 insertions, 93 deletions. No build artifact or investigation file is present in the source diff. Existing-test edits: NONE; existing directory/registry source, timeouts, iteration counts and assertions are unchanged.
+
+## Brief audit
+- DONE: Three requested P1 mechanisms verified and unchanged public proofs adopted, each red 3/3 and green 3/3.
+- DONE: Current lookup/check/write is atomic under openFilesLock after clock callback; source and destination move checks share the transaction.
+- DONE: All named neighbors audited; delete and setExtra same-class gaps reproduced and corrected; sink, append, read-only and file preconditions covered.
+- DONE: Three real concurrent admission variants, each red 3/3 and green 3/3; children and move source preserved.
+- DONE: Red-first total 39/39; product-only controls total 39/39; first-attempt accepted green total 39/39 new plus 31/31 prior.
+- DONE: All-class public javap and compiled class-name equality to -2; unchanged dependency POM; no added linked atomicfu reference.
+- DONE: Published exactly com.squareup.okio:okio-fakefilesystem-jvm:3.4.0-r576-registry-lock-3 from ba235959c1bdf0ab615429ba250061900d4607d8; served bytes and provenance recorded.
+- DONE: PR branch/body and requested consumer docs branch updated. No merge, queue, ready-state change, deployment, production host connection, remote BuildTest submission, additional agent, handoff or challenge-service action.
+- DONE: Dedicated test and code review passes recorded before the accepted gate; no further positive batch after that gate.
+
+## FLAKES ENCOUNTERED — final
+OBSERVED: No unexpected first-attempt failure. All assertion-red cases are the registered defect probes; accepted gate has no earlier attempts, errors or skips. Compilation adjustments are excluded from verdicts.
+
+## Challenges for the orchestrator — final
+None. The only no-verdict local attempt was a routine Java checked-exception fixture adjustment, recorded above; no ecosystem workaround was needed.

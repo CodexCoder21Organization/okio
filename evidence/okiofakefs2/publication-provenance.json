@@ -1,0 +1,20 @@
+{
+  "source": "ba235959c1bdf0ab615429ba250061900d4607d8",
+  "gate": "https://github.com/CodexCoder21Organization/okio/actions/runs/39009069601",
+  "coordinate": "com.squareup.okio:okio-fakefilesystem-jvm:3.4.0-r576-registry-lock-3",
+  "served": [
+    {
+      "file": "okio-fakefilesystem-jvm-3.4.0-r576-registry-lock-3.jar",
+      "http": 200,
+      "sha256": "3b04c346df6fb6ebe04c80d7d5bec07e2410b0be9f588a385537ff2b353c1e4a",
+      "bytes": 27294
+    },
+    {
+      "file": "okio-fakefilesystem-jvm-3.4.0-r576-registry-lock-3.pom",
+      "http": 200,
+      "sha256": "2fb06372ff53ad03002099420b61e3fc06cee14652b23d2a0cfc626f8560b835",
+      "bytes": 2318
+    }
+  ],
+  "pom_change": "project version only"
+}
