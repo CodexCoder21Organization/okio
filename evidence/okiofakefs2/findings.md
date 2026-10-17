@@ -101,3 +101,9 @@ OBSERVED: No unexpected first-attempt failure. All assertion-red cases are the r
 
 ## Challenges for the orchestrator — final
 None. The only no-verdict local attempt was a routine Java checked-exception fixture adjustment, recorded above; no ecosystem workaround was needed.
+
+## Final cleanup — 06:16 UTC
+OBSERVED: Temporary wip/gha-run/okiofakefs2 branch is deleted locally and remotely after its terminal success. All tracked command sessions have terminal results. ps -eo pid,args -ww audit finds zero remaining build/test/publication processes matching lane commands, and zero lane-owned build slots. Both working trees are clean. Known temporary JAR directories were removed; native XML and provenance remain on the evidence branch. No test execution followed the accepted gate.
+OBSERVED: Durable evidence: https://github.com/CodexCoder21Organization/okio/tree/wip/okiofakefs2-evidence/evidence/okiofakefs2 . No -final.md file was written by this lane.
+
+PUBLISHED com.squareup.okio:okio-fakefilesystem-jvm:3.4.0-r576-registry-lock-3 from ba235959c1bdf0ab615429ba250061900d4607d8 ; PR head ba235959c1bdf0ab615429ba250061900d4607d8 ; red-first 39/39 → green 39/39 ; all prior directory + registry tests green 31/31
