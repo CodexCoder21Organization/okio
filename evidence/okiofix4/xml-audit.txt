@@ -1,0 +1,4 @@
+TEST-junit-jupiter.xml: rows=91 {'failure': 0, 'error': 0, 'skipped': 0, 'attempt-history': 0}
+TEST-junit-platform-suite.xml: rows=0 {'failure': 0, 'error': 0, 'skipped': 0, 'attempt-history': 0}
+TEST-junit-vintage.xml: rows=3 {'failure': 0, 'error': 0, 'skipped': 0, 'attempt-history': 0}
+PASS: 94/94 first-attempt native XML rows; zero failures, errors, skips or attempt-history.
