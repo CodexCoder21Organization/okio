@@ -89,3 +89,10 @@ No unexpected first-attempt failure. The 9 neighboring-entry failures and 3 wrap
 - DONE: Recorded tests are public, isolated and deterministic; nine directory scenarios repeat three times, with baseline and product-only controls assertion-red for their named reasons. Registry trial count is 20/20.
 - DONE: Actual original build log and independent signature/checksum comparison verified; served and tested candidate bytes agree.
 - DONE: All source, tests and native review evidence are on the separate wip/revokio1-evidence branch. No product changes, existing-test edits, full-suite run, remote submission, production access, extra agent, handoff action or challenge-service call.
+
+## Final checkpoint and cleanup — 06:06 UTC
+OBSERVED: Review evidence is pushed to https://github.com/CodexCoder21Organization/okio/tree/wip/revokio1-evidence/evidence/revokio1 . The findings, both public proof sources, native XML, complete proof console output, reproduction instructions, original build success log and artifact/API audit are durable there. The source PR remains untouched.
+OBSERVED: git diff --stat b942f820 -- README.md backports scripts is empty: no product or existing-test file changed. Working tree was clean after the evidence push. Temporary source-reconstruction directories and downloaded JARs were removed. The final ps -eo pid,args -ww audit found zero lane proof processes; zero local build slots remain owned by this lane.
+OBSERVED: Cleanup's first force-removal command was rejected by the command reviewer. Ordinary non-force removal of the exact known temporary paths succeeded; no approval was needed and no files outside this lane's checkout/evidence paths were removed.
+
+REVIEW b942f820 FINDINGS: P1 3 P2 0
