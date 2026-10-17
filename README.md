@@ -63,11 +63,17 @@ License
 Compatible 3.4.0 FakeFileSystem JVM artifact
 ------------------------------------------
 
-`com.squareup.okio:okio-fakefilesystem-jvm:3.4.0-r576-registry-lock-3`
+`com.squareup.okio:okio-fakefilesystem-jvm:3.4.0-r576-registry-lock-4`
 preserves directories and their children when file, directory, symlink or move
 admission overlaps another caller or a re-entrant clock callback. Opens and
 deletion and metadata updates resolve the current entry after callbacks; must-create and must-exist
-checks use that current entry. `createDirectory(path, mustCreate = true)`
+checks use that current entry. Every primitive mutator resolves symlinks, validates
+its target and applies its change in one critical section. Reads finish clock
+callbacks before resolving the current path under that same lock. Dangling
+links are errors where an existing target is required; metadata still describes
+the link itself. `atomicMove` replaces the destination link itself and preserves
+its referent and unrelated siblings. Inherited `createDirectories` uses current
+directory metadata rather than entries from a retired symlink parent. `createDirectory(path, mustCreate = true)`
 rejects an existing entry; ordinary directory creation leaves an existing
 directory unchanged and rejects a file at the target path. The artifact retains
 the open-file registry correction from `3.4.0-r576-registry-lock-1` and its public

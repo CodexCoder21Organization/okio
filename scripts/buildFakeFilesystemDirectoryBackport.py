@@ -10,9 +10,9 @@ import tempfile
 import urllib.request
 import zipfile
 
-VERSION = '3.4.0-r576-registry-lock-3'
-PREVIOUS = '3.4.0-r576-registry-lock-2'
-PREVIOUS_SHA256 = '21e60aadff3bf4906847103742c28b6a197349ecf58f132bd4eebf07e4c9e7a4'
+VERSION = '3.4.0-r576-registry-lock-4'
+PREVIOUS = '3.4.0-r576-registry-lock-3'
+PREVIOUS_SHA256 = '3b04c346df6fb6ebe04c80d7d5bec07e2410b0be9f588a385537ff2b353c1e4a'
 ARTIFACT = 'okio-fakefilesystem-jvm'
 REPOSITORY = f'https://kotlin.directory/com/squareup/okio/{ARTIFACT}'
 
@@ -65,13 +65,13 @@ def main():
         class_names = sorted(name for name in classes if name.endswith('.class'))
         with zipfile.ZipFile(jar) as built:
             if class_names != sorted(name for name in built.namelist() if name.endswith('.class')):
-                raise ValueError('Compiled class names differ from the -2 artifact')
+                raise ValueError('Compiled class names differ from the -3 artifact')
         public_classes = [name[:-6].replace('/', '.') for name in class_names]
         before = command('javap', '-public', '-classpath', str(temp / 'previous.jar'), *public_classes)
         after = command('javap', '-public', '-classpath', str(jar), *public_classes)
         if before != after:
-            raise ValueError('Public javap API differs from the -2 artifact')
-        print('Public javap API is identical to -2 for all previous classes.')
+            raise ValueError('Public javap API differs from the -3 artifact')
+        print('Public javap API is identical to -3 for all previous classes.')
         with urllib.request.urlopen(f'{REPOSITORY}/{PREVIOUS}/{ARTIFACT}-{PREVIOUS}.pom', timeout=60) as response:
             pom = response.read().decode()
         if pom.count(f'<version>{PREVIOUS}</version>') != 1:
