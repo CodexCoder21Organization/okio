@@ -24,6 +24,85 @@ public class DirectoryConcurrencyTest {
   }
 
   @RepeatedTest(3)
+  public void concurrentMustCreateAdmitsOneCaller() throws Exception {
+    var active = new AtomicBoolean(false);
+    var together = new CyclicBarrier(2);
+    Clock clock = new Clock() {
+      public Instant now() {
+        if (active.get()) {
+          try { together.await(10, TimeUnit.SECONDS); }
+          catch (Exception e) { throw new AssertionError(e); }
+        }
+        return Instant.Companion.fromEpochMilliseconds(0);
+      }
+    };
+    var fs = new FakeFileSystem(clock);
+    fs.createDirectory(path("/"), false);
+    var executor = Executors.newFixedThreadPool(2);
+    Callable<Boolean> create = () -> {
+      try { ((FileSystem) fs).createDirectory(path("/proof"), true); return true; }
+      catch (IOException expected) {
+        assertEquals("already exists: /proof", expected.getMessage());
+        return false;
+      }
+    };
+    try {
+      active.set(true);
+      Future<Boolean> first = executor.submit(create);
+      Future<Boolean> second = executor.submit(create);
+      int admitted = (first.get(10, TimeUnit.SECONDS) ? 1 : 0) + (second.get(10, TimeUnit.SECONDS) ? 1 : 0);
+      active.set(false);
+      assertEquals(1, admitted, "Exactly one mustCreate caller may create the same directory.");
+      assertTrue(fs.metadata(path("/proof")).isDirectory());
+    } finally {
+      active.set(false);
+      executor.shutdownNow();
+      assertTrue(executor.awaitTermination(10, TimeUnit.SECONDS));
+      fs.checkNoOpenFiles();
+    }
+  }
+
+  @RepeatedTest(3)
+  public void existingRootMustCreateIsRejected() throws Exception {
+    var fs = new FakeFileSystem();
+    fs.createDirectories(path("/"), false);
+    write(fs, path("/child"));
+    try {
+      assertEquals("already exists: /", assertThrows(IOException.class,
+          () -> fs.createDirectory(path("/"), true)).getMessage());
+      assertChild(fs, path("/child"));
+    } finally { fs.checkNoOpenFiles(); }
+  }
+
+  @RepeatedTest(3)
+  public void reentrantSymlinkParentPreservesCommittedChild() throws Exception {
+    var reference = new AtomicReference<FakeFileSystem>();
+    var armed = new AtomicBoolean(false);
+    Clock clock = new Clock() {
+      public Instant now() {
+        if (armed.compareAndSet(true, false)) {
+          try {
+            reference.get().createDirectories(path("/real/proof"), false);
+            write(reference.get(), path("/real/proof/child"));
+          } catch (IOException e) { throw new AssertionError(e); }
+        }
+        return Instant.Companion.fromEpochMilliseconds(0);
+      }
+    };
+    var fs = new FakeFileSystem(clock);
+    reference.set(fs);
+    fs.setAllowSymlinks(true);
+    fs.createDirectories(path("/real"), false);
+    fs.createSymlink(path("/alias"), path("/real"));
+    try {
+      armed.set(true);
+      fs.createDirectory(path("/alias/proof"), false);
+      assertChild(fs, path("/real/proof/child"));
+      assertChild(fs, path("/alias/proof/child"));
+    } finally { fs.checkNoOpenFiles(); }
+  }
+
+  @RepeatedTest(3)
   public void reentrantRootCreationPreservesCommittedChild() throws Exception {
     var reference = new AtomicReference<FakeFileSystem>();
     var armed = new AtomicBoolean(true);

@@ -2,6 +2,7 @@
 """Build the 3.4.0 FakeFileSystem directory correction without publishing it."""
 import argparse
 import hashlib
+import re
 from pathlib import Path
 import shutil
 import subprocess
@@ -54,7 +55,10 @@ def main():
         # The registry lock is compiled to JVM monitors and adds no runtime dependency.
         with zipfile.ZipFile(jar) as built:
             for name in built.namelist():
-                if name.endswith('.class') and b'kotlinx/atomicfu' in built.read(name):
+                if not name.endswith('.class'):
+                    continue
+                bytecode = command('javap', '-verbose', '-classpath', str(jar), name[:-6].replace('/', '.'))
+                if re.search(r'= (?:Class|Methodref|Fieldref|InterfaceMethodref).*kotlinx/atomicfu', bytecode):
                     raise ValueError(f'Unexpected atomicfu runtime reference in {name}')
         (temp / 'previous.jar').write_bytes(previous)
         classes = command('jar', 'tf', str(temp / 'previous.jar')).splitlines()
