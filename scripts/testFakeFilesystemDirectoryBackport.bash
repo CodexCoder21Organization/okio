@@ -16,7 +16,7 @@ coursier fetch --classpath -r https://kotlin.directory \
   org.jetbrains.kotlinx:kotlinx-datetime-jvm:0.4.0 \
   org.junit.platform:junit-platform-console-standalone:1.10.0 \
   org.jetbrains.kotlin:kotlin-test-junit:1.8.0 > "$okioTemporary/classpath"
-okioClasspath="$okioArtifactDirectory/okio-fakefilesystem-jvm-3.4.0-r576-registry-lock-2.jar:$(cat "$okioTemporary/classpath")"
+okioClasspath="$okioArtifactDirectory/okio-fakefilesystem-jvm-3.4.0-r576-registry-lock-3.jar:$(cat "$okioTemporary/classpath")"
 coursier fetch --classpath -r https://kotlin.directory \
   org.jetbrains.kotlin:kotlin-compiler-embeddable:1.8.0 > "$okioTemporary/compiler"
 java -Xmx2g -cp "$(cat "$okioTemporary/compiler")" org.jetbrains.kotlin.cli.jvm.K2JVMCompiler \
@@ -27,6 +27,6 @@ javac -J-Xmx256m -cp "$okioClasspath" -d "$okioTemporary/classes" \
 java -Xmx256m -cp "$okioTemporary/classes:$okioClasspath" \
   org.junit.platform.console.ConsoleLauncher execute \
   --select-class DirectoryProof --select-class DirectoryConcurrencyTest \
-  --select-class NeighborEntryReviewTest --select-class EntryAdmissionConcurrencyTest --select-class EntryAdmissionBoundaryTest \
+  --select-class NeighborEntryReviewTest --select-class EntryAdmissionConcurrencyTest --select-class EntryAdmissionBoundaryTest --select-class EntryMetadataAdmissionTest \
   --select-class okio.fakefilesystem.FakeFileSystemRegistryTest \
   --select-class RegistryConcurrencyTest --reports-dir "$okioReports" --disable-banner

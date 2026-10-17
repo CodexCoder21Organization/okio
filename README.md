@@ -63,9 +63,11 @@ License
 Compatible 3.4.0 FakeFileSystem JVM artifact
 ------------------------------------------
 
-`com.squareup.okio:okio-fakefilesystem-jvm:3.4.0-r576-registry-lock-2`
-preserves directories and their children when directory creation overlaps another
-caller or a re-entrant clock callback. `createDirectory(path, mustCreate = true)`
+`com.squareup.okio:okio-fakefilesystem-jvm:3.4.0-r576-registry-lock-3`
+preserves directories and their children when file, directory, symlink or move
+admission overlaps another caller or a re-entrant clock callback. Opens and
+deletion and metadata updates resolve the current entry after callbacks; must-create and must-exist
+checks use that current entry. `createDirectory(path, mustCreate = true)`
 rejects an existing entry; ordinary directory creation leaves an existing
 directory unchanged and rejects a file at the target path. The artifact retains
 the open-file registry correction from `3.4.0-r576-registry-lock-1` and its public
@@ -83,6 +85,6 @@ scripts/testFakeFilesystemDirectoryBackport.bash /tmp/okio-directory-artifact /t
 
 The build checks the prior artifact checksum and compares every existing class's
 public signatures with `javap`. Tests use an in-memory filesystem, the exact
-consumer core `okio-jvm:3.4.0.2`, three repetitions of each directory regression,
+consumer core `okio-jvm:3.4.0.2`, three repetitions of each directory and entry-admission regression,
 and the unchanged r576 workload of 20 trials, nine callers and up to 10,000
 operations per caller. Native JUnit XML is written to the report directory.

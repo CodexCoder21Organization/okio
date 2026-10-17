@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the 3.4.0 FakeFileSystem directory correction without publishing it."""
+"""Build the 3.4.0 FakeFileSystem entry-admission correction without publishing it."""
 import argparse
 import hashlib
 import re
@@ -10,9 +10,9 @@ import tempfile
 import urllib.request
 import zipfile
 
-VERSION = '3.4.0-r576-registry-lock-2'
-PREVIOUS = '3.4.0-r576-registry-lock-1'
-PREVIOUS_SHA256 = '1f6dbb73ed4c0f32adcb914e77eaf40b9f4217990742554ebb1603681097e72c'
+VERSION = '3.4.0-r576-registry-lock-3'
+PREVIOUS = '3.4.0-r576-registry-lock-2'
+PREVIOUS_SHA256 = '21e60aadff3bf4906847103742c28b6a197349ecf58f132bd4eebf07e4c9e7a4'
 ARTIFACT = 'okio-fakefilesystem-jvm'
 REPOSITORY = f'https://kotlin.directory/com/squareup/okio/{ARTIFACT}'
 
@@ -65,13 +65,13 @@ def main():
         class_names = sorted(name for name in classes if name.endswith('.class'))
         with zipfile.ZipFile(jar) as built:
             if class_names != sorted(name for name in built.namelist() if name.endswith('.class')):
-                raise ValueError('Compiled class names differ from the -1 artifact')
+                raise ValueError('Compiled class names differ from the -2 artifact')
         public_classes = [name[:-6].replace('/', '.') for name in class_names]
         before = command('javap', '-public', '-classpath', str(temp / 'previous.jar'), *public_classes)
         after = command('javap', '-public', '-classpath', str(jar), *public_classes)
         if before != after:
-            raise ValueError('Public javap API differs from the -1 artifact')
-        print('Public javap API is identical to -1 for all previous classes.')
+            raise ValueError('Public javap API differs from the -2 artifact')
+        print('Public javap API is identical to -2 for all previous classes.')
         with urllib.request.urlopen(f'{REPOSITORY}/{PREVIOUS}/{ARTIFACT}-{PREVIOUS}.pom', timeout=60) as response:
             pom = response.read().decode()
         if pom.count(f'<version>{PREVIOUS}</version>') != 1:
