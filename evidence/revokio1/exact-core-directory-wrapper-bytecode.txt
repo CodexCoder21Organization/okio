@@ -1,0 +1,59 @@
+public static final void commonCreateDirectories(okio.FileSystem, okio.Path, boolean) throws java.io.IOException;
+    Code:
+       0: aload_0
+       1: ldc           #11                 // String <this>
+       3: invokestatic  #17                 // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+       6: aload_1
+       7: ldc           #61                 // String dir
+       9: invokestatic  #17                 // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+      12: new           #63                 // class kotlin/collections/ArrayDeque
+      15: dup
+      16: invokespecial #64                 // Method kotlin/collections/ArrayDeque."<init>":()V
+      19: astore_3
+      20: aload_1
+      21: astore        4
+      23: aload         4
+      25: ifnull        53
+      28: aload_0
+      29: aload         4
+      31: invokevirtual #68                 // Method okio/FileSystem.exists:(Lokio/Path;)Z
+      34: ifne          53
+      37: aload_3
+      38: aload         4
+      40: invokevirtual #72                 // Method kotlin/collections/ArrayDeque.addFirst:(Ljava/lang/Object;)V
+      43: aload         4
+      45: invokevirtual #78                 // Method okio/Path.parent:()Lokio/Path;
+      48: astore        4
+      50: goto          23
+      53: iload_2
+      54: ifeq          91
+      57: aload_3
+      58: invokevirtual #82                 // Method kotlin/collections/ArrayDeque.isEmpty:()Z
+      61: ifeq          91
+      64: new           #8                  // class java/io/IOException
+      67: dup
+      68: new           #29                 // class java/lang/StringBuilder
+      71: dup
+      72: invokespecial #33                 // Method java/lang/StringBuilder."<init>":()V
+      75: aload_1
+      76: invokevirtual #42                 // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+      79: ldc           #84                 // String  already exist.
+      81: invokevirtual #39                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      84: invokevirtual #46                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      87: invokespecial #85                 // Method java/io/IOException."<init>":(Ljava/lang/String;)V
+      90: athrow
+      91: aload_3
+      92: invokevirtual #89                 // Method kotlin/collections/ArrayDeque.iterator:()Ljava/util/Iterator;
+      95: astore        5
+      97: aload         5
+      99: invokeinterface #94,  1           // InterfaceMethod java/util/Iterator.hasNext:()Z
+     104: ifeq          128
+     107: aload         5
+     109: invokeinterface #98,  1           // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+     114: checkcast     #74                 // class okio/Path
+     117: astore        6
+     119: aload_0
+     120: aload         6
+     122: invokevirtual #102                // Method okio/FileSystem.createDirectory:(Lokio/Path;)V
+     125: goto          97
+     128: return

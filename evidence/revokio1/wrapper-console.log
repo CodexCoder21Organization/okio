@@ -1,0 +1,68 @@
+[36m╷[0m
+[36m├─[0m [36mJUnit Jupiter[0m [32m✔[0m
+[36m│  └─[0m [36mDirectoryWrapperReviewTest[0m [32m✔[0m
+[36m│     └─[0m [36mcreateDirectoriesRejectsExistingFile()[0m [32m✔[0m
+[36m│        ├─[0m [31mrepetition 1 of 3[0m [31m✘[0m [31mDirectory creation wrapper must report a file at the requested directory path. ==> Expected java.io.IOException to be thrown, but nothing was thrown.[0m
+[36m│        ├─[0m [31mrepetition 2 of 3[0m [31m✘[0m [31mDirectory creation wrapper must report a file at the requested directory path. ==> Expected java.io.IOException to be thrown, but nothing was thrown.[0m
+[36m│        └─[0m [31mrepetition 3 of 3[0m [31m✘[0m [31mDirectory creation wrapper must report a file at the requested directory path. ==> Expected java.io.IOException to be thrown, but nothing was thrown.[0m
+[36m├─[0m [36mJUnit Vintage[0m [32m✔[0m
+[36m└─[0m [36mJUnit Platform Suite[0m [32m✔[0m
+
+Failures (3):
+  JUnit Jupiter:DirectoryWrapperReviewTest:createDirectoriesRejectsExistingFile():repetition 1 of 3
+    MethodSource [className = 'DirectoryWrapperReviewTest', methodName = 'createDirectoriesRejectsExistingFile', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Directory creation wrapper must report a file at the requested directory path. ==> Expected java.io.IOException to be thrown, but nothing was thrown.
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:39)
+       org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3127)
+       DirectoryWrapperReviewTest.createDirectoriesRejectsExistingFile(DirectoryWrapperReviewTest.java:16)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       [...]
+  JUnit Jupiter:DirectoryWrapperReviewTest:createDirectoriesRejectsExistingFile():repetition 2 of 3
+    MethodSource [className = 'DirectoryWrapperReviewTest', methodName = 'createDirectoriesRejectsExistingFile', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Directory creation wrapper must report a file at the requested directory path. ==> Expected java.io.IOException to be thrown, but nothing was thrown.
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:39)
+       org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3127)
+       DirectoryWrapperReviewTest.createDirectoriesRejectsExistingFile(DirectoryWrapperReviewTest.java:16)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       [...]
+  JUnit Jupiter:DirectoryWrapperReviewTest:createDirectoriesRejectsExistingFile():repetition 3 of 3
+    MethodSource [className = 'DirectoryWrapperReviewTest', methodName = 'createDirectoriesRejectsExistingFile', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Directory creation wrapper must report a file at the requested directory path. ==> Expected java.io.IOException to be thrown, but nothing was thrown.
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:39)
+       org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3127)
+       DirectoryWrapperReviewTest.createDirectoriesRejectsExistingFile(DirectoryWrapperReviewTest.java:16)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       [...]
+
+Test run finished after 174 ms
+[         5 containers found      ]
+[         0 containers skipped    ]
+[         5 containers started    ]
+[         0 containers aborted    ]
+[         5 containers successful ]
+[         0 containers failed     ]
+[         3 tests found           ]
+[         0 tests skipped         ]
+[         3 tests started         ]
+[         0 tests aborted         ]
+[         0 tests successful      ]
+[         3 tests failed          ]
+

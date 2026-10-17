@@ -1,0 +1,3 @@
+3.4.0-r576-registry-lock-1 1f6dbb73ed4c0f32adcb914e77eaf40b9f4217990742554ebb1603681097e72c
+3.4.0-r576-registry-lock-2 21e60aadff3bf4906847103742c28b6a197349ecf58f132bd4eebf07e4c9e7a4
+Independently compared 11 class names and all javap public declarations: identical.

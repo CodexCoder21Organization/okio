@@ -1,0 +1,11 @@
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::compareAndSwapObject has been called by scala.runtime.LazyVals$ (file:/home/runner/work/_temp/coursier)
+WARNING: Please consider reporting this to the maintainers of class scala.runtime.LazyVals$
+WARNING: sun.misc.Unsafe::compareAndSwapObject will be removed in a future release
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::compareAndSwapObject has been called by scala.runtime.LazyVals$ (file:/home/runner/work/_temp/coursier)
+WARNING: Please consider reporting this to the maintainers of class scala.runtime.LazyVals$
+WARNING: sun.misc.Unsafe::compareAndSwapObject will be removed in a future release
+Public javap API is identical to -1 for all previous classes.
+21e60aadff3bf4906847103742c28b6a197349ecf58f132bd4eebf07e4c9e7a4  okio-fakefilesystem-jvm-3.4.0-r576-registry-lock-2.jar
+1113b0475c7fe40b6f36ae6302895487c489831adbcea234ff5c2a58f4adb67d  okio-fakefilesystem-jvm-3.4.0-r576-registry-lock-2.pom
