@@ -1,0 +1,1132 @@
+Public javap API is identical to -2 for all previous classes.
+21e60aadff3bf4906847103742c28b6a197349ecf58f132bd4eebf07e4c9e7a4  okio-fakefilesystem-jvm-3.4.0-r576-registry-lock-3.jar
+2fb06372ff53ad03002099420b61e3fc06cee14652b23d2a0cfc626f8560b835  okio-fakefilesystem-jvm-3.4.0-r576-registry-lock-3.pom
+R576 trial 1: PASS
+R576 trial 2: PASS
+R576 trial 3: PASS
+R576 trial 4: PASS
+R576 trial 5: PASS
+R576 trial 6: PASS
+R576 trial 7: PASS
+R576 trial 8: PASS
+R576 trial 9: PASS
+R576 trial 10: PASS
+R576 trial 11: PASS
+R576 trial 12: PASS
+R576 trial 13: PASS
+R576 trial 14: PASS
+R576 trial 15: PASS
+R576 trial 16: PASS
+R576 trial 17: PASS
+R576 trial 18: PASS
+R576 trial 19: PASS
+R576 trial 20: PASS
+[36m╷[0m
+[36m├─[0m [36mJUnit Jupiter[0m [32m✔[0m
+[36m│  ├─[0m [36mDirectoryProof[0m [32m✔[0m
+[36m│  │  └─[0m [36mreentrantDirectoryCreationPreservesCommittedChild()[0m [32m✔[0m
+[36m│  │     ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │     ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │     └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  ├─[0m [36mDirectoryConcurrencyTest[0m [32m✔[0m
+[36m│  │  ├─[0m [36mexistingDirectoryPreservesChild()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  │  ├─[0m [36mreentrantMustCreateRejectsCommittedDirectory()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  │  ├─[0m [36mconcurrentCreateDirectoriesPreservesCommittedChild()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  │  ├─[0m [36mexistingFileIsNotReplacedByDirectory()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  │  ├─[0m [36mreentrantSymlinkParentPreservesCommittedChild()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  │  ├─[0m [36mconcurrentMustCreateAdmitsOneCaller()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  │  ├─[0m [36mexistingRootMustCreateIsRejected()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  │  └─[0m [36mreentrantRootCreationPreservesCommittedChild()[0m [32m✔[0m
+[36m│  │     ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │     ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │     └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  ├─[0m [36mNeighborEntryReviewTest[0m [32m✔[0m
+[36m│  │  ├─[0m [36mmovePreservesDirectoryCreatedBySourceLookupClock()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [31mrepetition 1 of 3[0m [31m✘[0m [31mMultiple Failures (4 failures)[0m
+[36m│  │  │  │     [0m[31m   	org.opentest4j.AssertionFailedError: Move must reject the callback's destination directory. ==> Unexpected null value, expected: <java.io.IOException> but was: <null>[0m
+[36m│  │  │  │     [0m[31m   	org.opentest4j.AssertionFailedError: Move must preserve destination directory type. ==> expected: <true> but was: <false>[0m
+[36m│  │  │  │     [0m[31m   	java.io.IOException: not a directory: /target[0m
+[36m│  │  │  │     [0m[31m   	org.opentest4j.AssertionFailedError: Rejected move must preserve its source. ==> expected: <true> but was: <false>[0m
+[36m│  │  │  ├─[0m [31mrepetition 2 of 3[0m [31m✘[0m [31mMultiple Failures (4 failures)[0m
+[36m│  │  │  │     [0m[31m   	org.opentest4j.AssertionFailedError: Move must reject the callback's destination directory. ==> Unexpected null value, expected: <java.io.IOException> but was: <null>[0m
+[36m│  │  │  │     [0m[31m   	org.opentest4j.AssertionFailedError: Move must preserve destination directory type. ==> expected: <true> but was: <false>[0m
+[36m│  │  │  │     [0m[31m   	java.io.IOException: not a directory: /target[0m
+[36m│  │  │  │     [0m[31m   	org.opentest4j.AssertionFailedError: Rejected move must preserve its source. ==> expected: <true> but was: <false>[0m
+[36m│  │  │  └─[0m [31mrepetition 3 of 3[0m [31m✘[0m [31mMultiple Failures (4 failures)[0m
+[36m│  │  │        [0m[31m   	org.opentest4j.AssertionFailedError: Move must reject the callback's destination directory. ==> Unexpected null value, expected: <java.io.IOException> but was: <null>[0m
+[36m│  │  │        [0m[31m   	org.opentest4j.AssertionFailedError: Move must preserve destination directory type. ==> expected: <true> but was: <false>[0m
+[36m│  │  │        [0m[31m   	java.io.IOException: not a directory: /target[0m
+[36m│  │  │        [0m[31m   	org.opentest4j.AssertionFailedError: Rejected move must preserve its source. ==> expected: <true> but was: <false>[0m
+[36m│  │  ├─[0m [36msymlinkCreationPreservesDirectoryCreatedByClock()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [31mrepetition 1 of 3[0m [31m✘[0m [31mMultiple Failures (3 failures)[0m
+[36m│  │  │  │     [0m[31m   	org.opentest4j.AssertionFailedError: Symlink creation must reject the callback's directory. ==> Unexpected null value, expected: <java.io.IOException> but was: <null>[0m
+[36m│  │  │  │     [0m[31m   	org.opentest4j.AssertionFailedError: Symlink creation must preserve directory type. ==> expected: <true> but was: <false>[0m
+[36m│  │  │  │     [0m[31m   	org.opentest4j.AssertionFailedError: Symlink creation must preserve the callback's committed child. ==> expected: <true> but was: <false>[0m
+[36m│  │  │  ├─[0m [31mrepetition 2 of 3[0m [31m✘[0m [31mMultiple Failures (3 failures)[0m
+[36m│  │  │  │     [0m[31m   	org.opentest4j.AssertionFailedError: Symlink creation must reject the callback's directory. ==> Unexpected null value, expected: <java.io.IOException> but was: <null>[0m
+[36m│  │  │  │     [0m[31m   	org.opentest4j.AssertionFailedError: Symlink creation must preserve directory type. ==> expected: <true> but was: <false>[0m
+[36m│  │  │  │     [0m[31m   	org.opentest4j.AssertionFailedError: Symlink creation must preserve the callback's committed child. ==> expected: <true> but was: <false>[0m
+[36m│  │  │  └─[0m [31mrepetition 3 of 3[0m [31m✘[0m [31mMultiple Failures (3 failures)[0m
+[36m│  │  │        [0m[31m   	org.opentest4j.AssertionFailedError: Symlink creation must reject the callback's directory. ==> Unexpected null value, expected: <java.io.IOException> but was: <null>[0m
+[36m│  │  │        [0m[31m   	org.opentest4j.AssertionFailedError: Symlink creation must preserve directory type. ==> expected: <true> but was: <false>[0m
+[36m│  │  │        [0m[31m   	org.opentest4j.AssertionFailedError: Symlink creation must preserve the callback's committed child. ==> expected: <true> but was: <false>[0m
+[36m│  │  └─[0m [36mmustCreateOpenPreservesDirectoryCreatedByClock()[0m [32m✔[0m
+[36m│  │     ├─[0m [31mrepetition 1 of 3[0m [31m✘[0m [31mMultiple Failures (3 failures)[0m
+[36m│  │     │     [0m[31m   	org.opentest4j.AssertionFailedError: mustCreate must reject the callback's directory. ==> Unexpected null value, expected: <java.io.IOException> but was: <null>[0m
+[36m│  │     │     [0m[31m   	org.opentest4j.AssertionFailedError: Open must preserve directory type. ==> expected: <true> but was: <false>[0m
+[36m│  │     │     [0m[31m   	java.io.IOException: not a directory: /target[0m
+[36m│  │     ├─[0m [31mrepetition 2 of 3[0m [31m✘[0m [31mMultiple Failures (3 failures)[0m
+[36m│  │     │     [0m[31m   	org.opentest4j.AssertionFailedError: mustCreate must reject the callback's directory. ==> Unexpected null value, expected: <java.io.IOException> but was: <null>[0m
+[36m│  │     │     [0m[31m   	org.opentest4j.AssertionFailedError: Open must preserve directory type. ==> expected: <true> but was: <false>[0m
+[36m│  │     │     [0m[31m   	java.io.IOException: not a directory: /target[0m
+[36m│  │     └─[0m [31mrepetition 3 of 3[0m [31m✘[0m [31mMultiple Failures (3 failures)[0m
+[36m│  │           [0m[31m   	org.opentest4j.AssertionFailedError: mustCreate must reject the callback's directory. ==> Unexpected null value, expected: <java.io.IOException> but was: <null>[0m
+[36m│  │           [0m[31m   	org.opentest4j.AssertionFailedError: Open must preserve directory type. ==> expected: <true> but was: <false>[0m
+[36m│  │           [0m[31m   	java.io.IOException: not a directory: /target[0m
+[36m│  ├─[0m [36mEntryAdmissionConcurrencyTest[0m [32m✔[0m
+[36m│  │  ├─[0m [36mconcurrentSymlinkPreservesCommittedDirectory()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [31mrepetition 1 of 3[0m [31m✘[0m [31mMultiple Failures (3 failures)[0m
+[36m│  │  │  │     [0m[31m   	org.opentest4j.AssertionFailedError: Admission must reject the concurrent directory. ==> expected: not <null>[0m
+[36m│  │  │  │     [0m[31m   	org.opentest4j.AssertionFailedError: Admission must preserve directory type. ==> expected: <true> but was: <false>[0m
+[36m│  │  │  │     [0m[31m   	org.opentest4j.AssertionFailedError: Admission must preserve the committed child. ==> expected: <true> but was: <false>[0m
+[36m│  │  │  ├─[0m [31mrepetition 2 of 3[0m [31m✘[0m [31mMultiple Failures (3 failures)[0m
+[36m│  │  │  │     [0m[31m   	org.opentest4j.AssertionFailedError: Admission must reject the concurrent directory. ==> expected: not <null>[0m
+[36m│  │  │  │     [0m[31m   	org.opentest4j.AssertionFailedError: Admission must preserve directory type. ==> expected: <true> but was: <false>[0m
+[36m│  │  │  │     [0m[31m   	org.opentest4j.AssertionFailedError: Admission must preserve the committed child. ==> expected: <true> but was: <false>[0m
+[36m│  │  │  └─[0m [31mrepetition 3 of 3[0m [31m✘[0m [31mMultiple Failures (3 failures)[0m
+[36m│  │  │        [0m[31m   	org.opentest4j.AssertionFailedError: Admission must reject the concurrent directory. ==> expected: not <null>[0m
+[36m│  │  │        [0m[31m   	org.opentest4j.AssertionFailedError: Admission must preserve directory type. ==> expected: <true> but was: <false>[0m
+[36m│  │  │        [0m[31m   	org.opentest4j.AssertionFailedError: Admission must preserve the committed child. ==> expected: <true> but was: <false>[0m
+[36m│  │  ├─[0m [36mconcurrentOpenPreservesCommittedDirectory()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [31mrepetition 1 of 3[0m [31m✘[0m [31mMultiple Failures (3 failures)[0m
+[36m│  │  │  │     [0m[31m   	org.opentest4j.AssertionFailedError: Admission must reject the concurrent directory. ==> expected: not <null>[0m
+[36m│  │  │  │     [0m[31m   	org.opentest4j.AssertionFailedError: Admission must preserve directory type. ==> expected: <true> but was: <false>[0m
+[36m│  │  │  │     [0m[31m   	java.io.IOException: not a directory: /target[0m
+[36m│  │  │  ├─[0m [31mrepetition 2 of 3[0m [31m✘[0m [31mMultiple Failures (3 failures)[0m
+[36m│  │  │  │     [0m[31m   	org.opentest4j.AssertionFailedError: Admission must reject the concurrent directory. ==> expected: not <null>[0m
+[36m│  │  │  │     [0m[31m   	org.opentest4j.AssertionFailedError: Admission must preserve directory type. ==> expected: <true> but was: <false>[0m
+[36m│  │  │  │     [0m[31m   	java.io.IOException: not a directory: /target[0m
+[36m│  │  │  └─[0m [31mrepetition 3 of 3[0m [31m✘[0m [31mMultiple Failures (3 failures)[0m
+[36m│  │  │        [0m[31m   	org.opentest4j.AssertionFailedError: Admission must reject the concurrent directory. ==> expected: not <null>[0m
+[36m│  │  │        [0m[31m   	org.opentest4j.AssertionFailedError: Admission must preserve directory type. ==> expected: <true> but was: <false>[0m
+[36m│  │  │        [0m[31m   	java.io.IOException: not a directory: /target[0m
+[36m│  │  └─[0m [36mconcurrentMovePreservesCommittedDirectory()[0m [32m✔[0m
+[36m│  │     ├─[0m [31mrepetition 1 of 3[0m [31m✘[0m [31mMultiple Failures (4 failures)[0m
+[36m│  │     │     [0m[31m   	org.opentest4j.AssertionFailedError: Admission must reject the concurrent directory. ==> expected: not <null>[0m
+[36m│  │     │     [0m[31m   	org.opentest4j.AssertionFailedError: Admission must preserve directory type. ==> expected: <true> but was: <false>[0m
+[36m│  │     │     [0m[31m   	java.io.IOException: not a directory: /target[0m
+[36m│  │     │     [0m[31m   	org.opentest4j.AssertionFailedError: Rejected admission must preserve the source. ==> expected: <true> but was: <false>[0m
+[36m│  │     ├─[0m [31mrepetition 2 of 3[0m [31m✘[0m [31mMultiple Failures (4 failures)[0m
+[36m│  │     │     [0m[31m   	org.opentest4j.AssertionFailedError: Admission must reject the concurrent directory. ==> expected: not <null>[0m
+[36m│  │     │     [0m[31m   	org.opentest4j.AssertionFailedError: Admission must preserve directory type. ==> expected: <true> but was: <false>[0m
+[36m│  │     │     [0m[31m   	java.io.IOException: not a directory: /target[0m
+[36m│  │     │     [0m[31m   	org.opentest4j.AssertionFailedError: Rejected admission must preserve the source. ==> expected: <true> but was: <false>[0m
+[36m│  │     └─[0m [31mrepetition 3 of 3[0m [31m✘[0m [31mMultiple Failures (4 failures)[0m
+[36m│  │           [0m[31m   	org.opentest4j.AssertionFailedError: Admission must reject the concurrent directory. ==> expected: not <null>[0m
+[36m│  │           [0m[31m   	org.opentest4j.AssertionFailedError: Admission must preserve directory type. ==> expected: <true> but was: <false>[0m
+[36m│  │           [0m[31m   	java.io.IOException: not a directory: /target[0m
+[36m│  │           [0m[31m   	org.opentest4j.AssertionFailedError: Rejected admission must preserve the source. ==> expected: <true> but was: <false>[0m
+[36m│  ├─[0m [36mEntryAdmissionBoundaryTest[0m [32m✔[0m
+[36m│  │  ├─[0m [36mappendingSinkRejectsDirectoryCreatedByClock()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [31mrepetition 1 of 3[0m [31m✘[0m [31mExpected java.io.IOException to be thrown, but nothing was thrown.[0m
+[36m│  │  │  ├─[0m [31mrepetition 2 of 3[0m [31m✘[0m [31mExpected java.io.IOException to be thrown, but nothing was thrown.[0m
+[36m│  │  │  └─[0m [31mrepetition 3 of 3[0m [31m✘[0m [31mExpected java.io.IOException to be thrown, but nothing was thrown.[0m
+[36m│  │  ├─[0m [36mmustExistRejectsFileDeletedByClock()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [31mrepetition 1 of 3[0m [31m✘[0m [31mExpected java.io.IOException to be thrown, but nothing was thrown.[0m
+[36m│  │  │  ├─[0m [31mrepetition 2 of 3[0m [31m✘[0m [31mExpected java.io.IOException to be thrown, but nothing was thrown.[0m
+[36m│  │  │  └─[0m [31mrepetition 3 of 3[0m [31m✘[0m [31mExpected java.io.IOException to be thrown, but nothing was thrown.[0m
+[36m│  │  ├─[0m [36mmustCreateRejectsFileCreatedByClock()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [31mrepetition 1 of 3[0m [31m✘[0m [31mExpected java.io.IOException to be thrown, but nothing was thrown.[0m
+[36m│  │  │  ├─[0m [31mrepetition 2 of 3[0m [31m✘[0m [31mExpected java.io.IOException to be thrown, but nothing was thrown.[0m
+[36m│  │  │  └─[0m [31mrepetition 3 of 3[0m [31m✘[0m [31mExpected java.io.IOException to be thrown, but nothing was thrown.[0m
+[36m│  │  ├─[0m [36mreadOnlyReadsFileReplacedByClock()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [31mrepetition 1 of 3[0m [31m✘[0m [31mexpected: <after> but was: <before>[0m
+[36m│  │  │  ├─[0m [31mrepetition 2 of 3[0m [31m✘[0m [31mexpected: <after> but was: <before>[0m
+[36m│  │  │  └─[0m [31mrepetition 3 of 3[0m [31m✘[0m [31mexpected: <after> but was: <before>[0m
+[36m│  │  ├─[0m [36mdeleteResolvesCurrentSymlinkParentAfterClock()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [31mrepetition 1 of 3[0m [31m✘[0m [31mMultiple Failures (2 failures)[0m
+[36m│  │  │  │     [0m[31m   	org.opentest4j.AssertionFailedError: Delete must preserve the retired parent's file. ==> expected: <true> but was: <false>[0m
+[36m│  │  │  │     [0m[31m   	org.opentest4j.AssertionFailedError: Delete must resolve the current symlink parent. ==> expected: <false> but was: <true>[0m
+[36m│  │  │  ├─[0m [31mrepetition 2 of 3[0m [31m✘[0m [31mMultiple Failures (2 failures)[0m
+[36m│  │  │  │     [0m[31m   	org.opentest4j.AssertionFailedError: Delete must preserve the retired parent's file. ==> expected: <true> but was: <false>[0m
+[36m│  │  │  │     [0m[31m   	org.opentest4j.AssertionFailedError: Delete must resolve the current symlink parent. ==> expected: <false> but was: <true>[0m
+[36m│  │  │  └─[0m [31mrepetition 3 of 3[0m [31m✘[0m [31mMultiple Failures (2 failures)[0m
+[36m│  │  │        [0m[31m   	org.opentest4j.AssertionFailedError: Delete must preserve the retired parent's file. ==> expected: <true> but was: <false>[0m
+[36m│  │  │        [0m[31m   	org.opentest4j.AssertionFailedError: Delete must resolve the current symlink parent. ==> expected: <false> but was: <true>[0m
+[36m│  │  └─[0m [36msinkRejectsDirectoryCreatedByClock()[0m [32m✔[0m
+[36m│  │     ├─[0m [31mrepetition 1 of 3[0m [31m✘[0m [31mExpected java.io.IOException to be thrown, but nothing was thrown.[0m
+[36m│  │     ├─[0m [31mrepetition 2 of 3[0m [31m✘[0m [31mExpected java.io.IOException to be thrown, but nothing was thrown.[0m
+[36m│  │     └─[0m [31mrepetition 3 of 3[0m [31m✘[0m [31mExpected java.io.IOException to be thrown, but nothing was thrown.[0m
+[36m│  └─[0m [36mRegistryConcurrencyTest[0m [32m✔[0m
+[36m│     └─[0m [34mconcurrentDistinctFileOpenClose()[0m [32m✔[0m
+[36m├─[0m [36mJUnit Vintage[0m [32m✔[0m
+[36m│  └─[0m [36mFakeFileSystemRegistryTest[0m [32m✔[0m
+[36m│     ├─[0m [34mclockFailureOnCloseStillRemovesRegistration[0m [32m✔[0m
+[36m│     ├─[0m [34mclockReentryCannotAdmitTwoWriters[0m [32m✔[0m
+[36m│     └─[0m [34mopenPathsIsASnapshotAndSourcesRetainRegistration[0m [32m✔[0m
+[36m└─[0m [36mJUnit Platform Suite[0m [32m✔[0m
+
+Failures (36):
+  JUnit Jupiter:NeighborEntryReviewTest:movePreservesDirectoryCreatedBySourceLookupClock():repetition 1 of 3
+    MethodSource [className = 'NeighborEntryReviewTest', methodName = 'movePreservesDirectoryCreatedBySourceLookupClock', methodParameterTypes = '']
+    => org.opentest4j.MultipleFailuresError: Multiple Failures (4 failures)
+	org.opentest4j.AssertionFailedError: Move must reject the callback's destination directory. ==> Unexpected null value, expected: <java.io.IOException> but was: <null>
+	org.opentest4j.AssertionFailedError: Move must preserve destination directory type. ==> expected: <true> but was: <false>
+	java.io.IOException: not a directory: /target
+	org.opentest4j.AssertionFailedError: Rejected move must preserve its source. ==> expected: <true> but was: <false>
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:80)
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:44)
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:38)
+       org.junit.jupiter.api.Assertions.assertAll(Assertions.java:2940)
+       NeighborEntryReviewTest.movePreservesDirectoryCreatedBySourceLookupClock(NeighborEntryReviewTest.java:85)
+       [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Move must reject the callback's destination directory. ==> Unexpected null value, expected: <java.io.IOException> but was: <null>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertInstanceOf.assertInstanceOf(AssertInstanceOf.java:49)
+         org.junit.jupiter.api.AssertInstanceOf.assertInstanceOf(AssertInstanceOf.java:35)
+         org.junit.jupiter.api.Assertions.assertInstanceOf(Assertions.java:3616)
+         [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Move must preserve destination directory type. ==> expected: <true> but was: <false>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+         org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+         org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+         [...]
+       Suppressed: java.io.IOException: not a directory: /target
+         okio.fakefilesystem.FakeFileSystem.lookupPath(FakeFileSystem.kt:567)
+         okio.fakefilesystem.FakeFileSystem.lookupPath$default(FakeFileSystem.kt:531)
+         okio.fakefilesystem.FakeFileSystem.metadataOrNull(FakeFileSystem.kt:262)
+         okio.internal.-FileSystem.commonExists(FileSystem.kt:41)
+         okio.FileSystem.exists(FileSystem.kt:39)
+         [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Rejected move must preserve its source. ==> expected: <true> but was: <false>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+         org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+         org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+         [...]
+  JUnit Jupiter:NeighborEntryReviewTest:movePreservesDirectoryCreatedBySourceLookupClock():repetition 2 of 3
+    MethodSource [className = 'NeighborEntryReviewTest', methodName = 'movePreservesDirectoryCreatedBySourceLookupClock', methodParameterTypes = '']
+    => org.opentest4j.MultipleFailuresError: Multiple Failures (4 failures)
+	org.opentest4j.AssertionFailedError: Move must reject the callback's destination directory. ==> Unexpected null value, expected: <java.io.IOException> but was: <null>
+	org.opentest4j.AssertionFailedError: Move must preserve destination directory type. ==> expected: <true> but was: <false>
+	java.io.IOException: not a directory: /target
+	org.opentest4j.AssertionFailedError: Rejected move must preserve its source. ==> expected: <true> but was: <false>
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:80)
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:44)
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:38)
+       org.junit.jupiter.api.Assertions.assertAll(Assertions.java:2940)
+       NeighborEntryReviewTest.movePreservesDirectoryCreatedBySourceLookupClock(NeighborEntryReviewTest.java:85)
+       [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Move must reject the callback's destination directory. ==> Unexpected null value, expected: <java.io.IOException> but was: <null>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertInstanceOf.assertInstanceOf(AssertInstanceOf.java:49)
+         org.junit.jupiter.api.AssertInstanceOf.assertInstanceOf(AssertInstanceOf.java:35)
+         org.junit.jupiter.api.Assertions.assertInstanceOf(Assertions.java:3616)
+         [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Move must preserve destination directory type. ==> expected: <true> but was: <false>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+         org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+         org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+         [...]
+       Suppressed: java.io.IOException: not a directory: /target
+         okio.fakefilesystem.FakeFileSystem.lookupPath(FakeFileSystem.kt:567)
+         okio.fakefilesystem.FakeFileSystem.lookupPath$default(FakeFileSystem.kt:531)
+         okio.fakefilesystem.FakeFileSystem.metadataOrNull(FakeFileSystem.kt:262)
+         okio.internal.-FileSystem.commonExists(FileSystem.kt:41)
+         okio.FileSystem.exists(FileSystem.kt:39)
+         [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Rejected move must preserve its source. ==> expected: <true> but was: <false>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+         org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+         org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+         [...]
+  JUnit Jupiter:NeighborEntryReviewTest:movePreservesDirectoryCreatedBySourceLookupClock():repetition 3 of 3
+    MethodSource [className = 'NeighborEntryReviewTest', methodName = 'movePreservesDirectoryCreatedBySourceLookupClock', methodParameterTypes = '']
+    => org.opentest4j.MultipleFailuresError: Multiple Failures (4 failures)
+	org.opentest4j.AssertionFailedError: Move must reject the callback's destination directory. ==> Unexpected null value, expected: <java.io.IOException> but was: <null>
+	org.opentest4j.AssertionFailedError: Move must preserve destination directory type. ==> expected: <true> but was: <false>
+	java.io.IOException: not a directory: /target
+	org.opentest4j.AssertionFailedError: Rejected move must preserve its source. ==> expected: <true> but was: <false>
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:80)
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:44)
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:38)
+       org.junit.jupiter.api.Assertions.assertAll(Assertions.java:2940)
+       NeighborEntryReviewTest.movePreservesDirectoryCreatedBySourceLookupClock(NeighborEntryReviewTest.java:85)
+       [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Move must reject the callback's destination directory. ==> Unexpected null value, expected: <java.io.IOException> but was: <null>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertInstanceOf.assertInstanceOf(AssertInstanceOf.java:49)
+         org.junit.jupiter.api.AssertInstanceOf.assertInstanceOf(AssertInstanceOf.java:35)
+         org.junit.jupiter.api.Assertions.assertInstanceOf(Assertions.java:3616)
+         [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Move must preserve destination directory type. ==> expected: <true> but was: <false>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+         org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+         org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+         [...]
+       Suppressed: java.io.IOException: not a directory: /target
+         okio.fakefilesystem.FakeFileSystem.lookupPath(FakeFileSystem.kt:567)
+         okio.fakefilesystem.FakeFileSystem.lookupPath$default(FakeFileSystem.kt:531)
+         okio.fakefilesystem.FakeFileSystem.metadataOrNull(FakeFileSystem.kt:262)
+         okio.internal.-FileSystem.commonExists(FileSystem.kt:41)
+         okio.FileSystem.exists(FileSystem.kt:39)
+         [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Rejected move must preserve its source. ==> expected: <true> but was: <false>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+         org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+         org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+         [...]
+  JUnit Jupiter:NeighborEntryReviewTest:symlinkCreationPreservesDirectoryCreatedByClock():repetition 1 of 3
+    MethodSource [className = 'NeighborEntryReviewTest', methodName = 'symlinkCreationPreservesDirectoryCreatedByClock', methodParameterTypes = '']
+    => org.opentest4j.MultipleFailuresError: Multiple Failures (3 failures)
+	org.opentest4j.AssertionFailedError: Symlink creation must reject the callback's directory. ==> Unexpected null value, expected: <java.io.IOException> but was: <null>
+	org.opentest4j.AssertionFailedError: Symlink creation must preserve directory type. ==> expected: <true> but was: <false>
+	org.opentest4j.AssertionFailedError: Symlink creation must preserve the callback's committed child. ==> expected: <true> but was: <false>
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:80)
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:44)
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:38)
+       org.junit.jupiter.api.Assertions.assertAll(Assertions.java:2940)
+       NeighborEntryReviewTest.symlinkCreationPreservesDirectoryCreatedByClock(NeighborEntryReviewTest.java:67)
+       [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Symlink creation must reject the callback's directory. ==> Unexpected null value, expected: <java.io.IOException> but was: <null>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertInstanceOf.assertInstanceOf(AssertInstanceOf.java:49)
+         org.junit.jupiter.api.AssertInstanceOf.assertInstanceOf(AssertInstanceOf.java:35)
+         org.junit.jupiter.api.Assertions.assertInstanceOf(Assertions.java:3616)
+         [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Symlink creation must preserve directory type. ==> expected: <true> but was: <false>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+         org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+         org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+         [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Symlink creation must preserve the callback's committed child. ==> expected: <true> but was: <false>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+         org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+         org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+         [...]
+  JUnit Jupiter:NeighborEntryReviewTest:symlinkCreationPreservesDirectoryCreatedByClock():repetition 2 of 3
+    MethodSource [className = 'NeighborEntryReviewTest', methodName = 'symlinkCreationPreservesDirectoryCreatedByClock', methodParameterTypes = '']
+    => org.opentest4j.MultipleFailuresError: Multiple Failures (3 failures)
+	org.opentest4j.AssertionFailedError: Symlink creation must reject the callback's directory. ==> Unexpected null value, expected: <java.io.IOException> but was: <null>
+	org.opentest4j.AssertionFailedError: Symlink creation must preserve directory type. ==> expected: <true> but was: <false>
+	org.opentest4j.AssertionFailedError: Symlink creation must preserve the callback's committed child. ==> expected: <true> but was: <false>
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:80)
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:44)
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:38)
+       org.junit.jupiter.api.Assertions.assertAll(Assertions.java:2940)
+       NeighborEntryReviewTest.symlinkCreationPreservesDirectoryCreatedByClock(NeighborEntryReviewTest.java:67)
+       [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Symlink creation must reject the callback's directory. ==> Unexpected null value, expected: <java.io.IOException> but was: <null>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertInstanceOf.assertInstanceOf(AssertInstanceOf.java:49)
+         org.junit.jupiter.api.AssertInstanceOf.assertInstanceOf(AssertInstanceOf.java:35)
+         org.junit.jupiter.api.Assertions.assertInstanceOf(Assertions.java:3616)
+         [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Symlink creation must preserve directory type. ==> expected: <true> but was: <false>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+         org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+         org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+         [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Symlink creation must preserve the callback's committed child. ==> expected: <true> but was: <false>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+         org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+         org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+         [...]
+  JUnit Jupiter:NeighborEntryReviewTest:symlinkCreationPreservesDirectoryCreatedByClock():repetition 3 of 3
+    MethodSource [className = 'NeighborEntryReviewTest', methodName = 'symlinkCreationPreservesDirectoryCreatedByClock', methodParameterTypes = '']
+    => org.opentest4j.MultipleFailuresError: Multiple Failures (3 failures)
+	org.opentest4j.AssertionFailedError: Symlink creation must reject the callback's directory. ==> Unexpected null value, expected: <java.io.IOException> but was: <null>
+	org.opentest4j.AssertionFailedError: Symlink creation must preserve directory type. ==> expected: <true> but was: <false>
+	org.opentest4j.AssertionFailedError: Symlink creation must preserve the callback's committed child. ==> expected: <true> but was: <false>
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:80)
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:44)
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:38)
+       org.junit.jupiter.api.Assertions.assertAll(Assertions.java:2940)
+       NeighborEntryReviewTest.symlinkCreationPreservesDirectoryCreatedByClock(NeighborEntryReviewTest.java:67)
+       [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Symlink creation must reject the callback's directory. ==> Unexpected null value, expected: <java.io.IOException> but was: <null>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertInstanceOf.assertInstanceOf(AssertInstanceOf.java:49)
+         org.junit.jupiter.api.AssertInstanceOf.assertInstanceOf(AssertInstanceOf.java:35)
+         org.junit.jupiter.api.Assertions.assertInstanceOf(Assertions.java:3616)
+         [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Symlink creation must preserve directory type. ==> expected: <true> but was: <false>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+         org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+         org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+         [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Symlink creation must preserve the callback's committed child. ==> expected: <true> but was: <false>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+         org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+         org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+         [...]
+  JUnit Jupiter:NeighborEntryReviewTest:mustCreateOpenPreservesDirectoryCreatedByClock():repetition 1 of 3
+    MethodSource [className = 'NeighborEntryReviewTest', methodName = 'mustCreateOpenPreservesDirectoryCreatedByClock', methodParameterTypes = '']
+    => org.opentest4j.MultipleFailuresError: Multiple Failures (3 failures)
+	org.opentest4j.AssertionFailedError: mustCreate must reject the callback's directory. ==> Unexpected null value, expected: <java.io.IOException> but was: <null>
+	org.opentest4j.AssertionFailedError: Open must preserve directory type. ==> expected: <true> but was: <false>
+	java.io.IOException: not a directory: /target
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:80)
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:44)
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:38)
+       org.junit.jupiter.api.Assertions.assertAll(Assertions.java:2940)
+       NeighborEntryReviewTest.mustCreateOpenPreservesDirectoryCreatedByClock(NeighborEntryReviewTest.java:51)
+       [...]
+       Suppressed: org.opentest4j.AssertionFailedError: mustCreate must reject the callback's directory. ==> Unexpected null value, expected: <java.io.IOException> but was: <null>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertInstanceOf.assertInstanceOf(AssertInstanceOf.java:49)
+         org.junit.jupiter.api.AssertInstanceOf.assertInstanceOf(AssertInstanceOf.java:35)
+         org.junit.jupiter.api.Assertions.assertInstanceOf(Assertions.java:3616)
+         [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Open must preserve directory type. ==> expected: <true> but was: <false>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+         org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+         org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+         [...]
+       Suppressed: java.io.IOException: not a directory: /target
+         okio.fakefilesystem.FakeFileSystem.lookupPath(FakeFileSystem.kt:567)
+         okio.fakefilesystem.FakeFileSystem.lookupPath$default(FakeFileSystem.kt:531)
+         okio.fakefilesystem.FakeFileSystem.metadataOrNull(FakeFileSystem.kt:262)
+         okio.internal.-FileSystem.commonExists(FileSystem.kt:41)
+         okio.FileSystem.exists(FileSystem.kt:39)
+         [...]
+  JUnit Jupiter:NeighborEntryReviewTest:mustCreateOpenPreservesDirectoryCreatedByClock():repetition 2 of 3
+    MethodSource [className = 'NeighborEntryReviewTest', methodName = 'mustCreateOpenPreservesDirectoryCreatedByClock', methodParameterTypes = '']
+    => org.opentest4j.MultipleFailuresError: Multiple Failures (3 failures)
+	org.opentest4j.AssertionFailedError: mustCreate must reject the callback's directory. ==> Unexpected null value, expected: <java.io.IOException> but was: <null>
+	org.opentest4j.AssertionFailedError: Open must preserve directory type. ==> expected: <true> but was: <false>
+	java.io.IOException: not a directory: /target
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:80)
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:44)
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:38)
+       org.junit.jupiter.api.Assertions.assertAll(Assertions.java:2940)
+       NeighborEntryReviewTest.mustCreateOpenPreservesDirectoryCreatedByClock(NeighborEntryReviewTest.java:51)
+       [...]
+       Suppressed: org.opentest4j.AssertionFailedError: mustCreate must reject the callback's directory. ==> Unexpected null value, expected: <java.io.IOException> but was: <null>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertInstanceOf.assertInstanceOf(AssertInstanceOf.java:49)
+         org.junit.jupiter.api.AssertInstanceOf.assertInstanceOf(AssertInstanceOf.java:35)
+         org.junit.jupiter.api.Assertions.assertInstanceOf(Assertions.java:3616)
+         [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Open must preserve directory type. ==> expected: <true> but was: <false>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+         org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+         org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+         [...]
+       Suppressed: java.io.IOException: not a directory: /target
+         okio.fakefilesystem.FakeFileSystem.lookupPath(FakeFileSystem.kt:567)
+         okio.fakefilesystem.FakeFileSystem.lookupPath$default(FakeFileSystem.kt:531)
+         okio.fakefilesystem.FakeFileSystem.metadataOrNull(FakeFileSystem.kt:262)
+         okio.internal.-FileSystem.commonExists(FileSystem.kt:41)
+         okio.FileSystem.exists(FileSystem.kt:39)
+         [...]
+  JUnit Jupiter:NeighborEntryReviewTest:mustCreateOpenPreservesDirectoryCreatedByClock():repetition 3 of 3
+    MethodSource [className = 'NeighborEntryReviewTest', methodName = 'mustCreateOpenPreservesDirectoryCreatedByClock', methodParameterTypes = '']
+    => org.opentest4j.MultipleFailuresError: Multiple Failures (3 failures)
+	org.opentest4j.AssertionFailedError: mustCreate must reject the callback's directory. ==> Unexpected null value, expected: <java.io.IOException> but was: <null>
+	org.opentest4j.AssertionFailedError: Open must preserve directory type. ==> expected: <true> but was: <false>
+	java.io.IOException: not a directory: /target
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:80)
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:44)
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:38)
+       org.junit.jupiter.api.Assertions.assertAll(Assertions.java:2940)
+       NeighborEntryReviewTest.mustCreateOpenPreservesDirectoryCreatedByClock(NeighborEntryReviewTest.java:51)
+       [...]
+       Suppressed: org.opentest4j.AssertionFailedError: mustCreate must reject the callback's directory. ==> Unexpected null value, expected: <java.io.IOException> but was: <null>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertInstanceOf.assertInstanceOf(AssertInstanceOf.java:49)
+         org.junit.jupiter.api.AssertInstanceOf.assertInstanceOf(AssertInstanceOf.java:35)
+         org.junit.jupiter.api.Assertions.assertInstanceOf(Assertions.java:3616)
+         [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Open must preserve directory type. ==> expected: <true> but was: <false>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+         org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+         org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+         [...]
+       Suppressed: java.io.IOException: not a directory: /target
+         okio.fakefilesystem.FakeFileSystem.lookupPath(FakeFileSystem.kt:567)
+         okio.fakefilesystem.FakeFileSystem.lookupPath$default(FakeFileSystem.kt:531)
+         okio.fakefilesystem.FakeFileSystem.metadataOrNull(FakeFileSystem.kt:262)
+         okio.internal.-FileSystem.commonExists(FileSystem.kt:41)
+         okio.FileSystem.exists(FileSystem.kt:39)
+         [...]
+  JUnit Jupiter:EntryAdmissionConcurrencyTest:concurrentSymlinkPreservesCommittedDirectory():repetition 1 of 3
+    MethodSource [className = 'EntryAdmissionConcurrencyTest', methodName = 'concurrentSymlinkPreservesCommittedDirectory', methodParameterTypes = '']
+    => org.opentest4j.MultipleFailuresError: Multiple Failures (3 failures)
+	org.opentest4j.AssertionFailedError: Admission must reject the concurrent directory. ==> expected: not <null>
+	org.opentest4j.AssertionFailedError: Admission must preserve directory type. ==> expected: <true> but was: <false>
+	org.opentest4j.AssertionFailedError: Admission must preserve the committed child. ==> expected: <true> but was: <false>
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:80)
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:44)
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:38)
+       org.junit.jupiter.api.Assertions.assertAll(Assertions.java:2940)
+       EntryAdmissionConcurrencyTest.checkAdmission(EntryAdmissionConcurrencyTest.java:65)
+       [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Admission must reject the concurrent directory. ==> expected: not <null>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertNotNull.failNull(AssertNotNull.java:49)
+         org.junit.jupiter.api.AssertNotNull.assertNotNull(AssertNotNull.java:35)
+         org.junit.jupiter.api.Assertions.assertNotNull(Assertions.java:308)
+         [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Admission must preserve directory type. ==> expected: <true> but was: <false>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+         org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+         org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+         [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Admission must preserve the committed child. ==> expected: <true> but was: <false>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+         org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+         org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+         [...]
+  JUnit Jupiter:EntryAdmissionConcurrencyTest:concurrentSymlinkPreservesCommittedDirectory():repetition 2 of 3
+    MethodSource [className = 'EntryAdmissionConcurrencyTest', methodName = 'concurrentSymlinkPreservesCommittedDirectory', methodParameterTypes = '']
+    => org.opentest4j.MultipleFailuresError: Multiple Failures (3 failures)
+	org.opentest4j.AssertionFailedError: Admission must reject the concurrent directory. ==> expected: not <null>
+	org.opentest4j.AssertionFailedError: Admission must preserve directory type. ==> expected: <true> but was: <false>
+	org.opentest4j.AssertionFailedError: Admission must preserve the committed child. ==> expected: <true> but was: <false>
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:80)
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:44)
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:38)
+       org.junit.jupiter.api.Assertions.assertAll(Assertions.java:2940)
+       EntryAdmissionConcurrencyTest.checkAdmission(EntryAdmissionConcurrencyTest.java:65)
+       [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Admission must reject the concurrent directory. ==> expected: not <null>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertNotNull.failNull(AssertNotNull.java:49)
+         org.junit.jupiter.api.AssertNotNull.assertNotNull(AssertNotNull.java:35)
+         org.junit.jupiter.api.Assertions.assertNotNull(Assertions.java:308)
+         [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Admission must preserve directory type. ==> expected: <true> but was: <false>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+         org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+         org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+         [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Admission must preserve the committed child. ==> expected: <true> but was: <false>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+         org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+         org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+         [...]
+  JUnit Jupiter:EntryAdmissionConcurrencyTest:concurrentSymlinkPreservesCommittedDirectory():repetition 3 of 3
+    MethodSource [className = 'EntryAdmissionConcurrencyTest', methodName = 'concurrentSymlinkPreservesCommittedDirectory', methodParameterTypes = '']
+    => org.opentest4j.MultipleFailuresError: Multiple Failures (3 failures)
+	org.opentest4j.AssertionFailedError: Admission must reject the concurrent directory. ==> expected: not <null>
+	org.opentest4j.AssertionFailedError: Admission must preserve directory type. ==> expected: <true> but was: <false>
+	org.opentest4j.AssertionFailedError: Admission must preserve the committed child. ==> expected: <true> but was: <false>
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:80)
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:44)
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:38)
+       org.junit.jupiter.api.Assertions.assertAll(Assertions.java:2940)
+       EntryAdmissionConcurrencyTest.checkAdmission(EntryAdmissionConcurrencyTest.java:65)
+       [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Admission must reject the concurrent directory. ==> expected: not <null>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertNotNull.failNull(AssertNotNull.java:49)
+         org.junit.jupiter.api.AssertNotNull.assertNotNull(AssertNotNull.java:35)
+         org.junit.jupiter.api.Assertions.assertNotNull(Assertions.java:308)
+         [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Admission must preserve directory type. ==> expected: <true> but was: <false>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+         org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+         org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+         [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Admission must preserve the committed child. ==> expected: <true> but was: <false>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+         org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+         org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+         [...]
+  JUnit Jupiter:EntryAdmissionConcurrencyTest:concurrentOpenPreservesCommittedDirectory():repetition 1 of 3
+    MethodSource [className = 'EntryAdmissionConcurrencyTest', methodName = 'concurrentOpenPreservesCommittedDirectory', methodParameterTypes = '']
+    => org.opentest4j.MultipleFailuresError: Multiple Failures (3 failures)
+	org.opentest4j.AssertionFailedError: Admission must reject the concurrent directory. ==> expected: not <null>
+	org.opentest4j.AssertionFailedError: Admission must preserve directory type. ==> expected: <true> but was: <false>
+	java.io.IOException: not a directory: /target
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:80)
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:44)
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:38)
+       org.junit.jupiter.api.Assertions.assertAll(Assertions.java:2940)
+       EntryAdmissionConcurrencyTest.checkAdmission(EntryAdmissionConcurrencyTest.java:65)
+       [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Admission must reject the concurrent directory. ==> expected: not <null>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertNotNull.failNull(AssertNotNull.java:49)
+         org.junit.jupiter.api.AssertNotNull.assertNotNull(AssertNotNull.java:35)
+         org.junit.jupiter.api.Assertions.assertNotNull(Assertions.java:308)
+         [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Admission must preserve directory type. ==> expected: <true> but was: <false>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+         org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+         org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+         [...]
+       Suppressed: java.io.IOException: not a directory: /target
+         okio.fakefilesystem.FakeFileSystem.lookupPath(FakeFileSystem.kt:567)
+         okio.fakefilesystem.FakeFileSystem.lookupPath$default(FakeFileSystem.kt:531)
+         okio.fakefilesystem.FakeFileSystem.metadataOrNull(FakeFileSystem.kt:262)
+         okio.internal.-FileSystem.commonExists(FileSystem.kt:41)
+         okio.FileSystem.exists(FileSystem.kt:39)
+         [...]
+  JUnit Jupiter:EntryAdmissionConcurrencyTest:concurrentOpenPreservesCommittedDirectory():repetition 2 of 3
+    MethodSource [className = 'EntryAdmissionConcurrencyTest', methodName = 'concurrentOpenPreservesCommittedDirectory', methodParameterTypes = '']
+    => org.opentest4j.MultipleFailuresError: Multiple Failures (3 failures)
+	org.opentest4j.AssertionFailedError: Admission must reject the concurrent directory. ==> expected: not <null>
+	org.opentest4j.AssertionFailedError: Admission must preserve directory type. ==> expected: <true> but was: <false>
+	java.io.IOException: not a directory: /target
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:80)
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:44)
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:38)
+       org.junit.jupiter.api.Assertions.assertAll(Assertions.java:2940)
+       EntryAdmissionConcurrencyTest.checkAdmission(EntryAdmissionConcurrencyTest.java:65)
+       [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Admission must reject the concurrent directory. ==> expected: not <null>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertNotNull.failNull(AssertNotNull.java:49)
+         org.junit.jupiter.api.AssertNotNull.assertNotNull(AssertNotNull.java:35)
+         org.junit.jupiter.api.Assertions.assertNotNull(Assertions.java:308)
+         [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Admission must preserve directory type. ==> expected: <true> but was: <false>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+         org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+         org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+         [...]
+       Suppressed: java.io.IOException: not a directory: /target
+         okio.fakefilesystem.FakeFileSystem.lookupPath(FakeFileSystem.kt:567)
+         okio.fakefilesystem.FakeFileSystem.lookupPath$default(FakeFileSystem.kt:531)
+         okio.fakefilesystem.FakeFileSystem.metadataOrNull(FakeFileSystem.kt:262)
+         okio.internal.-FileSystem.commonExists(FileSystem.kt:41)
+         okio.FileSystem.exists(FileSystem.kt:39)
+         [...]
+  JUnit Jupiter:EntryAdmissionConcurrencyTest:concurrentOpenPreservesCommittedDirectory():repetition 3 of 3
+    MethodSource [className = 'EntryAdmissionConcurrencyTest', methodName = 'concurrentOpenPreservesCommittedDirectory', methodParameterTypes = '']
+    => org.opentest4j.MultipleFailuresError: Multiple Failures (3 failures)
+	org.opentest4j.AssertionFailedError: Admission must reject the concurrent directory. ==> expected: not <null>
+	org.opentest4j.AssertionFailedError: Admission must preserve directory type. ==> expected: <true> but was: <false>
+	java.io.IOException: not a directory: /target
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:80)
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:44)
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:38)
+       org.junit.jupiter.api.Assertions.assertAll(Assertions.java:2940)
+       EntryAdmissionConcurrencyTest.checkAdmission(EntryAdmissionConcurrencyTest.java:65)
+       [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Admission must reject the concurrent directory. ==> expected: not <null>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertNotNull.failNull(AssertNotNull.java:49)
+         org.junit.jupiter.api.AssertNotNull.assertNotNull(AssertNotNull.java:35)
+         org.junit.jupiter.api.Assertions.assertNotNull(Assertions.java:308)
+         [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Admission must preserve directory type. ==> expected: <true> but was: <false>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+         org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+         org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+         [...]
+       Suppressed: java.io.IOException: not a directory: /target
+         okio.fakefilesystem.FakeFileSystem.lookupPath(FakeFileSystem.kt:567)
+         okio.fakefilesystem.FakeFileSystem.lookupPath$default(FakeFileSystem.kt:531)
+         okio.fakefilesystem.FakeFileSystem.metadataOrNull(FakeFileSystem.kt:262)
+         okio.internal.-FileSystem.commonExists(FileSystem.kt:41)
+         okio.FileSystem.exists(FileSystem.kt:39)
+         [...]
+  JUnit Jupiter:EntryAdmissionConcurrencyTest:concurrentMovePreservesCommittedDirectory():repetition 1 of 3
+    MethodSource [className = 'EntryAdmissionConcurrencyTest', methodName = 'concurrentMovePreservesCommittedDirectory', methodParameterTypes = '']
+    => org.opentest4j.MultipleFailuresError: Multiple Failures (4 failures)
+	org.opentest4j.AssertionFailedError: Admission must reject the concurrent directory. ==> expected: not <null>
+	org.opentest4j.AssertionFailedError: Admission must preserve directory type. ==> expected: <true> but was: <false>
+	java.io.IOException: not a directory: /target
+	org.opentest4j.AssertionFailedError: Rejected admission must preserve the source. ==> expected: <true> but was: <false>
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:80)
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:44)
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:38)
+       org.junit.jupiter.api.Assertions.assertAll(Assertions.java:2940)
+       EntryAdmissionConcurrencyTest.checkAdmission(EntryAdmissionConcurrencyTest.java:65)
+       [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Admission must reject the concurrent directory. ==> expected: not <null>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertNotNull.failNull(AssertNotNull.java:49)
+         org.junit.jupiter.api.AssertNotNull.assertNotNull(AssertNotNull.java:35)
+         org.junit.jupiter.api.Assertions.assertNotNull(Assertions.java:308)
+         [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Admission must preserve directory type. ==> expected: <true> but was: <false>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+         org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+         org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+         [...]
+       Suppressed: java.io.IOException: not a directory: /target
+         okio.fakefilesystem.FakeFileSystem.lookupPath(FakeFileSystem.kt:567)
+         okio.fakefilesystem.FakeFileSystem.lookupPath$default(FakeFileSystem.kt:531)
+         okio.fakefilesystem.FakeFileSystem.metadataOrNull(FakeFileSystem.kt:262)
+         okio.internal.-FileSystem.commonExists(FileSystem.kt:41)
+         okio.FileSystem.exists(FileSystem.kt:39)
+         [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Rejected admission must preserve the source. ==> expected: <true> but was: <false>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+         org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+         org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+         [...]
+  JUnit Jupiter:EntryAdmissionConcurrencyTest:concurrentMovePreservesCommittedDirectory():repetition 2 of 3
+    MethodSource [className = 'EntryAdmissionConcurrencyTest', methodName = 'concurrentMovePreservesCommittedDirectory', methodParameterTypes = '']
+    => org.opentest4j.MultipleFailuresError: Multiple Failures (4 failures)
+	org.opentest4j.AssertionFailedError: Admission must reject the concurrent directory. ==> expected: not <null>
+	org.opentest4j.AssertionFailedError: Admission must preserve directory type. ==> expected: <true> but was: <false>
+	java.io.IOException: not a directory: /target
+	org.opentest4j.AssertionFailedError: Rejected admission must preserve the source. ==> expected: <true> but was: <false>
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:80)
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:44)
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:38)
+       org.junit.jupiter.api.Assertions.assertAll(Assertions.java:2940)
+       EntryAdmissionConcurrencyTest.checkAdmission(EntryAdmissionConcurrencyTest.java:65)
+       [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Admission must reject the concurrent directory. ==> expected: not <null>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertNotNull.failNull(AssertNotNull.java:49)
+         org.junit.jupiter.api.AssertNotNull.assertNotNull(AssertNotNull.java:35)
+         org.junit.jupiter.api.Assertions.assertNotNull(Assertions.java:308)
+         [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Admission must preserve directory type. ==> expected: <true> but was: <false>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+         org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+         org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+         [...]
+       Suppressed: java.io.IOException: not a directory: /target
+         okio.fakefilesystem.FakeFileSystem.lookupPath(FakeFileSystem.kt:567)
+         okio.fakefilesystem.FakeFileSystem.lookupPath$default(FakeFileSystem.kt:531)
+         okio.fakefilesystem.FakeFileSystem.metadataOrNull(FakeFileSystem.kt:262)
+         okio.internal.-FileSystem.commonExists(FileSystem.kt:41)
+         okio.FileSystem.exists(FileSystem.kt:39)
+         [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Rejected admission must preserve the source. ==> expected: <true> but was: <false>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+         org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+         org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+         [...]
+  JUnit Jupiter:EntryAdmissionConcurrencyTest:concurrentMovePreservesCommittedDirectory():repetition 3 of 3
+    MethodSource [className = 'EntryAdmissionConcurrencyTest', methodName = 'concurrentMovePreservesCommittedDirectory', methodParameterTypes = '']
+    => org.opentest4j.MultipleFailuresError: Multiple Failures (4 failures)
+	org.opentest4j.AssertionFailedError: Admission must reject the concurrent directory. ==> expected: not <null>
+	org.opentest4j.AssertionFailedError: Admission must preserve directory type. ==> expected: <true> but was: <false>
+	java.io.IOException: not a directory: /target
+	org.opentest4j.AssertionFailedError: Rejected admission must preserve the source. ==> expected: <true> but was: <false>
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:80)
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:44)
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:38)
+       org.junit.jupiter.api.Assertions.assertAll(Assertions.java:2940)
+       EntryAdmissionConcurrencyTest.checkAdmission(EntryAdmissionConcurrencyTest.java:65)
+       [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Admission must reject the concurrent directory. ==> expected: not <null>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertNotNull.failNull(AssertNotNull.java:49)
+         org.junit.jupiter.api.AssertNotNull.assertNotNull(AssertNotNull.java:35)
+         org.junit.jupiter.api.Assertions.assertNotNull(Assertions.java:308)
+         [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Admission must preserve directory type. ==> expected: <true> but was: <false>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+         org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+         org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+         [...]
+       Suppressed: java.io.IOException: not a directory: /target
+         okio.fakefilesystem.FakeFileSystem.lookupPath(FakeFileSystem.kt:567)
+         okio.fakefilesystem.FakeFileSystem.lookupPath$default(FakeFileSystem.kt:531)
+         okio.fakefilesystem.FakeFileSystem.metadataOrNull(FakeFileSystem.kt:262)
+         okio.internal.-FileSystem.commonExists(FileSystem.kt:41)
+         okio.FileSystem.exists(FileSystem.kt:39)
+         [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Rejected admission must preserve the source. ==> expected: <true> but was: <false>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+         org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+         org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+         [...]
+  JUnit Jupiter:EntryAdmissionBoundaryTest:appendingSinkRejectsDirectoryCreatedByClock():repetition 1 of 3
+    MethodSource [className = 'EntryAdmissionBoundaryTest', methodName = 'appendingSinkRejectsDirectoryCreatedByClock', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Expected java.io.IOException to be thrown, but nothing was thrown.
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+       org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3111)
+       EntryAdmissionBoundaryTest.directorySink(EntryAdmissionBoundaryTest.java:43)
+       EntryAdmissionBoundaryTest.appendingSinkRejectsDirectoryCreatedByClock(EntryAdmissionBoundaryTest.java:34)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       [...]
+  JUnit Jupiter:EntryAdmissionBoundaryTest:appendingSinkRejectsDirectoryCreatedByClock():repetition 2 of 3
+    MethodSource [className = 'EntryAdmissionBoundaryTest', methodName = 'appendingSinkRejectsDirectoryCreatedByClock', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Expected java.io.IOException to be thrown, but nothing was thrown.
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+       org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3111)
+       EntryAdmissionBoundaryTest.directorySink(EntryAdmissionBoundaryTest.java:43)
+       EntryAdmissionBoundaryTest.appendingSinkRejectsDirectoryCreatedByClock(EntryAdmissionBoundaryTest.java:34)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       [...]
+  JUnit Jupiter:EntryAdmissionBoundaryTest:appendingSinkRejectsDirectoryCreatedByClock():repetition 3 of 3
+    MethodSource [className = 'EntryAdmissionBoundaryTest', methodName = 'appendingSinkRejectsDirectoryCreatedByClock', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Expected java.io.IOException to be thrown, but nothing was thrown.
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+       org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3111)
+       EntryAdmissionBoundaryTest.directorySink(EntryAdmissionBoundaryTest.java:43)
+       EntryAdmissionBoundaryTest.appendingSinkRejectsDirectoryCreatedByClock(EntryAdmissionBoundaryTest.java:34)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       [...]
+  JUnit Jupiter:EntryAdmissionBoundaryTest:mustExistRejectsFileDeletedByClock():repetition 1 of 3
+    MethodSource [className = 'EntryAdmissionBoundaryTest', methodName = 'mustExistRejectsFileDeletedByClock', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Expected java.io.IOException to be thrown, but nothing was thrown.
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+       org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3111)
+       EntryAdmissionBoundaryTest.mustExistRejectsFileDeletedByClock(EntryAdmissionBoundaryTest.java:77)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       [...]
+  JUnit Jupiter:EntryAdmissionBoundaryTest:mustExistRejectsFileDeletedByClock():repetition 2 of 3
+    MethodSource [className = 'EntryAdmissionBoundaryTest', methodName = 'mustExistRejectsFileDeletedByClock', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Expected java.io.IOException to be thrown, but nothing was thrown.
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+       org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3111)
+       EntryAdmissionBoundaryTest.mustExistRejectsFileDeletedByClock(EntryAdmissionBoundaryTest.java:77)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       [...]
+  JUnit Jupiter:EntryAdmissionBoundaryTest:mustExistRejectsFileDeletedByClock():repetition 3 of 3
+    MethodSource [className = 'EntryAdmissionBoundaryTest', methodName = 'mustExistRejectsFileDeletedByClock', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Expected java.io.IOException to be thrown, but nothing was thrown.
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+       org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3111)
+       EntryAdmissionBoundaryTest.mustExistRejectsFileDeletedByClock(EntryAdmissionBoundaryTest.java:77)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       [...]
+  JUnit Jupiter:EntryAdmissionBoundaryTest:mustCreateRejectsFileCreatedByClock():repetition 1 of 3
+    MethodSource [className = 'EntryAdmissionBoundaryTest', methodName = 'mustCreateRejectsFileCreatedByClock', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Expected java.io.IOException to be thrown, but nothing was thrown.
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+       org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3111)
+       EntryAdmissionBoundaryTest.mustCreateRejectsFileCreatedByClock(EntryAdmissionBoundaryTest.java:60)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       [...]
+  JUnit Jupiter:EntryAdmissionBoundaryTest:mustCreateRejectsFileCreatedByClock():repetition 2 of 3
+    MethodSource [className = 'EntryAdmissionBoundaryTest', methodName = 'mustCreateRejectsFileCreatedByClock', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Expected java.io.IOException to be thrown, but nothing was thrown.
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+       org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3111)
+       EntryAdmissionBoundaryTest.mustCreateRejectsFileCreatedByClock(EntryAdmissionBoundaryTest.java:60)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       [...]
+  JUnit Jupiter:EntryAdmissionBoundaryTest:mustCreateRejectsFileCreatedByClock():repetition 3 of 3
+    MethodSource [className = 'EntryAdmissionBoundaryTest', methodName = 'mustCreateRejectsFileCreatedByClock', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Expected java.io.IOException to be thrown, but nothing was thrown.
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+       org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3111)
+       EntryAdmissionBoundaryTest.mustCreateRejectsFileCreatedByClock(EntryAdmissionBoundaryTest.java:60)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       [...]
+  JUnit Jupiter:EntryAdmissionBoundaryTest:readOnlyReadsFileReplacedByClock():repetition 1 of 3
+    MethodSource [className = 'EntryAdmissionBoundaryTest', methodName = 'readOnlyReadsFileReplacedByClock', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: expected: <after> but was: <before>
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+       org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+       org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+       org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+       org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1141)
+       EntryAdmissionBoundaryTest.readOnlyReadsFileReplacedByClock(EntryAdmissionBoundaryTest.java:93)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       [...]
+  JUnit Jupiter:EntryAdmissionBoundaryTest:readOnlyReadsFileReplacedByClock():repetition 2 of 3
+    MethodSource [className = 'EntryAdmissionBoundaryTest', methodName = 'readOnlyReadsFileReplacedByClock', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: expected: <after> but was: <before>
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+       org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+       org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+       org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+       org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1141)
+       EntryAdmissionBoundaryTest.readOnlyReadsFileReplacedByClock(EntryAdmissionBoundaryTest.java:93)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       [...]
+  JUnit Jupiter:EntryAdmissionBoundaryTest:readOnlyReadsFileReplacedByClock():repetition 3 of 3
+    MethodSource [className = 'EntryAdmissionBoundaryTest', methodName = 'readOnlyReadsFileReplacedByClock', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: expected: <after> but was: <before>
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+       org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+       org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+       org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+       org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1141)
+       EntryAdmissionBoundaryTest.readOnlyReadsFileReplacedByClock(EntryAdmissionBoundaryTest.java:93)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       [...]
+  JUnit Jupiter:EntryAdmissionBoundaryTest:deleteResolvesCurrentSymlinkParentAfterClock():repetition 1 of 3
+    MethodSource [className = 'EntryAdmissionBoundaryTest', methodName = 'deleteResolvesCurrentSymlinkParentAfterClock', methodParameterTypes = '']
+    => org.opentest4j.MultipleFailuresError: Multiple Failures (2 failures)
+	org.opentest4j.AssertionFailedError: Delete must preserve the retired parent's file. ==> expected: <true> but was: <false>
+	org.opentest4j.AssertionFailedError: Delete must resolve the current symlink parent. ==> expected: <false> but was: <true>
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:80)
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:44)
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:38)
+       org.junit.jupiter.api.Assertions.assertAll(Assertions.java:2940)
+       EntryAdmissionBoundaryTest.deleteResolvesCurrentSymlinkParentAfterClock(EntryAdmissionBoundaryTest.java:111)
+       [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Delete must preserve the retired parent's file. ==> expected: <true> but was: <false>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+         org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+         org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+         [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Delete must resolve the current symlink parent. ==> expected: <false> but was: <true>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertFalse.failNotFalse(AssertFalse.java:63)
+         org.junit.jupiter.api.AssertFalse.assertFalse(AssertFalse.java:36)
+         org.junit.jupiter.api.Assertions.assertFalse(Assertions.java:235)
+         [...]
+  JUnit Jupiter:EntryAdmissionBoundaryTest:deleteResolvesCurrentSymlinkParentAfterClock():repetition 2 of 3
+    MethodSource [className = 'EntryAdmissionBoundaryTest', methodName = 'deleteResolvesCurrentSymlinkParentAfterClock', methodParameterTypes = '']
+    => org.opentest4j.MultipleFailuresError: Multiple Failures (2 failures)
+	org.opentest4j.AssertionFailedError: Delete must preserve the retired parent's file. ==> expected: <true> but was: <false>
+	org.opentest4j.AssertionFailedError: Delete must resolve the current symlink parent. ==> expected: <false> but was: <true>
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:80)
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:44)
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:38)
+       org.junit.jupiter.api.Assertions.assertAll(Assertions.java:2940)
+       EntryAdmissionBoundaryTest.deleteResolvesCurrentSymlinkParentAfterClock(EntryAdmissionBoundaryTest.java:111)
+       [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Delete must preserve the retired parent's file. ==> expected: <true> but was: <false>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+         org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+         org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+         [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Delete must resolve the current symlink parent. ==> expected: <false> but was: <true>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertFalse.failNotFalse(AssertFalse.java:63)
+         org.junit.jupiter.api.AssertFalse.assertFalse(AssertFalse.java:36)
+         org.junit.jupiter.api.Assertions.assertFalse(Assertions.java:235)
+         [...]
+  JUnit Jupiter:EntryAdmissionBoundaryTest:deleteResolvesCurrentSymlinkParentAfterClock():repetition 3 of 3
+    MethodSource [className = 'EntryAdmissionBoundaryTest', methodName = 'deleteResolvesCurrentSymlinkParentAfterClock', methodParameterTypes = '']
+    => org.opentest4j.MultipleFailuresError: Multiple Failures (2 failures)
+	org.opentest4j.AssertionFailedError: Delete must preserve the retired parent's file. ==> expected: <true> but was: <false>
+	org.opentest4j.AssertionFailedError: Delete must resolve the current symlink parent. ==> expected: <false> but was: <true>
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:80)
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:44)
+       org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:38)
+       org.junit.jupiter.api.Assertions.assertAll(Assertions.java:2940)
+       EntryAdmissionBoundaryTest.deleteResolvesCurrentSymlinkParentAfterClock(EntryAdmissionBoundaryTest.java:111)
+       [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Delete must preserve the retired parent's file. ==> expected: <true> but was: <false>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+         org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+         org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+         [...]
+       Suppressed: org.opentest4j.AssertionFailedError: Delete must resolve the current symlink parent. ==> expected: <false> but was: <true>
+         org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+         org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+         org.junit.jupiter.api.AssertFalse.failNotFalse(AssertFalse.java:63)
+         org.junit.jupiter.api.AssertFalse.assertFalse(AssertFalse.java:36)
+         org.junit.jupiter.api.Assertions.assertFalse(Assertions.java:235)
+         [...]
+  JUnit Jupiter:EntryAdmissionBoundaryTest:sinkRejectsDirectoryCreatedByClock():repetition 1 of 3
+    MethodSource [className = 'EntryAdmissionBoundaryTest', methodName = 'sinkRejectsDirectoryCreatedByClock', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Expected java.io.IOException to be thrown, but nothing was thrown.
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+       org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3111)
+       EntryAdmissionBoundaryTest.directorySink(EntryAdmissionBoundaryTest.java:43)
+       EntryAdmissionBoundaryTest.sinkRejectsDirectoryCreatedByClock(EntryAdmissionBoundaryTest.java:32)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       [...]
+  JUnit Jupiter:EntryAdmissionBoundaryTest:sinkRejectsDirectoryCreatedByClock():repetition 2 of 3
+    MethodSource [className = 'EntryAdmissionBoundaryTest', methodName = 'sinkRejectsDirectoryCreatedByClock', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Expected java.io.IOException to be thrown, but nothing was thrown.
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+       org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3111)
+       EntryAdmissionBoundaryTest.directorySink(EntryAdmissionBoundaryTest.java:43)
+       EntryAdmissionBoundaryTest.sinkRejectsDirectoryCreatedByClock(EntryAdmissionBoundaryTest.java:32)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       [...]
+  JUnit Jupiter:EntryAdmissionBoundaryTest:sinkRejectsDirectoryCreatedByClock():repetition 3 of 3
+    MethodSource [className = 'EntryAdmissionBoundaryTest', methodName = 'sinkRejectsDirectoryCreatedByClock', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Expected java.io.IOException to be thrown, but nothing was thrown.
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+       org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+       org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3111)
+       EntryAdmissionBoundaryTest.directorySink(EntryAdmissionBoundaryTest.java:43)
+       EntryAdmissionBoundaryTest.sinkRejectsDirectoryCreatedByClock(EntryAdmissionBoundaryTest.java:32)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       [...]
+
+Test run finished after 2170 ms
+[        31 containers found      ]
+[         0 containers skipped    ]
+[        31 containers started    ]
+[         0 containers aborted    ]
+[        31 containers successful ]
+[         0 containers failed     ]
+[        67 tests found           ]
+[         0 tests skipped         ]
+[        67 tests started         ]
+[         0 tests aborted         ]
+[        31 tests successful      ]
+[        36 tests failed          ]
+

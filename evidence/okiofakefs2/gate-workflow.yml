@@ -1,0 +1,41 @@
+name: okiofakefs2 targeted gate
+on:
+  push:
+    branches: [wip/gha-run/okiofakefs2]
+permissions:
+  contents: read
+jobs:
+  admission:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ba235959c1bdf0ab615429ba250061900d4607d8
+          fetch-depth: 0
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Install Coursier
+        run: |
+          mkdir -p "$RUNNER_TEMP/bin"
+          curl -fL https://github.com/coursier/launchers/raw/master/cs-x86_64-pc-linux.gz -o "$RUNNER_TEMP/coursier.gz"
+          gzip -dc "$RUNNER_TEMP/coursier.gz" > "$RUNNER_TEMP/bin/coursier"
+          chmod +x "$RUNNER_TEMP/bin/coursier"
+          echo "$RUNNER_TEMP/bin" >> "$GITHUB_PATH"
+      - name: Build exact candidate and check public API
+        env:
+          LC_ALL: C.UTF-8
+        run: |
+          test "$(git rev-parse HEAD)" = ba235959c1bdf0ab615429ba250061900d4607d8
+          timeout 600 python3 scripts/buildFakeFilesystemDirectoryBackport.py --output-directory "$RUNNER_TEMP/gate/artifact"
+      - name: Run public admission and retained directory and registry tests
+        env:
+          LC_ALL: C.UTF-8
+        run: timeout 180 scripts/testFakeFilesystemDirectoryBackport.bash "$RUNNER_TEMP/gate/artifact" "$RUNNER_TEMP/gate/native"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: okiofakefs2-gate
+          path: ${{ runner.temp }}/gate

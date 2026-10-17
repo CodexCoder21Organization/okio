@@ -1,0 +1,68 @@
+[36m╷[0m
+[36m├─[0m [36mJUnit Jupiter[0m [32m✔[0m
+[36m│  └─[0m [36mEntryMetadataAdmissionTest[0m [32m✔[0m
+[36m│     └─[0m [36mmetadataUpdateResolvesCurrentSymlinkParentAfterClock()[0m [32m✔[0m
+[36m│        ├─[0m [31mrepetition 1 of 3[0m [31m✘[0m [31mMetadata update must preserve the retired parent's entry. ==> expected: <null> but was: <current>[0m
+[36m│        ├─[0m [31mrepetition 2 of 3[0m [31m✘[0m [31mMetadata update must preserve the retired parent's entry. ==> expected: <null> but was: <current>[0m
+[36m│        └─[0m [31mrepetition 3 of 3[0m [31m✘[0m [31mMetadata update must preserve the retired parent's entry. ==> expected: <null> but was: <current>[0m
+[36m├─[0m [36mJUnit Vintage[0m [32m✔[0m
+[36m└─[0m [36mJUnit Platform Suite[0m [32m✔[0m
+
+Failures (3):
+  JUnit Jupiter:EntryMetadataAdmissionTest:metadataUpdateResolvesCurrentSymlinkParentAfterClock():repetition 1 of 3
+    MethodSource [className = 'EntryMetadataAdmissionTest', methodName = 'metadataUpdateResolvesCurrentSymlinkParentAfterClock', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Metadata update must preserve the retired parent's entry. ==> expected: <null> but was: <current>
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+       org.junit.jupiter.api.AssertNull.failNotNull(AssertNull.java:50)
+       org.junit.jupiter.api.AssertNull.assertNull(AssertNull.java:35)
+       org.junit.jupiter.api.Assertions.assertNull(Assertions.java:283)
+       EntryMetadataAdmissionTest.metadataUpdateResolvesCurrentSymlinkParentAfterClock(EntryMetadataAdmissionTest.kt:34)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       [...]
+  JUnit Jupiter:EntryMetadataAdmissionTest:metadataUpdateResolvesCurrentSymlinkParentAfterClock():repetition 2 of 3
+    MethodSource [className = 'EntryMetadataAdmissionTest', methodName = 'metadataUpdateResolvesCurrentSymlinkParentAfterClock', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Metadata update must preserve the retired parent's entry. ==> expected: <null> but was: <current>
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+       org.junit.jupiter.api.AssertNull.failNotNull(AssertNull.java:50)
+       org.junit.jupiter.api.AssertNull.assertNull(AssertNull.java:35)
+       org.junit.jupiter.api.Assertions.assertNull(Assertions.java:283)
+       EntryMetadataAdmissionTest.metadataUpdateResolvesCurrentSymlinkParentAfterClock(EntryMetadataAdmissionTest.kt:34)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       [...]
+  JUnit Jupiter:EntryMetadataAdmissionTest:metadataUpdateResolvesCurrentSymlinkParentAfterClock():repetition 3 of 3
+    MethodSource [className = 'EntryMetadataAdmissionTest', methodName = 'metadataUpdateResolvesCurrentSymlinkParentAfterClock', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: Metadata update must preserve the retired parent's entry. ==> expected: <null> but was: <current>
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+       org.junit.jupiter.api.AssertNull.failNotNull(AssertNull.java:50)
+       org.junit.jupiter.api.AssertNull.assertNull(AssertNull.java:35)
+       org.junit.jupiter.api.Assertions.assertNull(Assertions.java:283)
+       EntryMetadataAdmissionTest.metadataUpdateResolvesCurrentSymlinkParentAfterClock(EntryMetadataAdmissionTest.kt:34)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+       java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+       java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+       [...]
+
+Test run finished after 94 ms
+[         5 containers found      ]
+[         0 containers skipped    ]
+[         5 containers started    ]
+[         0 containers aborted    ]
+[         5 containers successful ]
+[         0 containers failed     ]
+[         3 tests found           ]
+[         0 tests skipped         ]
+[         3 tests started         ]
+[         0 tests aborted         ]
+[         0 tests successful      ]
+[         3 tests failed          ]
+
