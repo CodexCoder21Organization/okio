@@ -3,11 +3,11 @@
 Started 2026-10-17 04:52 UTC; budget 75 minutes.
 
 ## Plan
-- [in progress] Read required guidance, prior registry fix, and directory reproduction; inspect fork.
-- [ ] Add public re-entry and concurrent directory tests, prove assertion failures, commit and push first milestone.
-- [ ] Fix directory insertion under registry lock; run mutation control, 3/3 new tests and registry neighbours.
-- [ ] Compare public API, publish authorized -2 artifact, open fork PR.
-- [ ] Commit BuildTestEmbedded documentation on wip/okiofakefs1-docs; final cleanup.
+- [x] Read required guidance, prior registry fix, and directory reproduction; inspect fork.
+- [x] Add public re-entry and concurrent directory tests, prove assertion failures, commit and push first milestone.
+- [x] Fix directory insertion under registry lock; run mutation control, 3/3 new tests and registry neighbours.
+- [x] Compare public API, publish authorized -2 artifact, open fork PR.
+- [x] Commit BuildTestEmbedded documentation on wip/okiofakefs1-docs; final cleanup.
 
 ## Observations
 OBSERVED: Repository search found https://github.com/CodexCoder21Organization/okio. Prior BuildTestEmbedded concurrency note and exact registry test have been read. Publication is explicitly authorized by this brief; no further approval is needed.
@@ -18,7 +18,7 @@ None so far.
 ## Challenges for the orchestrator
 None so far.
 
-## 05:04 UTC — scoped implementation
+## Scoped implementation
 OBSERVED: The fork main has a modern Okio implementation plus standalone compatible 3.4.0 build scripts. The previous registry source was only retained as a patch in BuildTestEmbedded, not as a branch in this fork. Reconstructed that exact source from parent-3.4.0 plus the saved registry patch, preserving -1 behavior before any directory edit. The new backport directory will hold the real version-specific source and tests, with a reproducible skinny-JAR build script following the fork's existing backport convention.
 
 The mechanism is an unconditional replacement of the directory child entry after a user Clock callback, and the evidence that demonstrates it is the supplied exact-core public proof (three assertion failures) plus the reconstructed createDirectory body. A second caller can create the directory and close a child before the first caller resumes its stale assignment.
@@ -58,3 +58,59 @@ OBSERVED: Dedicated test review checked public-only access, fresh in-memory stat
 ## 04:58 UTC — final source and GitHub gate submitted
 OBSERVED: Final candidate is https://github.com/CodexCoder21Organization/okio/commit/b942f8201b3f35605a5a8c3849026c5dc978607e . A temporary wip/gha-run/okiofakefs1 workflow checks out this exact SHA with full history, builds the artifact, checks all public JVM signatures and compiled class names against -1, and runs the 27 directory rows plus four registry neighbours. The workflow exists only on its temporary branch, never on the PR branch. No remote buildtest submission and no local full suite.
 OBSERVED: A fresh BuildTestEmbedded clone is inside this lane's .git/consumer solely for the authorized documentation-only branch. No other lane directory is used. No consumer dependency or test edit is planned here.
+
+OBSERVED: Targeted gate URL is https://github.com/CodexCoder21Organization/okio/actions/runs/39004533954 . It is bounded by a 15-minute workflow limit, a 600-second build command and a 180-second test command. The accepted gate will count native rows, including any attempt-history siblings; no later successful retry replaces a first failure.
+OBSERVED: Mutation XML has 28 Jupiter rows (27 intended directory failures and the passing registry workload) plus three passing Vintage registry rows. Both engines report zero errors/skips. Evidence checkpoint is https://github.com/CodexCoder21Organization/okio/tree/wip/okiofakefs1-evidence/evidence/okiofakefs1 . Temporary local build/test directories have been removed after this run.
+
+## 05:00 UTC — final gate met
+OBSERVED: https://github.com/CodexCoder21Organization/okio/actions/runs/39004533954 completed successfully. Downloaded native XML has 28 Jupiter rows and three Vintage rows, all successful FIRST attempts, zero failures/errors/skips and zero attempt-history elements. All nine directory methods have exactly three rows each (27/27); each of the four registry neighbour methods has exactly one row (4/4), including 20/20 internal trials and all 1.8 million operations in concurrentDistinctFileOpenClose. This is the accepted gate; no further verification batch will run.
+OBSERVED: The build checked identical compiled class names and identical javap public signatures for every -1 class. No linked atomicfu class/member reference remains. Tested JAR SHA-256: 21e60aadff3bf4906847103742c28b6a197349ecf58f132bd4eebf07e4c9e7a4. POM SHA-256: 1113b0475c7fe40b6f36ae6302895487c489831adbcea234ff5c2a58f4adb67d. The POM changes only the project version from -1 to -2; all four dependency versions are unchanged.
+
+## Publication complete
+OBSERVED: The artifact-publisher 0.0.6 command exited 0 using --artifact-dir and the authorized HTTP upload API. Served JAR and POM both return HTTP 200 and match the exact tested hashes above. Published coordinate: com.squareup.okio:okio-fakefilesystem-jvm:3.4.0-r576-registry-lock-2. No new test execution followed the accepted gate.
+
+## Challenges for the orchestrator — GitHub PR creation
+OBSERVED: `gh pr create` returned `HTTP 502: 502 Bad Gateway (https://api.github.com/graphql)`. A subsequent branch lookup reported no pull requests. Publication is complete; the remaining write is the authorized fork PR. Checking via REST before retrying avoids creating a duplicate if the first response was lost. No CI job is requeued and no product/test change is involved.
+
+## Completed deliverables
+OBSERVED: Fork PR is OPEN at https://github.com/CodexCoder21Organization/okio/pull/5 with exact candidate b942f8201b3f35605a5a8c3849026c5dc978607e. Its description was read back and compared with the local body; the required campaign URL is unchanged. The second creation request also returned HTTP 502, but readback confirmed that the write completed. No duplicate PR was created. No merge, queue, mark-ready or deployment action was taken. The orchestrator owns the PR full-suite CI wait.
+OBSERVED: Documentation-only commit https://github.com/CodexCoder21Organization/BuildTestEmbedded/commit/7ba7f424c36e22fa938ce3a13b8ff0594dfa29bd is pushed on https://github.com/CodexCoder21Organization/BuildTestEmbedded/tree/wip/okiofakefs1-docs . Exactly one file changes: docs/r576-fakefilesystem-concurrency.md gains a short section describing defect 2, the -2 artifact, the fork PR and gate counts. No consumer PR, dependency edit or consumer test run is part of this lane.
+
+## Product file audit
+README.md documents the compatible artifact, behavior and build/test commands.
+backports/fakefilesystem-3.4.0/src/FakeFileSystem.kt retains the prior registry fix and corrects directory and root admission.
+backports/fakefilesystem-3.4.0/src/FileMetadataCommon.kt preserves the unchanged 3.4.0 metadata companion source required to build the module.
+backports/fakefilesystem-3.4.0/tests/DirectoryProof.java adopts the supplied public callback reproduction unchanged.
+backports/fakefilesystem-3.4.0/tests/DirectoryConcurrencyTest.java covers the remaining eight directory scenarios through public APIs.
+backports/fakefilesystem-3.4.0/tests/FakeFileSystemRegistryTest.kt retains the historical registry callback and snapshot tests byte-for-byte.
+backports/fakefilesystem-3.4.0/tests/RegistryConcurrencyTest.java preserves the 20-trial, nine-caller, 10,000-operation r576 workload.
+scripts/buildFakeFilesystemDirectoryBackport.py builds the skinny JAR and unchanged-dependency POM and verifies the previous checksum, class names and public API.
+scripts/testFakeFilesystemDirectoryBackport.bash runs the native public tests with exact consumer core and writes XML.
+OBSERVED: No existing upstream test, timeout, iteration count or assertion changed. Source branch contains only source, tests, build/test scripts and README. No investigation file, log, XML or JAR is in the PR.
+
+## Brief audit
+- DONE: Required reading and prior -1 source/publication verification.
+- DONE: First pushed milestone is a demonstrated-red public test; final red-first 27/27.
+- DONE: Clock read before locked directory transaction; existing directories/children preserved; existing files and must-create admissions rejected; root/symlink paths covered.
+- DONE: Product-only mutation control red 27/27, registry neighbours green 4/4.
+- DONE: Exact-source GitHub gate green 27/27 new rows plus 4/4 neighbours; no later positive batch.
+- DONE: Public javap API and compiled class names identical to -1; POM dependency versions unchanged.
+- DONE: Authorized -2 publication; served JAR/POM HTTP 200 and hashes identical to tested artifact.
+- DONE: Fork PR open; consuming documentation branch committed/pushed without a PR as requested.
+- DONE: No production host connection, buildtest submission, nested model invocation, handoff action or challenge-service write.
+
+## FLAKES ENCOUNTERED — final
+No unexpected first-attempt test failure. Every red directory row was a registered defect reproduction. All registry neighbours and final-source gate rows passed their first attempt.
+ README.md                                          |  27 +
+ .../fakefilesystem-3.4.0/src/FakeFileSystem.kt     | 803 +++++++++++++++++++++
+ .../fakefilesystem-3.4.0/src/FileMetadataCommon.kt |  47 ++
+ .../tests/DirectoryConcurrencyTest.java            | 221 ++++++
+ .../fakefilesystem-3.4.0/tests/DirectoryProof.java |  47 ++
+ .../tests/FakeFileSystemRegistryTest.kt            | 152 ++++
+ .../tests/RegistryConcurrencyTest.java             |  58 ++
+ scripts/buildFakeFilesystemDirectoryBackport.py    |  86 +++
+ scripts/testFakeFilesystemDirectoryBackport.bash   |  31 +
+ 9 files changed, 1472 insertions(+)
+
+## Final cleanup
+OBSERVED: Both working trees are clean. The temporary wip/gha-run/okiofakefs1 branch is deleted. All tracked local commands and the GitHub gate are terminal. A ps process audit found no remaining lane-owned background process; no build slot is held. No positive verification ran after the accepted gate.

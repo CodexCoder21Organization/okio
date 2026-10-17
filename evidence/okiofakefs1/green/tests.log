@@ -1,0 +1,91 @@
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::compareAndSwapObject has been called by scala.runtime.LazyVals$ (file:/home/runner/work/_temp/coursier)
+WARNING: Please consider reporting this to the maintainers of class scala.runtime.LazyVals$
+WARNING: sun.misc.Unsafe::compareAndSwapObject will be removed in a future release
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::compareAndSwapObject has been called by scala.runtime.LazyVals$ (file:/home/runner/work/_temp/coursier)
+WARNING: Please consider reporting this to the maintainers of class scala.runtime.LazyVals$
+WARNING: sun.misc.Unsafe::compareAndSwapObject will be removed in a future release
+R576 trial 1: PASS
+R576 trial 2: PASS
+R576 trial 3: PASS
+R576 trial 4: PASS
+R576 trial 5: PASS
+R576 trial 6: PASS
+R576 trial 7: PASS
+R576 trial 8: PASS
+R576 trial 9: PASS
+R576 trial 10: PASS
+R576 trial 11: PASS
+R576 trial 12: PASS
+R576 trial 13: PASS
+R576 trial 14: PASS
+R576 trial 15: PASS
+R576 trial 16: PASS
+R576 trial 17: PASS
+R576 trial 18: PASS
+R576 trial 19: PASS
+R576 trial 20: PASS
+[36m╷[0m
+[36m├─[0m [36mJUnit Jupiter[0m [32m✔[0m
+[36m│  ├─[0m [36mDirectoryProof[0m [32m✔[0m
+[36m│  │  └─[0m [36mreentrantDirectoryCreationPreservesCommittedChild()[0m [32m✔[0m
+[36m│  │     ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │     ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │     └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  ├─[0m [36mDirectoryConcurrencyTest[0m [32m✔[0m
+[36m│  │  ├─[0m [36mexistingDirectoryPreservesChild()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  │  ├─[0m [36mreentrantMustCreateRejectsCommittedDirectory()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  │  ├─[0m [36mconcurrentCreateDirectoriesPreservesCommittedChild()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  │  ├─[0m [36mexistingFileIsNotReplacedByDirectory()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  │  ├─[0m [36mreentrantSymlinkParentPreservesCommittedChild()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  │  ├─[0m [36mconcurrentMustCreateAdmitsOneCaller()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  │  ├─[0m [36mexistingRootMustCreateIsRejected()[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │  │  ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │  │  └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  │  └─[0m [36mreentrantRootCreationPreservesCommittedChild()[0m [32m✔[0m
+[36m│  │     ├─[0m [34mrepetition 1 of 3[0m [32m✔[0m
+[36m│  │     ├─[0m [34mrepetition 2 of 3[0m [32m✔[0m
+[36m│  │     └─[0m [34mrepetition 3 of 3[0m [32m✔[0m
+[36m│  └─[0m [36mRegistryConcurrencyTest[0m [32m✔[0m
+[36m│     └─[0m [34mconcurrentDistinctFileOpenClose()[0m [32m✔[0m
+[36m├─[0m [36mJUnit Vintage[0m [32m✔[0m
+[36m│  └─[0m [36mFakeFileSystemRegistryTest[0m [32m✔[0m
+[36m│     ├─[0m [34mclockFailureOnCloseStillRemovesRegistration[0m [32m✔[0m
+[36m│     ├─[0m [34mclockReentryCannotAdmitTwoWriters[0m [32m✔[0m
+[36m│     └─[0m [34mopenPathsIsASnapshotAndSourcesRetainRegistration[0m [32m✔[0m
+[36m└─[0m [36mJUnit Platform Suite[0m [32m✔[0m
+
+Test run finished after 3689 ms
+[        16 containers found      ]
+[         0 containers skipped    ]
+[        16 containers started    ]
+[         0 containers aborted    ]
+[        16 containers successful ]
+[         0 containers failed     ]
+[        31 tests found           ]
+[         0 tests skipped         ]
+[        31 tests started         ]
+[         0 tests aborted         ]
+[        31 tests successful      ]
+[         0 tests failed          ]
+

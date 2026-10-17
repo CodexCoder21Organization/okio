@@ -1,0 +1,12 @@
+[
+  {
+    "url": "https://kotlin.directory/com/squareup/okio/okio-fakefilesystem-jvm/3.4.0-r576-registry-lock-2/okio-fakefilesystem-jvm-3.4.0-r576-registry-lock-2.jar",
+    "status": 200,
+    "sha256": "21e60aadff3bf4906847103742c28b6a197349ecf58f132bd4eebf07e4c9e7a4"
+  },
+  {
+    "url": "https://kotlin.directory/com/squareup/okio/okio-fakefilesystem-jvm/3.4.0-r576-registry-lock-2/okio-fakefilesystem-jvm-3.4.0-r576-registry-lock-2.pom",
+    "status": 200,
+    "sha256": "1113b0475c7fe40b6f36ae6302895487c489831adbcea234ff5c2a58f4adb67d"
+  }
+]
