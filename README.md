@@ -59,3 +59,30 @@ License
     
  [1]: https://github.com/lysine-dev/okhttp
  [okio]: https://lysine.dev/okio/
+
+Compatible 3.4.0 FakeFileSystem JVM artifact
+------------------------------------------
+
+`com.squareup.okio:okio-fakefilesystem-jvm:3.4.0-r576-registry-lock-2`
+preserves directories and their children when directory creation overlaps another
+caller or a re-entrant clock callback. `createDirectory(path, mustCreate = true)`
+rejects an existing entry; ordinary directory creation leaves an existing
+directory unchanged and rejects a file at the target path. The artifact retains
+the open-file registry correction from `3.4.0-r576-registry-lock-1` and its public
+JVM API and dependency versions. The compatible sources are in
+`backports/fakefilesystem-3.4.0/src`; they start from upstream `parent-3.4.0`
+plus the [previous registry correction](https://github.com/CodexCoder21Organization/BuildTestEmbedded/blob/main/docs/r576-fakefilesystem-concurrency.md).
+
+With Java, Python 3 and Coursier on PATH, build without publishing and run the
+public API regressions (the output directory must be absent or empty):
+
+```bash
+python3 scripts/buildFakeFilesystemDirectoryBackport.py --output-directory /tmp/okio-directory-artifact
+scripts/testFakeFilesystemDirectoryBackport.bash /tmp/okio-directory-artifact /tmp/okio-directory-results
+```
+
+The build checks the prior artifact checksum and compares every existing class's
+public signatures with `javap`. Tests use an in-memory filesystem, the exact
+consumer core `okio-jvm:3.4.0.2`, three repetitions of each directory regression,
+and the unchanged r576 workload of 20 trials, nine callers and up to 10,000
+operations per caller. Native JUnit XML is written to the report directory.

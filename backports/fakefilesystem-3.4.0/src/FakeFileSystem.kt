@@ -71,7 +71,7 @@ class FakeFileSystem(
   private val roots = mutableMapOf<Path, Directory>()
 
   /**
-   * Guards [openFiles]. Everything that admits, registers, retires, or reads an open file holds
+   * Guards [openFiles] and directory admission. Everything that admits, registers, retires, or reads an open file holds
    * this lock, so those steps are indivisible even when several threads share one file system.
    * Reading the clock is deliberately kept outside of it: a clock may call back into this file
    * system, and a callback that ran between an admission check and its registration could open a
@@ -397,21 +397,24 @@ class FakeFileSystem(
   }
 
   override fun createDirectory(dir: Path, mustCreate: Boolean) {
-    val canonicalPath = canonicalizeInternal(dir)
+    // A clock may re-enter this filesystem. Read it before looking up the entry, and reuse it
+    // throughout lookup so no callback can separate the existence check from insertion.
+    val now = clock.now()
+    synchronized(openFilesLock) {
+      val canonicalPath = canonicalizeInternal(dir)
+      val lookupResult = lookupPath(canonicalPath, createRootOnDemand = true, now = now)
 
-    val lookupResult = lookupPath(canonicalPath, createRootOnDemand = true)
+      val existing = lookupResult?.element
+      if (existing != null) {
+        if (mustCreate || existing !is Directory) {
+          throw IOException("already exists: $dir")
+        }
+        return
+      }
 
-    if (canonicalPath.isRoot) {
-      // Looking it up was sufficient. Don't crash when creating roots that already exist.
-      return
+      val parentDirectory = lookupResult.requireParent()
+      parentDirectory.children[canonicalPath.nameBytes] = Directory(createdAt = now)
     }
-
-    if (mustCreate && lookupResult?.element != null) {
-      throw IOException("already exists: $dir")
-    }
-
-    val parentDirectory = lookupResult.requireParent()
-    parentDirectory.children[canonicalPath.nameBytes] = Directory(createdAt = clock.now())
   }
 
   override fun atomicMove(
@@ -530,6 +533,7 @@ class FakeFileSystem(
     recurseCount: Int = 0,
     resolveLastSymlink: Boolean = true,
     createRootOnDemand: Boolean = false,
+    now: Instant? = null,
   ): PathLookupResult? {
     // 40 is chosen for consistency with the Linux kernel (which previously used 8).
     if (recurseCount > 40) {
@@ -542,8 +546,10 @@ class FakeFileSystem(
     // If the path is a root, create it on demand.
     if (root == null) {
       if (!createRootOnDemand) return null
-      root = Directory(createdAt = clock.now())
-      roots[rootPath] = root
+      val createdAt = now ?: clock.now()
+      root = synchronized(openFilesLock) {
+        roots[rootPath] ?: Directory(createdAt = createdAt).also { roots[rootPath] = it }
+      }
     }
 
     var parent: Directory? = null
@@ -569,13 +575,14 @@ class FakeFileSystem(
       val isLastSegment = segmentsTraversed == segments.size
       val followSymlinks = !isLastSegment || resolveLastSymlink
       if (current is Symlink && followSymlinks) {
-        current.access(now = clock.now())
+        current.access(now = now ?: clock.now())
         // We wanna normalize it in case the target is relative and starts with `..`.
         currentPath = currentPath.parent!!.resolve(current.target, normalize = true)
         val symlinkLookupResult = lookupPath(
           canonicalPath = currentPath,
           recurseCount = recurseCount + 1,
           createRootOnDemand = createRootOnDemand,
+          now = now,
         ) ?: break
         parent = symlinkLookupResult.parent
         lastSegment = symlinkLookupResult.segment

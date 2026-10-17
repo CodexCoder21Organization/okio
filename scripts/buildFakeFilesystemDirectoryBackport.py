@@ -62,7 +62,11 @@ def main():
                     raise ValueError(f'Unexpected atomicfu runtime reference in {name}')
         (temp / 'previous.jar').write_bytes(previous)
         classes = command('jar', 'tf', str(temp / 'previous.jar')).splitlines()
-        public_classes = [name[:-6].replace('/', '.') for name in classes if name.endswith('.class')]
+        class_names = sorted(name for name in classes if name.endswith('.class'))
+        with zipfile.ZipFile(jar) as built:
+            if class_names != sorted(name for name in built.namelist() if name.endswith('.class')):
+                raise ValueError('Compiled class names differ from the -1 artifact')
+        public_classes = [name[:-6].replace('/', '.') for name in class_names]
         before = command('javap', '-public', '-classpath', str(temp / 'previous.jar'), *public_classes)
         after = command('javap', '-public', '-classpath', str(jar), *public_classes)
         if before != after:
