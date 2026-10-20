@@ -772,12 +772,12 @@ class FakeFileSystem(
       check(!closed) { "closed" }
       checkOffsetAndCount(array.size.toLong(), arrayOffset.toLong(), byteCount.toLong())
 
+      val data = file.data
+      if (fileOffset >= data.size) return -1
       val fileOffsetInt = fileOffset.toInt()
-      val toCopy = minOf(file.data.size - fileOffsetInt, byteCount)
+      val toCopy = minOf(data.size - fileOffsetInt, byteCount)
       if (toCopy <= 0) return -1
-      for (i in 0 until toCopy) {
-        array[i + arrayOffset] = file.data[i + fileOffsetInt]
-      }
+      data.copyInto(fileOffsetInt, array, arrayOffset, toCopy)
       return toCopy
     }
 
