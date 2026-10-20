@@ -84,16 +84,31 @@ JVM API and dependency versions. The compatible sources are in
 `backports/fakefilesystem-3.4.0/src`; they start from upstream `parent-3.4.0`
 plus the [previous registry correction](https://github.com/CodexCoder21Organization/BuildTestEmbedded/blob/main/docs/r576-fakefilesystem-concurrency.md).
 
-With Java, Python 3 and Coursier on PATH, build without publishing and run the
-public API regressions (the output directory must be absent or empty):
+This is the historical registry-lock-4 artifact and build. The source and build
+script remain available for provenance, but the current full selected regression
+suite below includes the bulk-read test and therefore requires version `3.4.0.1`.
+That build also checks the prior artifact checksum and preserves the public API
+and dependency versions. The directory concurrency tests continue to use an
+in-memory filesystem, three repetitions of each directory and entry-admission
+regression, and the unchanged r576 workload of 20 trials, nine callers and up to
+10,000 operations per caller.
+
+Compatible 3.4.0 FakeFileSystem bulk-read JVM artifact
+----------------------------------------------------
+
+`com.squareup.okio:okio-fakefilesystem-jvm:3.4.0.1` builds on the registry correction above with bulk copies for random-access `FileHandle.read` calls over segmented file contents. Offsets at or beyond the file size return EOF before narrowing, so a large `Long` offset cannot wrap back into the file. The artifact keeps the existing public JVM API and dependency versions.
+
+The repeated read test performs 1,000 reads of 32 MiB in each of ten
+repetitions. It compares current-thread CPU time with an equivalent
+`ByteString.copyInto` bulk-copy control, with an 8x ceiling, and retains the
+existing exact-byte, destination-range, and EOF assertions.
+
+With Java, Python 3 and Coursier on PATH, build locally without publishing (the output directory must be absent or empty):
 
 ```bash
-python3 scripts/buildFakeFilesystemDirectoryBackport.py --output-directory /tmp/okio-directory-artifact
-scripts/testFakeFilesystemDirectoryBackport.bash /tmp/okio-directory-artifact /tmp/okio-directory-results
+python3 scripts/buildFakeFilesystemBulkReadBackport.py --output-directory /tmp/okio-bulk-read-artifact
+scripts/testFakeFilesystemDirectoryBackport.bash /tmp/okio-bulk-read-artifact /tmp/okio-bulk-read-results
+scripts/testFakeFilesystemBulkReadBackport.bash /tmp/okio-bulk-read-artifact/okio-fakefilesystem-jvm-3.4.0.1.jar /tmp/okio-bulk-read-core-3.4.0-results
 ```
 
-The build checks the prior artifact checksum and compares every existing class's
-public signatures with `javap`. Tests use an in-memory filesystem, the exact
-consumer core `okio-jvm:3.4.0.2`, three repetitions of each directory and entry-admission regression,
-and the unchanged r576 workload of 20 trials, nine callers and up to 10,000
-operations per caller. Native JUnit XML is written to the report directory.
+The directory runner executes the full selected native regression suite against core `okio-jvm:3.4.0.2`; the focused runner exercises the read behavior against consumer core `okio-jvm:3.4.0`.
