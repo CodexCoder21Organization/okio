@@ -44,9 +44,11 @@ class ConcurrentNioDirectoryCreationTest {
             }
             val filesystem = nio.asOkioFileSystem()
             val futures = List(2) {
-              executor.submit(Callable {
-                runCatching { filesystem.createDirectory(target, mustCreate) }
-              })
+              executor.submit(
+                Callable {
+                  runCatching { filesystem.createDirectory(target, mustCreate) }
+                },
+              )
             }
             val results = futures.map { it.get(30, TimeUnit.SECONDS) }
             armed.set(false)
@@ -65,9 +67,12 @@ class ConcurrentNioDirectoryCreationTest {
             filesystem.write(target / "child") { writeUtf8("retained-$round") }
             filesystem.createDirectory(target)
             assertEquals("retained-$round", filesystem.read(target / "child") { readUtf8() })
-            assertEquals("$target already exists.", assertFailsWith<IOException> {
-              filesystem.createDirectory(target, mustCreate = true)
-            }.message)
+            assertEquals(
+              "$target already exists.",
+              assertFailsWith<IOException> {
+                filesystem.createDirectory(target, mustCreate = true)
+              }.message,
+            )
           }
         }
 
