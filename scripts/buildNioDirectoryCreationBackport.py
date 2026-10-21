@@ -10,7 +10,7 @@ import urllib.request
 import zipfile
 
 BASE = 'a161b07fb1b459371458ae6d9508ec31df280428'
-PREVIOUS_VERSION = '3.4.0.3'
+PREVIOUS_VERSION = '3.4.0.2'
 PREVIOUS_SHA256 = '608a9de5157c6b9d4ee36bda5afc8ea60dfb44c6e9e6ce1e79bb240aa96dcacb'
 VERSION = '3.4.0.3'
 ARTIFACT = 'okio-jvm'
