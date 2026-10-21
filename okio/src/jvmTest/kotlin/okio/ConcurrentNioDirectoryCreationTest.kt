@@ -8,6 +8,7 @@ import java.util.concurrent.Callable
 import java.util.concurrent.CyclicBarrier
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
+import java.util.concurrent.atomic.AtomicBoolean
 import java.util.concurrent.atomic.AtomicInteger
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
@@ -29,8 +30,9 @@ class ConcurrentNioDirectoryCreationTest {
             val beforeCreate = CyclicBarrier(2)
             val resolutions = ThreadLocal.withInitial { 0 }
             val arrivals = AtomicInteger()
+            val armed = AtomicBoolean(true)
             val nio = DirectoryCreationNioFileSystem(backing) { path ->
-              if (path == target.toString()) {
+              if (armed.get() && path == target.toString()) {
                 val count = resolutions.get() + 1
                 resolutions.set(count)
                 if (count == 2) {
@@ -47,6 +49,7 @@ class ConcurrentNioDirectoryCreationTest {
               })
             }
             val results = futures.map { it.get(30, TimeUnit.SECONDS) }
+            armed.set(false)
             assertEquals(2, arrivals.get())
             assertTrue(filesystem.metadata(target).isDirectory)
             val failures = results.mapNotNull { it.exceptionOrNull() }
