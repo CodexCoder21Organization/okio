@@ -41,7 +41,8 @@ checksum-verified `3.4.0.2` artifact and applies the directory correction to the
 It replaces only the NIO adapter class, preserving unrelated classes, the original
 POM dependency versions, and the existing 3.4.0 error wording. These commands
 build and test locally without publishing. The owning native scenarios are
-`ConcurrentNioDirectoryCreationTest` and `ExistingNioDirectoryFailureTest`; run
+`ConcurrentNioDirectoryCreationTest`, `ExistingNioDirectoryFailureTest`, and
+`ReplacedNioDirectoryCreationTest`; run
 the JVM suite with `./gradlew :okio:jvmTest`. The compatible runner executes those
 same scenarios with a 128 MiB heap and the historical must-create message spelling.
 The prior nullable build remains available in `scripts/buildNullableUseBackport.py`;
