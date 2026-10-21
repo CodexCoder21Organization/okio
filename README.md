@@ -11,34 +11,41 @@ and ready to solve new problems.
 Compatible 3.4.0 JVM artifact
 ---------------------------
 
-The fork publishes `com.squareup.okio:okio-jvm:3.4.0.2` for
-consumers retaining the 3.4.0 API. Version `3.4.0.2` is upstream 3.4.0 plus
-the short-read and nullable-result corrections. The fourth numeric segment
-sorts above `3.4.0` and below `3.5.0`, so ordinary dependency resolution selects
-it over transitive `3.4.0` requests. It contains the same corrected class bodies
-as `3.4.0-r576-short-read-2`; the older hyphenated version sorts below the plain
-release in the consumer build API. This compatible release publishes only
-`okio-jvm`, which is the module produced by the backport build script. It preserves the short-read correction in
-`3.4.0-r576-short-read-1` and allows `use`, `FileSystem.read`, and
+The fork builds `com.squareup.okio:okio-jvm:3.4.0.3` for
+consumers retaining the 3.4.0 API. Version `3.4.0.3` retains the short-read and
+nullable-result corrections from `3.4.0.2` and corrects concurrent NIO directory
+creation. With `mustCreate = false`, another caller creating the same directory
+is successful; a file at the target or any other creation error still fails.
+With `mustCreate = true`, an existing directory still fails. The fourth numeric
+segment sorts above `3.4.0` and below `3.5.0`, so ordinary dependency resolution
+selects it over transitive `3.4.0` requests. The compatible build produces only
+`okio-jvm`.
+
+The retained nullable correction allows `use`, `FileSystem.read`, and
 `FileSystem.write` blocks to return null. Resources still close when the block
-returns or throws. Consumers must rebuild after updating the dependency because
+returns or throws. Consumers must rebuild after updating that correction because
 these functions are inline.
 
-Build the JAR and POM with Java, Python 3, and Coursier on PATH:
+Build and test the JAR and POM with Java, Python 3, and Coursier on PATH:
 
 ```bash
 git fetch origin
 git rebase origin/main
-python3 scripts/buildNullableUseBackport.py --output-directory /tmp/okio-nullable-use
+python3 scripts/buildNioDirectoryCreationBackport.py --output-directory /tmp/okio-directory-creation
+scripts/testNioDirectoryCreationBackport.bash /tmp/okio-directory-creation/okio-jvm-3.4.0.3.jar /tmp/okio-directory-results
 ```
 
 The output directory must be absent or empty. The script starts with the
-checksum-verified previous artifact and applies the nullable correction from
-upstream commit `fe6ac99a29ec207c9c5f4421f3fed62fd5bc9d45` to the 3.4.0
-source at `parent-3.4.0` (`a161b07fb1b459371458ae6d9508ec31df280428`).
-It preserves all unrelated classes and the original POM dependency versions.
-The command builds locally and does not publish. The owning tests are
-`UseNullableResultTest` in the native Okio test suite (`./gradlew :okio:jvmTest`).
+checksum-verified `3.4.0.2` artifact and applies the directory correction to the
+3.4.0 source at `parent-3.4.0` (`a161b07fb1b459371458ae6d9508ec31df280428`).
+It replaces only the NIO adapter class, preserving unrelated classes, the original
+POM dependency versions, and the existing 3.4.0 error wording. These commands
+build and test locally without publishing. The owning native scenarios are
+`ConcurrentNioDirectoryCreationTest` and `ExistingNioDirectoryFailureTest`; run
+the JVM suite with `./gradlew :okio:jvmTest`. The compatible runner executes those
+same scenarios with a 128 MiB heap and the historical must-create message spelling.
+The prior nullable build remains available in `scripts/buildNullableUseBackport.py`;
+its native regression is `UseNullableResultTest`.
 
 License
 --------
