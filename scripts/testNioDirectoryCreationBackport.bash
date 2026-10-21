@@ -27,10 +27,12 @@ java -Xmx128m -cp "$(cat "$okioDirectoryTemporary/compiler")" org.jetbrains.kotl
   -no-stdlib -no-reflect -jvm-target 1.8 -cp "$okioDirectoryClasspath" -d "$okioDirectoryTemporary/classes" \
   "$okioDirectoryRoot/okio/src/jvmTest/kotlin/okio/DirectoryCreationNioFileSystem.kt" \
   "$okioDirectoryTemporary/ConcurrentNioDirectoryCreationTest.kt" \
+  "$okioDirectoryRoot/okio/src/jvmTest/kotlin/okio/ReplacedNioDirectoryCreationTest.kt" \
   "$okioDirectoryRoot/okio/src/jvmTest/kotlin/okio/ExistingNioDirectoryFailureTest.kt"
 java -Xmx128m -cp "$okioDirectoryTemporary/classes:$okioDirectoryClasspath" \
   org.junit.platform.console.ConsoleLauncher execute \
   --select-class okio.ConcurrentNioDirectoryCreationTest \
+  --select-class okio.ReplacedNioDirectoryCreationTest \
   --select-class okio.ExistingNioDirectoryFailureTest \
   --reports-dir "$okioDirectoryReports" --disable-banner \
   2>&1 | tee "$okioDirectoryReports/console.log"
