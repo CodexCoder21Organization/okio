@@ -19,10 +19,14 @@ coursier fetch --classpath -r https://kotlin.directory \
 okioDirectoryClasspath="$okioDirectoryJar:$(cat "$okioDirectoryTemporary/dependencies")"
 coursier fetch --classpath -r https://kotlin.directory \
   org.jetbrains.kotlin:kotlin-compiler-embeddable:1.8.22 > "$okioDirectoryTemporary/compiler"
+# The compatible 3.4.0 artifact retains its original mustCreate message spelling.
+sed 's/already exists\./already exist./g' \
+  "$okioDirectoryRoot/okio/src/jvmTest/kotlin/okio/ConcurrentNioDirectoryCreationTest.kt" \
+  > "$okioDirectoryTemporary/ConcurrentNioDirectoryCreationTest.kt"
 java -Xmx128m -cp "$(cat "$okioDirectoryTemporary/compiler")" org.jetbrains.kotlin.cli.jvm.K2JVMCompiler \
   -no-stdlib -no-reflect -jvm-target 1.8 -cp "$okioDirectoryClasspath" -d "$okioDirectoryTemporary/classes" \
   "$okioDirectoryRoot/okio/src/jvmTest/kotlin/okio/DirectoryCreationNioFileSystem.kt" \
-  "$okioDirectoryRoot/okio/src/jvmTest/kotlin/okio/ConcurrentNioDirectoryCreationTest.kt" \
+  "$okioDirectoryTemporary/ConcurrentNioDirectoryCreationTest.kt" \
   "$okioDirectoryRoot/okio/src/jvmTest/kotlin/okio/ExistingNioDirectoryFailureTest.kt"
 java -Xmx128m -cp "$okioDirectoryTemporary/classes:$okioDirectoryClasspath" \
   org.junit.platform.console.ConsoleLauncher execute \
