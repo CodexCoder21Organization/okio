@@ -389,6 +389,7 @@ class FakeFileSystem private constructor(
         synchronized(existing.contentLock) {
           element.data = existing.data.map { it.copy() }.toMutableList()
           element.contentSize = existing.contentSize
+          element.resizeErrorHasIndexes = existing.resizeErrorHasIndexes
         }
       }
       parent.children[lookupResult.segment!!] = element
@@ -646,6 +647,7 @@ class FakeFileSystem private constructor(
       val contentLock = SynchronizedObject()
       var data = mutableListOf<Buffer>()
       var contentSize = 0L
+      var resizeErrorHasIndexes = false
 
       override val metadata: FileMetadata
         get() = synchronized(contentLock) {
@@ -742,7 +744,15 @@ class FakeFileSystem private constructor(
     override fun protectedResize(size: Long) {
       synchronized(file.contentLock) {
         check(!closed) { "closed" }
+        require(size >= 0L) {
+          if (file.resizeErrorHasIndexes) "endIndex=$size < beginIndex=0" else "endIndex < beginIndex"
+        }
         resizeFilePages(file.data, file.contentSize, size)
+        if (size > file.contentSize) {
+          file.resizeErrorHasIndexes = size >= RESIZE_MESSAGE_THRESHOLD
+        } else if (size == 0L) {
+          file.resizeErrorHasIndexes = false
+        }
         file.contentSize = size
       }
 
@@ -801,6 +811,7 @@ class FakeFileSystem private constructor(
         val newSize = maxOf(file.contentSize, fileOffset + byteCount)
         resizeFilePages(file.data, file.contentSize, newSize)
         file.contentSize = newSize
+        file.resizeErrorHasIndexes = newSize != 0L
         var copied = 0
         while (copied < byteCount) {
           val position = fileOffset + copied
@@ -860,11 +871,11 @@ private fun pathPrefix(path: Path, count: Int): Path {
 // Each indexed page bounds cursor traversal independently of the file's total size.
 private const val FILE_PAGE_SIZE = 64 * 1024
 
+// Preserve the prior resize error wording after growth, shrink and writes.
+private const val RESIZE_MESSAGE_THRESHOLD = 4096L
+
 @Suppress("NOTHING_TO_INLINE")
 private inline fun resizeFilePages(pages: MutableList<Buffer>, oldSize: Long, newSize: Long) {
-  require(newSize >= 0L) {
-    if (oldSize == 0L) "endIndex < beginIndex" else "endIndex=$newSize < beginIndex=0"
-  }
   if (newSize == oldSize) return
   if (newSize < oldSize) {
     val pageCount = if (newSize == 0L) 0 else ((newSize - 1) / FILE_PAGE_SIZE + 1).toInt()

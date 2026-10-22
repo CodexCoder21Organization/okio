@@ -6,6 +6,61 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class FakeFileSystemRejectedResizeTest {
+  @Test public void resizeErrorWordingFollowsEachIndependentView() throws Exception {
+    for (int scenario = 0; scenario < 6; scenario++) {
+      FakeFileSystem fs = new FakeFileSystem();
+      fs.emulateUnix();
+      Path path = Path.Companion.get("/message", false);
+      try (FileHandle original = fs.openReadWrite(path, true, false)) {
+        boolean includesIndexes;
+        switch (scenario) {
+          case 0: original.resize(3); includesIndexes = false; break;
+          case 1:
+            original.write(0, new byte[] {1, 2, 3}, 0, 3);
+            original.resize(4);
+            includesIndexes = false;
+            break;
+          case 2: original.resize(4096); original.resize(3); includesIndexes = true; break;
+          case 3:
+            original.write(0, new byte[] {1, 2, 3}, 0, 3);
+            original.resize(3);
+            includesIndexes = true;
+            break;
+          case 4:
+            original.write(0, new byte[] {1, 2, 3}, 0, 3);
+            original.resize(0);
+            includesIndexes = false;
+            break;
+          default:
+            original.resize(3);
+            original.write(0, new byte[0], 0, 0);
+            includesIndexes = true;
+        }
+        long size = original.size();
+        byte[] expected = new byte[(int) size];
+        if (size > 0) assertEquals(expected.length, original.read(0, expected, 0, expected.length));
+        String message = includesIndexes ? "endIndex=-1 < beginIndex=0" : "endIndex < beginIndex";
+        try (FileHandle replacement = fs.openReadWrite(path, false, true)) {
+          IllegalArgumentException originalFailure = assertThrows(IllegalArgumentException.class, () -> original.resize(-1));
+          assertEquals(message, originalFailure.getMessage(), "Original message in scenario " + scenario);
+          assertEquals(size, original.size());
+          original.resize(size + 1);
+          assertEquals("endIndex < beginIndex",
+              assertThrows(IllegalArgumentException.class, () -> original.resize(-1)).getMessage());
+          assertEquals(message,
+              assertThrows(IllegalArgumentException.class, () -> replacement.resize(-1)).getMessage(),
+              "Replacement message in scenario " + scenario);
+          assertEquals(size, replacement.size());
+          if (size > 0) {
+            byte[] actual = new byte[expected.length];
+            assertEquals(actual.length, replacement.read(0, actual, 0, actual.length));
+            assertArrayEquals(expected, actual);
+          }
+        }
+      } finally { fs.checkNoOpenFiles(); }
+    }
+  }
+
   @Test public void emptyFileRejectsNegativeResize() throws Exception {
     FakeFileSystem fs = new FakeFileSystem();
     Path path = Path.Companion.get("/empty", false);

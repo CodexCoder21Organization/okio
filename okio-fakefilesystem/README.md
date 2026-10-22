@@ -8,9 +8,9 @@ replacement writable open preserves the previous handles' independent view;
 shrinking and regrowing either view does not change the other. Each byte-array
 read observes a consistent file size and byte range during concurrent writes
 and resize calls through the same file view. A negative resize size throws
-`IllegalArgumentException` with the previous empty-file or nonempty-file message
-and leaves the size and bytes unchanged. Metadata and new readers see complete contents while a replacement
-writable open waits to copy an existing view.
+`IllegalArgumentException` with the previous message for that view and leaves the
+size and bytes unchanged. Metadata and new readers see complete contents while a
+replacement writable open waits to copy an existing view.
 
 ```kotlin
 import okio.Path.Companion.toPath

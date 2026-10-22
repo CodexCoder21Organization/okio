@@ -140,7 +140,7 @@ Each byte-array read observes one consistent size and content state when another
 caller resizes or writes through the same file view. Negative file offsets are rejected with an
 `IllegalArgumentException` that names the offset. Negative resize sizes are rejected with
 `IllegalArgumentException` before changing the file's size or bytes, retaining the previous
-empty-file and nonempty-file error messages.
+error wording after writes, growth and shrink.
 A replacement writable open becomes visible to metadata and new readers only after its
 contents have been copied. The candidate is built locally; it is not published
 by these commands.
