@@ -862,7 +862,9 @@ private const val FILE_PAGE_SIZE = 64 * 1024
 
 @Suppress("NOTHING_TO_INLINE")
 private inline fun resizeFilePages(pages: MutableList<Buffer>, oldSize: Long, newSize: Long) {
-  require(newSize >= 0L) { "endIndex < beginIndex" }
+  require(newSize >= 0L) {
+    if (oldSize == 0L) "endIndex < beginIndex" else "endIndex=$newSize < beginIndex=0"
+  }
   if (newSize == oldSize) return
   if (newSize < oldSize) {
     val pageCount = if (newSize == 0L) 0 else ((newSize - 1) / FILE_PAGE_SIZE + 1).toInt()

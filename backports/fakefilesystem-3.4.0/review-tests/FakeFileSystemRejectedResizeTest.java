@@ -30,7 +30,7 @@ public class FakeFileSystemRejectedResizeTest {
       handle.write(0, expected, 0, expected.length);
       for (long size : new long[] {-1, -65537, Long.MIN_VALUE, -4294967296L}) {
         IllegalArgumentException failure = assertThrows(IllegalArgumentException.class, () -> handle.resize(size));
-        assertEquals("endIndex < beginIndex", failure.getMessage());
+        assertEquals("endIndex=" + size + " < beginIndex=0", failure.getMessage());
         assertEquals(expected.length, handle.size());
         assertEquals(Long.valueOf(expected.length), fs.metadata(path).getSize());
         byte[] actual = new byte[expected.length];
@@ -57,7 +57,7 @@ public class FakeFileSystemRejectedResizeTest {
     try (FileHandle handle = fs.openReadWrite(path, true, false)) {
       handle.write(0, expected, 0, expected.length);
       IllegalArgumentException failure = assertThrows(IllegalArgumentException.class, () -> handle.resize(-65537));
-      assertEquals("endIndex < beginIndex", failure.getMessage());
+      assertEquals("endIndex=-65537 < beginIndex=0", failure.getMessage());
       assertEquals(expected.length, handle.size());
       assertEquals(Long.valueOf(expected.length), fs.metadata(path).getSize());
       byte[] actual = new byte[expected.length];
