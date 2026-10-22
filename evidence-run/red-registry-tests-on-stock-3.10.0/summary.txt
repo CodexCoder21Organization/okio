@@ -1,0 +1,7 @@
+okio-fakefilesystem/build/test-results/jvmTest/TEST-okio.fakefilesystem.FakeFileSystemConcurrencyTest.xml: okio.fakefilesystem.FakeFileSystemConcurrencyTest tests=1 failures=1 errors=0 skipped=0 time=0.243
+    RESULT: 20 failures / 20 runs; 9 callers x 10000 operations maximum per run
+okio-fakefilesystem/build/test-results/jvmTest/TEST-okio.fakefilesystem.FakeFileSystemRegistryTest.xml: okio.fakefilesystem.FakeFileSystemRegistryTest tests=3 failures=2 errors=0 skipped=0 time=0.025
+TOTAL tests=4 failures=3 errors=0 skipped=0 passed=1
+FAILURE: okio.fakefilesystem.FakeFileSystemConcurrencyTest.concurrentDistinctFileOpenClose[jvm]: java.lang.AssertionError: Concurrent distinct-file opens and closes must preserve the registry expected:<0> but was:<20>
+FAILURE: okio.fakefilesystem.FakeFileSystemRegistryTest.clockFailureOnCloseStillRemovesRegistration[jvm]: java.lang.AssertionError: expected:<[]> but was:<[/file]>
+FAILURE: okio.fakefilesystem.FakeFileSystemRegistryTest.clockReentryCannotAdmitTwoWriters[jvm]: java.lang.AssertionError: re-entry on clock call 2 admitted 2 writers expected:<[/file]> but was:<[/file, /file]>

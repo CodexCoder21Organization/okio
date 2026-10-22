@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="okio.samples.SourceMarkerTest" tests="14" skipped="0" failures="0" errors="0" timestamp="2026-10-22T22:00:25" hostname="runnervm8k3b6" time="0.01">
+  <properties/>
+  <testcase name="closeThenMark[jvm]" classname="okio.samples.SourceMarkerTest" time="0.001"/>
+  <testcase name="closeThenRead[jvm]" classname="okio.samples.SourceMarkerTest" time="0.0"/>
+  <testcase name="multipleSegments[jvm]" classname="okio.samples.SourceMarkerTest" time="0.006"/>
+  <testcase name="resetTooHigh[jvm]" classname="okio.samples.SourceMarkerTest" time="0.001"/>
+  <testcase name="exceedLimitTest[jvm]" classname="okio.samples.SourceMarkerTest" time="0.0"/>
+  <testcase name="markNegative[jvm]" classname="okio.samples.SourceMarkerTest" time="0.0"/>
+  <testcase name="markAndLimitSmallerThanUserBuffer[jvm]" classname="okio.samples.SourceMarkerTest" time="0.0"/>
+  <testcase name="resetTooLow[jvm]" classname="okio.samples.SourceMarkerTest" time="0.0"/>
+  <testcase name="resetUnread[jvm]" classname="okio.samples.SourceMarkerTest" time="0.0"/>
+  <testcase name="resetAfterEof[jvm]" classname="okio.samples.SourceMarkerTest" time="0.001"/>
+  <testcase name="test[jvm]" classname="okio.samples.SourceMarkerTest" time="0.0"/>
+  <testcase name="mark0[jvm]" classname="okio.samples.SourceMarkerTest" time="0.0"/>
+  <testcase name="closeThenReset[jvm]" classname="okio.samples.SourceMarkerTest" time="0.0"/>
+  <testcase name="markNothingBuffered[jvm]" classname="okio.samples.SourceMarkerTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

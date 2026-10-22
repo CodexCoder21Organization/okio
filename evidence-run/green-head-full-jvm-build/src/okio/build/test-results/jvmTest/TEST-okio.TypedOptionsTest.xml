@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="okio.TypedOptionsTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-10-22T21:59:57" hostname="runnervm8k3b6" time="0.001">
+  <properties/>
+  <testcase name="happyPath[jvm]" classname="okio.TypedOptionsTest" time="0.001"/>
+  <testcase name="listFunctionsWork[jvm]" classname="okio.TypedOptionsTest" time="0.0"/>
+  <testcase name="safeToMutateSourceCollectionAfterConstruction[jvm]" classname="okio.TypedOptionsTest" time="0.0"/>
+  <testcase name="typedOptionsConstructor[jvm]" classname="okio.TypedOptionsTest" time="0.0"/>
+  <testcase name="typedOptionsConstructorEnforcesSizeMatch[jvm]" classname="okio.TypedOptionsTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

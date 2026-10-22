@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="okio.PipeKotlinTest" tests="45" skipped="0" failures="0" errors="0" timestamp="2026-10-22T21:59:31" hostname="runnervm8k3b6" time="14.04">
+  <properties/>
+  <testcase name="honorsPipeSinkDeadlineOnWritingWhenItIsSmaller[jvm]" classname="okio.PipeKotlinTest" time="0.504"/>
+  <testcase name="honorsUnderlyingSinkDeadlineOnFlushingWhenPipeSinkHasNoDeadline[jvm]" classname="okio.PipeKotlinTest" time="0.501"/>
+  <testcase name="sinkCloseAfterCancelDoesNotThrow[jvm]" classname="okio.PipeKotlinTest" time="0.001"/>
+  <testcase name="foldingTwiceThrows[jvm]" classname="okio.PipeKotlinTest" time="0.0"/>
+  <testcase name="honorsPipeSinkDeadlineOnFlushingWhenUnderlyingSinkHasNoDeadline[jvm]" classname="okio.PipeKotlinTest" time="0.5"/>
+  <testcase name="cancelInterruptsSinkFold[jvm]" classname="okio.PipeKotlinTest" time="0.001"/>
+  <testcase name="honorsPipeSinkTimeoutOnWritingWhenItIsSmaller[jvm]" classname="okio.PipeKotlinTest" time="0.501"/>
+  <testcase name="foldFlushesWhenThereIsFoldedData[jvm]" classname="okio.PipeKotlinTest" time="0.001"/>
+  <testcase name="honorsUnderlyingSinkDeadlineOnFlushingWhenItIsSmaller[jvm]" classname="okio.PipeKotlinTest" time="0.501"/>
+  <testcase name="cancelPreventsSinkFlush[jvm]" classname="okio.PipeKotlinTest" time="0.0"/>
+  <testcase name="cancelPreventsSinkWrite[jvm]" classname="okio.PipeKotlinTest" time="0.0"/>
+  <testcase name="foldHoldsNoLocksWhenForwardingWrites[jvm]" classname="okio.PipeKotlinTest" time="0.001"/>
+  <testcase name="honorsPipeSinkDeadlineOnClosingWhenUnderlyingSinkHasNoDeadline[jvm]" classname="okio.PipeKotlinTest" time="0.501"/>
+  <testcase name="honorsUnderlyingSinkTimeoutOnFlushingWhenPipeSinkTimeoutIsZero[jvm]" classname="okio.PipeKotlinTest" time="0.501"/>
+  <testcase name="foldDoesNotFlushWhenThereIsNoFoldedData[jvm]" classname="okio.PipeKotlinTest" time="0.001"/>
+  <testcase name="honorsUnderlyingSinkTimeoutOnClosingWhenPipeSinkTimeoutIsZero[jvm]" classname="okio.PipeKotlinTest" time="0.501"/>
+  <testcase name="honorsPipeSinkTimeoutOnWritingWhenUnderlyingSinkTimeoutIsZero[jvm]" classname="okio.PipeKotlinTest" time="0.501"/>
+  <testcase name="closeWhileFolding[jvm]" classname="okio.PipeKotlinTest" time="0.001"/>
+  <testcase name="foldUnblocksBlockedWrite[jvm]" classname="okio.PipeKotlinTest" time="0.501"/>
+  <testcase name="honorsUnderlyingTimeoutOnClosingWhenItIsSmaller[jvm]" classname="okio.PipeKotlinTest" time="0.502"/>
+  <testcase name="honorsUnderlyingSinkDeadlineOnClosingWhenItIsSmaller[jvm]" classname="okio.PipeKotlinTest" time="0.5"/>
+  <testcase name="foldingClosesUnderlyingSinkWhenPipeSinkIsClose[jvm]" classname="okio.PipeKotlinTest" time="0.001"/>
+  <testcase name="fold[jvm]" classname="okio.PipeKotlinTest" time="0.001"/>
+  <testcase name="pipe[jvm]" classname="okio.PipeKotlinTest" time="0.0"/>
+  <testcase name="foldWritesPipeContentsToSink[jvm]" classname="okio.PipeKotlinTest" time="0.0"/>
+  <testcase name="honorsUnderlyingSinkDeadlineOnClosingWhenPipeSinkHasNoDeadline[jvm]" classname="okio.PipeKotlinTest" time="0.501"/>
+  <testcase name="sinkWriteThrowsIOExceptionUnblockBlockedWriter[jvm]" classname="okio.PipeKotlinTest" time="0.501"/>
+  <testcase name="cancelInterruptsSourceRead[jvm]" classname="okio.PipeKotlinTest" time="0.501"/>
+  <testcase name="honorsUnderlyingTimeoutOnWritingWhenItIsSmaller[jvm]" classname="okio.PipeKotlinTest" time="0.502"/>
+  <testcase name="honorsPipeSinkTimeoutOnFlushingWhenUnderlyingSinkTimeoutIsZero[jvm]" classname="okio.PipeKotlinTest" time="0.501"/>
+  <testcase name="honorsUnderlyingSinkDeadlineOnWritingWhenItIsSmaller[jvm]" classname="okio.PipeKotlinTest" time="0.5"/>
+  <testcase name="honorsUnderlyingSinkTimeoutOnWritingWhenPipeSinkTimeoutIsZero[jvm]" classname="okio.PipeKotlinTest" time="0.501"/>
+  <testcase name="accessSourceAfterFold[jvm]" classname="okio.PipeKotlinTest" time="0.001"/>
+  <testcase name="cancelInterruptsSinkWrite[jvm]" classname="okio.PipeKotlinTest" time="0.501"/>
+  <testcase name="honorsPipeSinkTimeoutOnClosingWhenUnderlyingSinkTimeoutIsZero[jvm]" classname="okio.PipeKotlinTest" time="0.501"/>
+  <testcase name="honorsPipeSinkTimeoutOnFlushingWhenItIsSmaller[jvm]" classname="okio.PipeKotlinTest" time="0.501"/>
+  <testcase name="honorsUnderlyingTimeoutOnFlushingWhenItIsSmaller[jvm]" classname="okio.PipeKotlinTest" time="0.502"/>
+  <testcase name="cancelPreventsSourceRead[jvm]" classname="okio.PipeKotlinTest" time="0.0"/>
+  <testcase name="honorsPipeSinkDeadlineOnClosingWhenItIsSmaller[jvm]" classname="okio.PipeKotlinTest" time="0.501"/>
+  <testcase name="honorsUnderlyingSinkDeadlineOnWritingWhenPipeSinkHasNoDeadline[jvm]" classname="okio.PipeKotlinTest" time="0.5"/>
+  <testcase name="honorsPipeSinkDeadlineOnFlushingWhenItIsSmaller[jvm]" classname="okio.PipeKotlinTest" time="0.501"/>
+  <testcase name="cancelPreventsSinkFold[jvm]" classname="okio.PipeKotlinTest" time="0.001"/>
+  <testcase name="sourceCloseAfterCancelDoesNotThrow[jvm]" classname="okio.PipeKotlinTest" time="0.0"/>
+  <testcase name="honorsPipeSinkTimeoutOnClosingWhenItIsSmaller[jvm]" classname="okio.PipeKotlinTest" time="0.501"/>
+  <testcase name="honorsPipeSinkDeadlineOnWritingWhenUnderlyingSinkHasNoDeadline[jvm]" classname="okio.PipeKotlinTest" time="0.501"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

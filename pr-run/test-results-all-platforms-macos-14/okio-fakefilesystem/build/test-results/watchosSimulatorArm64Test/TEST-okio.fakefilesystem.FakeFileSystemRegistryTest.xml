@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="okio.fakefilesystem.FakeFileSystemRegistryTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-10-22T22:30:57" hostname="sjc22-be108-7c40b0ac-378a-43da-bd14-6cc91f7e1224-9E87585E5A8F.local" time="0.008">
+  <properties/>
+  <testcase name="clockReentryCannotAdmitTwoWriters[watchosSimulatorArm64]" classname="okio.fakefilesystem.FakeFileSystemRegistryTest" time="0.007"/>
+  <testcase name="clockFailureOnCloseStillRemovesRegistration[watchosSimulatorArm64]" classname="okio.fakefilesystem.FakeFileSystemRegistryTest" time="0.0"/>
+  <testcase name="clockFailureOnDeferredSourceCloseStillRemovesRegistration[watchosSimulatorArm64]" classname="okio.fakefilesystem.FakeFileSystemRegistryTest" time="0.0"/>
+  <testcase name="clockFailureOnDeferredSinkCloseStillRemovesRegistration[watchosSimulatorArm64]" classname="okio.fakefilesystem.FakeFileSystemRegistryTest" time="0.0"/>
+  <testcase name="openPathsIsASnapshotAndSourcesRetainRegistration[watchosSimulatorArm64]" classname="okio.fakefilesystem.FakeFileSystemRegistryTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

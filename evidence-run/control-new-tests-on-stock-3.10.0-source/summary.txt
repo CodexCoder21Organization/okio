@@ -1,0 +1,19 @@
+okio-fakefilesystem/build/test-results/jvmTest/TEST-okio.fakefilesystem.FakeFileSystemConcurrencyTest.xml: okio.fakefilesystem.FakeFileSystemConcurrencyTest tests=2 failures=2 errors=0 skipped=0 time=0.276
+    OBSERVER RESULT: 20 failures / 20 runs; 8 workers x 10000 operations, 1 observer x 10000 reads per run
+    RESULT: 20 failures / 20 runs; 9 callers x 10000 operations maximum per run
+okio-fakefilesystem/build/test-results/jvmTest/TEST-okio.fakefilesystem.FakeFileSystemRegistryTest.xml: okio.fakefilesystem.FakeFileSystemRegistryTest tests=5 failures=4 errors=0 skipped=0 time=0.01
+okio-fakefilesystem/build/test-results/jvmTest/TEST-okio.fakefilesystem.FakeFileSystemTreeConcurrencyTest.xml: okio.fakefilesystem.FakeFileSystemTreeConcurrencyTest tests=5 failures=5 errors=0 skipped=0 time=0.173
+    TREE RESULT (lister=false): 20 failures / 20 runs; 8 workers x 500 x 4 operations per run
+    TREE RESULT (lister=true): 20 failures / 20 runs; 8 workers x 500 x 4 operations per run, 1 lister x 200 listings
+TOTAL tests=12 failures=11 errors=0 skipped=0 passed=1
+FAILURE: okio.fakefilesystem.FakeFileSystemConcurrencyTest.registryObserversSeeConsistentSnapshotsWhileHandlesChurn[jvm]: java.lang.AssertionError: Registry snapshots taken during concurrent opens and closes must be consistent expected:<0> but was:<20>
+FAILURE: okio.fakefilesystem.FakeFileSystemConcurrencyTest.concurrentDistinctFileOpenClose[jvm]: java.lang.AssertionError: Concurrent distinct-file opens and closes must preserve the registry expected:<0> but was:<20>
+FAILURE: okio.fakefilesystem.FakeFileSystemRegistryTest.clockFailureOnDeferredSinkCloseStillRemovesRegistration[jvm]: java.lang.AssertionError: expected:<[]> but was:<[/file]>
+FAILURE: okio.fakefilesystem.FakeFileSystemRegistryTest.clockFailureOnCloseStillRemovesRegistration[jvm]: java.lang.AssertionError: expected:<[]> but was:<[/file]>
+FAILURE: okio.fakefilesystem.FakeFileSystemRegistryTest.clockFailureOnDeferredSourceCloseStillRemovesRegistration[jvm]: java.lang.AssertionError: expected:<[]> but was:<[/file]>
+FAILURE: okio.fakefilesystem.FakeFileSystemRegistryTest.clockReentryCannotAdmitTwoWriters[jvm]: java.lang.AssertionError: re-entry on clock call 2 admitted 2 writers expected:<[/file]> but was:<[/file, /file]>
+FAILURE: okio.fakefilesystem.FakeFileSystemTreeConcurrencyTest.rootCreationKeepsAnIndependentFile[jvm]: java.io.FileNotFoundException: no such file: /b
+FAILURE: okio.fakefilesystem.FakeFileSystemTreeConcurrencyTest.rootCreationBySymlinkKeepsAnIndependentFile[jvm]: java.io.FileNotFoundException: no such file: /b
+FAILURE: okio.fakefilesystem.FakeFileSystemTreeConcurrencyTest.independentChildrenOfASharedParentAreAllKept[jvm]: java.lang.AssertionError: Independent changes under one parent must all be kept expected:<0> but was:<20>
+FAILURE: okio.fakefilesystem.FakeFileSystemTreeConcurrencyTest.listingASharedParentWhileIndependentChildrenChange[jvm]: java.lang.AssertionError: Independent changes under one parent must all be kept expected:<0> but was:<20>
+FAILURE: okio.fakefilesystem.FakeFileSystemTreeConcurrencyTest.directoryCreationKeepsAnIndependentSibling[jvm]: java.io.FileNotFoundException: no such file: /parent/b/file

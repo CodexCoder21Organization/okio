@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="okio.InflaterSourceTest_SourceBuffer" tests="9" skipped="0" failures="0" errors="0" timestamp="2026-10-22T21:59:06" hostname="runnervm8k3b6" time="0.097">
+  <properties/>
+  <testcase name="sourceExhaustedPrematurelyOnRead[jvm]" classname="okio.InflaterSourceTest_SourceBuffer" time="0.001"/>
+  <testcase name="inflateIntoNonemptySink[jvm]" classname="okio.InflaterSourceTest_SourceBuffer" time="0.071"/>
+  <testcase name="inflateWellCompressed[jvm]" classname="okio.InflaterSourceTest_SourceBuffer" time="0.005"/>
+  <testcase name="readOrInflateMakesByteByByteProgress[jvm]" classname="okio.InflaterSourceTest_SourceBuffer" time="0.0"/>
+  <testcase name="inflateTruncated[jvm]" classname="okio.InflaterSourceTest_SourceBuffer" time="0.0"/>
+  <testcase name="inflateSingleByte[jvm]" classname="okio.InflaterSourceTest_SourceBuffer" time="0.0"/>
+  <testcase name="inflatePoorlyCompressed[jvm]" classname="okio.InflaterSourceTest_SourceBuffer" time="0.019"/>
+  <testcase name="inflate[jvm]" classname="okio.InflaterSourceTest_SourceBuffer" time="0.0"/>
+  <testcase name="inflateByteCount[jvm]" classname="okio.InflaterSourceTest_SourceBuffer" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

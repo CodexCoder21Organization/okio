@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="okio.internal.ResourceFileSystemTest" tests="20" skipped="0" failures="0" errors="0" timestamp="2026-10-22T22:00:21" hostname="runnervm8k3b6" time="0.071">
+  <properties/>
+  <testcase name="testClassFilesOmittedFromDirectory[jvm]" classname="okio.internal.ResourceFileSystemTest" time="0.001"/>
+  <testcase name="testClassFilesOmittedFromJar[jvm]" classname="okio.internal.ResourceFileSystemTest" time="0.038"/>
+  <testcase name="testSourceDoesntTriggerIndexing[jvm]" classname="okio.internal.ResourceFileSystemTest" time="0.006"/>
+  <testcase name="testResourceA[jvm]" classname="okio.internal.ResourceFileSystemTest" time="0.001"/>
+  <testcase name="testResourceB[jvm]" classname="okio.internal.ResourceFileSystemTest" time="0.0"/>
+  <testcase name="testSingleArchive[jvm]" classname="okio.internal.ResourceFileSystemTest" time="0.003"/>
+  <testcase name="testProjectIsListable[jvm]" classname="okio.internal.ResourceFileSystemTest" time="0.0"/>
+  <testcase name="testIndexEagerly[jvm]" classname="okio.internal.ResourceFileSystemTest" time="0.001"/>
+  <testcase name="testResourceFromJar[jvm]" classname="okio.internal.ResourceFileSystemTest" time="0.0"/>
+  <testcase name="testJarAndJarOverlap[jvm]" classname="okio.internal.ResourceFileSystemTest" time="0.005"/>
+  <testcase name="testIndexLazily[jvm]" classname="okio.internal.ResourceFileSystemTest" time="0.0"/>
+  <testcase name="testDirectoryFromJar[jvm]" classname="okio.internal.ResourceFileSystemTest" time="0.001"/>
+  <testcase name="classResource[jvm]" classname="okio.internal.ResourceFileSystemTest" time="0.0"/>
+  <testcase name="fileNameWithSpaceInPath[jvm]" classname="okio.internal.ResourceFileSystemTest" time="0.003"/>
+  <testcase name="testDirectoryAndDirectoryOverlap[jvm]" classname="okio.internal.ResourceFileSystemTest" time="0.001"/>
+  <testcase name="packagePath[jvm]" classname="okio.internal.ResourceFileSystemTest" time="0.001"/>
+  <testcase name="missingResourceSilentlyIgnored[jvm]" classname="okio.internal.ResourceFileSystemTest" time="0.005"/>
+  <testcase name="testResourceMissing[jvm]" classname="okio.internal.ResourceFileSystemTest" time="0.0"/>
+  <testcase name="testDirectoryAndJarOverlap[jvm]" classname="okio.internal.ResourceFileSystemTest" time="0.003"/>
+  <testcase name="listSpecialCharacterNamedFiles[jvm]" classname="okio.internal.ResourceFileSystemTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

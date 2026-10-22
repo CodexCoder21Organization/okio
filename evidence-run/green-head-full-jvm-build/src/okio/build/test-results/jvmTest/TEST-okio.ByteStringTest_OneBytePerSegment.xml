@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="okio.ByteStringTest_OneBytePerSegment" tests="49" skipped="0" failures="0" errors="0" timestamp="2026-10-22T21:59:03" hostname="runnervm8k3b6" time="0.004">
+  <properties/>
+  <testcase name="toStringOnTextWithNewlines[jvm]" classname="okio.ByteStringTest_OneBytePerSegment" time="0.0"/>
+  <testcase name="getByteOutOfBounds[jvm]" classname="okio.ByteStringTest_OneBytePerSegment" time="0.0"/>
+  <testcase name="copyIntoWithTargetOffset[jvm]" classname="okio.ByteStringTest_OneBytePerSegment" time="0.0"/>
+  <testcase name="toStringOnEmpty[jvm]" classname="okio.ByteStringTest_OneBytePerSegment" time="0.0"/>
+  <testcase name="startsWithByteArray[jvm]" classname="okio.ByteStringTest_OneBytePerSegment" time="0.0"/>
+  <testcase name="copyIntoWithAllParameters[jvm]" classname="okio.ByteStringTest_OneBytePerSegment" time="0.0"/>
+  <testcase name="toAsciiStartsLowercaseEndsUppercase[jvm]" classname="okio.ByteStringTest_OneBytePerSegment" time="0.0"/>
+  <testcase name="decodeHexInvalidChar[jvm]" classname="okio.ByteStringTest_OneBytePerSegment" time="0.0"/>
+  <testcase name="lastIndexOfByteArray[jvm]" classname="okio.ByteStringTest_OneBytePerSegment" time="0.0"/>
+  <testcase name="encodeBase64Url[jvm]" classname="okio.ByteStringTest_OneBytePerSegment" time="0.0"/>
+  <testcase name="indexOfWithOffset[jvm]" classname="okio.ByteStringTest_OneBytePerSegment" time="0.0"/>
+  <testcase name="encodeBase64[jvm]" classname="okio.ByteStringTest_OneBytePerSegment" time="0.0"/>
+  <testcase name="ofCopyRange[jvm]" classname="okio.ByteStringTest_OneBytePerSegment" time="0.0"/>
+  <testcase name="decodeBase64WithWhitespace[jvm]" classname="okio.ByteStringTest_OneBytePerSegment" time="0.0"/>
+  <testcase name="testHash[jvm]" classname="okio.ByteStringTest_OneBytePerSegment" time="0.0"/>
+  <testcase name="ignoreUnnecessaryPadding[jvm]" classname="okio.ByteStringTest_OneBytePerSegment" time="0.0"/>
+  <testcase name="lastIndexOfByteString[jvm]" classname="okio.ByteStringTest_OneBytePerSegment" time="0.0"/>
+  <testcase name="equalsEmptyTest[jvm]" classname="okio.ByteStringTest_OneBytePerSegment" time="0.0"/>
+  <testcase name="ofCopy[jvm]" classname="okio.ByteStringTest_OneBytePerSegment" time="0.0"/>
+  <testcase name="toStringOnData[jvm]" classname="okio.ByteStringTest_OneBytePerSegment" time="0.0"/>
+  <testcase name="toAsciiAllUppercase[jvm]" classname="okio.ByteStringTest_OneBytePerSegment" time="0.0"/>
+  <testcase name="endsWithByteString[jvm]" classname="okio.ByteStringTest_OneBytePerSegment" time="0.0"/>
+  <testcase name="toStringOnLongTextIsTruncated[jvm]" classname="okio.ByteStringTest_OneBytePerSegment" time="0.002"/>
+  <testcase name="toAsciiStartsUppercaseEndsLowercase[jvm]" classname="okio.ByteStringTest_OneBytePerSegment" time="0.0"/>
+  <testcase name="copyIntoFullRange[jvm]" classname="okio.ByteStringTest_OneBytePerSegment" time="0.0"/>
+  <testcase name="copyInto[jvm]" classname="okio.ByteStringTest_OneBytePerSegment" time="0.0"/>
+  <testcase name="compareToSingleBytes[jvm]" classname="okio.ByteStringTest_OneBytePerSegment" time="0.0"/>
+  <testcase name="compareToMultipleBytes[jvm]" classname="okio.ByteStringTest_OneBytePerSegment" time="0.001"/>
+  <testcase name="toStringOnShortText[jvm]" classname="okio.ByteStringTest_OneBytePerSegment" time="0.0"/>
+  <testcase name="copyIntoWithSourceOffset[jvm]" classname="okio.ByteStringTest_OneBytePerSegment" time="0.0"/>
+  <testcase name="getByte[jvm]" classname="okio.ByteStringTest_OneBytePerSegment" time="0.0"/>
+  <testcase name="get[jvm]" classname="okio.ByteStringTest_OneBytePerSegment" time="0.0"/>
+  <testcase name="utf8[jvm]" classname="okio.ByteStringTest_OneBytePerSegment" time="0.0"/>
+  <testcase name="equalsTest[jvm]" classname="okio.ByteStringTest_OneBytePerSegment" time="0.0"/>
+  <testcase name="decodeHex[jvm]" classname="okio.ByteStringTest_OneBytePerSegment" time="0.0"/>
+  <testcase name="substring[jvm]" classname="okio.ByteStringTest_OneBytePerSegment" time="0.0"/>
+  <testcase name="testHashCode[jvm]" classname="okio.ByteStringTest_OneBytePerSegment" time="0.0"/>
+  <testcase name="endsWithByteArray[jvm]" classname="okio.ByteStringTest_OneBytePerSegment" time="0.0"/>
+  <testcase name="toAsciiLowerCaseNoUppercase[jvm]" classname="okio.ByteStringTest_OneBytePerSegment" time="0.0"/>
+  <testcase name="substringWithInvalidBounds[jvm]" classname="okio.ByteStringTest_OneBytePerSegment" time="0.0"/>
+  <testcase name="copyIntoBoundsChecks[jvm]" classname="okio.ByteStringTest_OneBytePerSegment" time="0.0"/>
+  <testcase name="indexOfByteString[jvm]" classname="okio.ByteStringTest_OneBytePerSegment" time="0.0"/>
+  <testcase name="indexOfByteArray[jvm]" classname="okio.ByteStringTest_OneBytePerSegment" time="0.0"/>
+  <testcase name="encodeHex[jvm]" classname="okio.ByteStringTest_OneBytePerSegment" time="0.0"/>
+  <testcase name="copyEmptyAtBounds[jvm]" classname="okio.ByteStringTest_OneBytePerSegment" time="0.0"/>
+  <testcase name="startsWithByteString[jvm]" classname="okio.ByteStringTest_OneBytePerSegment" time="0.0"/>
+  <testcase name="toStringOnLongDataIsTruncated[jvm]" classname="okio.ByteStringTest_OneBytePerSegment" time="0.0"/>
+  <testcase name="decodeHexOddNumberOfChars[jvm]" classname="okio.ByteStringTest_OneBytePerSegment" time="0.0"/>
+  <testcase name="decodeBase64[jvm]" classname="okio.ByteStringTest_OneBytePerSegment" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

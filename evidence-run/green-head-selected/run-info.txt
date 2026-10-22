@@ -1,0 +1,5 @@
+sha=96284029d6adf7e0518d82e427f42a2737903fb2
+mutation=none
+scope=selected
+args=:okio-fakefilesystem:apiCheck :okio-fakefilesystem:spotlessCheck :okio-fakefilesystem:jvmTest --tests okio.fakefilesystem.* :okio:jvmTest --tests okio.FakeUnixFileSystemTest --tests okio.FakeWindowsFileSystemTest --tests okio.StrictFakeFileSystemTest --tests okio.ForwardingFileSystemTest --tests okio.UseTest --tests okio.FileSystemJavaTest --tests okio.FileLeakTest
+gradle_exit=0

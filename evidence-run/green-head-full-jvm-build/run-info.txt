@@ -1,0 +1,5 @@
+sha=96284029d6adf7e0518d82e427f42a2737903fb2
+mutation=none
+scope=full-jvm
+args=build
+gradle_exit=1

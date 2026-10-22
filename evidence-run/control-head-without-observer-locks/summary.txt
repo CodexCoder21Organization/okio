@@ -1,0 +1,9 @@
+okio-fakefilesystem/build/test-results/jvmTest/TEST-okio.fakefilesystem.FakeFileSystemConcurrencyTest.xml: okio.fakefilesystem.FakeFileSystemConcurrencyTest tests=2 failures=1 errors=0 skipped=0 time=3.963
+    OBSERVER RESULT: 20 failures / 20 runs; 8 workers x 10000 operations, 1 observer x 10000 reads per run
+    RESULT: 0 failures / 20 runs; 9 callers x 10000 operations maximum per run
+okio-fakefilesystem/build/test-results/jvmTest/TEST-okio.fakefilesystem.FakeFileSystemRegistryTest.xml: okio.fakefilesystem.FakeFileSystemRegistryTest tests=5 failures=0 errors=0 skipped=0 time=0.015
+okio-fakefilesystem/build/test-results/jvmTest/TEST-okio.fakefilesystem.FakeFileSystemTreeConcurrencyTest.xml: okio.fakefilesystem.FakeFileSystemTreeConcurrencyTest tests=5 failures=0 errors=0 skipped=0 time=5.777
+    TREE RESULT (lister=false): 0 failures / 20 runs; 8 workers x 500 x 4 operations per run
+    TREE RESULT (lister=true): 0 failures / 20 runs; 8 workers x 500 x 4 operations per run, 1 lister x 200 listings
+TOTAL tests=12 failures=1 errors=0 skipped=0 passed=11
+FAILURE: okio.fakefilesystem.FakeFileSystemConcurrencyTest.registryObserversSeeConsistentSnapshotsWhileHandlesChurn[jvm]: java.lang.AssertionError: Registry snapshots taken during concurrent opens and closes must be consistent expected:<0> but was:<20>

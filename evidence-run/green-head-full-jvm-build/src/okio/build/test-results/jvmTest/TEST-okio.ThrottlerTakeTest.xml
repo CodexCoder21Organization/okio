@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="okio.ThrottlerTakeTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-10-22T21:59:57" hostname="runnervm8k3b6" time="0.002">
+  <properties/>
+  <testcase name="takeByByteCount[jvm]" classname="okio.ThrottlerTakeTest" time="0.001"/>
+  <testcase name="takeFullyWhenSaturated[jvm]" classname="okio.ThrottlerTakeTest" time="0.0"/>
+  <testcase name="takeFullyTimeElapsed[jvm]" classname="okio.ThrottlerTakeTest" time="0.0"/>
+  <testcase name="infiniteWait[jvm]" classname="okio.ThrottlerTakeTest" time="0.001"/>
+  <testcase name="takeFullyNoLimit[jvm]" classname="okio.ThrottlerTakeTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

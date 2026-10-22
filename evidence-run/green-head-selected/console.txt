@@ -1,0 +1,3515 @@
+Downloading https://services.gradle.org/distributions/gradle-8.12-bin.zip
+.............10%.............20%.............30%.............40%.............50%.............60%.............70%.............80%.............90%.............100%
+
+Welcome to Gradle 8.12!
+
+Here are the highlights of this release:
+ - Enhanced error and warning reporting with the Problems API
+ - File-system watching support on Alpine Linux
+ - Build and test Swift 6 libraries and apps
+
+For more details see https://docs.gradle.org/8.12/release-notes.html
+
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.12/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+Type-safe project accessors is an incubating feature.
+Project accessors enabled, but root project name not explicitly set for 'build-support'. Checking out the project in different folders will impact the generated code and implicitly the buildscript classpath, breaking caching.
+> Task :build-support:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :build-support:pluginDescriptors
+> Task :build-support:processResources
+
+> Task :build-support:compileKotlin
+w: file:///home/runner/work/okio/okio/src/build-support/src/main/kotlin/bom.kt:27:47 'KotlinJsTarget' is deprecated. The Kotlin/JS legacy target is deprecated and its support completely discontinued
+w: file:///home/runner/work/okio/okio/src/build-support/src/main/kotlin/bom.kt:63:8 'KotlinJsTarget' is deprecated. The Kotlin/JS legacy target is deprecated and its support completely discontinued
+w: file:///home/runner/work/okio/okio/src/build-support/src/main/kotlin/bom.kt:64:40 'toLowerCase(Locale): String' is deprecated. Use lowercase() instead.
+w: file:///home/runner/work/okio/okio/src/build-support/src/main/kotlin/platforms.kt:125:7 'kotlinOptions(KotlinJsOptions.() -> Unit): Unit' is deprecated. Please migrate to the compilerOptions DSL. More details are here: https://kotl.in/u1r8ln
+w: file:///home/runner/work/okio/okio/src/build-support/src/main/kotlin/platforms.kt:147:5 This declaration needs opt-in. Its usage should be marked with '@org.jetbrains.kotlin.gradle.ExperimentalWasmDsl' or '@OptIn(org.jetbrains.kotlin.gradle.ExperimentalWasmDsl::class)'
+w: file:///home/runner/work/okio/okio/src/build-support/src/main/kotlin/platforms.kt:152:5 This declaration needs opt-in. Its usage should be marked with '@org.jetbrains.kotlin.gradle.ExperimentalWasmDsl' or '@OptIn(org.jetbrains.kotlin.gradle.ExperimentalWasmDsl::class)'
+
+> Task :build-support:compileJava NO-SOURCE
+> Task :build-support:classes
+> Task :build-support:jar
+
+> Configure project :
+w: file:///home/runner/work/okio/okio/src/build.gradle.kts:182:5: 'kotlinOptions(KotlinJvmOptionsDeprecated /* = KotlinJvmOptions */.() -> Unit): Unit' is deprecated. Please migrate to the compilerOptions DSL. More details are here: https://kotl.in/u1r8ln
+w: file:///home/runner/work/okio/okio/src/build.gradle.kts:239:7: 'nodeVersion: String' is deprecated. Use version from NodeJsExtension (not NodeJsRootExtension) insteadYou can find this extension after applying NodeJsPlugin. This will be removed in 2.2
+w: file:///home/runner/work/okio/okio/src/build.gradle.kts:241:7: 'nodeVersion: String' is deprecated. Use version from NodeJsExtension (not NodeJsRootExtension) insteadYou can find this extension after applying NodeJsPlugin. This will be removed in 2.2
+w: file:///home/runner/work/okio/okio/src/build.gradle.kts:242:7: 'nodeDownloadBaseUrl: String?' is deprecated. Use downloadBaseUrl from NodeJsExtension (not NodeJsRootExtension) insteadYou can find this extension after applying NodeJsPlugin. This will be removed in 2.2
+
+> Configure project :android-test
+w: file:///home/runner/work/okio/okio/src/android-test/build.gradle.kts:34:3: 'compileSdkVersion(Int): Unit' is deprecated. Replaced by compileSdk
+w: file:///home/runner/work/okio/okio/src/android-test/build.gradle.kts:37:5: 'minSdkVersion(Int): Unit' is deprecated. Replaced by minSdk property
+w: file:///home/runner/work/okio/okio/src/android-test/build.gradle.kts:38:5: 'targetSdkVersion(Int): Unit' is deprecated. Replaced by targetSdk property
+
+> Configure project :okio
+warning: Dokka Gradle plugin V1 is deprecated
+    
+    Dokka Gradle plugin V1 is deprecated, and will be removed in Dokka version 2.1.0
+    Please migrate to Dokka Gradle plugin V2. This will require updating your project.
+    To learn about migrating read the migration guide https://kotl.in/dokka-gradle-migration
+    
+    To start migrating to Dokka Gradle plugin V2 add
+        org.jetbrains.dokka.experimental.gradle.pluginMode=V2EnabledWithHelpers
+    into your project's `gradle.properties` file.
+    
+    We would appreciate your feedback!
+     - Please report any feedback or problems https://kotl.in/dokka-issues
+     - Chat with the community visit #dokka in https://kotlinlang.slack.com/ (To sign up visit https://kotl.in/slack)
+    
+w: The Default Kotlin Hierarchy Template was not applied to 'project ':okio'':
+Explicit .dependsOn() edges were configured for the following source sets:
+[hashFunctions, jvmMain, jvmTest, nonAppleMain, nonJvmMain, nonJvmTest, nonWasmTest, systemFileSystemMain, zlibMain, zlibTest]
+
+Consider removing dependsOn-calls or disabling the default template by adding
+    'kotlin.mpp.applyDefaultHierarchyTemplate=false'
+to your gradle.properties
+
+Learn more about hierarchy templates: https://kotl.in/hierarchy-template
+
+w: The following Kotlin source sets were configured but not added to any Kotlin compilation:
+ * hashFunctions
+ * nonAppleMain
+ * nonJvmMain
+ * nonJvmTest
+You can add a source set to a target's compilation by connecting it with the compilation's default source set using 'dependsOn'.
+See https://kotl.in/connecting-source-sets
+
+
+> Configure project :okio-fakefilesystem
+w: file:///home/runner/work/okio/okio/src/okio-fakefilesystem/build.gradle.kts:19:9: 'kotlinOptions(KotlinJsOptions.() -> Unit): Unit' is deprecated. Please migrate to the compilerOptions DSL. More details are here: https://kotl.in/u1r8ln
+
+> Configure project :okio-testing-support
+w: The Default Kotlin Hierarchy Template was not applied to 'project ':okio-testing-support'':
+Explicit .dependsOn() edges were configured for the following source sets:
+[jvmMain, nonWasmMain, zlibMain]
+
+Consider removing dependsOn-calls or disabling the default template by adding
+    'kotlin.mpp.applyDefaultHierarchyTemplate=false'
+to your gradle.properties
+
+Learn more about hierarchy templates: https://kotl.in/hierarchy-template
+
+
+> Configure project :samples
+w: 'java' Gradle plugin is not compatible with 'org.jetbrains.kotlin.multiplatform' plugin.
+
+Consider adding a new subproject with 'java' plugin where the KMP project is added as a dependency.
+
+w: 'application' (also applies 'java' plugin) Gradle plugin is not compatible with 'org.jetbrains.kotlin.multiplatform' plugin.
+
+Consider adding a new subproject with 'application' plugin where the KMP project is added as a dependency.
+
+
+> Task :okio:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :okio:jvmProcessResources NO-SOURCE
+> Task :okio-fakefilesystem:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :okio-fakefilesystem:jvmProcessResources NO-SOURCE
+> Task :okio-fakefilesystem:klibApiExtractForValidation SKIPPED
+> Task :okio-fakefilesystem:klibApiMerge SKIPPED
+> Task :okio-fakefilesystem:klibApiCheck SKIPPED
+> Task :spotlessInternalRegisterDependencies
+> Task :okio-fakefilesystem:spotlessKotlin
+> Task :okio-fakefilesystem:spotlessKotlinCheck
+> Task :okio-fakefilesystem:spotlessCheck
+> Task :okio-fakefilesystem:jvmTestProcessResources NO-SOURCE
+> Task :okio-testing-support:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :okio-testing-support:jvmProcessResources
+> Task :okio:jvmTestProcessResources
+
+> Task :okio:compileKotlinJvm
+w: Opt-in requirement marker kotlinx.cinterop.ExperimentalForeignApi is unresolved. Please make sure it's present in the module dependencies
+w: file:///home/runner/work/okio/okio/src/okio/src/commonMain/kotlin/okio/Buffer.kt:31:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/commonMain/kotlin/okio/Buffer.kt:367:9 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/commonMain/kotlin/okio/BufferedSink.kt:22:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/commonMain/kotlin/okio/BufferedSource.kt:23:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/commonMain/kotlin/okio/ByteString.kt:36:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/commonMain/kotlin/okio/ByteString.kt:183:13 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/commonMain/kotlin/okio/CommonPlatform.kt:27:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/commonMain/kotlin/okio/CommonPlatform.kt:29:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/commonMain/kotlin/okio/CommonPlatform.kt:35:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/commonMain/kotlin/okio/CommonPlatform.kt:40:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/commonMain/kotlin/okio/CommonPlatform.kt:42:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/commonMain/kotlin/okio/CommonPlatform.kt:46:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/commonMain/kotlin/okio/CommonPlatform.kt:48:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/commonMain/kotlin/okio/FileSystem.kt:95:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/commonMain/kotlin/okio/FileSystem.kt:394:13 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/commonMain/kotlin/okio/ForwardingSource.kt:19:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/commonMain/kotlin/okio/HashingSink.kt:35:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/commonMain/kotlin/okio/HashingSink.kt:50:13 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/commonMain/kotlin/okio/HashingSource.kt:36:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/commonMain/kotlin/okio/HashingSource.kt:50:13 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/commonMain/kotlin/okio/Path.kt:138:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/commonMain/kotlin/okio/Path.kt:286:13 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/commonMain/kotlin/okio/RealBufferedSink.kt:19:10 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/commonMain/kotlin/okio/RealBufferedSource.kt:19:10 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/commonMain/kotlin/okio/SegmentPool.kt:22:10 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/commonMain/kotlin/okio/SegmentedByteString.kt:43:10 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/commonMain/kotlin/okio/Sink.kt:45:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/commonMain/kotlin/okio/Timeout.kt:36:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/commonMain/kotlin/okio/Timeout.kt:37:13 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/commonMain/kotlin/okio/Util.kt:58:10 Expected performance impact from inlining is insignificant. Inlining works best for functions with parameters of function types.
+w: file:///home/runner/work/okio/okio/src/okio/src/commonMain/kotlin/okio/Util.kt:62:10 Expected performance impact from inlining is insignificant. Inlining works best for functions with parameters of function types.
+w: file:///home/runner/work/okio/okio/src/okio/src/commonMain/kotlin/okio/internal/BufferedSource.kt:25:10 Expected performance impact from inlining is insignificant. Inlining works best for functions with parameters of function types.
+w: file:///home/runner/work/okio/okio/src/okio/src/jvmMain/kotlin/okio/-JvmPlatform.kt:27:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/jvmMain/kotlin/okio/-JvmPlatform.kt:29:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/jvmMain/kotlin/okio/-JvmPlatform.kt:35:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/jvmMain/kotlin/okio/-JvmPlatform.kt:37:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/jvmMain/kotlin/okio/-JvmPlatform.kt:39:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/jvmMain/kotlin/okio/-JvmPlatform.kt:41:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/jvmMain/kotlin/okio/-JvmPlatform.kt:43:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/jvmMain/kotlin/okio/-JvmPlatform.kt:45:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/jvmMain/kotlin/okio/-JvmPlatform.kt:47:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/jvmMain/kotlin/okio/Buffer.kt:76:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/jvmMain/kotlin/okio/Buffer.kt:83:16 This declaration overrides a deprecated member but is not marked as deprecated itself. Please add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///home/runner/work/okio/okio/src/okio/src/jvmMain/kotlin/okio/Buffer.kt:616:3 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/jvmMain/kotlin/okio/BufferedSink.kt:23:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/jvmMain/kotlin/okio/BufferedSource.kt:23:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/jvmMain/kotlin/okio/ByteString.kt:59:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/jvmMain/kotlin/okio/ByteString.kt:227:3 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/jvmMain/kotlin/okio/DeflaterSink.kt:22:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/jvmMain/kotlin/okio/DeprecatedUpgrade.kt:20:12 'object -DeprecatedOkio : Any' is deprecated. changed in Okio 2.x.
+w: file:///home/runner/work/okio/okio/src/okio/src/jvmMain/kotlin/okio/DeprecatedUpgrade.kt:21:12 'object -DeprecatedUtf8 : Any' is deprecated. changed in Okio 2.x.
+w: file:///home/runner/work/okio/okio/src/okio/src/jvmMain/kotlin/okio/FileSystem.kt:28:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/jvmMain/kotlin/okio/FileSystem.kt:132:3 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/jvmMain/kotlin/okio/ForwardingSource.kt:20:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/jvmMain/kotlin/okio/HashingSink.kt:41:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/jvmMain/kotlin/okio/HashingSink.kt:111:3 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/jvmMain/kotlin/okio/HashingSource.kt:42:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/jvmMain/kotlin/okio/HashingSource.kt:122:3 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/jvmMain/kotlin/okio/InflaterSource.kt:25:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/jvmMain/kotlin/okio/Path.kt:40:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/jvmMain/kotlin/okio/Path.kt:95:3 Annotation `@Throws(exceptionClasses = [IllegalArgumentException::class] type=kotlin.Array<out kotlin.reflect.KClass<out kotlin.Throwable>> varargElementType=kotlin.reflect.KClass<out kotlin.Throwable>)` is missing on actual declaration.
+All annotations from expect `okio.Path.relativeTo` must be present with the same arguments on actual `okio.Path.relativeTo`, otherwise they might behave incorrectly.
+w: file:///home/runner/work/okio/okio/src/okio/src/jvmMain/kotlin/okio/Path.kt:112:3 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/jvmMain/kotlin/okio/RealBufferedSink.kt:42:10 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/jvmMain/kotlin/okio/RealBufferedSink.kt:53:16 This declaration overrides a deprecated member but is not marked as deprecated itself. Please add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///home/runner/work/okio/okio/src/okio/src/jvmMain/kotlin/okio/RealBufferedSource.kt:54:10 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/jvmMain/kotlin/okio/RealBufferedSource.kt:65:16 This declaration overrides a deprecated member but is not marked as deprecated itself. Please add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///home/runner/work/okio/okio/src/okio/src/jvmMain/kotlin/okio/SegmentPool.kt:44:10 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/jvmMain/kotlin/okio/SegmentPool.kt:126:46 'val id: Long' is deprecated. Deprecated in Java.
+w: file:///home/runner/work/okio/okio/src/okio/src/jvmMain/kotlin/okio/SegmentedByteString.kt:37:10 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/jvmMain/kotlin/okio/Sink.kt:22:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/jvmMain/kotlin/okio/Timeout.kt:27:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/jvmMain/kotlin/okio/Timeout.kt:333:3 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/jvmMain/kotlin/okio/internal/-ZlibJvm.kt:24:10 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/zlibMain/kotlin/okio/Deflater.kt:21:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/zlibMain/kotlin/okio/DeflaterSink.kt:38:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/zlibMain/kotlin/okio/DeflaterSink.kt:62:1 Expected performance impact from inlining is insignificant. Inlining works best for functions with parameters of function types.
+w: file:///home/runner/work/okio/okio/src/okio/src/zlibMain/kotlin/okio/Inflater.kt:21:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/zlibMain/kotlin/okio/InflaterSource.kt:26:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio/src/zlibMain/kotlin/okio/InflaterSource.kt:47:1 Expected performance impact from inlining is insignificant. Inlining works best for functions with parameters of function types.
+w: file:///home/runner/work/okio/okio/src/okio/src/zlibMain/kotlin/okio/internal/CRC32.kt:18:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+
+> Task :okio:jvmMainClasses
+
+> Task :okio:jvmJar
+warning: Classpath is empty. Private-Package, -privatepackage, and Export-Package can only expand from the classpath when there is one
+warning: Export okio,  has 1,  private references [okio.internal]
+
+> Task :okio-fakefilesystem:compileKotlinJvm
+> Task :okio-fakefilesystem:jvmMainClasses
+
+> Task :okio-fakefilesystem:jvmJar
+warning: Classpath is empty. Private-Package, -privatepackage, and Export-Package can only expand from the classpath when there is one
+
+> Task :okio-fakefilesystem:jvmApiBuild
+> Task :okio-fakefilesystem:jvmApiCheck
+> Task :okio-fakefilesystem:apiCheck
+> Task :okio-fakefilesystem:compileTestKotlinJvm
+> Task :okio-fakefilesystem:jvmTestClasses
+
+> Task :okio-testing-support:compileKotlinJvm
+w: file:///home/runner/work/okio/okio/src/okio-testing-support/src/commonMain/kotlin/okio/TestingCommon.kt:69:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio-testing-support/src/commonMain/kotlin/okio/TestingCommon.kt:73:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio-testing-support/src/nonWasmMain/kotlin/okio/TestingNonWasm.kt:20:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///home/runner/work/okio/okio/src/okio-testing-support/src/nonWasmMain/kotlin/okio/TestingNonWasm.kt:22:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+
+> Task :okio-fakefilesystem:jvmTest
+
+FakeFileSystemConcurrencyTest[jvm] > registryObserversSeeConsistentSnapshotsWhileHandlesChurn[jvm] STARTED
+
+FakeFileSystemConcurrencyTest[jvm] > registryObserversSeeConsistentSnapshotsWhileHandlesChurn[jvm] PASSED
+
+FakeFileSystemConcurrencyTest[jvm] > concurrentDistinctFileOpenClose[jvm] STARTED
+
+FakeFileSystemConcurrencyTest[jvm] > concurrentDistinctFileOpenClose[jvm] PASSED
+
+FakeFileSystemRegistryTest[jvm] > clockFailureOnDeferredSinkCloseStillRemovesRegistration[jvm] STARTED
+
+FakeFileSystemRegistryTest[jvm] > clockFailureOnDeferredSinkCloseStillRemovesRegistration[jvm] PASSED
+
+FakeFileSystemRegistryTest[jvm] > clockFailureOnCloseStillRemovesRegistration[jvm] STARTED
+
+FakeFileSystemRegistryTest[jvm] > clockFailureOnCloseStillRemovesRegistration[jvm] PASSED
+
+FakeFileSystemRegistryTest[jvm] > clockFailureOnDeferredSourceCloseStillRemovesRegistration[jvm] STARTED
+
+FakeFileSystemRegistryTest[jvm] > clockFailureOnDeferredSourceCloseStillRemovesRegistration[jvm] PASSED
+
+FakeFileSystemRegistryTest[jvm] > clockReentryCannotAdmitTwoWriters[jvm] STARTED
+
+FakeFileSystemRegistryTest[jvm] > clockReentryCannotAdmitTwoWriters[jvm] PASSED
+
+FakeFileSystemRegistryTest[jvm] > openPathsIsASnapshotAndSourcesRetainRegistration[jvm] STARTED
+
+FakeFileSystemRegistryTest[jvm] > openPathsIsASnapshotAndSourcesRetainRegistration[jvm] PASSED
+
+FakeFileSystemTreeConcurrencyTest[jvm] > rootCreationKeepsAnIndependentFile[jvm] STARTED
+
+FakeFileSystemTreeConcurrencyTest[jvm] > rootCreationKeepsAnIndependentFile[jvm] PASSED
+
+FakeFileSystemTreeConcurrencyTest[jvm] > rootCreationBySymlinkKeepsAnIndependentFile[jvm] STARTED
+
+FakeFileSystemTreeConcurrencyTest[jvm] > rootCreationBySymlinkKeepsAnIndependentFile[jvm] PASSED
+
+FakeFileSystemTreeConcurrencyTest[jvm] > independentChildrenOfASharedParentAreAllKept[jvm] STARTED
+
+FakeFileSystemTreeConcurrencyTest[jvm] > independentChildrenOfASharedParentAreAllKept[jvm] PASSED
+
+FakeFileSystemTreeConcurrencyTest[jvm] > listingASharedParentWhileIndependentChildrenChange[jvm] STARTED
+
+FakeFileSystemTreeConcurrencyTest[jvm] > listingASharedParentWhileIndependentChildrenChange[jvm] PASSED
+
+FakeFileSystemTreeConcurrencyTest[jvm] > directoryCreationKeepsAnIndependentSibling[jvm] STARTED
+
+FakeFileSystemTreeConcurrencyTest[jvm] > directoryCreationKeepsAnIndependentSibling[jvm] PASSED
+
+> Task :okio-testing-support:jvmMainClasses
+> Task :okio-testing-support:jvmJar
+
+> Task :okio:compileTestKotlinJvm
+w: Opt-in requirement marker kotlinx.cinterop.ExperimentalForeignApi is unresolved. Please make sure it's present in the module dependencies
+w: file:///home/runner/work/okio/okio/src/okio/src/jvmTest/kotlin/okio/TestUtil.kt:121:17 Condition is always 'false'.
+
+> Task :okio:jvmTestClasses
+  adding: test.txt (stored 0%)
+  adding: META-INF/MANIFEST.MF (stored 0%)
+
+> Task :okio:jvmTest
+
+FakeUnixFileSystemTest[jvm] > workingDirectoryMustBeAbsolute[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > workingDirectoryMustBeAbsolute[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > getExtraWrongType[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > getExtraWrongType[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > fileLastAccessedTime[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > fileLastAccessedTime[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > createDirectoriesForChildOfUncRoot[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > createDirectoriesForChildOfUncRoot[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > symlinkCanBeUsedAfterSettingAllowSymlinksToFalse[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > symlinkCanBeUsedAfterSettingAllowSymlinksToFalse[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > startReadWhileWritingNotAllowedWhenStrict[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > startReadWhileWritingNotAllowedWhenStrict[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > extraIsNotCopiedByFileCopy[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > extraIsNotCopiedByFileCopy[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > deleteExtra[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > deleteExtra[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > createExtrasDefensiveCopy[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > createExtrasDefensiveCopy[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > allPathsIncludesFile[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > allPathsIncludesFile[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > createDirectoriesForVolumeLetterRoot[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > createDirectoriesForVolumeLetterRoot[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > openPathsIsOpenOrder[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > openPathsIsOpenOrder[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > allPathsDoesNotIncludeDeletedOpenFile[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > allPathsDoesNotIncludeDeletedOpenFile[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > directoryLastAccessedTime[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > directoryLastAccessedTime[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > extrasHappyPath[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > extrasHappyPath[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > startWriteWhileReadingNotAllowedWhenStrict[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > startWriteWhileReadingNotAllowedWhenStrict[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > allPathsDoesNotIncludeDeletedFile[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > allPathsDoesNotIncludeDeletedFile[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > allPathsIncludesDirectory[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > allPathsIncludesDirectory[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > getExtraAbsent[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > getExtraAbsent[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > symlinkCannotBeCreatedAfterSettingAllowSymlinksToFalse[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > symlinkCannotBeCreatedAfterSettingAllowSymlinksToFalse[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > checkNoOpenFilesThrowsOnOpenSource[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > checkNoOpenFilesThrowsOnOpenSource[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > startWriteWhileWritingNotAllowedWhenStrict[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > startWriteWhileWritingNotAllowedWhenStrict[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > openPathsIncludesOpenSink[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > openPathsIncludesOpenSink[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > extraIsMovedByAtomicMove[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > extraIsMovedByAtomicMove[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > createDirectoriesForChildOfVolumeLetterRoot[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > createDirectoriesForChildOfVolumeLetterRoot[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > startReadWhileReadingAllowedWhenStrict[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > startReadWhileReadingAllowedWhenStrict[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > openPathsIncludesOpenSource[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > openPathsIncludesOpenSource[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > createDirectoriesForUncRoot[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > createDirectoriesForUncRoot[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > metadataForRootsGeneratedOnDemand[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > metadataForRootsGeneratedOnDemand[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > symlinkExtras[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > symlinkExtras[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > directoryExtras[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > directoryExtras[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > createDirectoriesForUnixRoot[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > createDirectoriesForUnixRoot[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > fileExtras[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > fileExtras[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > allPathsIsSorted[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > allPathsIsSorted[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > createDirectoriesForChildOfUnixRoot[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > createDirectoriesForChildOfUnixRoot[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > checkNoOpenFilesThrowsOnOpenSink[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > checkNoOpenFilesThrowsOnOpenSink[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > deleteRecursivelyDeepHierarchy[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > deleteRecursivelyDeepHierarchy[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > createDirectoryMustCreate[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > createDirectoryMustCreate[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > fileSinkFlush[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > fileSinkFlush[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > fileHandleLargeBufferedWriteAndRead[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > fileHandleLargeBufferedWriteAndRead[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > createSymlinkSourceAlreadyExists[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > createSymlinkSourceAlreadyExists[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > listRecursivelyDoesNotFollowSymlinks[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > listRecursivelyDoesNotFollowSymlinks[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > listRecursivelySequenceIterationsAreIndependent[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > listRecursivelySequenceIterationsAreIndependent[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > atomicMoveDirectory[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > atomicMoveDirectory[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > fileHandleResizeLarger[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > fileHandleResizeLarger[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > openReadWriteMustExist[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > openReadWriteMustExist[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > listOrNullOnRelativePathReturnsRelativePaths[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > listOrNullOnRelativePathReturnsRelativePaths[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > sourceRepositionFailsAfterClose[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > sourceRepositionFailsAfterClose[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > deleteRecursivelyEmptyDirectory[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > deleteRecursivelyEmptyDirectory[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > fileHandleSinkPosition[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > fileHandleSinkPosition[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > listRecursivelyFollowsSymlinks[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > listRecursivelyFollowsSymlinks[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > deleteRecursivelyOnSymlinkToDirectoryDeletesOnlyThatSymlinkMustExist[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > deleteRecursivelyOnSymlinkToDirectoryDeletesOnlyThatSymlinkMustExist[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > sinkRepositionFailsAfterClose[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > sinkRepositionFailsAfterClose[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > fileMetadata[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > fileMetadata[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > fileHandleResizeSmaller[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > fileHandleResizeSmaller[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > canonicalizeFollowsSymlinkFiles[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > canonicalizeFollowsSymlinkFiles[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > deleteFailsOnNonEmptyDirectoryMustExist[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > deleteFailsOnNonEmptyDirectoryMustExist[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > deleteDoesNotExist[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > deleteDoesNotExist[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > fileHandleBufferedSinkReposition[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > fileHandleBufferedSinkReposition[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > bufferedFileHandleSourceSeekBackwards[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > bufferedFileHandleSourceSeekBackwards[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > fileHandleWriteAndOverwrite[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > fileHandleWriteAndOverwrite[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > parentDirectoryIsFileMetadataOrNull[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > parentDirectoryIsFileMetadataOrNull[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > writePath[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > writePath[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > followingRecursiveSymlinksIsOkay[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > followingRecursiveSymlinksIsOkay[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > fileHandleEmptyArrayWriteAndRead[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > fileHandleEmptyArrayWriteAndRead[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > deleteEmptyDirectoryMustExist[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > deleteEmptyDirectoryMustExist[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > deleteOpenForWritingFailsOnWindows[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > deleteOpenForWritingFailsOnWindows[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > createDirectoryAlreadyExistsMustCreateThrows[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > createDirectoryAlreadyExistsMustCreateThrows[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > bufferedFileHandleSourceHappyPath[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > bufferedFileHandleSourceHappyPath[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > createDirectoriesAlreadyExists[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > createDirectoriesAlreadyExists[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > openReadWriteMustCreateThrowsIfAlreadyExists[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > openReadWriteMustCreateThrowsIfAlreadyExists[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > openSymlinkSource[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > openSymlinkSource[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > openReadWriteMustExistThrowsIfAbsent[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > openReadWriteMustExistThrowsIfAbsent[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > deleteRecursivelyFileMustExist[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > deleteRecursivelyFileMustExist[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > deleteRecursivelyOnSymlinkToEnclosingDirectorySucceedsMustExist[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > deleteRecursivelyOnSymlinkToEnclosingDirectorySucceedsMustExist[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > listOnRelativePathReturnsRelativePaths[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > listOnRelativePathReturnsRelativePaths[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > fileHandleSinkReposition[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > fileHandleSinkReposition[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > deleteFailsOnNoSuchFileIfMustExist[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > deleteFailsOnNoSuchFileIfMustExist[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > listRecursivelySilentlyIgnoresListFailures[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > listRecursivelySilentlyIgnoresListFailures[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > canonicalizeReturnsDeeperPath[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > canonicalizeReturnsDeeperPath[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > listRecursivelyIsLazy[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > listRecursivelyIsLazy[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > fileHandleLargeArrayWriteAndRead[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > fileHandleLargeArrayWriteAndRead[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > relativeSymlinkMetadata[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > relativeSymlinkMetadata[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > readPath[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > readPath[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > listSymlinkDirectory[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > listSymlinkDirectory[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > deleteRecursivelyEmptyDirectoryMustExist[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > deleteRecursivelyEmptyDirectoryMustExist[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > canonicalizeRelativePathNoSuchFile[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > canonicalizeRelativePathNoSuchFile[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > fileSink[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > fileSink[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > fileHandleFlush[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > fileHandleFlush[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > fileSinkWithSpecialCharacterNamedFiles[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > fileSinkWithSpecialCharacterNamedFiles[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > deleteRecursivelyOnSymlinkToEnclosingDirectorySucceeds[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > deleteRecursivelyOnSymlinkToEnclosingDirectorySucceeds[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > deleteContentsOfParentOfFileOpenForReadingFailsOnWindows[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > deleteContentsOfParentOfFileOpenForReadingFailsOnWindows[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > deleteRecursivelyOnSymlinkToDirectoryDeletesOnlyThatSymlink[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > deleteRecursivelyOnSymlinkToDirectoryDeletesOnlyThatSymlink[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > fileSourceNoSuchDirectory[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > fileSourceNoSuchDirectory[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > appendingSinkAppendsToExistingFile[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > appendingSinkAppendsToExistingFile[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > copyFile[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > copyFile[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > deleteRecursivelyOnSymlinkCycleSucceedsMustExist[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > deleteRecursivelyOnSymlinkCycleSucceedsMustExist[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > openSymlinkFileHandle[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > openSymlinkFileHandle[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > fileSinkNoSuchDirectory[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > fileSinkNoSuchDirectory[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > listResultsAreSorted[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > listResultsAreSorted[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > absentParentDirectoryMetadataOrNull[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > absentParentDirectoryMetadataOrNull[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > atomicMoveFile[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > atomicMoveFile[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > atomicMoveClobberExistingFile[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > atomicMoveClobberExistingFile[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > deleteRecursivelyOnSymlinkCycleSucceeds[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > deleteRecursivelyOnSymlinkCycleSucceeds[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > openFileWithDirectorySymlink[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > openFileWithDirectorySymlink[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > deleteFileMustExist[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > deleteFileMustExist[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > listRecursivelyReturnsEmpty[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > listRecursivelyReturnsEmpty[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > appendingSinkMustExistThrowsIfAbsent[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > appendingSinkMustExistThrowsIfAbsent[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > fileHandleSourceReposition[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > fileHandleSourceReposition[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > createSymlinkParentDirectoryDoesNotExist[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > createSymlinkParentDirectoryDoesNotExist[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > fileSinkMustCreate[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > fileSinkMustCreate[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > inaccessibleMetadata[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > inaccessibleMetadata[jvm] SKIPPED
+
+FakeUnixFileSystemTest[jvm] > openReadWriteCreatesAbsentFile[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > openReadWriteCreatesAbsentFile[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > listRecursiveOnSymlinkWithSpecialCharacterNamedFiles[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > listRecursiveOnSymlinkWithSpecialCharacterNamedFiles[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > deleteOpenForReadingFailsOnWindows[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > deleteOpenForReadingFailsOnWindows[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > fileSinkSpecialCharacters[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > fileSinkSpecialCharacters[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > deleteRecursivelyNoSuchFile[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > deleteRecursivelyNoSuchFile[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > list[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > list[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > createDirectoryAlreadyExists[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > createDirectoryAlreadyExists[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > writePathMustCreateThrowsIfAlreadyExists[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > writePathMustCreateThrowsIfAlreadyExists[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > deleteEmptyDirectory[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > deleteEmptyDirectory[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > canonicalizeReturnsShallowerPath[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > canonicalizeReturnsShallowerPath[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > canonicalizeFollowsSymlinkDirectories[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > canonicalizeFollowsSymlinkDirectories[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > canonicalizeFollowsMultipleDirectoriesAndMultipleFiles[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > canonicalizeFollowsMultipleDirectoriesAndMultipleFiles[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > fileHandleBufferedSourceReposition[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > fileHandleBufferedSourceReposition[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > fileHandleSourceSeekBackwards[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > fileHandleSourceSeekBackwards[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > listOrNullFile[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > listOrNullFile[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > writeAfterFileSystemClose[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > writeAfterFileSystemClose[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > createDirectoriesAlreadyExistsMustCreateThrows[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > createDirectoriesAlreadyExistsMustCreateThrows[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > atomicMoveSourceIsDirectoryAndTargetIsFile[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > atomicMoveSourceIsDirectoryAndTargetIsFile[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > listOnRelativePathWhichIsNotDotReturnsRelativePaths[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > listOnRelativePathWhichIsNotDotReturnsRelativePaths[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > renameSourceIsOpenFailsOnWindows[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > renameSourceIsOpenFailsOnWindows[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > copyTargetIsClobbered[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > copyTargetIsClobbered[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > deleteRecursivelyOnSymlinkToFileDeletesOnlyThatSymlink[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > deleteRecursivelyOnSymlinkToFileDeletesOnlyThatSymlink[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > listOrNull[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > listOrNull[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > listNoSuchDirectory[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > listNoSuchDirectory[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > directoryMetadataWithSpecialCharacterNamedFiles[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > directoryMetadataWithSpecialCharacterNamedFiles[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > deleteRecursivelyNonEmptyDirectoryMustExist[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > deleteRecursivelyNonEmptyDirectoryMustExist[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > createDirectoriesParentIsFile[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > createDirectoriesParentIsFile[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > listRecursivelyIsDepthFirst[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > listRecursivelyIsDepthFirst[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > absentMetadata[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > absentMetadata[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > moveSymlinkDoesntMoveTargetFile[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > moveSymlinkDoesntMoveTargetFile[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > writePathMustCreate[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > writePathMustCreate[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > openReadWriteThrowsIfBothMustCreateAndMustExist[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > openReadWriteThrowsIfBothMustCreateAndMustExist[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > fileHandleBufferedSinkPosition[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > fileHandleBufferedSinkPosition[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > deleteRecursivelyFile[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > deleteRecursivelyFile[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > fileHandleWriteBeyondEnd[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > fileHandleWriteBeyondEnd[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > listRecursivelyOnSymlink[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > listRecursivelyOnSymlink[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > symlinkCanBeRelative[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > symlinkCanBeRelative[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > canonicalizeAbsolutePathNoSuchFile[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > canonicalizeAbsolutePathNoSuchFile[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > directoryMetadata[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > directoryMetadata[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > symlinkCanBeRelativeWithDotDots[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > symlinkCanBeRelativeWithDotDots[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > canonicalizeDotReturnsCurrentWorkingDirectory[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > canonicalizeDotReturnsCurrentWorkingDirectory[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > deleteFailsOnNonEmptyDirectory[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > deleteFailsOnNonEmptyDirectory[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > fileSinkMustCreateThrowsIfAlreadyExists[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > fileSinkMustCreateThrowsIfAlreadyExists[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > fileMetadataWithSpecialCharacterNamedFiles[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > fileMetadataWithSpecialCharacterNamedFiles[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > atomicMoveSourceIsFileAndTargetIsDirectory[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > atomicMoveSourceIsFileAndTargetIsDirectory[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > copySourceDoesNotExist[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > copySourceDoesNotExist[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > listRecursivelyDoesNotFollowRelativeSymlink[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > listRecursivelyDoesNotFollowRelativeSymlink[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > atomicMoveSourceIsTarget[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > atomicMoveSourceIsTarget[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > deleteRecursivelyNonEmptyDirectory[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > deleteRecursivelyNonEmptyDirectory[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > directoryExists[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > directoryExists[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > currentWorkingDirectoryIsADirectory[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > currentWorkingDirectoryIsADirectory[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > appendingSinkDoesNotImpactExistingFile[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > appendingSinkDoesNotImpactExistingFile[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > openReadOnlyThrowsOnAttemptToWrite[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > openReadOnlyThrowsOnAttemptToWrite[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > deleteSymlinkDoesntDeleteTargetFile[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > deleteSymlinkDoesntDeleteTargetFile[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > listFile[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > listFile[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > createDirectoryParentDirectoryDoesNotExist[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > createDirectoryParentDirectoryDoesNotExist[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > appendingSinkExistingFileMustExist[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > appendingSinkExistingFileMustExist[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > fileExists[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > fileExists[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > openSymlinkSink[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > openSymlinkSink[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > fileHandleSourceHappyPath[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > fileHandleSourceHappyPath[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > openReadWriteCreatesAbsentFileMustCreate[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > openReadWriteCreatesAbsentFileMustCreate[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > doesNotExistsWithInvalidPathDoesNotThrow[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > doesNotExistsWithInvalidPathDoesNotThrow[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > listRecursivelyNotADirectory[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > listRecursivelyNotADirectory[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > createDirectoriesSingle[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > createDirectoriesSingle[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > createDirectoriesParentDirectoryDoesNotExist[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > createDirectoriesParentDirectoryDoesNotExist[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > fileHandleWriteAndRead[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > fileHandleWriteAndRead[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > sourcePositionFailsAfterClose[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > sourcePositionFailsAfterClose[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > symlinkDirectoryLastAccessedAt[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > symlinkDirectoryLastAccessedAt[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > listOrNullNoSuchDirectory[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > listOrNullNoSuchDirectory[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > listRecursivelyRecurses[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > listRecursivelyRecurses[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > sizeFailsAfterClose[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > sizeFailsAfterClose[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > readAfterFileSystemClose[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > readAfterFileSystemClose[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > listRecursivelyReturnsSingleFile[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > listRecursivelyReturnsSingleFile[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > listOrNullOnRelativePathWhichIsNotDotReturnsRelativePaths[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > listOrNullOnRelativePathWhichIsNotDotReturnsRelativePaths[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > appendingSinkCreatesNewFile[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > appendingSinkCreatesNewFile[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > listRecursivelyNoSuchFile[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > listRecursivelyNoSuchFile[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > deleteFile[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > deleteFile[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > atomicMoveSourceDoesNotExist[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > atomicMoveSourceDoesNotExist[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > fileSource[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > fileSource[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > createDirectory[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > createDirectory[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > openReadOnlyFailsOnAbsentFile[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > openReadOnlyFailsOnAbsentFile[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > deleteRecursivelyMustExistFailsOnNoSuchFile[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > deleteRecursivelyMustExistFailsOnNoSuchFile[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > listOrNullResultsAreSorted[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > listOrNullResultsAreSorted[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > sinkPositionFailsAfterClose[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > sinkPositionFailsAfterClose[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > absoluteSymlinkMetadata[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > absoluteSymlinkMetadata[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > symlinkCycle[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > symlinkCycle[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > listRecursivelyOnSymlinkCycleThrows[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > listRecursivelyOnSymlinkCycleThrows[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > deleteRecursivelyOnSymlinkToFileDeletesOnlyThatSymlinkMustExist[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > deleteRecursivelyOnSymlinkToFileDeletesOnlyThatSymlinkMustExist[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > renameTargetIsOpenFailsOnWindows[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > renameTargetIsOpenFailsOnWindows[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > absentMetadataOrNull[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > absentMetadataOrNull[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > deleteRecursivelyDeepHierarchyMustExist[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > deleteRecursivelyDeepHierarchyMustExist[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > symlinkFileLastAccessedAt[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > symlinkFileLastAccessedAt[jvm] PASSED
+
+FakeUnixFileSystemTest[jvm] > listRecursiveWithSpecialCharacterNamedFiles[jvm] STARTED
+
+FakeUnixFileSystemTest[jvm] > listRecursiveWithSpecialCharacterNamedFiles[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > workingDirectoryMustBeAbsolute[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > workingDirectoryMustBeAbsolute[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > getExtraWrongType[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > getExtraWrongType[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > fileLastAccessedTime[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > fileLastAccessedTime[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > createDirectoriesForChildOfUncRoot[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > createDirectoriesForChildOfUncRoot[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > symlinkCanBeUsedAfterSettingAllowSymlinksToFalse[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > symlinkCanBeUsedAfterSettingAllowSymlinksToFalse[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > startReadWhileWritingNotAllowedWhenStrict[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > startReadWhileWritingNotAllowedWhenStrict[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > extraIsNotCopiedByFileCopy[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > extraIsNotCopiedByFileCopy[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > deleteExtra[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > deleteExtra[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > createExtrasDefensiveCopy[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > createExtrasDefensiveCopy[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > allPathsIncludesFile[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > allPathsIncludesFile[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > createDirectoriesForVolumeLetterRoot[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > createDirectoriesForVolumeLetterRoot[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > openPathsIsOpenOrder[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > openPathsIsOpenOrder[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > allPathsDoesNotIncludeDeletedOpenFile[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > allPathsDoesNotIncludeDeletedOpenFile[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > directoryLastAccessedTime[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > directoryLastAccessedTime[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > extrasHappyPath[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > extrasHappyPath[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > startWriteWhileReadingNotAllowedWhenStrict[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > startWriteWhileReadingNotAllowedWhenStrict[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > allPathsDoesNotIncludeDeletedFile[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > allPathsDoesNotIncludeDeletedFile[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > allPathsIncludesDirectory[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > allPathsIncludesDirectory[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > getExtraAbsent[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > getExtraAbsent[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > symlinkCannotBeCreatedAfterSettingAllowSymlinksToFalse[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > symlinkCannotBeCreatedAfterSettingAllowSymlinksToFalse[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > checkNoOpenFilesThrowsOnOpenSource[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > checkNoOpenFilesThrowsOnOpenSource[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > startWriteWhileWritingNotAllowedWhenStrict[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > startWriteWhileWritingNotAllowedWhenStrict[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > openPathsIncludesOpenSink[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > openPathsIncludesOpenSink[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > extraIsMovedByAtomicMove[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > extraIsMovedByAtomicMove[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > createDirectoriesForChildOfVolumeLetterRoot[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > createDirectoriesForChildOfVolumeLetterRoot[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > startReadWhileReadingAllowedWhenStrict[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > startReadWhileReadingAllowedWhenStrict[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > openPathsIncludesOpenSource[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > openPathsIncludesOpenSource[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > createDirectoriesForUncRoot[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > createDirectoriesForUncRoot[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > metadataForRootsGeneratedOnDemand[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > metadataForRootsGeneratedOnDemand[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > symlinkExtras[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > symlinkExtras[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > directoryExtras[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > directoryExtras[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > createDirectoriesForUnixRoot[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > createDirectoriesForUnixRoot[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > fileExtras[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > fileExtras[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > allPathsIsSorted[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > allPathsIsSorted[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > createDirectoriesForChildOfUnixRoot[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > createDirectoriesForChildOfUnixRoot[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > checkNoOpenFilesThrowsOnOpenSink[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > checkNoOpenFilesThrowsOnOpenSink[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > deleteRecursivelyDeepHierarchy[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > deleteRecursivelyDeepHierarchy[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > createDirectoryMustCreate[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > createDirectoryMustCreate[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > fileSinkFlush[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > fileSinkFlush[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > fileHandleLargeBufferedWriteAndRead[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > fileHandleLargeBufferedWriteAndRead[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > createSymlinkSourceAlreadyExists[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > createSymlinkSourceAlreadyExists[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > listRecursivelyDoesNotFollowSymlinks[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > listRecursivelyDoesNotFollowSymlinks[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > listRecursivelySequenceIterationsAreIndependent[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > listRecursivelySequenceIterationsAreIndependent[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > atomicMoveDirectory[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > atomicMoveDirectory[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > fileHandleResizeLarger[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > fileHandleResizeLarger[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > openReadWriteMustExist[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > openReadWriteMustExist[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > listOrNullOnRelativePathReturnsRelativePaths[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > listOrNullOnRelativePathReturnsRelativePaths[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > sourceRepositionFailsAfterClose[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > sourceRepositionFailsAfterClose[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > deleteRecursivelyEmptyDirectory[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > deleteRecursivelyEmptyDirectory[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > fileHandleSinkPosition[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > fileHandleSinkPosition[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > listRecursivelyFollowsSymlinks[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > listRecursivelyFollowsSymlinks[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > deleteRecursivelyOnSymlinkToDirectoryDeletesOnlyThatSymlinkMustExist[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > deleteRecursivelyOnSymlinkToDirectoryDeletesOnlyThatSymlinkMustExist[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > sinkRepositionFailsAfterClose[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > sinkRepositionFailsAfterClose[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > fileMetadata[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > fileMetadata[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > fileHandleResizeSmaller[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > fileHandleResizeSmaller[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > canonicalizeFollowsSymlinkFiles[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > canonicalizeFollowsSymlinkFiles[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > deleteFailsOnNonEmptyDirectoryMustExist[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > deleteFailsOnNonEmptyDirectoryMustExist[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > deleteDoesNotExist[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > deleteDoesNotExist[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > fileHandleBufferedSinkReposition[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > fileHandleBufferedSinkReposition[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > bufferedFileHandleSourceSeekBackwards[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > bufferedFileHandleSourceSeekBackwards[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > fileHandleWriteAndOverwrite[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > fileHandleWriteAndOverwrite[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > parentDirectoryIsFileMetadataOrNull[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > parentDirectoryIsFileMetadataOrNull[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > writePath[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > writePath[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > followingRecursiveSymlinksIsOkay[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > followingRecursiveSymlinksIsOkay[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > fileHandleEmptyArrayWriteAndRead[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > fileHandleEmptyArrayWriteAndRead[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > deleteEmptyDirectoryMustExist[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > deleteEmptyDirectoryMustExist[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > deleteOpenForWritingFailsOnWindows[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > deleteOpenForWritingFailsOnWindows[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > createDirectoryAlreadyExistsMustCreateThrows[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > createDirectoryAlreadyExistsMustCreateThrows[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > bufferedFileHandleSourceHappyPath[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > bufferedFileHandleSourceHappyPath[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > createDirectoriesAlreadyExists[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > createDirectoriesAlreadyExists[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > openReadWriteMustCreateThrowsIfAlreadyExists[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > openReadWriteMustCreateThrowsIfAlreadyExists[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > openSymlinkSource[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > openSymlinkSource[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > openReadWriteMustExistThrowsIfAbsent[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > openReadWriteMustExistThrowsIfAbsent[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > deleteRecursivelyFileMustExist[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > deleteRecursivelyFileMustExist[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > deleteRecursivelyOnSymlinkToEnclosingDirectorySucceedsMustExist[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > deleteRecursivelyOnSymlinkToEnclosingDirectorySucceedsMustExist[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > listOnRelativePathReturnsRelativePaths[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > listOnRelativePathReturnsRelativePaths[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > fileHandleSinkReposition[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > fileHandleSinkReposition[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > deleteFailsOnNoSuchFileIfMustExist[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > deleteFailsOnNoSuchFileIfMustExist[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > listRecursivelySilentlyIgnoresListFailures[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > listRecursivelySilentlyIgnoresListFailures[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > canonicalizeReturnsDeeperPath[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > canonicalizeReturnsDeeperPath[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > listRecursivelyIsLazy[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > listRecursivelyIsLazy[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > fileHandleLargeArrayWriteAndRead[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > fileHandleLargeArrayWriteAndRead[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > relativeSymlinkMetadata[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > relativeSymlinkMetadata[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > readPath[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > readPath[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > listSymlinkDirectory[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > listSymlinkDirectory[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > deleteRecursivelyEmptyDirectoryMustExist[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > deleteRecursivelyEmptyDirectoryMustExist[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > canonicalizeRelativePathNoSuchFile[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > canonicalizeRelativePathNoSuchFile[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > fileSink[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > fileSink[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > fileHandleFlush[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > fileHandleFlush[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > fileSinkWithSpecialCharacterNamedFiles[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > fileSinkWithSpecialCharacterNamedFiles[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > deleteRecursivelyOnSymlinkToEnclosingDirectorySucceeds[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > deleteRecursivelyOnSymlinkToEnclosingDirectorySucceeds[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > deleteContentsOfParentOfFileOpenForReadingFailsOnWindows[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > deleteContentsOfParentOfFileOpenForReadingFailsOnWindows[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > deleteRecursivelyOnSymlinkToDirectoryDeletesOnlyThatSymlink[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > deleteRecursivelyOnSymlinkToDirectoryDeletesOnlyThatSymlink[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > fileSourceNoSuchDirectory[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > fileSourceNoSuchDirectory[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > appendingSinkAppendsToExistingFile[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > appendingSinkAppendsToExistingFile[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > copyFile[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > copyFile[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > deleteRecursivelyOnSymlinkCycleSucceedsMustExist[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > deleteRecursivelyOnSymlinkCycleSucceedsMustExist[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > openSymlinkFileHandle[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > openSymlinkFileHandle[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > fileSinkNoSuchDirectory[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > fileSinkNoSuchDirectory[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > listResultsAreSorted[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > listResultsAreSorted[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > absentParentDirectoryMetadataOrNull[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > absentParentDirectoryMetadataOrNull[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > atomicMoveFile[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > atomicMoveFile[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > atomicMoveClobberExistingFile[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > atomicMoveClobberExistingFile[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > deleteRecursivelyOnSymlinkCycleSucceeds[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > deleteRecursivelyOnSymlinkCycleSucceeds[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > openFileWithDirectorySymlink[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > openFileWithDirectorySymlink[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > deleteFileMustExist[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > deleteFileMustExist[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > listRecursivelyReturnsEmpty[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > listRecursivelyReturnsEmpty[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > appendingSinkMustExistThrowsIfAbsent[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > appendingSinkMustExistThrowsIfAbsent[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > fileHandleSourceReposition[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > fileHandleSourceReposition[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > createSymlinkParentDirectoryDoesNotExist[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > createSymlinkParentDirectoryDoesNotExist[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > fileSinkMustCreate[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > fileSinkMustCreate[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > inaccessibleMetadata[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > inaccessibleMetadata[jvm] SKIPPED
+
+FakeWindowsFileSystemTest[jvm] > openReadWriteCreatesAbsentFile[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > openReadWriteCreatesAbsentFile[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > listRecursiveOnSymlinkWithSpecialCharacterNamedFiles[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > listRecursiveOnSymlinkWithSpecialCharacterNamedFiles[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > deleteOpenForReadingFailsOnWindows[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > deleteOpenForReadingFailsOnWindows[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > fileSinkSpecialCharacters[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > fileSinkSpecialCharacters[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > deleteRecursivelyNoSuchFile[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > deleteRecursivelyNoSuchFile[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > list[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > list[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > createDirectoryAlreadyExists[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > createDirectoryAlreadyExists[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > writePathMustCreateThrowsIfAlreadyExists[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > writePathMustCreateThrowsIfAlreadyExists[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > deleteEmptyDirectory[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > deleteEmptyDirectory[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > canonicalizeReturnsShallowerPath[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > canonicalizeReturnsShallowerPath[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > canonicalizeFollowsSymlinkDirectories[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > canonicalizeFollowsSymlinkDirectories[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > canonicalizeFollowsMultipleDirectoriesAndMultipleFiles[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > canonicalizeFollowsMultipleDirectoriesAndMultipleFiles[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > fileHandleBufferedSourceReposition[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > fileHandleBufferedSourceReposition[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > fileHandleSourceSeekBackwards[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > fileHandleSourceSeekBackwards[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > listOrNullFile[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > listOrNullFile[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > writeAfterFileSystemClose[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > writeAfterFileSystemClose[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > createDirectoriesAlreadyExistsMustCreateThrows[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > createDirectoriesAlreadyExistsMustCreateThrows[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > atomicMoveSourceIsDirectoryAndTargetIsFile[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > atomicMoveSourceIsDirectoryAndTargetIsFile[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > listOnRelativePathWhichIsNotDotReturnsRelativePaths[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > listOnRelativePathWhichIsNotDotReturnsRelativePaths[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > renameSourceIsOpenFailsOnWindows[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > renameSourceIsOpenFailsOnWindows[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > copyTargetIsClobbered[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > copyTargetIsClobbered[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > deleteRecursivelyOnSymlinkToFileDeletesOnlyThatSymlink[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > deleteRecursivelyOnSymlinkToFileDeletesOnlyThatSymlink[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > listOrNull[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > listOrNull[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > listNoSuchDirectory[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > listNoSuchDirectory[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > directoryMetadataWithSpecialCharacterNamedFiles[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > directoryMetadataWithSpecialCharacterNamedFiles[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > deleteRecursivelyNonEmptyDirectoryMustExist[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > deleteRecursivelyNonEmptyDirectoryMustExist[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > createDirectoriesParentIsFile[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > createDirectoriesParentIsFile[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > listRecursivelyIsDepthFirst[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > listRecursivelyIsDepthFirst[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > absentMetadata[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > absentMetadata[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > moveSymlinkDoesntMoveTargetFile[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > moveSymlinkDoesntMoveTargetFile[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > writePathMustCreate[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > writePathMustCreate[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > openReadWriteThrowsIfBothMustCreateAndMustExist[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > openReadWriteThrowsIfBothMustCreateAndMustExist[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > fileHandleBufferedSinkPosition[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > fileHandleBufferedSinkPosition[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > deleteRecursivelyFile[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > deleteRecursivelyFile[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > fileHandleWriteBeyondEnd[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > fileHandleWriteBeyondEnd[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > listRecursivelyOnSymlink[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > listRecursivelyOnSymlink[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > symlinkCanBeRelative[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > symlinkCanBeRelative[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > canonicalizeAbsolutePathNoSuchFile[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > canonicalizeAbsolutePathNoSuchFile[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > directoryMetadata[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > directoryMetadata[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > symlinkCanBeRelativeWithDotDots[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > symlinkCanBeRelativeWithDotDots[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > canonicalizeDotReturnsCurrentWorkingDirectory[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > canonicalizeDotReturnsCurrentWorkingDirectory[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > deleteFailsOnNonEmptyDirectory[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > deleteFailsOnNonEmptyDirectory[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > fileSinkMustCreateThrowsIfAlreadyExists[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > fileSinkMustCreateThrowsIfAlreadyExists[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > fileMetadataWithSpecialCharacterNamedFiles[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > fileMetadataWithSpecialCharacterNamedFiles[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > atomicMoveSourceIsFileAndTargetIsDirectory[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > atomicMoveSourceIsFileAndTargetIsDirectory[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > copySourceDoesNotExist[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > copySourceDoesNotExist[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > listRecursivelyDoesNotFollowRelativeSymlink[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > listRecursivelyDoesNotFollowRelativeSymlink[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > atomicMoveSourceIsTarget[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > atomicMoveSourceIsTarget[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > deleteRecursivelyNonEmptyDirectory[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > deleteRecursivelyNonEmptyDirectory[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > directoryExists[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > directoryExists[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > currentWorkingDirectoryIsADirectory[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > currentWorkingDirectoryIsADirectory[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > appendingSinkDoesNotImpactExistingFile[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > appendingSinkDoesNotImpactExistingFile[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > openReadOnlyThrowsOnAttemptToWrite[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > openReadOnlyThrowsOnAttemptToWrite[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > deleteSymlinkDoesntDeleteTargetFile[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > deleteSymlinkDoesntDeleteTargetFile[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > listFile[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > listFile[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > createDirectoryParentDirectoryDoesNotExist[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > createDirectoryParentDirectoryDoesNotExist[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > appendingSinkExistingFileMustExist[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > appendingSinkExistingFileMustExist[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > fileExists[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > fileExists[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > openSymlinkSink[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > openSymlinkSink[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > fileHandleSourceHappyPath[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > fileHandleSourceHappyPath[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > openReadWriteCreatesAbsentFileMustCreate[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > openReadWriteCreatesAbsentFileMustCreate[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > doesNotExistsWithInvalidPathDoesNotThrow[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > doesNotExistsWithInvalidPathDoesNotThrow[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > listRecursivelyNotADirectory[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > listRecursivelyNotADirectory[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > createDirectoriesSingle[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > createDirectoriesSingle[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > createDirectoriesParentDirectoryDoesNotExist[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > createDirectoriesParentDirectoryDoesNotExist[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > fileHandleWriteAndRead[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > fileHandleWriteAndRead[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > sourcePositionFailsAfterClose[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > sourcePositionFailsAfterClose[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > symlinkDirectoryLastAccessedAt[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > symlinkDirectoryLastAccessedAt[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > listOrNullNoSuchDirectory[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > listOrNullNoSuchDirectory[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > listRecursivelyRecurses[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > listRecursivelyRecurses[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > sizeFailsAfterClose[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > sizeFailsAfterClose[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > readAfterFileSystemClose[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > readAfterFileSystemClose[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > listRecursivelyReturnsSingleFile[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > listRecursivelyReturnsSingleFile[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > listOrNullOnRelativePathWhichIsNotDotReturnsRelativePaths[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > listOrNullOnRelativePathWhichIsNotDotReturnsRelativePaths[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > appendingSinkCreatesNewFile[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > appendingSinkCreatesNewFile[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > listRecursivelyNoSuchFile[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > listRecursivelyNoSuchFile[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > deleteFile[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > deleteFile[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > atomicMoveSourceDoesNotExist[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > atomicMoveSourceDoesNotExist[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > fileSource[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > fileSource[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > createDirectory[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > createDirectory[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > openReadOnlyFailsOnAbsentFile[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > openReadOnlyFailsOnAbsentFile[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > deleteRecursivelyMustExistFailsOnNoSuchFile[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > deleteRecursivelyMustExistFailsOnNoSuchFile[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > listOrNullResultsAreSorted[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > listOrNullResultsAreSorted[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > sinkPositionFailsAfterClose[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > sinkPositionFailsAfterClose[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > absoluteSymlinkMetadata[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > absoluteSymlinkMetadata[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > symlinkCycle[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > symlinkCycle[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > listRecursivelyOnSymlinkCycleThrows[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > listRecursivelyOnSymlinkCycleThrows[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > deleteRecursivelyOnSymlinkToFileDeletesOnlyThatSymlinkMustExist[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > deleteRecursivelyOnSymlinkToFileDeletesOnlyThatSymlinkMustExist[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > renameTargetIsOpenFailsOnWindows[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > renameTargetIsOpenFailsOnWindows[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > absentMetadataOrNull[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > absentMetadataOrNull[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > deleteRecursivelyDeepHierarchyMustExist[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > deleteRecursivelyDeepHierarchyMustExist[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > symlinkFileLastAccessedAt[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > symlinkFileLastAccessedAt[jvm] PASSED
+
+FakeWindowsFileSystemTest[jvm] > listRecursiveWithSpecialCharacterNamedFiles[jvm] STARTED
+
+FakeWindowsFileSystemTest[jvm] > listRecursiveWithSpecialCharacterNamedFiles[jvm] PASSED
+
+FileLeakTest[jvm] > zipFileSystemMetadataTest[jvm] STARTED
+
+FileLeakTest[jvm] > zipFileSystemMetadataTest[jvm] PASSED
+
+FileLeakTest[jvm] > zipFileSystemExistsTest[jvm] STARTED
+
+FileLeakTest[jvm] > zipFileSystemExistsTest[jvm] PASSED
+
+FileLeakTest[jvm] > fileLeakInResourceFileSystemTest[jvm] STARTED
+
+FileLeakTest[jvm] > fileLeakInResourceFileSystemTest[jvm] PASSED
+
+FileLeakTest[jvm] > zipFileSystemSourceTest[jvm] STARTED
+
+FileLeakTest[jvm] > zipFileSystemSourceTest[jvm] PASSED
+
+FileLeakTest[jvm] > zipFileSystemListRecursiveTest[jvm] STARTED
+
+FileLeakTest[jvm] > zipFileSystemListRecursiveTest[jvm] PASSED
+
+FileSystemJavaTest[jvm] > fakeFileSystemApi[jvm] STARTED
+
+FileSystemJavaTest[jvm] > fakeFileSystemApi[jvm] PASSED
+
+FileSystemJavaTest[jvm] > pathApi[jvm] STARTED
+
+FileSystemJavaTest[jvm] > pathApi[jvm] PASSED
+
+FileSystemJavaTest[jvm] > directorySeparator[jvm] STARTED
+
+FileSystemJavaTest[jvm] > directorySeparator[jvm] PASSED
+
+FileSystemJavaTest[jvm] > javaIoFileToOkioPath[jvm] STARTED
+
+FileSystemJavaTest[jvm] > javaIoFileToOkioPath[jvm] PASSED
+
+FileSystemJavaTest[jvm] > nioPathToOkioPath[jvm] STARTED
+
+FileSystemJavaTest[jvm] > nioPathToOkioPath[jvm] PASSED
+
+FileSystemJavaTest[jvm] > forwardingFileSystemApi[jvm] STARTED
+
+FileSystemJavaTest[jvm] > forwardingFileSystemApi[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > pathBlocking[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > pathBlocking[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > pathMapping[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > pathMapping[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > metadataForwardsParameterAndSymlinkTarget[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > metadataForwardsParameterAndSymlinkTarget[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > operationBlocking[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > operationBlocking[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > copyIsNotForwarded[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > copyIsNotForwarded[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > closeForwards[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > closeForwards[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > pathMappingImpactedBySorting[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > pathMappingImpactedBySorting[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > deleteRecursivelyDeepHierarchy[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > deleteRecursivelyDeepHierarchy[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > createDirectoryMustCreate[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > createDirectoryMustCreate[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > fileSinkFlush[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > fileSinkFlush[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > fileHandleLargeBufferedWriteAndRead[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > fileHandleLargeBufferedWriteAndRead[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > createSymlinkSourceAlreadyExists[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > createSymlinkSourceAlreadyExists[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > listRecursivelyDoesNotFollowSymlinks[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > listRecursivelyDoesNotFollowSymlinks[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > listRecursivelySequenceIterationsAreIndependent[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > listRecursivelySequenceIterationsAreIndependent[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > atomicMoveDirectory[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > atomicMoveDirectory[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > fileHandleResizeLarger[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > fileHandleResizeLarger[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > openReadWriteMustExist[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > openReadWriteMustExist[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > listOrNullOnRelativePathReturnsRelativePaths[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > listOrNullOnRelativePathReturnsRelativePaths[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > sourceRepositionFailsAfterClose[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > sourceRepositionFailsAfterClose[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > deleteRecursivelyEmptyDirectory[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > deleteRecursivelyEmptyDirectory[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > fileHandleSinkPosition[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > fileHandleSinkPosition[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > listRecursivelyFollowsSymlinks[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > listRecursivelyFollowsSymlinks[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > deleteRecursivelyOnSymlinkToDirectoryDeletesOnlyThatSymlinkMustExist[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > deleteRecursivelyOnSymlinkToDirectoryDeletesOnlyThatSymlinkMustExist[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > sinkRepositionFailsAfterClose[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > sinkRepositionFailsAfterClose[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > fileMetadata[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > fileMetadata[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > fileHandleResizeSmaller[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > fileHandleResizeSmaller[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > canonicalizeFollowsSymlinkFiles[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > canonicalizeFollowsSymlinkFiles[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > deleteFailsOnNonEmptyDirectoryMustExist[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > deleteFailsOnNonEmptyDirectoryMustExist[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > deleteDoesNotExist[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > deleteDoesNotExist[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > fileHandleBufferedSinkReposition[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > fileHandleBufferedSinkReposition[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > bufferedFileHandleSourceSeekBackwards[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > bufferedFileHandleSourceSeekBackwards[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > fileHandleWriteAndOverwrite[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > fileHandleWriteAndOverwrite[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > parentDirectoryIsFileMetadataOrNull[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > parentDirectoryIsFileMetadataOrNull[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > writePath[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > writePath[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > followingRecursiveSymlinksIsOkay[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > followingRecursiveSymlinksIsOkay[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > fileHandleEmptyArrayWriteAndRead[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > fileHandleEmptyArrayWriteAndRead[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > deleteEmptyDirectoryMustExist[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > deleteEmptyDirectoryMustExist[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > deleteOpenForWritingFailsOnWindows[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > deleteOpenForWritingFailsOnWindows[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > createDirectoryAlreadyExistsMustCreateThrows[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > createDirectoryAlreadyExistsMustCreateThrows[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > bufferedFileHandleSourceHappyPath[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > bufferedFileHandleSourceHappyPath[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > createDirectoriesAlreadyExists[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > createDirectoriesAlreadyExists[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > openReadWriteMustCreateThrowsIfAlreadyExists[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > openReadWriteMustCreateThrowsIfAlreadyExists[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > openSymlinkSource[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > openSymlinkSource[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > openReadWriteMustExistThrowsIfAbsent[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > openReadWriteMustExistThrowsIfAbsent[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > deleteRecursivelyFileMustExist[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > deleteRecursivelyFileMustExist[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > deleteRecursivelyOnSymlinkToEnclosingDirectorySucceedsMustExist[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > deleteRecursivelyOnSymlinkToEnclosingDirectorySucceedsMustExist[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > listOnRelativePathReturnsRelativePaths[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > listOnRelativePathReturnsRelativePaths[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > fileHandleSinkReposition[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > fileHandleSinkReposition[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > deleteFailsOnNoSuchFileIfMustExist[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > deleteFailsOnNoSuchFileIfMustExist[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > listRecursivelySilentlyIgnoresListFailures[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > listRecursivelySilentlyIgnoresListFailures[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > canonicalizeReturnsDeeperPath[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > canonicalizeReturnsDeeperPath[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > listRecursivelyIsLazy[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > listRecursivelyIsLazy[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > fileHandleLargeArrayWriteAndRead[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > fileHandleLargeArrayWriteAndRead[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > relativeSymlinkMetadata[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > relativeSymlinkMetadata[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > readPath[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > readPath[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > listSymlinkDirectory[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > listSymlinkDirectory[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > deleteRecursivelyEmptyDirectoryMustExist[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > deleteRecursivelyEmptyDirectoryMustExist[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > canonicalizeRelativePathNoSuchFile[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > canonicalizeRelativePathNoSuchFile[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > fileSink[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > fileSink[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > fileHandleFlush[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > fileHandleFlush[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > fileSinkWithSpecialCharacterNamedFiles[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > fileSinkWithSpecialCharacterNamedFiles[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > deleteRecursivelyOnSymlinkToEnclosingDirectorySucceeds[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > deleteRecursivelyOnSymlinkToEnclosingDirectorySucceeds[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > deleteContentsOfParentOfFileOpenForReadingFailsOnWindows[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > deleteContentsOfParentOfFileOpenForReadingFailsOnWindows[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > deleteRecursivelyOnSymlinkToDirectoryDeletesOnlyThatSymlink[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > deleteRecursivelyOnSymlinkToDirectoryDeletesOnlyThatSymlink[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > fileSourceNoSuchDirectory[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > fileSourceNoSuchDirectory[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > appendingSinkAppendsToExistingFile[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > appendingSinkAppendsToExistingFile[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > copyFile[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > copyFile[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > deleteRecursivelyOnSymlinkCycleSucceedsMustExist[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > deleteRecursivelyOnSymlinkCycleSucceedsMustExist[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > openSymlinkFileHandle[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > openSymlinkFileHandle[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > fileSinkNoSuchDirectory[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > fileSinkNoSuchDirectory[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > listResultsAreSorted[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > listResultsAreSorted[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > absentParentDirectoryMetadataOrNull[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > absentParentDirectoryMetadataOrNull[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > atomicMoveFile[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > atomicMoveFile[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > atomicMoveClobberExistingFile[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > atomicMoveClobberExistingFile[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > deleteRecursivelyOnSymlinkCycleSucceeds[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > deleteRecursivelyOnSymlinkCycleSucceeds[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > openFileWithDirectorySymlink[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > openFileWithDirectorySymlink[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > deleteFileMustExist[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > deleteFileMustExist[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > listRecursivelyReturnsEmpty[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > listRecursivelyReturnsEmpty[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > appendingSinkMustExistThrowsIfAbsent[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > appendingSinkMustExistThrowsIfAbsent[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > fileHandleSourceReposition[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > fileHandleSourceReposition[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > createSymlinkParentDirectoryDoesNotExist[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > createSymlinkParentDirectoryDoesNotExist[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > fileSinkMustCreate[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > fileSinkMustCreate[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > inaccessibleMetadata[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > inaccessibleMetadata[jvm] SKIPPED
+
+ForwardingFileSystemTest[jvm] > openReadWriteCreatesAbsentFile[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > openReadWriteCreatesAbsentFile[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > listRecursiveOnSymlinkWithSpecialCharacterNamedFiles[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > listRecursiveOnSymlinkWithSpecialCharacterNamedFiles[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > deleteOpenForReadingFailsOnWindows[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > deleteOpenForReadingFailsOnWindows[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > fileSinkSpecialCharacters[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > fileSinkSpecialCharacters[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > deleteRecursivelyNoSuchFile[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > deleteRecursivelyNoSuchFile[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > list[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > list[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > createDirectoryAlreadyExists[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > createDirectoryAlreadyExists[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > writePathMustCreateThrowsIfAlreadyExists[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > writePathMustCreateThrowsIfAlreadyExists[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > deleteEmptyDirectory[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > deleteEmptyDirectory[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > canonicalizeReturnsShallowerPath[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > canonicalizeReturnsShallowerPath[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > canonicalizeFollowsSymlinkDirectories[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > canonicalizeFollowsSymlinkDirectories[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > canonicalizeFollowsMultipleDirectoriesAndMultipleFiles[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > canonicalizeFollowsMultipleDirectoriesAndMultipleFiles[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > fileHandleBufferedSourceReposition[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > fileHandleBufferedSourceReposition[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > fileHandleSourceSeekBackwards[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > fileHandleSourceSeekBackwards[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > listOrNullFile[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > listOrNullFile[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > writeAfterFileSystemClose[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > writeAfterFileSystemClose[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > createDirectoriesAlreadyExistsMustCreateThrows[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > createDirectoriesAlreadyExistsMustCreateThrows[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > atomicMoveSourceIsDirectoryAndTargetIsFile[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > atomicMoveSourceIsDirectoryAndTargetIsFile[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > listOnRelativePathWhichIsNotDotReturnsRelativePaths[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > listOnRelativePathWhichIsNotDotReturnsRelativePaths[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > renameSourceIsOpenFailsOnWindows[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > renameSourceIsOpenFailsOnWindows[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > copyTargetIsClobbered[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > copyTargetIsClobbered[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > deleteRecursivelyOnSymlinkToFileDeletesOnlyThatSymlink[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > deleteRecursivelyOnSymlinkToFileDeletesOnlyThatSymlink[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > listOrNull[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > listOrNull[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > listNoSuchDirectory[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > listNoSuchDirectory[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > directoryMetadataWithSpecialCharacterNamedFiles[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > directoryMetadataWithSpecialCharacterNamedFiles[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > deleteRecursivelyNonEmptyDirectoryMustExist[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > deleteRecursivelyNonEmptyDirectoryMustExist[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > createDirectoriesParentIsFile[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > createDirectoriesParentIsFile[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > listRecursivelyIsDepthFirst[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > listRecursivelyIsDepthFirst[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > absentMetadata[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > absentMetadata[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > moveSymlinkDoesntMoveTargetFile[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > moveSymlinkDoesntMoveTargetFile[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > writePathMustCreate[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > writePathMustCreate[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > openReadWriteThrowsIfBothMustCreateAndMustExist[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > openReadWriteThrowsIfBothMustCreateAndMustExist[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > fileHandleBufferedSinkPosition[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > fileHandleBufferedSinkPosition[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > deleteRecursivelyFile[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > deleteRecursivelyFile[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > fileHandleWriteBeyondEnd[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > fileHandleWriteBeyondEnd[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > listRecursivelyOnSymlink[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > listRecursivelyOnSymlink[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > symlinkCanBeRelative[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > symlinkCanBeRelative[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > canonicalizeAbsolutePathNoSuchFile[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > canonicalizeAbsolutePathNoSuchFile[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > directoryMetadata[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > directoryMetadata[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > symlinkCanBeRelativeWithDotDots[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > symlinkCanBeRelativeWithDotDots[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > canonicalizeDotReturnsCurrentWorkingDirectory[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > canonicalizeDotReturnsCurrentWorkingDirectory[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > deleteFailsOnNonEmptyDirectory[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > deleteFailsOnNonEmptyDirectory[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > fileSinkMustCreateThrowsIfAlreadyExists[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > fileSinkMustCreateThrowsIfAlreadyExists[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > fileMetadataWithSpecialCharacterNamedFiles[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > fileMetadataWithSpecialCharacterNamedFiles[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > atomicMoveSourceIsFileAndTargetIsDirectory[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > atomicMoveSourceIsFileAndTargetIsDirectory[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > copySourceDoesNotExist[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > copySourceDoesNotExist[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > listRecursivelyDoesNotFollowRelativeSymlink[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > listRecursivelyDoesNotFollowRelativeSymlink[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > atomicMoveSourceIsTarget[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > atomicMoveSourceIsTarget[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > deleteRecursivelyNonEmptyDirectory[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > deleteRecursivelyNonEmptyDirectory[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > directoryExists[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > directoryExists[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > currentWorkingDirectoryIsADirectory[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > currentWorkingDirectoryIsADirectory[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > appendingSinkDoesNotImpactExistingFile[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > appendingSinkDoesNotImpactExistingFile[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > openReadOnlyThrowsOnAttemptToWrite[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > openReadOnlyThrowsOnAttemptToWrite[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > deleteSymlinkDoesntDeleteTargetFile[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > deleteSymlinkDoesntDeleteTargetFile[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > listFile[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > listFile[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > createDirectoryParentDirectoryDoesNotExist[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > createDirectoryParentDirectoryDoesNotExist[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > appendingSinkExistingFileMustExist[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > appendingSinkExistingFileMustExist[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > fileExists[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > fileExists[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > openSymlinkSink[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > openSymlinkSink[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > fileHandleSourceHappyPath[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > fileHandleSourceHappyPath[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > openReadWriteCreatesAbsentFileMustCreate[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > openReadWriteCreatesAbsentFileMustCreate[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > doesNotExistsWithInvalidPathDoesNotThrow[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > doesNotExistsWithInvalidPathDoesNotThrow[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > listRecursivelyNotADirectory[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > listRecursivelyNotADirectory[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > createDirectoriesSingle[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > createDirectoriesSingle[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > createDirectoriesParentDirectoryDoesNotExist[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > createDirectoriesParentDirectoryDoesNotExist[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > fileHandleWriteAndRead[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > fileHandleWriteAndRead[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > sourcePositionFailsAfterClose[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > sourcePositionFailsAfterClose[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > symlinkDirectoryLastAccessedAt[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > symlinkDirectoryLastAccessedAt[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > listOrNullNoSuchDirectory[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > listOrNullNoSuchDirectory[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > listRecursivelyRecurses[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > listRecursivelyRecurses[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > sizeFailsAfterClose[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > sizeFailsAfterClose[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > readAfterFileSystemClose[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > readAfterFileSystemClose[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > listRecursivelyReturnsSingleFile[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > listRecursivelyReturnsSingleFile[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > listOrNullOnRelativePathWhichIsNotDotReturnsRelativePaths[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > listOrNullOnRelativePathWhichIsNotDotReturnsRelativePaths[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > appendingSinkCreatesNewFile[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > appendingSinkCreatesNewFile[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > listRecursivelyNoSuchFile[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > listRecursivelyNoSuchFile[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > deleteFile[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > deleteFile[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > atomicMoveSourceDoesNotExist[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > atomicMoveSourceDoesNotExist[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > fileSource[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > fileSource[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > createDirectory[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > createDirectory[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > openReadOnlyFailsOnAbsentFile[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > openReadOnlyFailsOnAbsentFile[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > deleteRecursivelyMustExistFailsOnNoSuchFile[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > deleteRecursivelyMustExistFailsOnNoSuchFile[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > listOrNullResultsAreSorted[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > listOrNullResultsAreSorted[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > sinkPositionFailsAfterClose[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > sinkPositionFailsAfterClose[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > absoluteSymlinkMetadata[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > absoluteSymlinkMetadata[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > symlinkCycle[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > symlinkCycle[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > listRecursivelyOnSymlinkCycleThrows[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > listRecursivelyOnSymlinkCycleThrows[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > deleteRecursivelyOnSymlinkToFileDeletesOnlyThatSymlinkMustExist[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > deleteRecursivelyOnSymlinkToFileDeletesOnlyThatSymlinkMustExist[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > renameTargetIsOpenFailsOnWindows[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > renameTargetIsOpenFailsOnWindows[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > absentMetadataOrNull[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > absentMetadataOrNull[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > deleteRecursivelyDeepHierarchyMustExist[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > deleteRecursivelyDeepHierarchyMustExist[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > symlinkFileLastAccessedAt[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > symlinkFileLastAccessedAt[jvm] PASSED
+
+ForwardingFileSystemTest[jvm] > listRecursiveWithSpecialCharacterNamedFiles[jvm] STARTED
+
+ForwardingFileSystemTest[jvm] > listRecursiveWithSpecialCharacterNamedFiles[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > workingDirectoryMustBeAbsolute[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > workingDirectoryMustBeAbsolute[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > getExtraWrongType[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > getExtraWrongType[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > fileLastAccessedTime[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > fileLastAccessedTime[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > createDirectoriesForChildOfUncRoot[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > createDirectoriesForChildOfUncRoot[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > symlinkCanBeUsedAfterSettingAllowSymlinksToFalse[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > symlinkCanBeUsedAfterSettingAllowSymlinksToFalse[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > startReadWhileWritingNotAllowedWhenStrict[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > startReadWhileWritingNotAllowedWhenStrict[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > extraIsNotCopiedByFileCopy[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > extraIsNotCopiedByFileCopy[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > deleteExtra[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > deleteExtra[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > createExtrasDefensiveCopy[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > createExtrasDefensiveCopy[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > allPathsIncludesFile[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > allPathsIncludesFile[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > createDirectoriesForVolumeLetterRoot[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > createDirectoriesForVolumeLetterRoot[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > openPathsIsOpenOrder[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > openPathsIsOpenOrder[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > allPathsDoesNotIncludeDeletedOpenFile[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > allPathsDoesNotIncludeDeletedOpenFile[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > directoryLastAccessedTime[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > directoryLastAccessedTime[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > extrasHappyPath[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > extrasHappyPath[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > startWriteWhileReadingNotAllowedWhenStrict[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > startWriteWhileReadingNotAllowedWhenStrict[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > allPathsDoesNotIncludeDeletedFile[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > allPathsDoesNotIncludeDeletedFile[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > allPathsIncludesDirectory[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > allPathsIncludesDirectory[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > getExtraAbsent[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > getExtraAbsent[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > symlinkCannotBeCreatedAfterSettingAllowSymlinksToFalse[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > symlinkCannotBeCreatedAfterSettingAllowSymlinksToFalse[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > checkNoOpenFilesThrowsOnOpenSource[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > checkNoOpenFilesThrowsOnOpenSource[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > startWriteWhileWritingNotAllowedWhenStrict[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > startWriteWhileWritingNotAllowedWhenStrict[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > openPathsIncludesOpenSink[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > openPathsIncludesOpenSink[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > extraIsMovedByAtomicMove[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > extraIsMovedByAtomicMove[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > createDirectoriesForChildOfVolumeLetterRoot[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > createDirectoriesForChildOfVolumeLetterRoot[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > startReadWhileReadingAllowedWhenStrict[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > startReadWhileReadingAllowedWhenStrict[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > openPathsIncludesOpenSource[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > openPathsIncludesOpenSource[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > createDirectoriesForUncRoot[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > createDirectoriesForUncRoot[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > metadataForRootsGeneratedOnDemand[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > metadataForRootsGeneratedOnDemand[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > symlinkExtras[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > symlinkExtras[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > directoryExtras[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > directoryExtras[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > createDirectoriesForUnixRoot[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > createDirectoriesForUnixRoot[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > fileExtras[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > fileExtras[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > allPathsIsSorted[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > allPathsIsSorted[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > createDirectoriesForChildOfUnixRoot[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > createDirectoriesForChildOfUnixRoot[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > checkNoOpenFilesThrowsOnOpenSink[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > checkNoOpenFilesThrowsOnOpenSink[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > deleteRecursivelyDeepHierarchy[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > deleteRecursivelyDeepHierarchy[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > createDirectoryMustCreate[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > createDirectoryMustCreate[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > fileSinkFlush[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > fileSinkFlush[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > fileHandleLargeBufferedWriteAndRead[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > fileHandleLargeBufferedWriteAndRead[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > createSymlinkSourceAlreadyExists[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > createSymlinkSourceAlreadyExists[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > listRecursivelyDoesNotFollowSymlinks[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > listRecursivelyDoesNotFollowSymlinks[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > listRecursivelySequenceIterationsAreIndependent[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > listRecursivelySequenceIterationsAreIndependent[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > atomicMoveDirectory[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > atomicMoveDirectory[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > fileHandleResizeLarger[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > fileHandleResizeLarger[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > openReadWriteMustExist[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > openReadWriteMustExist[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > listOrNullOnRelativePathReturnsRelativePaths[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > listOrNullOnRelativePathReturnsRelativePaths[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > sourceRepositionFailsAfterClose[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > sourceRepositionFailsAfterClose[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > deleteRecursivelyEmptyDirectory[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > deleteRecursivelyEmptyDirectory[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > fileHandleSinkPosition[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > fileHandleSinkPosition[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > listRecursivelyFollowsSymlinks[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > listRecursivelyFollowsSymlinks[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > deleteRecursivelyOnSymlinkToDirectoryDeletesOnlyThatSymlinkMustExist[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > deleteRecursivelyOnSymlinkToDirectoryDeletesOnlyThatSymlinkMustExist[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > sinkRepositionFailsAfterClose[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > sinkRepositionFailsAfterClose[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > fileMetadata[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > fileMetadata[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > fileHandleResizeSmaller[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > fileHandleResizeSmaller[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > canonicalizeFollowsSymlinkFiles[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > canonicalizeFollowsSymlinkFiles[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > deleteFailsOnNonEmptyDirectoryMustExist[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > deleteFailsOnNonEmptyDirectoryMustExist[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > deleteDoesNotExist[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > deleteDoesNotExist[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > fileHandleBufferedSinkReposition[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > fileHandleBufferedSinkReposition[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > bufferedFileHandleSourceSeekBackwards[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > bufferedFileHandleSourceSeekBackwards[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > fileHandleWriteAndOverwrite[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > fileHandleWriteAndOverwrite[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > parentDirectoryIsFileMetadataOrNull[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > parentDirectoryIsFileMetadataOrNull[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > writePath[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > writePath[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > followingRecursiveSymlinksIsOkay[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > followingRecursiveSymlinksIsOkay[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > fileHandleEmptyArrayWriteAndRead[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > fileHandleEmptyArrayWriteAndRead[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > deleteEmptyDirectoryMustExist[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > deleteEmptyDirectoryMustExist[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > deleteOpenForWritingFailsOnWindows[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > deleteOpenForWritingFailsOnWindows[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > createDirectoryAlreadyExistsMustCreateThrows[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > createDirectoryAlreadyExistsMustCreateThrows[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > bufferedFileHandleSourceHappyPath[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > bufferedFileHandleSourceHappyPath[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > createDirectoriesAlreadyExists[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > createDirectoriesAlreadyExists[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > openReadWriteMustCreateThrowsIfAlreadyExists[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > openReadWriteMustCreateThrowsIfAlreadyExists[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > openSymlinkSource[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > openSymlinkSource[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > openReadWriteMustExistThrowsIfAbsent[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > openReadWriteMustExistThrowsIfAbsent[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > deleteRecursivelyFileMustExist[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > deleteRecursivelyFileMustExist[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > deleteRecursivelyOnSymlinkToEnclosingDirectorySucceedsMustExist[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > deleteRecursivelyOnSymlinkToEnclosingDirectorySucceedsMustExist[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > listOnRelativePathReturnsRelativePaths[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > listOnRelativePathReturnsRelativePaths[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > fileHandleSinkReposition[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > fileHandleSinkReposition[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > deleteFailsOnNoSuchFileIfMustExist[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > deleteFailsOnNoSuchFileIfMustExist[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > listRecursivelySilentlyIgnoresListFailures[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > listRecursivelySilentlyIgnoresListFailures[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > canonicalizeReturnsDeeperPath[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > canonicalizeReturnsDeeperPath[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > listRecursivelyIsLazy[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > listRecursivelyIsLazy[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > fileHandleLargeArrayWriteAndRead[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > fileHandleLargeArrayWriteAndRead[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > relativeSymlinkMetadata[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > relativeSymlinkMetadata[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > readPath[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > readPath[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > listSymlinkDirectory[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > listSymlinkDirectory[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > deleteRecursivelyEmptyDirectoryMustExist[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > deleteRecursivelyEmptyDirectoryMustExist[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > canonicalizeRelativePathNoSuchFile[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > canonicalizeRelativePathNoSuchFile[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > fileSink[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > fileSink[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > fileHandleFlush[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > fileHandleFlush[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > fileSinkWithSpecialCharacterNamedFiles[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > fileSinkWithSpecialCharacterNamedFiles[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > deleteRecursivelyOnSymlinkToEnclosingDirectorySucceeds[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > deleteRecursivelyOnSymlinkToEnclosingDirectorySucceeds[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > deleteContentsOfParentOfFileOpenForReadingFailsOnWindows[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > deleteContentsOfParentOfFileOpenForReadingFailsOnWindows[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > deleteRecursivelyOnSymlinkToDirectoryDeletesOnlyThatSymlink[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > deleteRecursivelyOnSymlinkToDirectoryDeletesOnlyThatSymlink[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > fileSourceNoSuchDirectory[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > fileSourceNoSuchDirectory[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > appendingSinkAppendsToExistingFile[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > appendingSinkAppendsToExistingFile[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > copyFile[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > copyFile[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > deleteRecursivelyOnSymlinkCycleSucceedsMustExist[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > deleteRecursivelyOnSymlinkCycleSucceedsMustExist[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > openSymlinkFileHandle[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > openSymlinkFileHandle[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > fileSinkNoSuchDirectory[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > fileSinkNoSuchDirectory[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > listResultsAreSorted[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > listResultsAreSorted[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > absentParentDirectoryMetadataOrNull[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > absentParentDirectoryMetadataOrNull[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > atomicMoveFile[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > atomicMoveFile[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > atomicMoveClobberExistingFile[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > atomicMoveClobberExistingFile[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > deleteRecursivelyOnSymlinkCycleSucceeds[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > deleteRecursivelyOnSymlinkCycleSucceeds[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > openFileWithDirectorySymlink[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > openFileWithDirectorySymlink[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > deleteFileMustExist[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > deleteFileMustExist[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > listRecursivelyReturnsEmpty[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > listRecursivelyReturnsEmpty[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > appendingSinkMustExistThrowsIfAbsent[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > appendingSinkMustExistThrowsIfAbsent[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > fileHandleSourceReposition[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > fileHandleSourceReposition[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > createSymlinkParentDirectoryDoesNotExist[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > createSymlinkParentDirectoryDoesNotExist[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > fileSinkMustCreate[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > fileSinkMustCreate[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > inaccessibleMetadata[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > inaccessibleMetadata[jvm] SKIPPED
+
+StrictFakeFileSystemTest[jvm] > openReadWriteCreatesAbsentFile[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > openReadWriteCreatesAbsentFile[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > listRecursiveOnSymlinkWithSpecialCharacterNamedFiles[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > listRecursiveOnSymlinkWithSpecialCharacterNamedFiles[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > deleteOpenForReadingFailsOnWindows[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > deleteOpenForReadingFailsOnWindows[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > fileSinkSpecialCharacters[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > fileSinkSpecialCharacters[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > deleteRecursivelyNoSuchFile[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > deleteRecursivelyNoSuchFile[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > list[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > list[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > createDirectoryAlreadyExists[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > createDirectoryAlreadyExists[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > writePathMustCreateThrowsIfAlreadyExists[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > writePathMustCreateThrowsIfAlreadyExists[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > deleteEmptyDirectory[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > deleteEmptyDirectory[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > canonicalizeReturnsShallowerPath[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > canonicalizeReturnsShallowerPath[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > canonicalizeFollowsSymlinkDirectories[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > canonicalizeFollowsSymlinkDirectories[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > canonicalizeFollowsMultipleDirectoriesAndMultipleFiles[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > canonicalizeFollowsMultipleDirectoriesAndMultipleFiles[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > fileHandleBufferedSourceReposition[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > fileHandleBufferedSourceReposition[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > fileHandleSourceSeekBackwards[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > fileHandleSourceSeekBackwards[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > listOrNullFile[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > listOrNullFile[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > writeAfterFileSystemClose[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > writeAfterFileSystemClose[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > createDirectoriesAlreadyExistsMustCreateThrows[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > createDirectoriesAlreadyExistsMustCreateThrows[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > atomicMoveSourceIsDirectoryAndTargetIsFile[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > atomicMoveSourceIsDirectoryAndTargetIsFile[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > listOnRelativePathWhichIsNotDotReturnsRelativePaths[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > listOnRelativePathWhichIsNotDotReturnsRelativePaths[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > renameSourceIsOpenFailsOnWindows[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > renameSourceIsOpenFailsOnWindows[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > copyTargetIsClobbered[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > copyTargetIsClobbered[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > deleteRecursivelyOnSymlinkToFileDeletesOnlyThatSymlink[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > deleteRecursivelyOnSymlinkToFileDeletesOnlyThatSymlink[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > listOrNull[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > listOrNull[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > listNoSuchDirectory[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > listNoSuchDirectory[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > directoryMetadataWithSpecialCharacterNamedFiles[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > directoryMetadataWithSpecialCharacterNamedFiles[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > deleteRecursivelyNonEmptyDirectoryMustExist[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > deleteRecursivelyNonEmptyDirectoryMustExist[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > createDirectoriesParentIsFile[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > createDirectoriesParentIsFile[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > listRecursivelyIsDepthFirst[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > listRecursivelyIsDepthFirst[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > absentMetadata[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > absentMetadata[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > moveSymlinkDoesntMoveTargetFile[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > moveSymlinkDoesntMoveTargetFile[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > writePathMustCreate[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > writePathMustCreate[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > openReadWriteThrowsIfBothMustCreateAndMustExist[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > openReadWriteThrowsIfBothMustCreateAndMustExist[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > fileHandleBufferedSinkPosition[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > fileHandleBufferedSinkPosition[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > deleteRecursivelyFile[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > deleteRecursivelyFile[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > fileHandleWriteBeyondEnd[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > fileHandleWriteBeyondEnd[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > listRecursivelyOnSymlink[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > listRecursivelyOnSymlink[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > symlinkCanBeRelative[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > symlinkCanBeRelative[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > canonicalizeAbsolutePathNoSuchFile[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > canonicalizeAbsolutePathNoSuchFile[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > directoryMetadata[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > directoryMetadata[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > symlinkCanBeRelativeWithDotDots[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > symlinkCanBeRelativeWithDotDots[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > canonicalizeDotReturnsCurrentWorkingDirectory[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > canonicalizeDotReturnsCurrentWorkingDirectory[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > deleteFailsOnNonEmptyDirectory[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > deleteFailsOnNonEmptyDirectory[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > fileSinkMustCreateThrowsIfAlreadyExists[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > fileSinkMustCreateThrowsIfAlreadyExists[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > fileMetadataWithSpecialCharacterNamedFiles[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > fileMetadataWithSpecialCharacterNamedFiles[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > atomicMoveSourceIsFileAndTargetIsDirectory[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > atomicMoveSourceIsFileAndTargetIsDirectory[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > copySourceDoesNotExist[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > copySourceDoesNotExist[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > listRecursivelyDoesNotFollowRelativeSymlink[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > listRecursivelyDoesNotFollowRelativeSymlink[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > atomicMoveSourceIsTarget[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > atomicMoveSourceIsTarget[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > deleteRecursivelyNonEmptyDirectory[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > deleteRecursivelyNonEmptyDirectory[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > directoryExists[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > directoryExists[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > currentWorkingDirectoryIsADirectory[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > currentWorkingDirectoryIsADirectory[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > appendingSinkDoesNotImpactExistingFile[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > appendingSinkDoesNotImpactExistingFile[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > openReadOnlyThrowsOnAttemptToWrite[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > openReadOnlyThrowsOnAttemptToWrite[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > deleteSymlinkDoesntDeleteTargetFile[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > deleteSymlinkDoesntDeleteTargetFile[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > listFile[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > listFile[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > createDirectoryParentDirectoryDoesNotExist[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > createDirectoryParentDirectoryDoesNotExist[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > appendingSinkExistingFileMustExist[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > appendingSinkExistingFileMustExist[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > fileExists[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > fileExists[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > openSymlinkSink[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > openSymlinkSink[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > fileHandleSourceHappyPath[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > fileHandleSourceHappyPath[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > openReadWriteCreatesAbsentFileMustCreate[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > openReadWriteCreatesAbsentFileMustCreate[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > doesNotExistsWithInvalidPathDoesNotThrow[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > doesNotExistsWithInvalidPathDoesNotThrow[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > listRecursivelyNotADirectory[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > listRecursivelyNotADirectory[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > createDirectoriesSingle[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > createDirectoriesSingle[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > createDirectoriesParentDirectoryDoesNotExist[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > createDirectoriesParentDirectoryDoesNotExist[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > fileHandleWriteAndRead[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > fileHandleWriteAndRead[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > sourcePositionFailsAfterClose[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > sourcePositionFailsAfterClose[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > symlinkDirectoryLastAccessedAt[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > symlinkDirectoryLastAccessedAt[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > listOrNullNoSuchDirectory[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > listOrNullNoSuchDirectory[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > listRecursivelyRecurses[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > listRecursivelyRecurses[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > sizeFailsAfterClose[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > sizeFailsAfterClose[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > readAfterFileSystemClose[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > readAfterFileSystemClose[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > listRecursivelyReturnsSingleFile[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > listRecursivelyReturnsSingleFile[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > listOrNullOnRelativePathWhichIsNotDotReturnsRelativePaths[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > listOrNullOnRelativePathWhichIsNotDotReturnsRelativePaths[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > appendingSinkCreatesNewFile[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > appendingSinkCreatesNewFile[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > listRecursivelyNoSuchFile[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > listRecursivelyNoSuchFile[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > deleteFile[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > deleteFile[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > atomicMoveSourceDoesNotExist[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > atomicMoveSourceDoesNotExist[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > fileSource[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > fileSource[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > createDirectory[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > createDirectory[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > openReadOnlyFailsOnAbsentFile[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > openReadOnlyFailsOnAbsentFile[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > deleteRecursivelyMustExistFailsOnNoSuchFile[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > deleteRecursivelyMustExistFailsOnNoSuchFile[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > listOrNullResultsAreSorted[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > listOrNullResultsAreSorted[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > sinkPositionFailsAfterClose[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > sinkPositionFailsAfterClose[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > absoluteSymlinkMetadata[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > absoluteSymlinkMetadata[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > symlinkCycle[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > symlinkCycle[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > listRecursivelyOnSymlinkCycleThrows[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > listRecursivelyOnSymlinkCycleThrows[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > deleteRecursivelyOnSymlinkToFileDeletesOnlyThatSymlinkMustExist[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > deleteRecursivelyOnSymlinkToFileDeletesOnlyThatSymlinkMustExist[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > renameTargetIsOpenFailsOnWindows[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > renameTargetIsOpenFailsOnWindows[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > absentMetadataOrNull[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > absentMetadataOrNull[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > deleteRecursivelyDeepHierarchyMustExist[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > deleteRecursivelyDeepHierarchyMustExist[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > symlinkFileLastAccessedAt[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > symlinkFileLastAccessedAt[jvm] PASSED
+
+StrictFakeFileSystemTest[jvm] > listRecursiveWithSpecialCharacterNamedFiles[jvm] STARTED
+
+StrictFakeFileSystemTest[jvm] > listRecursiveWithSpecialCharacterNamedFiles[jvm] PASSED
+
+UseTest[jvm] > closesWithUseBlock[jvm] STARTED
+
+UseTest[jvm] > closesWithUseBlock[jvm] PASSED
+
+UseTest[jvm] > acceptsNullReturn[jvm] STARTED
+
+UseTest[jvm] > acceptsNullReturn[jvm] PASSED
+
+[Incubating] Problems report is available at: file:///home/runner/work/okio/okio/src/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.12/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 2m 4s
+21 actionable tasks: 21 executed

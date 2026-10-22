@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="okio.BufferCursorTest_Empty" tests="28" skipped="5" failures="0" errors="0" timestamp="2026-10-22T21:59:01" hostname="runnervm8k3b6" time="0.007">
+  <properties/>
+  <testcase name="expandAcquiredReadOnly[jvm]" classname="okio.BufferCursorTest_Empty" time="0.0"/>
+  <testcase name="segmentBySegmentNavigation[jvm]" classname="okio.BufferCursorTest_Empty" time="0.0"/>
+  <testcase name="enlarge[jvm]" classname="okio.BufferCursorTest_Empty" time="0.001"/>
+  <testcase name="acquireAndRelease[jvm]" classname="okio.BufferCursorTest_Empty" time="0.0"/>
+  <testcase name="expand[jvm]" classname="okio.BufferCursorTest_Empty" time="0.0"/>
+  <testcase name="resizeNotAcquired[jvm]" classname="okio.BufferCursorTest_Empty" time="0.0"/>
+  <testcase name="resizeToSameSizeSeeksToEnd[jvm]" classname="okio.BufferCursorTest_Empty" time="0.0"/>
+  <testcase name="shrinkByManySegments[jvm]" classname="okio.BufferCursorTest_Empty" time="0.001"/>
+  <testcase name="doubleAcquire[jvm]" classname="okio.BufferCursorTest_Empty" time="0.0"/>
+  <testcase name="expandSameSegment[jvm]" classname="okio.BufferCursorTest_Empty" time="0.001">
+    <skipped/>
+  </testcase>
+  <testcase name="shrink[jvm]" classname="okio.BufferCursorTest_Empty" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="expandMovesOffsetToOldSize[jvm]" classname="okio.BufferCursorTest_Empty" time="0.0"/>
+  <testcase name="expandNewSegment[jvm]" classname="okio.BufferCursorTest_Empty" time="0.001"/>
+  <testcase name="enlargeByManySegments[jvm]" classname="okio.BufferCursorTest_Empty" time="0.001"/>
+  <testcase name="resizeEnlargeMovesCursorToOldSize[jvm]" classname="okio.BufferCursorTest_Empty" time="0.0"/>
+  <testcase name="accessByteByByteAlwaysResettingToZero[jvm]" classname="okio.BufferCursorTest_Empty" time="0.001"/>
+  <testcase name="accessSegmentBySegment[jvm]" classname="okio.BufferCursorTest_Empty" time="0.0"/>
+  <testcase name="expandNotAcquired[jvm]" classname="okio.BufferCursorTest_Empty" time="0.0"/>
+  <testcase name="resizeAcquiredReadOnly[jvm]" classname="okio.BufferCursorTest_Empty" time="0.0"/>
+  <testcase name="releaseWithoutAcquire[jvm]" classname="okio.BufferCursorTest_Empty" time="0.0"/>
+  <testcase name="accessByteByByteReverse[jvm]" classname="okio.BufferCursorTest_Empty" time="0.0"/>
+  <testcase name="apiExample[jvm]" classname="okio.BufferCursorTest_Empty" time="0.0"/>
+  <testcase name="releaseAfterRelease[jvm]" classname="okio.BufferCursorTest_Empty" time="0.001"/>
+  <testcase name="resizeShrinkMovesCursorToEnd[jvm]" classname="okio.BufferCursorTest_Empty" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="seekToNegativeOneSeeksBeforeFirstSegment[jvm]" classname="okio.BufferCursorTest_Empty" time="0.0"/>
+  <testcase name="seekWithinSegment[jvm]" classname="okio.BufferCursorTest_Empty" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="shrinkAdjustOffset[jvm]" classname="okio.BufferCursorTest_Empty" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="accessByteByByte[jvm]" classname="okio.BufferCursorTest_Empty" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="okio.PathTest" tests="54" skipped="0" failures="0" errors="0" timestamp="2026-10-22T21:59:31" hostname="runnervm8k3b6" time="0.004">
+  <properties/>
+  <testcase name="absoluteToRelative[jvm]" classname="okio.PathTest" time="0.0"/>
+  <testcase name="windowsUncAbsolutePath[jvm]" classname="okio.PathTest" time="0.0"/>
+  <testcase name="stringToAbsolutePathWithTraversal[jvm]" classname="okio.PathTest" time="0.001"/>
+  <testcase name="stringToRelativePathWithDots[jvm]" classname="okio.PathTest" time="0.0"/>
+  <testcase name="relativeToWindowsPaths[jvm]" classname="okio.PathTest" time="0.0"/>
+  <testcase name="normalizeAbsolute[jvm]" classname="okio.PathTest" time="0.0"/>
+  <testcase name="windowsVolumeLetterRelative[jvm]" classname="okio.PathTest" time="0.0"/>
+  <testcase name="windowsVolumeLetter[jvm]" classname="okio.PathTest" time="0.0"/>
+  <testcase name="normalized[jvm]" classname="okio.PathTest" time="0.0"/>
+  <testcase name="unixRelativePathWithDots[jvm]" classname="okio.PathTest" time="0.0"/>
+  <testcase name="windowsRelativePathWithVolumeLetter[jvm]" classname="okio.PathTest" time="0.0"/>
+  <testcase name="windowsPathTraversalUp[jvm]" classname="okio.PathTest" time="0.0"/>
+  <testcase name="windowsAbsolutePath[jvm]" classname="okio.PathTest" time="0.0"/>
+  <testcase name="windowsUncPathsDoNotDotDot[jvm]" classname="okio.PathTest" time="0.0"/>
+  <testcase name="unixAbsolutePath[jvm]" classname="okio.PathTest" time="0.0"/>
+  <testcase name="unixRoot[jvm]" classname="okio.PathTest" time="0.0"/>
+  <testcase name="stringToRelativePathWithEmptySegments[jvm]" classname="okio.PathTest" time="0.0"/>
+  <testcase name="windowsResolveAbsolutePath[jvm]" classname="okio.PathTest" time="0.0"/>
+  <testcase name="relativePathTraversalWithDots[jvm]" classname="okio.PathTest" time="0.001"/>
+  <testcase name="unixAbsoluteSeriesOfDotDots[jvm]" classname="okio.PathTest" time="0.0"/>
+  <testcase name="composingWindowsPath[jvm]" classname="okio.PathTest" time="0.0"/>
+  <testcase name="relativeToRelativeWithMiddleDotsInCommonPrefix[jvm]" classname="okio.PathTest" time="0.0"/>
+  <testcase name="stringToAbsolutePathWithDots[jvm]" classname="okio.PathTest" time="0.0"/>
+  <testcase name="relativeUnixDot[jvm]" classname="okio.PathTest" time="0.0"/>
+  <testcase name="windowsAbsolutePathWithVolumeLetter[jvm]" classname="okio.PathTest" time="0.0"/>
+  <testcase name="samePathNoSlashesAreEqual[jvm]" classname="okio.PathTest" time="0.0"/>
+  <testcase name="stringToRelativePathWithTraversal[jvm]" classname="okio.PathTest" time="0.0"/>
+  <testcase name="unixAbsoluteSingleDot[jvm]" classname="okio.PathTest" time="0.0"/>
+  <testcase name="windowsAbsolutePathWithoutVolumeLetter[jvm]" classname="okio.PathTest" time="0.0"/>
+  <testcase name="absoluteToAbsolute[jvm]" classname="okio.PathTest" time="0.0"/>
+  <testcase name="relativePathTraversalWithDivOperator[jvm]" classname="okio.PathTest" time="0.0"/>
+  <testcase name="windowsUncServer[jvm]" classname="okio.PathTest" time="0.0"/>
+  <testcase name="windowsRelativePath[jvm]" classname="okio.PathTest" time="0.0"/>
+  <testcase name="normalizeRelative[jvm]" classname="okio.PathTest" time="0.0"/>
+  <testcase name="stringToAbsolutePathWithEmptySegments[jvm]" classname="okio.PathTest" time="0.0"/>
+  <testcase name="unixRelativePath[jvm]" classname="okio.PathTest" time="0.001"/>
+  <testcase name="absoluteUnixRoot[jvm]" classname="okio.PathTest" time="0.0"/>
+  <testcase name="relativeToSelf[jvm]" classname="okio.PathTest" time="0.0"/>
+  <testcase name="relativeToWindowsUncPaths[jvm]" classname="okio.PathTest" time="0.0"/>
+  <testcase name="stringToAbsolutePath[jvm]" classname="okio.PathTest" time="0.0"/>
+  <testcase name="absoluteToSelf[jvm]" classname="okio.PathTest" time="0.0"/>
+  <testcase name="unixRelativeSeriesOfDotDots[jvm]" classname="okio.PathTest" time="0.0"/>
+  <testcase name="samePathDifferentSlashesAreNotEqual[jvm]" classname="okio.PathTest" time="0.0"/>
+  <testcase name="relativeToUnnormalizedPath[jvm]" classname="okio.PathTest" time="0.0"/>
+  <testcase name="relativeToRelativeWithUpNavigationPrefix[jvm]" classname="okio.PathTest" time="0.0"/>
+  <testcase name="relativeToRelative[jvm]" classname="okio.PathTest" time="0.001"/>
+  <testcase name="unixRelativeDoubleDots[jvm]" classname="okio.PathTest" time="0.0"/>
+  <testcase name="relativeToNormalizedPath[jvm]" classname="okio.PathTest" time="0.0"/>
+  <testcase name="absolutePathTraversalWithDivOperator[jvm]" classname="okio.PathTest" time="0.0"/>
+  <testcase name="relativeToRelativeWithMiddleDots[jvm]" classname="okio.PathTest" time="0.0"/>
+  <testcase name="pathTraversalBaseIgnoredIfChildIsAnAbsolutePath[jvm]" classname="okio.PathTest" time="0.0"/>
+  <testcase name="unixRelativeSingleDot[jvm]" classname="okio.PathTest" time="0.0"/>
+  <testcase name="relativeToRelativeDifferentSlashes[jvm]" classname="okio.PathTest" time="0.0"/>
+  <testcase name="stringToRelativePath[jvm]" classname="okio.PathTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

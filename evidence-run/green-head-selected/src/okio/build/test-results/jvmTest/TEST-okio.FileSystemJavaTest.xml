@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="okio.FileSystemJavaTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-10-22T21:58:02" hostname="runnervm8k3b6" time="0.039">
+  <properties/>
+  <testcase name="fakeFileSystemApi[jvm]" classname="okio.FileSystemJavaTest" time="0.031"/>
+  <testcase name="pathApi[jvm]" classname="okio.FileSystemJavaTest" time="0.002"/>
+  <testcase name="directorySeparator[jvm]" classname="okio.FileSystemJavaTest" time="0.0"/>
+  <testcase name="javaIoFileToOkioPath[jvm]" classname="okio.FileSystemJavaTest" time="0.002"/>
+  <testcase name="nioPathToOkioPath[jvm]" classname="okio.FileSystemJavaTest" time="0.0"/>
+  <testcase name="forwardingFileSystemApi[jvm]" classname="okio.FileSystemJavaTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

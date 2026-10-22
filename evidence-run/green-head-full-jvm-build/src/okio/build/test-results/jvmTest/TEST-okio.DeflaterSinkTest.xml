@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="okio.DeflaterSinkTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2026-10-22T21:59:05" hostname="runnervm8k3b6" time="0.193">
+  <properties/>
+  <testcase name="deflateWithClose[jvm]" classname="okio.DeflaterSinkTest" time="0.0"/>
+  <testcase name="deflateWellCompressed[jvm]" classname="okio.DeflaterSinkTest" time="0.016"/>
+  <testcase name="deflateWithSyncFlush[jvm]" classname="okio.DeflaterSinkTest" time="0.0"/>
+  <testcase name="deflateIntoNonemptySink[jvm]" classname="okio.DeflaterSinkTest" time="0.14"/>
+  <testcase name="closeWithExceptionWhenWritingAndClosing[jvm]" classname="okio.DeflaterSinkTest" time="0.001"/>
+  <testcase name="deflatePoorlyCompressed[jvm]" classname="okio.DeflaterSinkTest" time="0.034"/>
+  <testcase name="multipleSegmentsWithoutCompression[jvm]" classname="okio.DeflaterSinkTest" time="0.001"/>
+  <testcase name="rethrowNullPointerAsIOException[jvm]" classname="okio.DeflaterSinkTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

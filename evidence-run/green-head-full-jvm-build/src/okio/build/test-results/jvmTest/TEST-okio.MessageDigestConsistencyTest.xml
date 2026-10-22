@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="okio.MessageDigestConsistencyTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-10-22T21:59:30" hostname="runnervm8k3b6" time="0.397">
+  <properties/>
+  <testcase name="sha256[jvm]" classname="okio.MessageDigestConsistencyTest" time="0.094"/>
+  <testcase name="sha512[jvm]" classname="okio.MessageDigestConsistencyTest" time="0.13"/>
+  <testcase name="md5[jvm]" classname="okio.MessageDigestConsistencyTest" time="0.093"/>
+  <testcase name="sha1[jvm]" classname="okio.MessageDigestConsistencyTest" time="0.08"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

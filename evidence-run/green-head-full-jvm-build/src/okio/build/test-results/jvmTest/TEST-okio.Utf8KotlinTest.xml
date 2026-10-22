@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="okio.Utf8KotlinTest" tests="16" skipped="0" failures="0" errors="0" timestamp="2026-10-22T21:59:57" hostname="runnervm8k3b6" time="0.001">
+  <properties/>
+  <testcase name="sizeWithBounds[jvm]" classname="okio.Utf8KotlinTest" time="0.001"/>
+  <testcase name="writeSurrogateCodePoint[jvm]" classname="okio.Utf8KotlinTest" time="0.0"/>
+  <testcase name="unknownBytes[jvm]" classname="okio.Utf8KotlinTest" time="0.0"/>
+  <testcase name="lowSurrogateWithoutHighSurrogate[jvm]" classname="okio.Utf8KotlinTest" time="0.0"/>
+  <testcase name="sizeBoundsCheck[jvm]" classname="okio.Utf8KotlinTest" time="0.0"/>
+  <testcase name="lowSurrogateHighSurrogate[jvm]" classname="okio.Utf8KotlinTest" time="0.0"/>
+  <testcase name="doubleLowSurrogate[jvm]" classname="okio.Utf8KotlinTest" time="0.0"/>
+  <testcase name="highSurrogateFollowedByNonSurrogate[jvm]" classname="okio.Utf8KotlinTest" time="0.0"/>
+  <testcase name="size[jvm]" classname="okio.Utf8KotlinTest" time="0.0"/>
+  <testcase name="doubleHighSurrogate[jvm]" classname="okio.Utf8KotlinTest" time="0.0"/>
+  <testcase name="oneByteCharacters[jvm]" classname="okio.Utf8KotlinTest" time="0.0"/>
+  <testcase name="twoByteCharacters[jvm]" classname="okio.Utf8KotlinTest" time="0.0"/>
+  <testcase name="fourByteCharacters[jvm]" classname="okio.Utf8KotlinTest" time="0.0"/>
+  <testcase name="threeByteCharacters[jvm]" classname="okio.Utf8KotlinTest" time="0.0"/>
+  <testcase name="overlongSequences[jvm]" classname="okio.Utf8KotlinTest" time="0.0"/>
+  <testcase name="danglingHighSurrogate[jvm]" classname="okio.Utf8KotlinTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

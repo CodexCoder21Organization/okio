@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="okio.NioTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2026-10-22T21:59:31" hostname="runnervm8k3b6" time="0.005">
+  <properties/>
+  <testcase name="writableChannelBuffer[jvm]" classname="okio.NioTest" time="0.003"/>
+  <testcase name="sinkIsOpen[jvm]" classname="okio.NioTest" time="0.0"/>
+  <testcase name="readableChannelNioFile[jvm]" classname="okio.NioTest" time="0.001"/>
+  <testcase name="readableChannelBuffer[jvm]" classname="okio.NioTest" time="0.0"/>
+  <testcase name="sourceIsOpen[jvm]" classname="okio.NioTest" time="0.0"/>
+  <testcase name="writableChannelNioFile[jvm]" classname="okio.NioTest" time="0.0"/>
+  <testcase name="writableChannelBufferedSink[jvm]" classname="okio.NioTest" time="0.001"/>
+  <testcase name="readableChannelBufferedSource[jvm]" classname="okio.NioTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

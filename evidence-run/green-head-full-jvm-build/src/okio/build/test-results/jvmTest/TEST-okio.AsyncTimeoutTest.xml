@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="okio.AsyncTimeoutTest" tests="31" skipped="1" failures="0" errors="0" timestamp="2026-10-22T21:58:23" hostname="runnervm8k3b6" time="13.538">
+  <properties/>
+  <testcase name="deadlineOnly[jvm]" classname="okio.AsyncTimeoutTest" time="0.514"/>
+  <testcase name="wrappedThrowsWithTimeout[jvm]" classname="okio.AsyncTimeoutTest" time="0.502"/>
+  <testcase name="deadlineAfterTimeout[jvm]" classname="okio.AsyncTimeoutTest" time="0.5"/>
+  <testcase name="instancesRemovedAtEnd[jvm]" classname="okio.AsyncTimeoutTest" time="0.001"/>
+  <testcase name="instancesAddedAtEnd[jvm]" classname="okio.AsyncTimeoutTest" time="1.251"/>
+  <testcase name="wrappedSinkCloseTimesOut[jvm]" classname="okio.AsyncTimeoutTest" time="0.502"/>
+  <testcase name="doubleEnter[jvm]" classname="okio.AsyncTimeoutTest" time="0.0"/>
+  <testcase name="deadlineStartsBeforeEnter[jvm]" classname="okio.AsyncTimeoutTest" time="0.75"/>
+  <testcase name="wrappedSinkFlushTimesOut[jvm]" classname="okio.AsyncTimeoutTest" time="0.5"/>
+  <testcase name="reEnterAfterTimeout[jvm]" classname="okio.AsyncTimeoutTest" time="0.002"/>
+  <testcase name="enterSleepCancelExit[jvm]" classname="okio.AsyncTimeoutTest" time="0.5"/>
+  <testcase name="enterSleepCancelCancelExit[jvm]" classname="okio.AsyncTimeoutTest" time="0.5"/>
+  <testcase name="deadlineInThePast[jvm]" classname="okio.AsyncTimeoutTest" time="0.25"/>
+  <testcase name="cancelEnterSleepExit[jvm]" classname="okio.AsyncTimeoutTest" time="0.501"/>
+  <testcase name="enterCancelSleepExit[jvm]" classname="okio.AsyncTimeoutTest" time="0.5"/>
+  <testcase name="enterCancelSleepCancelExit[jvm]" classname="okio.AsyncTimeoutTest" time="0.501"/>
+  <testcase name="wrappedThrowsWithoutTimeout[jvm]" classname="okio.AsyncTimeoutTest" time="0.001"/>
+  <testcase name="instancesRemovedAtFront[jvm]" classname="okio.AsyncTimeoutTest" time="0.0"/>
+  <testcase name="wrappedSinkTimesOut[jvm]" classname="okio.AsyncTimeoutTest" time="0.501"/>
+  <testcase name="wrappedSourceCloseTimesOut[jvm]" classname="okio.AsyncTimeoutTest" time="0.501"/>
+  <testcase name="cancelEnterCancelSleepExit[jvm]" classname="okio.AsyncTimeoutTest" time="0.501"/>
+  <testcase name="deadlineBeforeTimeout[jvm]" classname="okio.AsyncTimeoutTest" time="0.501"/>
+  <testcase name="enterCancelCancelSleepExit[jvm]" classname="okio.AsyncTimeoutTest" time="0.5"/>
+  <testcase name="sinkSplitsLargeWrites[jvm]" classname="okio.AsyncTimeoutTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="reEnter[jvm]" classname="okio.AsyncTimeoutTest" time="0.0"/>
+  <testcase name="wrappedSourceTimesOut[jvm]" classname="okio.AsyncTimeoutTest" time="0.501"/>
+  <testcase name="enterCancelSleepExitEnterSleepExit[jvm]" classname="okio.AsyncTimeoutTest" time="1.001"/>
+  <testcase name="singleInstanceNotTimedOut[jvm]" classname="okio.AsyncTimeoutTest" time="0.25"/>
+  <testcase name="zeroTimeoutIsNoTimeout[jvm]" classname="okio.AsyncTimeoutTest" time="0.25"/>
+  <testcase name="instancesAddedAtFront[jvm]" classname="okio.AsyncTimeoutTest" time="1.251"/>
+  <testcase name="singleInstanceTimedOut[jvm]" classname="okio.AsyncTimeoutTest" time="0.5"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

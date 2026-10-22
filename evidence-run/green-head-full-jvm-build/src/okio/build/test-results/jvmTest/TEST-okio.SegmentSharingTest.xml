@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="okio.SegmentSharingTest" tests="14" skipped="0" failures="0" errors="0" timestamp="2026-10-22T21:59:56" hostname="runnervm8k3b6" time="0.023">
+  <properties/>
+  <testcase name="snapshotOfEmptyBuffer[jvm]" classname="okio.SegmentSharingTest" time="0.001"/>
+  <testcase name="snapshotsAreEquivalent[jvm]" classname="okio.SegmentSharingTest" time="0.01"/>
+  <testcase name="copyToSegmentSharing[jvm]" classname="okio.SegmentSharingTest" time="0.002"/>
+  <testcase name="shareAndSplit[jvm]" classname="okio.SegmentSharingTest" time="0.0"/>
+  <testcase name="snapshotJavaSerialization[jvm]" classname="okio.SegmentSharingTest" time="0.004"/>
+  <testcase name="snapshotSegmentsAreNotRecycled[jvm]" classname="okio.SegmentSharingTest" time="0.0"/>
+  <testcase name="cloneSegmentsAreNotRecycled[jvm]" classname="okio.SegmentSharingTest" time="0.001"/>
+  <testcase name="concatenateSegmentsCanCombine[jvm]" classname="okio.SegmentSharingTest" time="0.0"/>
+  <testcase name="mutateAfterClone[jvm]" classname="okio.SegmentSharingTest" time="0.0"/>
+  <testcase name="snapshotWriteToOutputStream[jvm]" classname="okio.SegmentSharingTest" time="0.0"/>
+  <testcase name="snapshotGetByte[jvm]" classname="okio.SegmentSharingTest" time="0.0"/>
+  <testcase name="appendSnapshotToEmptyBuffer[jvm]" classname="okio.SegmentSharingTest" time="0.002"/>
+  <testcase name="appendSnapshotToNonEmptyBuffer[jvm]" classname="okio.SegmentSharingTest" time="0.001"/>
+  <testcase name="clonesAreEquivalent[jvm]" classname="okio.SegmentSharingTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

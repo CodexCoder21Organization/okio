@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="okio.fakefilesystem.FakeFileSystemRegistryTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-10-22T21:58:33" hostname="runnervm8k3b6" time="0.016">
+  <properties/>
+  <testcase name="clockFailureOnDeferredSinkCloseStillRemovesRegistration[jvm]" classname="okio.fakefilesystem.FakeFileSystemRegistryTest" time="0.012"/>
+  <testcase name="clockFailureOnCloseStillRemovesRegistration[jvm]" classname="okio.fakefilesystem.FakeFileSystemRegistryTest" time="0.001"/>
+  <testcase name="clockFailureOnDeferredSourceCloseStillRemovesRegistration[jvm]" classname="okio.fakefilesystem.FakeFileSystemRegistryTest" time="0.0"/>
+  <testcase name="clockReentryCannotAdmitTwoWriters[jvm]" classname="okio.fakefilesystem.FakeFileSystemRegistryTest" time="0.001"/>
+  <testcase name="openPathsIsASnapshotAndSourcesRetainRegistration[jvm]" classname="okio.fakefilesystem.FakeFileSystemRegistryTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

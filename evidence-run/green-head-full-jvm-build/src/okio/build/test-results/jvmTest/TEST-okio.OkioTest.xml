@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="okio.OkioTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2026-10-22T21:59:31" hostname="runnervm8k3b6" time="0.003">
+  <properties/>
+  <testcase name="appendFile[jvm]" classname="okio.OkioTest" time="0.001"/>
+  <testcase name="sourceFromInputStreamBounds[jvm]" classname="okio.OkioTest" time="0.0"/>
+  <testcase name="sinkFromOutputStream[jvm]" classname="okio.OkioTest" time="0.0"/>
+  <testcase name="sourceFromInputStreamWithSegmentSize[jvm]" classname="okio.OkioTest" time="0.0"/>
+  <testcase name="sourceFromInputStream[jvm]" classname="okio.OkioTest" time="0.001"/>
+  <testcase name="readWriteFile[jvm]" classname="okio.OkioTest" time="0.0"/>
+  <testcase name="readWritePath[jvm]" classname="okio.OkioTest" time="0.001"/>
+  <testcase name="blackhole[jvm]" classname="okio.OkioTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="okio.GzipSourceTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2026-10-22T21:59:05" hostname="runnervm8k3b6" time="0.001">
+  <properties/>
+  <testcase name="gunzipWhenLengthIncorrect[jvm]" classname="okio.GzipSourceTest" time="0.0"/>
+  <testcase name="gunzip_withExtra[jvm]" classname="okio.GzipSourceTest" time="0.001"/>
+  <testcase name="gunzip[jvm]" classname="okio.GzipSourceTest" time="0.0"/>
+  <testcase name="gunzipExhaustsSource[jvm]" classname="okio.GzipSourceTest" time="0.0"/>
+  <testcase name="gunzipWhenCRCIncorrect[jvm]" classname="okio.GzipSourceTest" time="0.0"/>
+  <testcase name="gunzipThrowsIfSourceIsNotExhausted[jvm]" classname="okio.GzipSourceTest" time="0.0"/>
+  <testcase name="gunzip_withComment[jvm]" classname="okio.GzipSourceTest" time="0.0"/>
+  <testcase name="gunzipWhenHeaderCRCIncorrect[jvm]" classname="okio.GzipSourceTest" time="0.0"/>
+  <testcase name="gunzip_withAll[jvm]" classname="okio.GzipSourceTest" time="0.0"/>
+  <testcase name="gunzip_withHCRC[jvm]" classname="okio.GzipSourceTest" time="0.0"/>
+  <testcase name="gunzip_withName[jvm]" classname="okio.GzipSourceTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

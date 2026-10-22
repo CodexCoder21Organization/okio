@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="okio.FixedLengthSourceTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2026-10-22T21:59:05" hostname="runnervm8k3b6" time="0.001">
+  <properties/>
+  <testcase name="happyPathNoTruncate[jvm]" classname="okio.FixedLengthSourceTest" time="0.0"/>
+  <testcase name="happyPathWithTruncate[jvm]" classname="okio.FixedLengthSourceTest" time="0.0"/>
+  <testcase name="delegateTooLongNoTruncateFencepost[jvm]" classname="okio.FixedLengthSourceTest" time="0.001"/>
+  <testcase name="delegateTooLongWithTruncate[jvm]" classname="okio.FixedLengthSourceTest" time="0.0"/>
+  <testcase name="delegateTooShortWithTruncate[jvm]" classname="okio.FixedLengthSourceTest" time="0.0"/>
+  <testcase name="delegateTooLongNoTruncate[jvm]" classname="okio.FixedLengthSourceTest" time="0.0"/>
+  <testcase name="delegateTooShortNoTruncate[jvm]" classname="okio.FixedLengthSourceTest" time="0.0"/>
+  <testcase name="delegateTooLongWithTruncateFencepost[jvm]" classname="okio.FixedLengthSourceTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,15 @@
+okio-fakefilesystem/build/test-results/jvmTest/TEST-okio.fakefilesystem.FakeFileSystemConcurrencyTest.xml: okio.fakefilesystem.FakeFileSystemConcurrencyTest tests=2 failures=0 errors=0 skipped=0 time=6.151
+    OBSERVER RESULT: 0 failures / 20 runs; 8 workers x 10000 operations, 1 observer x 10000 reads per run
+    RESULT: 0 failures / 20 runs; 9 callers x 10000 operations maximum per run
+okio-fakefilesystem/build/test-results/jvmTest/TEST-okio.fakefilesystem.FakeFileSystemRegistryTest.xml: okio.fakefilesystem.FakeFileSystemRegistryTest tests=5 failures=0 errors=0 skipped=0 time=0.012
+okio-fakefilesystem/build/test-results/jvmTest/TEST-okio.fakefilesystem.FakeFileSystemTreeConcurrencyTest.xml: okio.fakefilesystem.FakeFileSystemTreeConcurrencyTest tests=5 failures=0 errors=0 skipped=0 time=4.308
+    TREE RESULT (lister=false): 0 failures / 20 runs; 8 workers x 500 x 4 operations per run
+    TREE RESULT (lister=true): 0 failures / 20 runs; 8 workers x 500 x 4 operations per run, 1 lister x 200 listings
+okio/build/test-results/jvmTest/TEST-okio.FakeUnixFileSystemTest.xml: okio.FakeUnixFileSystemTest tests=205 failures=0 errors=0 skipped=1 time=0.272
+okio/build/test-results/jvmTest/TEST-okio.FakeWindowsFileSystemTest.xml: okio.FakeWindowsFileSystemTest tests=205 failures=0 errors=0 skipped=1 time=0.124
+okio/build/test-results/jvmTest/TEST-okio.FileLeakTest.xml: okio.FileLeakTest tests=5 failures=0 errors=0 skipped=0 time=0.035
+okio/build/test-results/jvmTest/TEST-okio.FileSystemJavaTest.xml: okio.FileSystemJavaTest tests=6 failures=0 errors=0 skipped=0 time=0.039
+okio/build/test-results/jvmTest/TEST-okio.ForwardingFileSystemTest.xml: okio.ForwardingFileSystemTest tests=176 failures=0 errors=0 skipped=1 time=0.091
+okio/build/test-results/jvmTest/TEST-okio.StrictFakeFileSystemTest.xml: okio.StrictFakeFileSystemTest tests=205 failures=0 errors=0 skipped=1 time=0.075
+okio/build/test-results/jvmTest/TEST-okio.UseTest.xml: okio.UseTest tests=2 failures=0 errors=0 skipped=0 time=0.0
+TOTAL tests=816 failures=0 errors=0 skipped=4 passed=812

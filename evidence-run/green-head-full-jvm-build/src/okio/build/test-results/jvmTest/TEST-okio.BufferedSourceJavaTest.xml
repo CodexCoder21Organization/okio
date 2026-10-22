@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="okio.BufferedSourceJavaTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2026-10-22T21:59:01" hostname="runnervm8k3b6" time="0.003">
+  <properties/>
+  <testcase name="indexOfStopsReadingAtLimit[jvm]" classname="okio.BufferedSourceJavaTest" time="0.0"/>
+  <testcase name="requireIncludesBufferBytes[jvm]" classname="okio.BufferedSourceJavaTest" time="0.0"/>
+  <testcase name="requireInsufficientData[jvm]" classname="okio.BufferedSourceJavaTest" time="0.0"/>
+  <testcase name="skipReadsOneSegmentAtATime[jvm]" classname="okio.BufferedSourceJavaTest" time="0.0"/>
+  <testcase name="readAllReadsOneSegmentAtATime[jvm]" classname="okio.BufferedSourceJavaTest" time="0.0"/>
+  <testcase name="operationsAfterClose[jvm]" classname="okio.BufferedSourceJavaTest" time="0.001"/>
+  <testcase name="requireReadsOneSegmentAtATime[jvm]" classname="okio.BufferedSourceJavaTest" time="0.0"/>
+  <testcase name="inputStreamCloses[jvm]" classname="okio.BufferedSourceJavaTest" time="0.0"/>
+  <testcase name="inputStreamTracksSegments[jvm]" classname="okio.BufferedSourceJavaTest" time="0.0"/>
+  <testcase name="requireTracksBufferFirst[jvm]" classname="okio.BufferedSourceJavaTest" time="0.001"/>
+  <testcase name="skipTracksBufferFirst[jvm]" classname="okio.BufferedSourceJavaTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

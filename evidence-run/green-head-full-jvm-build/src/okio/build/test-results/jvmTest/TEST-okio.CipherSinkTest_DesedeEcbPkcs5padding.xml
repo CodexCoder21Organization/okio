@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="okio.CipherSinkTest_DesedeEcbPkcs5padding" tests="10" skipped="0" failures="0" errors="0" timestamp="2026-10-22T21:59:03" hostname="runnervm8k3b6" time="0.031">
+  <properties/>
+  <testcase name="encryptPaddingRequired[jvm]" classname="okio.CipherSinkTest_DesedeEcbPkcs5padding" time="0.0"/>
+  <testcase name="encryptEmpty[jvm]" classname="okio.CipherSinkTest_DesedeEcbPkcs5padding" time="0.0"/>
+  <testcase name="encryptLarge[jvm]" classname="okio.CipherSinkTest_DesedeEcbPkcs5padding" time="0.015"/>
+  <testcase name="decryptPaddingRequired[jvm]" classname="okio.CipherSinkTest_DesedeEcbPkcs5padding" time="0.001"/>
+  <testcase name="encryptSingleByteWrite[jvm]" classname="okio.CipherSinkTest_DesedeEcbPkcs5padding" time="0.0"/>
+  <testcase name="encrypt[jvm]" classname="okio.CipherSinkTest_DesedeEcbPkcs5padding" time="0.0"/>
+  <testcase name="decryptSingleByteWrite[jvm]" classname="okio.CipherSinkTest_DesedeEcbPkcs5padding" time="0.0"/>
+  <testcase name="decryptEmpty[jvm]" classname="okio.CipherSinkTest_DesedeEcbPkcs5padding" time="0.0"/>
+  <testcase name="decryptLarge[jvm]" classname="okio.CipherSinkTest_DesedeEcbPkcs5padding" time="0.015"/>
+  <testcase name="decrypt[jvm]" classname="okio.CipherSinkTest_DesedeEcbPkcs5padding" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

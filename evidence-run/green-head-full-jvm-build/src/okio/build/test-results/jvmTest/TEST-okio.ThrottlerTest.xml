@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="okio.ThrottlerTest" tests="13" skipped="13" failures="0" errors="0" timestamp="2026-10-22T21:59:57" hostname="runnervm8k3b6" time="0.001">
+  <properties/>
+  <testcase name="doubleSinkThrottle[jvm]" classname="okio.ThrottlerTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="parallelGroupAndIndividualThrottle[jvm]" classname="okio.ThrottlerTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="slowSinkSlowerSource[jvm]" classname="okio.ThrottlerTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="parallelSlowThenFaster[jvm]" classname="okio.ThrottlerTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="parallelIndividualThrottle[jvm]" classname="okio.ThrottlerTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="doubleSourceThrottle[jvm]" classname="okio.ThrottlerTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="source[jvm]" classname="okio.ThrottlerTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="slowSourceSlowerSink[jvm]" classname="okio.ThrottlerTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="singleSourceMultiThrottleSlowerThenSlow[jvm]" classname="okio.ThrottlerTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="singleSourceMultiThrottleSlowThenSlower[jvm]" classname="okio.ThrottlerTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="sink[jvm]" classname="okio.ThrottlerTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="parallel[jvm]" classname="okio.ThrottlerTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="parallelFastThenSlower[jvm]" classname="okio.ThrottlerTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

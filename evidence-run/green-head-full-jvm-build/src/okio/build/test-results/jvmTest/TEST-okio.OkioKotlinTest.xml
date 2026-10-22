@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="okio.OkioKotlinTest" tests="11" skipped="1" failures="0" errors="0" timestamp="2026-10-22T21:59:31" hostname="runnervm8k3b6" time="0.007">
+  <properties/>
+  <testcase name="outputStreamSink[jvm]" classname="okio.OkioKotlinTest" time="0.002"/>
+  <testcase name="fileSink[jvm]" classname="okio.OkioKotlinTest" time="0.001"/>
+  <testcase name="fileAppendingSink[jvm]" classname="okio.OkioKotlinTest" time="0.0"/>
+  <testcase name="socketSource[jvm]" classname="okio.OkioKotlinTest" time="0.001"/>
+  <testcase name="socketSink[jvm]" classname="okio.OkioKotlinTest" time="0.001"/>
+  <testcase name="pathSource[jvm]" classname="okio.OkioKotlinTest" time="0.0"/>
+  <testcase name="pathSink[jvm]" classname="okio.OkioKotlinTest" time="0.001"/>
+  <testcase name="inputStreamSource[jvm]" classname="okio.OkioKotlinTest" time="0.0"/>
+  <testcase name="pathSinkWithOptions[jvm]" classname="okio.OkioKotlinTest" time="0.0"/>
+  <testcase name="fileSource[jvm]" classname="okio.OkioKotlinTest" time="0.001"/>
+  <testcase name="pathSourceWithOptions[jvm]" classname="okio.OkioKotlinTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

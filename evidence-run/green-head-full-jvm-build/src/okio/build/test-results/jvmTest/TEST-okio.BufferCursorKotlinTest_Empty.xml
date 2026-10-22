@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="okio.BufferCursorKotlinTest_Empty" tests="5" skipped="3" failures="0" errors="0" timestamp="2026-10-22T21:59:00" hostname="runnervm8k3b6" time="0.003">
+  <properties/>
+  <testcase name="cursorReuse[jvm]" classname="okio.BufferCursorKotlinTest_Empty" time="0.002"/>
+  <testcase name="acquireReadWriteCopiesSharedDataArray[jvm]" classname="okio.BufferCursorKotlinTest_Empty" time="0.001">
+    <skipped/>
+  </testcase>
+  <testcase name="writeSharedSegments[jvm]" classname="okio.BufferCursorKotlinTest_Empty" time="0.0"/>
+  <testcase name="acquireReadWriteDoesNotCopyUnsharedDataArray[jvm]" classname="okio.BufferCursorKotlinTest_Empty" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="acquireReadOnlyDoesNotCopySharedDataArray[jvm]" classname="okio.BufferCursorKotlinTest_Empty" time="0.0">
+    <skipped/>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="okio.ByteStringJavaTest_BaseByteString" tests="15" skipped="0" failures="0" errors="0" timestamp="2026-10-22T21:59:03" hostname="runnervm8k3b6" time="0.01">
+  <properties/>
+  <testcase name="javaSerializationTestEmpty[jvm]" classname="okio.ByteStringJavaTest_BaseByteString" time="0.008"/>
+  <testcase name="decodeMalformedStringReturnsReplacementCharacter[jvm]" classname="okio.ByteStringJavaTest_BaseByteString" time="0.0"/>
+  <testcase name="encodeDecodeStringUtf8[jvm]" classname="okio.ByteStringJavaTest_BaseByteString" time="0.0"/>
+  <testcase name="readAndToLowercase[jvm]" classname="okio.ByteStringJavaTest_BaseByteString" time="0.001"/>
+  <testcase name="compareToSingleBytes[jvm]" classname="okio.ByteStringJavaTest_BaseByteString" time="0.0"/>
+  <testcase name="compareToMultipleBytes[jvm]" classname="okio.ByteStringJavaTest_BaseByteString" time="0.0"/>
+  <testcase name="read[jvm]" classname="okio.ByteStringJavaTest_BaseByteString" time="0.0"/>
+  <testcase name="write[jvm]" classname="okio.ByteStringJavaTest_BaseByteString" time="0.0"/>
+  <testcase name="readAndToUppercase[jvm]" classname="okio.ByteStringJavaTest_BaseByteString" time="0.0"/>
+  <testcase name="javaSerializationTestNonEmpty[jvm]" classname="okio.ByteStringJavaTest_BaseByteString" time="0.0"/>
+  <testcase name="ofByteBuffer[jvm]" classname="okio.ByteStringJavaTest_BaseByteString" time="0.0"/>
+  <testcase name="asByteBuffer[jvm]" classname="okio.ByteStringJavaTest_BaseByteString" time="0.001"/>
+  <testcase name="encodeDecodeStringUtf16be[jvm]" classname="okio.ByteStringJavaTest_BaseByteString" time="0.0"/>
+  <testcase name="encodeDecodeStringUtf32be[jvm]" classname="okio.ByteStringJavaTest_BaseByteString" time="0.0"/>
+  <testcase name="encodeDecodeStringAsciiIsLossy[jvm]" classname="okio.ByteStringJavaTest_BaseByteString" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

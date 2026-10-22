@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="okio.ZipFileSystemTest" tests="20" skipped="0" failures="0" errors="0" timestamp="2026-10-22T22:00:21" hostname="runnervm8k3b6" time="0.007">
+  <properties/>
+  <testcase name="cannotReadZipWithSpanning[jvm]" classname="okio.ZipFileSystemTest" time="0.0"/>
+  <testcase name="canonicalizationValid[jvm]" classname="okio.ZipFileSystemTest" time="0.0"/>
+  <testcase name="zipWithEmptyDirectory[jvm]" classname="okio.ZipFileSystemTest" time="0.001"/>
+  <testcase name="zipWithModifiedDate[jvm]" classname="okio.ZipFileSystemTest" time="0.0"/>
+  <testcase name="zipWithDirectoryModifiedDate[jvm]" classname="okio.ZipFileSystemTest" time="0.001"/>
+  <testcase name="zipWithArchiveComment[jvm]" classname="okio.ZipFileSystemTest" time="0.0"/>
+  <testcase name="zipWithDeflate[jvm]" classname="okio.ZipFileSystemTest" time="0.001"/>
+  <testcase name="zipWithFileModifiedDate[jvm]" classname="okio.ZipFileSystemTest" time="0.0"/>
+  <testcase name="zipTooShort[jvm]" classname="okio.ZipFileSystemTest" time="0.001"/>
+  <testcase name="zipWithSyntheticDirectory[jvm]" classname="okio.ZipFileSystemTest" time="0.0"/>
+  <testcase name="zipWithFileOutOfBoundsModifiedDate[jvm]" classname="okio.ZipFileSystemTest" time="0.0"/>
+  <testcase name="zip64[jvm]" classname="okio.ZipFileSystemTest" time="0.0"/>
+  <testcase name="cannotReadZipWithEncryption[jvm]" classname="okio.ZipFileSystemTest" time="0.0"/>
+  <testcase name="emptyZipWithPrependedData[jvm]" classname="okio.ZipFileSystemTest" time="0.001"/>
+  <testcase name="emptyZip[jvm]" classname="okio.ZipFileSystemTest" time="0.0"/>
+  <testcase name="zipWithFileComments[jvm]" classname="okio.ZipFileSystemTest" time="0.0"/>
+  <testcase name="zipWithFiles[jvm]" classname="okio.ZipFileSystemTest" time="0.0"/>
+  <testcase name="zipWithStore[jvm]" classname="okio.ZipFileSystemTest" time="0.001"/>
+  <testcase name="canonicalizationInvalidThrows[jvm]" classname="okio.ZipFileSystemTest" time="0.0"/>
+  <testcase name="filesOverlap[jvm]" classname="okio.ZipFileSystemTest" time="0.0"/>
+  <system-out><![CDATA[1901-12-13T20:45:52Z
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

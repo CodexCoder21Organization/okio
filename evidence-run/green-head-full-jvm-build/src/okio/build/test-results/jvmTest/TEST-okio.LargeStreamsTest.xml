@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="okio.LargeStreamsTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-10-22T21:59:07" hostname="runnervm8k3b6" time="23.635">
+  <properties/>
+  <testcase name="gzipSink[jvm]" classname="okio.LargeStreamsTest" time="7.606"/>
+  <testcase name="test[jvm]" classname="okio.LargeStreamsTest" time="7.993"/>
+  <testcase name="gzipSource[jvm]" classname="okio.LargeStreamsTest" time="8.036"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

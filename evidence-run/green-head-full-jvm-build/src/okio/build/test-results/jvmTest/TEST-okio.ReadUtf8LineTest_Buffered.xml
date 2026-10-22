@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="okio.ReadUtf8LineTest_Buffered" tests="11" skipped="0" failures="0" errors="0" timestamp="2026-10-22T21:59:56" hostname="runnervm8k3b6" time="0.001">
+  <properties/>
+  <testcase name="readUtf8LineStrictNonPositive[jvm]" classname="okio.ReadUtf8LineTest_Buffered" time="0.0"/>
+  <testcase name="readLines[jvm]" classname="okio.ReadUtf8LineTest_Buffered" time="0.0"/>
+  <testcase name="emptyLines[jvm]" classname="okio.ReadUtf8LineTest_Buffered" time="0.001"/>
+  <testcase name="readUtf8LineStrictWithLimits[jvm]" classname="okio.ReadUtf8LineTest_Buffered" time="0.0"/>
+  <testcase name="crDroppedPrecedingLf[jvm]" classname="okio.ReadUtf8LineTest_Buffered" time="0.0"/>
+  <testcase name="readUtf8LineStrictEmptyString[jvm]" classname="okio.ReadUtf8LineTest_Buffered" time="0.0"/>
+  <testcase name="bufferedReaderCompatible[jvm]" classname="okio.ReadUtf8LineTest_Buffered" time="0.0"/>
+  <testcase name="readUtf8LineStrictNoBytesConsumedOnFailure[jvm]" classname="okio.ReadUtf8LineTest_Buffered" time="0.0"/>
+  <testcase name="eofExceptionProvidesLimitedContent[jvm]" classname="okio.ReadUtf8LineTest_Buffered" time="0.0"/>
+  <testcase name="bufferedReaderCompatibleWithTrailingNewline[jvm]" classname="okio.ReadUtf8LineTest_Buffered" time="0.0"/>
+  <testcase name="newlineAtEnd[jvm]" classname="okio.ReadUtf8LineTest_Buffered" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

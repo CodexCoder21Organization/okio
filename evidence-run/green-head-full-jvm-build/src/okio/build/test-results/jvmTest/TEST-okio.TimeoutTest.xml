@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="okio.TimeoutTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-10-22T21:59:57" hostname="runnervm8k3b6" time="0.003">
+  <properties/>
+  <testcase name="intersectWithPrefersNonZeroDeadline[jvm]" classname="okio.TimeoutTest" time="0.001"/>
+  <testcase name="intersectWithPrefersSmallerTimeout[jvm]" classname="okio.TimeoutTest" time="0.001"/>
+  <testcase name="intersectWithPrefersNonZeroTimeout[jvm]" classname="okio.TimeoutTest" time="0.0"/>
+  <testcase name="intersectWithReturnsAValue[jvm]" classname="okio.TimeoutTest" time="0.0"/>
+  <testcase name="intersectWithPrefersSmallerDeadline[jvm]" classname="okio.TimeoutTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

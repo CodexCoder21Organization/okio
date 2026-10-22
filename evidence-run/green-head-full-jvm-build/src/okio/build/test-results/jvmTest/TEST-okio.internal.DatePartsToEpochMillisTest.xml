@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="okio.internal.DatePartsToEpochMillisTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-10-22T22:00:21" hostname="runnervm8k3b6" time="0.077">
+  <properties/>
+  <testcase name="dayOutOfBounds[jvm]" classname="okio.internal.DatePartsToEpochMillisTest" time="0.002"/>
+  <testcase name="monthOutOfBounds[jvm]" classname="okio.internal.DatePartsToEpochMillisTest" time="0.0"/>
+  <testcase name="dosDateRange[jvm]" classname="okio.internal.DatePartsToEpochMillisTest" time="0.0"/>
+  <testcase name="secondOutOfBounds[jvm]" classname="okio.internal.DatePartsToEpochMillisTest" time="0.0"/>
+  <testcase name="everySingleDay[jvm]" classname="okio.internal.DatePartsToEpochMillisTest" time="0.075"/>
+  <testcase name="minuteOutOfBounds[jvm]" classname="okio.internal.DatePartsToEpochMillisTest" time="0.0"/>
+  <testcase name="hourOutOfBounds[jvm]" classname="okio.internal.DatePartsToEpochMillisTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

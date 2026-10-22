@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="okio.samples.ChannelsTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-10-22T22:00:25" hostname="runnervm8k3b6" time="0.04">
+  <properties/>
+  <testcase name="testReadWriteFile[jvm]" classname="okio.samples.ChannelsTest" time="0.034"/>
+  <testcase name="testReadChannel[jvm]" classname="okio.samples.ChannelsTest" time="0.003"/>
+  <testcase name="testWriteChannel[jvm]" classname="okio.samples.ChannelsTest" time="0.0"/>
+  <testcase name="testAppend[jvm]" classname="okio.samples.ChannelsTest" time="0.002"/>
+  <testcase name="testReadChannelFully[jvm]" classname="okio.samples.ChannelsTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="okio.CommonBufferTest" tests="29" skipped="0" failures="0" errors="0" timestamp="2026-10-22T21:59:03" hostname="runnervm8k3b6" time="0.009">
+  <properties/>
+  <testcase name="copyToSourceAndTargetCanBeTheSame[jvm]" classname="okio.CommonBufferTest" time="0.001"/>
+  <testcase name="moveBytesBetweenBuffersShareSegment[jvm]" classname="okio.CommonBufferTest" time="0.0"/>
+  <testcase name="writePrefixDoesntSplit[jvm]" classname="okio.CommonBufferTest" time="0.0"/>
+  <testcase name="indexOfWithOffset[jvm]" classname="okio.CommonBufferTest" time="0.0"/>
+  <testcase name="byteAt[jvm]" classname="okio.CommonBufferTest" time="0.0"/>
+  <testcase name="copyTo[jvm]" classname="okio.CommonBufferTest" time="0.0"/>
+  <testcase name="moveAllRequestedBytesWithRead[jvm]" classname="okio.CommonBufferTest" time="0.0"/>
+  <testcase name="moveFewerThanRequestedBytesWithRead[jvm]" classname="okio.CommonBufferTest" time="0.0"/>
+  <testcase name="writePrefixToEmptyBuffer[jvm]" classname="okio.CommonBufferTest" time="0.0"/>
+  <testcase name="equalsAndHashCode[jvm]" classname="okio.CommonBufferTest" time="0.0"/>
+  <testcase name="bufferToString[jvm]" classname="okio.CommonBufferTest" time="0.0"/>
+  <testcase name="getByteOfEmptyBuffer[jvm]" classname="okio.CommonBufferTest" time="0.0"/>
+  <testcase name="moveBytesBetweenBuffersMultipleSegments[jvm]" classname="okio.CommonBufferTest" time="0.001"/>
+  <testcase name="equalsAndHashCodeSpanningSegments[jvm]" classname="okio.CommonBufferTest" time="0.006"/>
+  <testcase name="multipleSegmentBuffers[jvm]" classname="okio.CommonBufferTest" time="0.0"/>
+  <testcase name="moveBytesBetweenBuffersReassignSegment[jvm]" classname="okio.CommonBufferTest" time="0.001"/>
+  <testcase name="writeAllMultipleSegments[jvm]" classname="okio.CommonBufferTest" time="0.0"/>
+  <testcase name="equalsAndHashCodeEmpty[jvm]" classname="okio.CommonBufferTest" time="0.0"/>
+  <testcase name="readAndWriteUtf8[jvm]" classname="okio.CommonBufferTest" time="0.0"/>
+  <testcase name="writePrefixDoesntSplitButRequiresCompact[jvm]" classname="okio.CommonBufferTest" time="0.0"/>
+  <testcase name="snapshotReportsAccurateSize[jvm]" classname="okio.CommonBufferTest" time="0.0"/>
+  <testcase name="copyToOffSegmentBoundary[jvm]" classname="okio.CommonBufferTest" time="0.0"/>
+  <testcase name="readAllWritesAllSegmentsAtOnce[jvm]" classname="okio.CommonBufferTest" time="0.0"/>
+  <testcase name="writeSplitSourceBufferLeft[jvm]" classname="okio.CommonBufferTest" time="0.0"/>
+  <testcase name="copyToEmptySource[jvm]" classname="okio.CommonBufferTest" time="0.0"/>
+  <testcase name="copyToEmptyTarget[jvm]" classname="okio.CommonBufferTest" time="0.0"/>
+  <testcase name="fillAndDrainPool[jvm]" classname="okio.CommonBufferTest" time="0.0"/>
+  <testcase name="writeSplitSourceBufferRight[jvm]" classname="okio.CommonBufferTest" time="0.0"/>
+  <testcase name="copyToOnSegmentBoundary[jvm]" classname="okio.CommonBufferTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

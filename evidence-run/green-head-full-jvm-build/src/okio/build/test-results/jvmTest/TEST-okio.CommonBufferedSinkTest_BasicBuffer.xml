@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="okio.CommonBufferedSinkTest_BasicBuffer" tests="26" skipped="0" failures="0" errors="0" timestamp="2026-10-22T21:59:04" hostname="runnervm8k3b6" time="0.002">
+  <properties/>
+  <testcase name="writeIntegerDoesNotQuiteFitInSegment[jvm]" classname="okio.CommonBufferedSinkTest_BasicBuffer" time="0.001"/>
+  <testcase name="writeStringUtf8[jvm]" classname="okio.CommonBufferedSinkTest_BasicBuffer" time="0.0"/>
+  <testcase name="writeSegmentedByteString[jvm]" classname="okio.CommonBufferedSinkTest_BasicBuffer" time="0.0"/>
+  <testcase name="writeAll[jvm]" classname="okio.CommonBufferedSinkTest_BasicBuffer" time="0.0"/>
+  <testcase name="writeInt[jvm]" classname="okio.CommonBufferedSinkTest_BasicBuffer" time="0.0"/>
+  <testcase name="writeLong[jvm]" classname="okio.CommonBufferedSinkTest_BasicBuffer" time="0.0"/>
+  <testcase name="writeSourcePropagatesEof[jvm]" classname="okio.CommonBufferedSinkTest_BasicBuffer" time="0.0"/>
+  <testcase name="writeLastByteInSegment[jvm]" classname="okio.CommonBufferedSinkTest_BasicBuffer" time="0.0"/>
+  <testcase name="writeBytes[jvm]" classname="okio.CommonBufferedSinkTest_BasicBuffer" time="0.0"/>
+  <testcase name="writeIntLe[jvm]" classname="okio.CommonBufferedSinkTest_BasicBuffer" time="0.0"/>
+  <testcase name="writeShort[jvm]" classname="okio.CommonBufferedSinkTest_BasicBuffer" time="0.0"/>
+  <testcase name="longDecimalString[jvm]" classname="okio.CommonBufferedSinkTest_BasicBuffer" time="0.0"/>
+  <testcase name="writeAllExhausted[jvm]" classname="okio.CommonBufferedSinkTest_BasicBuffer" time="0.0"/>
+  <testcase name="writeByteString[jvm]" classname="okio.CommonBufferedSinkTest_BasicBuffer" time="0.0"/>
+  <testcase name="writeSourceReadsFully[jvm]" classname="okio.CommonBufferedSinkTest_BasicBuffer" time="0.0"/>
+  <testcase name="closeEmitsBufferedBytes[jvm]" classname="okio.CommonBufferedSinkTest_BasicBuffer" time="0.0"/>
+  <testcase name="writeShortLe[jvm]" classname="okio.CommonBufferedSinkTest_BasicBuffer" time="0.001"/>
+  <testcase name="writeSubstringUtf8[jvm]" classname="okio.CommonBufferedSinkTest_BasicBuffer" time="0.0"/>
+  <testcase name="writeNothing[jvm]" classname="okio.CommonBufferedSinkTest_BasicBuffer" time="0.0"/>
+  <testcase name="writeLongLe[jvm]" classname="okio.CommonBufferedSinkTest_BasicBuffer" time="0.0"/>
+  <testcase name="longHexString[jvm]" classname="okio.CommonBufferedSinkTest_BasicBuffer" time="0.0"/>
+  <testcase name="writeSource[jvm]" classname="okio.CommonBufferedSinkTest_BasicBuffer" time="0.0"/>
+  <testcase name="writeLastIntegerInSegment[jvm]" classname="okio.CommonBufferedSinkTest_BasicBuffer" time="0.0"/>
+  <testcase name="writeByteStringOffset[jvm]" classname="okio.CommonBufferedSinkTest_BasicBuffer" time="0.0"/>
+  <testcase name="writeSourceWithZeroIsNoOp[jvm]" classname="okio.CommonBufferedSinkTest_BasicBuffer" time="0.0"/>
+  <testcase name="writeSegmentedByteStringOffset[jvm]" classname="okio.CommonBufferedSinkTest_BasicBuffer" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

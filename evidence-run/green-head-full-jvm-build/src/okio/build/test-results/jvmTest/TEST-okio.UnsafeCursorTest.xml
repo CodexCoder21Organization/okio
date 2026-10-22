@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="okio.UnsafeCursorTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-10-22T21:59:57" hostname="runnervm8k3b6" time="0.002">
+  <properties/>
+  <testcase name="resizeBuffer[jvm]" classname="okio.UnsafeCursorTest" time="0.0"/>
+  <testcase name="acquireForWrite[jvm]" classname="okio.UnsafeCursorTest" time="0.0"/>
+  <testcase name="acquireForRead[jvm]" classname="okio.UnsafeCursorTest" time="0.001"/>
+  <testcase name="expand[jvm]" classname="okio.UnsafeCursorTest" time="0.001"/>
+  <testcase name="testUnsafeCursorIsClosable[jvm]" classname="okio.UnsafeCursorTest" time="0.0"/>
+  <system-out><![CDATA[zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
+zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

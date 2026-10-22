@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="okio.NioDefaultFileSystemWrappingFileSystemTest" tests="169" skipped="1" failures="1" errors="0" timestamp="2026-10-22T21:59:31" hostname="runnervm8k3b6" time="0.065">
+  <properties/>
+  <testcase name="deleteRecursivelyDeepHierarchy[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.001"/>
+  <testcase name="createDirectoryMustCreate[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.001"/>
+  <testcase name="fileSinkFlush[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="fileHandleLargeBufferedWriteAndRead[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.015"/>
+  <testcase name="createSymlinkSourceAlreadyExists[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.001"/>
+  <testcase name="listRecursivelyDoesNotFollowSymlinks[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.001"/>
+  <testcase name="listRecursivelySequenceIterationsAreIndependent[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="atomicMoveDirectory[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="fileHandleResizeLarger[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.001"/>
+  <testcase name="openReadWriteMustExist[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="listOrNullOnRelativePathReturnsRelativePaths[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="sourceRepositionFailsAfterClose[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="deleteRecursivelyEmptyDirectory[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="fileHandleSinkPosition[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.001"/>
+  <testcase name="listRecursivelyFollowsSymlinks[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="deleteRecursivelyOnSymlinkToDirectoryDeletesOnlyThatSymlinkMustExist[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="sinkRepositionFailsAfterClose[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="fileMetadata[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.001"/>
+  <testcase name="fileHandleResizeSmaller[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="canonicalizeFollowsSymlinkFiles[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="deleteFailsOnNonEmptyDirectoryMustExist[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="deleteDoesNotExist[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="fileHandleBufferedSinkReposition[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.001"/>
+  <testcase name="bufferedFileHandleSourceSeekBackwards[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="fileHandleWriteAndOverwrite[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="parentDirectoryIsFileMetadataOrNull[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="writePath[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="followingRecursiveSymlinksIsOkay[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="fileHandleEmptyArrayWriteAndRead[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.001"/>
+  <testcase name="deleteEmptyDirectoryMustExist[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="deleteOpenForWritingFailsOnWindows[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="createDirectoryAlreadyExistsMustCreateThrows[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="bufferedFileHandleSourceHappyPath[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="createDirectoriesAlreadyExists[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="openReadWriteMustCreateThrowsIfAlreadyExists[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="openSymlinkSource[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.001"/>
+  <testcase name="openReadWriteMustExistThrowsIfAbsent[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="deleteRecursivelyFileMustExist[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="deleteRecursivelyOnSymlinkToEnclosingDirectorySucceedsMustExist[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="listOnRelativePathReturnsRelativePaths[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="fileHandleSinkReposition[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="deleteFailsOnNoSuchFileIfMustExist[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.001"/>
+  <testcase name="listRecursivelySilentlyIgnoresListFailures[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="canonicalizeReturnsDeeperPath[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="listRecursivelyIsLazy[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.001"/>
+  <testcase name="fileHandleLargeArrayWriteAndRead[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.009"/>
+  <testcase name="relativeSymlinkMetadata[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.001"/>
+  <testcase name="readPath[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="listSymlinkDirectory[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="deleteRecursivelyEmptyDirectoryMustExist[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.001"/>
+  <testcase name="canonicalizeRelativePathNoSuchFile[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="fileSink[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="fileHandleFlush[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.001"/>
+  <testcase name="fileSinkWithSpecialCharacterNamedFiles[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="deleteRecursivelyOnSymlinkToEnclosingDirectorySucceeds[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.001"/>
+  <testcase name="deleteContentsOfParentOfFileOpenForReadingFailsOnWindows[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="deleteRecursivelyOnSymlinkToDirectoryDeletesOnlyThatSymlink[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="fileSourceNoSuchDirectory[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.001"/>
+  <testcase name="appendingSinkAppendsToExistingFile[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="copyFile[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="deleteRecursivelyOnSymlinkCycleSucceedsMustExist[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.001"/>
+  <testcase name="openSymlinkFileHandle[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="fileSinkNoSuchDirectory[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="listResultsAreSorted[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="absentParentDirectoryMetadataOrNull[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="atomicMoveFile[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.001"/>
+  <testcase name="atomicMoveClobberExistingFile[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="deleteRecursivelyOnSymlinkCycleSucceeds[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.001"/>
+  <testcase name="openFileWithDirectorySymlink[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="deleteFileMustExist[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="listRecursivelyReturnsEmpty[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="appendingSinkMustExistThrowsIfAbsent[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="fileHandleSourceReposition[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.001"/>
+  <testcase name="createSymlinkParentDirectoryDoesNotExist[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="fileSinkMustCreate[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="inaccessibleMetadata[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="openReadWriteCreatesAbsentFile[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="listRecursiveOnSymlinkWithSpecialCharacterNamedFiles[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.001"/>
+  <testcase name="deleteOpenForReadingFailsOnWindows[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="fileSinkSpecialCharacters[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="deleteRecursivelyNoSuchFile[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="list[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="createDirectoryAlreadyExists[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.001"/>
+  <testcase name="writePathMustCreateThrowsIfAlreadyExists[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="deleteEmptyDirectory[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="canonicalizeReturnsShallowerPath[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="canonicalizeFollowsSymlinkDirectories[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.001"/>
+  <testcase name="canonicalizeFollowsMultipleDirectoriesAndMultipleFiles[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="fileHandleBufferedSourceReposition[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="fileHandleSourceSeekBackwards[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.001"/>
+  <testcase name="listOrNullFile[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="writeAfterFileSystemClose[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="createDirectoriesAlreadyExistsMustCreateThrows[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="atomicMoveSourceIsDirectoryAndTargetIsFile[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="listOnRelativePathWhichIsNotDotReturnsRelativePaths[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="renameSourceIsOpenFailsOnWindows[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.001"/>
+  <testcase name="copyTargetIsClobbered[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="deleteRecursivelyOnSymlinkToFileDeletesOnlyThatSymlink[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="listOrNull[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="listNoSuchDirectory[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.001"/>
+  <testcase name="directoryMetadataWithSpecialCharacterNamedFiles[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="deleteRecursivelyNonEmptyDirectoryMustExist[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="createDirectoriesParentIsFile[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.001"/>
+  <testcase name="listRecursivelyIsDepthFirst[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="absentMetadata[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="moveSymlinkDoesntMoveTargetFile[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="writePathMustCreate[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.001"/>
+  <testcase name="openReadWriteThrowsIfBothMustCreateAndMustExist[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="fileHandleBufferedSinkPosition[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="deleteRecursivelyFile[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="fileHandleWriteBeyondEnd[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="listRecursivelyOnSymlink[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="symlinkCanBeRelative[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.001"/>
+  <testcase name="canonicalizeAbsolutePathNoSuchFile[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="directoryMetadata[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="symlinkCanBeRelativeWithDotDots[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="canonicalizeDotReturnsCurrentWorkingDirectory[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.001">
+    <failure message="java.lang.AssertionError: /home/runner/work/okio/okio/src/okio" type="java.lang.AssertionError">java.lang.AssertionError: /home/runner/work/okio/okio/src/okio
+	at org.junit.Assert.fail(Assert.java:89)
+	at kotlin.test.junit.JUnitAsserter.fail(JUnitSupport.kt:56)
+	at kotlin.test.Asserter$DefaultImpls.assertTrue(Assertions.kt:694)
+	at kotlin.test.junit.JUnitAsserter.assertTrue(JUnitSupport.kt:30)
+	at kotlin.test.Asserter$DefaultImpls.assertTrue(Assertions.kt:704)
+	at kotlin.test.junit.JUnitAsserter.assertTrue(JUnitSupport.kt:30)
+	at kotlin.test.AssertionsKt__AssertionsKt.assertTrue(Assertions.kt:44)
+	at kotlin.test.AssertionsKt.assertTrue(Unknown Source)
+	at okio.AbstractFileSystemTest.canonicalizeDotReturnsCurrentWorkingDirectory(AbstractFileSystemTest.kt:74)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.runTestClass(JUnitTestClassExecutor.java:112)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:58)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:40)
+	at org.gradle.api.internal.tasks.testing.junit.AbstractJUnitTestClassProcessor.processTestClass(AbstractJUnitTestClassProcessor.java:54)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:53)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:92)
+	at jdk.proxy1/jdk.proxy1.$Proxy4.processTestClass(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker$2.run(TestWorker.java:183)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:132)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:103)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:63)
+	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:121)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:71)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
+</failure>
+  </testcase>
+  <testcase name="deleteFailsOnNonEmptyDirectory[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="fileSinkMustCreateThrowsIfAlreadyExists[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="fileMetadataWithSpecialCharacterNamedFiles[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="atomicMoveSourceIsFileAndTargetIsDirectory[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.001"/>
+  <testcase name="copySourceDoesNotExist[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="listRecursivelyDoesNotFollowRelativeSymlink[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="atomicMoveSourceIsTarget[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="deleteRecursivelyNonEmptyDirectory[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.001"/>
+  <testcase name="directoryExists[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="currentWorkingDirectoryIsADirectory[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="appendingSinkDoesNotImpactExistingFile[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="openReadOnlyThrowsOnAttemptToWrite[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.001"/>
+  <testcase name="deleteSymlinkDoesntDeleteTargetFile[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="listFile[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="createDirectoryParentDirectoryDoesNotExist[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="appendingSinkExistingFileMustExist[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="fileExists[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="openSymlinkSink[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.001"/>
+  <testcase name="fileHandleSourceHappyPath[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="openReadWriteCreatesAbsentFileMustCreate[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="doesNotExistsWithInvalidPathDoesNotThrow[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="listRecursivelyNotADirectory[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="createDirectoriesSingle[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="createDirectoriesParentDirectoryDoesNotExist[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="fileHandleWriteAndRead[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.001"/>
+  <testcase name="sourcePositionFailsAfterClose[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="symlinkDirectoryLastAccessedAt[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="listOrNullNoSuchDirectory[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="listRecursivelyRecurses[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="sizeFailsAfterClose[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="readAfterFileSystemClose[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.001"/>
+  <testcase name="listRecursivelyReturnsSingleFile[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="listOrNullOnRelativePathWhichIsNotDotReturnsRelativePaths[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="appendingSinkCreatesNewFile[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="listRecursivelyNoSuchFile[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="deleteFile[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="atomicMoveSourceDoesNotExist[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.001"/>
+  <testcase name="fileSource[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="createDirectory[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="openReadOnlyFailsOnAbsentFile[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="deleteRecursivelyMustExistFailsOnNoSuchFile[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="listOrNullResultsAreSorted[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="sinkPositionFailsAfterClose[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="absoluteSymlinkMetadata[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.001"/>
+  <testcase name="symlinkCycle[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="listRecursivelyOnSymlinkCycleThrows[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="deleteRecursivelyOnSymlinkToFileDeletesOnlyThatSymlinkMustExist[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="renameTargetIsOpenFailsOnWindows[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.001"/>
+  <testcase name="absentMetadataOrNull[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="deleteRecursivelyDeepHierarchyMustExist[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="symlinkFileLastAccessedAt[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.0"/>
+  <testcase name="listRecursiveWithSpecialCharacterNamedFiles[jvm]" classname="okio.NioDefaultFileSystemWrappingFileSystemTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

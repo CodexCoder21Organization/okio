@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="okio.CommonRealBufferedSinkTest" tests="15" skipped="0" failures="0" errors="0" timestamp="2026-10-22T21:59:05" hostname="runnervm8k3b6" time="0.002">
+  <properties/>
+  <testcase name="closeWithExceptionWhenClosing[jvm]" classname="okio.CommonRealBufferedSinkTest" time="0.0"/>
+  <testcase name="writeAll[jvm]" classname="okio.CommonRealBufferedSinkTest" time="0.0"/>
+  <testcase name="bufferedSinkFlush[jvm]" classname="okio.CommonRealBufferedSinkTest" time="0.0"/>
+  <testcase name="completeSegmentsEmitted[jvm]" classname="okio.CommonRealBufferedSinkTest" time="0.0"/>
+  <testcase name="closeWithExceptionWhenWriting[jvm]" classname="okio.CommonRealBufferedSinkTest" time="0.0"/>
+  <testcase name="writeAllExhausted[jvm]" classname="okio.CommonRealBufferedSinkTest" time="0.001"/>
+  <testcase name="bytesEmittedToSinkWithFlush[jvm]" classname="okio.CommonRealBufferedSinkTest" time="0.0"/>
+  <testcase name="bytesEmittedToSinkWithEmit[jvm]" classname="okio.CommonRealBufferedSinkTest" time="0.0"/>
+  <testcase name="closeWithExceptionWhenWritingAndClosing[jvm]" classname="okio.CommonRealBufferedSinkTest" time="0.0"/>
+  <testcase name="bufferedSinkEmitMultipleSegments[jvm]" classname="okio.CommonRealBufferedSinkTest" time="0.0"/>
+  <testcase name="operationsAfterClose[jvm]" classname="okio.CommonRealBufferedSinkTest" time="0.0"/>
+  <testcase name="incompleteSegmentsNotEmitted[jvm]" classname="okio.CommonRealBufferedSinkTest" time="0.0"/>
+  <testcase name="writeAllWritesOneSegmentAtATime[jvm]" classname="okio.CommonRealBufferedSinkTest" time="0.001"/>
+  <testcase name="bytesNotEmittedToSinkWithoutFlush[jvm]" classname="okio.CommonRealBufferedSinkTest" time="0.0"/>
+  <testcase name="bufferedSinkEmitsTailWhenItIsComplete[jvm]" classname="okio.CommonRealBufferedSinkTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

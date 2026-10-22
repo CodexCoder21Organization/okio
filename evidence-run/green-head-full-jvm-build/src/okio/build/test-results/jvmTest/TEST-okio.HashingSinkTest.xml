@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="okio.HashingSinkTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2026-10-22T21:59:05" hostname="runnervm8k3b6" time="0.006">
+  <properties/>
+  <testcase name="multipleSegments[jvm]" classname="okio.HashingSinkTest" time="0.004"/>
+  <testcase name="hmacSha256[jvm]" classname="okio.HashingSinkTest" time="0.001"/>
+  <testcase name="hmacSha512[jvm]" classname="okio.HashingSinkTest" time="0.0"/>
+  <testcase name="sha256[jvm]" classname="okio.HashingSinkTest" time="0.0"/>
+  <testcase name="sha512[jvm]" classname="okio.HashingSinkTest" time="0.0"/>
+  <testcase name="md5[jvm]" classname="okio.HashingSinkTest" time="0.0"/>
+  <testcase name="sha1[jvm]" classname="okio.HashingSinkTest" time="0.0"/>
+  <testcase name="multipleHashes[jvm]" classname="okio.HashingSinkTest" time="0.0"/>
+  <testcase name="readFromPrefixOfBuffer[jvm]" classname="okio.HashingSinkTest" time="0.001"/>
+  <testcase name="multipleWrites[jvm]" classname="okio.HashingSinkTest" time="0.0"/>
+  <testcase name="hmacSha1[jvm]" classname="okio.HashingSinkTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="okio.WaitUntilNotifiedTest_Async" tests="11" skipped="0" failures="0" errors="0" timestamp="2026-10-22T21:59:57" hostname="runnervm8k3b6" time="8.006">
+  <properties/>
+  <testcase name="canceledTimeoutDoesNotThrowWhenNotNotifiedOnTime[jvm]" classname="okio.WaitUntilNotifiedTest_Async" time="1.001"/>
+  <testcase name="threadInterrupted[jvm]" classname="okio.WaitUntilNotifiedTest_Async" time="0.001"/>
+  <testcase name="timeout[jvm]" classname="okio.WaitUntilNotifiedTest_Async" time="1.0"/>
+  <testcase name="cancelBeforeWaitDoesNothing[jvm]" classname="okio.WaitUntilNotifiedTest_Async" time="1.001"/>
+  <testcase name="timeoutBeforeDeadline[jvm]" classname="okio.WaitUntilNotifiedTest_Async" time="1.0"/>
+  <testcase name="multipleCancelsAreIdempotent[jvm]" classname="okio.WaitUntilNotifiedTest_Async" time="1.001"/>
+  <testcase name="deadline[jvm]" classname="okio.WaitUntilNotifiedTest_Async" time="1.001"/>
+  <testcase name="deadlineBeforeTimeout[jvm]" classname="okio.WaitUntilNotifiedTest_Async" time="1.0"/>
+  <testcase name="deadlineAlreadyReached[jvm]" classname="okio.WaitUntilNotifiedTest_Async" time="0.0"/>
+  <testcase name="notified[jvm]" classname="okio.WaitUntilNotifiedTest_Async" time="1.001"/>
+  <testcase name="threadInterruptedOnThrowIfReached[jvm]" classname="okio.WaitUntilNotifiedTest_Async" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

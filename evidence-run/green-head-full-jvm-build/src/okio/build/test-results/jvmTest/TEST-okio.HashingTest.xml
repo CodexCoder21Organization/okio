@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="okio.HashingTest" tests="19" skipped="0" failures="0" errors="0" timestamp="2026-10-22T21:59:05" hostname="runnervm8k3b6" time="0.005">
+  <properties/>
+  <testcase name="bufferSha256[jvm]" classname="okio.HashingTest" time="0.0"/>
+  <testcase name="bufferSha512[jvm]" classname="okio.HashingTest" time="0.0"/>
+  <testcase name="byteStringSha1[jvm]" classname="okio.HashingTest" time="0.0"/>
+  <testcase name="bufferHmacSha1[jvm]" classname="okio.HashingTest" time="0.0"/>
+  <testcase name="byteStringHmacSha1[jvm]" classname="okio.HashingTest" time="0.0"/>
+  <testcase name="hashEmptySha256Buffer[jvm]" classname="okio.HashingTest" time="0.0"/>
+  <testcase name="hmacSha512EmptyBuffer[jvm]" classname="okio.HashingTest" time="0.0"/>
+  <testcase name="bufferHmacSha256[jvm]" classname="okio.HashingTest" time="0.0"/>
+  <testcase name="bufferHmacSha512[jvm]" classname="okio.HashingTest" time="0.001"/>
+  <testcase name="bufferMd5[jvm]" classname="okio.HashingTest" time="0.0"/>
+  <testcase name="hmacSha256EmptyBuffer[jvm]" classname="okio.HashingTest" time="0.0"/>
+  <testcase name="byteStringMd5[jvm]" classname="okio.HashingTest" time="0.0"/>
+  <testcase name="hashEmptySha512Buffer[jvm]" classname="okio.HashingTest" time="0.0"/>
+  <testcase name="bufferHashIsNotDestructive[jvm]" classname="okio.HashingTest" time="0.0"/>
+  <testcase name="byteStringSha256[jvm]" classname="okio.HashingTest" time="0.0"/>
+  <testcase name="byteStringSha512[jvm]" classname="okio.HashingTest" time="0.0"/>
+  <testcase name="bufferSha1[jvm]" classname="okio.HashingTest" time="0.0"/>
+  <testcase name="byteStringHmacSha256[jvm]" classname="okio.HashingTest" time="0.001"/>
+  <testcase name="byteStringHmacSha512[jvm]" classname="okio.HashingTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
