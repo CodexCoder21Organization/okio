@@ -120,3 +120,42 @@ scripts/testFakeFilesystemBulkReadBackport.bash /tmp/okio-bulk-read-artifact/oki
 ```
 
 The directory runner executes the full selected native regression suite against core `okio-jvm:3.4.0.2`; the focused runner exercises the read behavior against consumer core `okio-jvm:3.4.0`.
+
+Chunked FakeFileSystem writes
+----------------------------
+
+The compatible `com.squareup.okio:okio-fakefilesystem-jvm:3.4.0.2` candidate
+adds amortized linear allocation for sequential chunked writes and appends.
+It retains the 3.4.0 public API, directory concurrency corrections and bulk-read
+behavior. Overwrites preserve the remaining bytes, and extending a file fills
+the new range with zeroes. A replacement writable open keeps prior handles'
+content views independent. The candidate is built locally; it is not published
+by these commands.
+
+```kotlin
+import okio.Path.Companion.toPath
+import okio.fakefilesystem.FakeFileSystem
+
+val fileSystem = FakeFileSystem()
+val path = "/document".toPath()
+val chunk = ByteArray(8192) { 42 }
+fileSystem.openReadWrite(path, mustCreate = true).use { handle ->
+  repeat(1024) { index -> handle.write(index.toLong() * chunk.size, chunk) }
+  check(handle.size() == 8L * 1024 * 1024)
+}
+fileSystem.checkNoOpenFiles()
+```
+
+Build and test the compatible candidate with Java, Python 3 and Coursier:
+
+```bash
+python3 scripts/buildFakeFilesystemChunkedWriteBackport.py --output-directory /tmp/okio-chunked-artifact
+scripts/testFakeFilesystemChunkedWriteBackport.bash /tmp/okio-chunked-artifact/okio-fakefilesystem-jvm-3.4.0.2.jar /tmp/okio-chunked-results
+scripts/testFakeFilesystemDirectoryBackport.bash /tmp/okio-chunked-artifact /tmp/okio-chunked-directory-results
+```
+
+The allocation regression compares 256 and 1,024 writes of 8 KiB with a JVM
+thread-allocation counter. Quadrupling input may allocate at most six times as
+many bytes; it uses no elapsed-time limit. The native regression and filesystem
+behavior scenarios run with `./gradlew :okio:jvmTest` (and the other configured
+platforms for the common behavior scenarios).
