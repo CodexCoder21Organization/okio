@@ -17,6 +17,7 @@ package okio
 
 import java.io.InterruptedIOException
 import java.nio.channels.FileChannel
+import java.nio.file.FileAlreadyExistsException
 import java.nio.file.FileSystem as NioFileSystem
 import java.nio.file.NoSuchFileException
 import java.nio.file.Path as NioPath
@@ -148,7 +149,7 @@ internal class NioFileSystemWrappingFileSystem(private val nioFileSystem: NioFil
     try {
       dir.resolve().createDirectory()
     } catch (e: IOException) {
-      if (alreadyExist) return
+      if (!mustCreate && e is FileAlreadyExistsException && metadataOrNull(dir)?.isDirectory == true) return
       throw IOException("failed to create directory: $dir", e)
     }
   }

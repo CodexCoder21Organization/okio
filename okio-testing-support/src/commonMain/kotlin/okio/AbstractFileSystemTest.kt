@@ -1483,13 +1483,17 @@ abstract class AbstractFileSystemTest(
     if (isJimFileSystem()) return
     if (!fileSystemHasGoodMetadata) return
 
-    // These timestamps are hardcoded in the following Gradle tasks:
-    //   :okio-testing-support:touchAbstractFileSystemTestFilesCreatedAt
-    //   :okio-testing-support:touchAbstractFileSystemTestFilesModifiedAt
-    val createdAt = fromIso8601String("2026-01-01T01:01:01Z")
+    // The Gradle fixture records the host creation time independently of Okio and
+    // assigns a distinct modified time. Linux touch cannot set a file's creation time.
+    val fixtureDirectory = okioRoot / "okio-testing-support" / "build/AbstractFileSystemTestFiles"
+    val createdAt = fromIso8601String(fileSystem.read(fixtureDirectory / "created-at.txt") { readUtf8() })
     val lastModifiedAt = fromIso8601String("2026-02-02T02:02:02Z")
+    assertTrue(
+      createdAt != lastModifiedAt,
+      "Fixture creation time $createdAt must differ from modified time $lastModifiedAt.",
+    )
 
-    val path = okioRoot / "okio-testing-support" / "build/AbstractFileSystemTestFiles/metadata.txt"
+    val path = fixtureDirectory / "metadata.txt"
     val metadata = fileSystem.metadata(path)
     assertTrue(metadata.isRegularFile)
     assertInRange(metadata.createdAt, createdAt, createdAt)

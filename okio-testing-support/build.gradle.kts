@@ -1,3 +1,5 @@
+import java.nio.file.Files
+import java.nio.file.attribute.FileTime
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompileTool
 
 plugins {
@@ -80,7 +82,7 @@ kotlin {
  * AbstractFileSystemTest expects a file with specific metadata:
  *
  *   path: build/AbstractFileSystemTestFiles/metadata.txt
- *   createdAt: 2026-01-01T01:01:01Z
+ *   createdAt: recorded from the host filesystem after preparing the fixture
  *   lastModifiedAt: 2026-02-02T02:02:02Z
  *
  * It would be nicer to do this in the test itself with exec(), but we don't yet have a handy
@@ -99,6 +101,13 @@ val touchAbstractFileSystemTestFilesModifiedAt by tasks.registering(Exec::class)
   val sampleFile = project.file("build/AbstractFileSystemTestFiles/metadata.txt")
   environment("TZ" to "UTC")
   commandLine("touch", "-t", "202602020202.02", sampleFile.path)
+  doLast {
+    // Linux keeps the original creation time when touch changes the modified time.
+    // Record the host value independently so every adapter must return that value.
+    val createdAt = Files.getAttribute(sampleFile.toPath(), "creationTime") as FileTime
+    project.file("build/AbstractFileSystemTestFiles/created-at.txt")
+      .writeText(createdAt.toInstant().toString())
+  }
 }
 tasks.withType<KotlinCompileTool> {
   dependsOn(
