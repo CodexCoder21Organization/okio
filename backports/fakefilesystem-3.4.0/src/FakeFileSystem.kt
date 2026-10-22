@@ -771,6 +771,7 @@ class FakeFileSystem(
     ): Int {
       check(!closed) { "closed" }
       checkOffsetAndCount(array.size.toLong(), arrayOffset.toLong(), byteCount.toLong())
+      require(fileOffset >= 0L) { "fileOffset=$fileOffset must be non-negative" }
 
       val data = file.data
       if (fileOffset >= data.size) return -1
@@ -797,6 +798,7 @@ class FakeFileSystem(
     ) {
       check(!closed) { "closed" }
       checkOffsetAndCount(array.size.toLong(), arrayOffset.toLong(), byteCount.toLong())
+      require(fileOffset >= 0L) { "fileOffset=$fileOffset must be non-negative" }
 
       val data = file.data
       while (data.size < fileOffset) {

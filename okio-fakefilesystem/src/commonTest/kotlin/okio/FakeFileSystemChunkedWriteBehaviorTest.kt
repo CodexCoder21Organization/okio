@@ -113,4 +113,32 @@ class FakeFileSystemChunkedWriteBehaviorTest {
       fs.checkNoOpenFiles()
     }
   }
+
+  @Test
+  fun negativeOffsetsAreRejectedWithoutChangingBytes() {
+    val fs = FakeFileSystem()
+    val path = "/negative-offset".toPath()
+    try {
+      fs.openReadWrite(path, mustCreate = true).use { handle ->
+        handle.write(0, byteArrayOf(1, 2, 3), 0, 3)
+        for (offset in listOf(-1L, Long.MIN_VALUE)) {
+          val message = "fileOffset=$offset must be non-negative"
+          assertEquals(
+            message,
+            assertFailsWith<IllegalArgumentException> { handle.read(offset, ByteArray(1), 0, 1) }.message,
+          )
+          assertEquals(
+            message,
+            assertFailsWith<IllegalArgumentException> { handle.write(offset, byteArrayOf(9), 0, 1) }.message,
+          )
+        }
+        val actual = ByteArray(3)
+        assertEquals(3, handle.read(0, actual, 0, actual.size))
+        assertContentEquals(byteArrayOf(1, 2, 3), actual)
+        assertEquals(3L, handle.size())
+      }
+    } finally {
+      fs.checkNoOpenFiles()
+    }
+  }
 }

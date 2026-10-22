@@ -132,7 +132,8 @@ adds amortized linear allocation for sequential chunked writes and appends.
 It retains the 3.4.0 public API, directory concurrency corrections and bulk-read
 behavior. Overwrites preserve the remaining bytes, and extending a file fills
 the new range with zeroes. A replacement writable open keeps prior handles'
-content views independent. The candidate is built locally; it is not published
+content views independent. Negative file offsets are rejected with an
+`IllegalArgumentException` that names the offset. The candidate is built locally; it is not published
 by these commands.
 
 ```kotlin
@@ -159,6 +160,6 @@ scripts/testFakeFilesystemDirectoryBackport.bash /tmp/okio-chunked-artifact /tmp
 
 The allocation regression compares 256 and 1,024 writes of 8 KiB with a JVM
 thread-allocation counter. Quadrupling input may allocate at most six times as
-many bytes; it uses no elapsed-time limit. The native regression and filesystem
-behavior scenarios run with `./gradlew :okio:jvmTest` (and the other configured
+many bytes; it uses no elapsed-time limit. The allocation regression and filesystem
+behavior scenarios run with `./gradlew :okio-fakefilesystem:jvmTest` (and the other configured
 platforms for the common behavior scenarios).

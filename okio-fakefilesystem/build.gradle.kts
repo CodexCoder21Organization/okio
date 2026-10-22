@@ -46,7 +46,16 @@ kotlin {
         api(projects.okio)
       }
     }
-    val commonTest by getting
+    val commonTest by getting {
+      dependencies {
+        implementation(libs.kotlin.test)
+      }
+    }
+    val jvmTest by getting {
+      dependencies {
+        implementation(libs.kotlin.test.junit5)
+      }
+    }
     if (kmpWasmEnabled) {
       // Add support for wasmWasi when https://github.com/Kotlin/kotlinx-datetime/issues/324 is resolved.
       configureOrCreateWasmPlatform(wasi = false)

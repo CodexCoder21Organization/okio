@@ -124,4 +124,31 @@ public class FakeFileSystemChunkedWriteTest {
     }
   }
 
+
+  @Test
+  public void negativeOffsetsAreRejectedWithoutChangingBytes() throws Exception {
+    FakeFileSystem fs = new FakeFileSystem();
+    Path path = Path.Companion.get("/negative-offset", false);
+    try {
+      try (FileHandle handle = fs.openReadWrite(path, true, false)) {
+        handle.write(0, new byte[] {1, 2, 3}, 0, 3);
+        for (long offset : new long[] {-1L, Long.MIN_VALUE}) {
+          String message = "fileOffset=" + offset + " must be non-negative";
+          IllegalArgumentException read = assertThrows(IllegalArgumentException.class,
+              () -> handle.read(offset, new byte[1], 0, 1));
+          assertEquals(message, read.getMessage());
+          IllegalArgumentException write = assertThrows(IllegalArgumentException.class,
+              () -> handle.write(offset, new byte[] {9}, 0, 1));
+          assertEquals(message, write.getMessage());
+        }
+        byte[] actual = new byte[3];
+        assertEquals(3, handle.read(0, actual, 0, 3));
+        assertArrayEquals(new byte[] {1, 2, 3}, actual);
+        assertEquals(3, handle.size());
+      }
+    } finally {
+      fs.checkNoOpenFiles();
+    }
+  }
+
 }
