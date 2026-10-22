@@ -384,7 +384,7 @@ class FakeFileSystem private constructor(
       operation = WRITE
 
       if (existing is File) {
-        element.data = existing.data
+        element.data = existing.data.copy()
       }
     } else {
       val existing = lookupResult?.element
@@ -637,7 +637,7 @@ class FakeFileSystem private constructor(
     val extras = mutableMapOf<KClass<*>, Any>()
 
     class File(createdAtMillis: Long) : Element(createdAtMillis) {
-      var data: ByteString = ByteString.EMPTY
+      var data: Buffer = Buffer()
 
       override val metadata: FileMetadata
         get() = FileMetadata(
@@ -732,14 +732,13 @@ class FakeFileSystem private constructor(
     override fun protectedResize(size: Long) {
       check(!closed) { "closed" }
 
-      val delta = size - file.data.size
-      if (delta > 0) {
-        file.data = Buffer()
-          .write(file.data)
-          .write(ByteArray(delta.toInt()))
-          .readByteString()
-      } else {
-        file.data = file.data.substring(0, size.toInt())
+      file.data.readAndWriteUnsafe().use { cursor ->
+        val previousSize = cursor.resizeBuffer(size)
+        if (size > previousSize) {
+          do {
+            cursor.data!!.fill(0, cursor.start, cursor.end)
+          } while (cursor.next() != -1)
+        }
       }
 
       file.access(nowMillis = clockNowMillis(), modified = true)
@@ -759,10 +758,20 @@ class FakeFileSystem private constructor(
       check(!closed) { "closed" }
       checkOffsetAndCount(array.size.toLong(), arrayOffset.toLong(), byteCount.toLong())
 
-      val fileOffsetInt = fileOffset.toInt()
-      val toCopy = minOf(file.data.size - fileOffsetInt, byteCount)
+      val data = file.data
+      if (fileOffset >= data.size) return -1
+      val toCopy = minOf(data.size - fileOffset, byteCount.toLong()).toInt()
       if (toCopy <= 0) return -1
-      file.data.copyInto(fileOffsetInt, array, arrayOffset, toCopy)
+      data.readUnsafe().use { cursor ->
+        cursor.seek(fileOffset)
+        var copied = 0
+        while (copied < toCopy) {
+          val count = minOf(cursor.end - cursor.start, toCopy - copied)
+          cursor.data!!.copyInto(array, arrayOffset + copied, cursor.start, cursor.start + count)
+          copied += count
+          if (copied < toCopy) cursor.next()
+        }
+      }
       return toCopy
     }
 
@@ -775,16 +784,24 @@ class FakeFileSystem private constructor(
       check(!closed) { "closed" }
       checkOffsetAndCount(array.size.toLong(), arrayOffset.toLong(), byteCount.toLong())
 
-      val buffer = Buffer()
-      buffer.write(file.data, 0, minOf(fileOffset.toInt(), file.data.size))
-      while (buffer.size < fileOffset) {
-        buffer.writeByte(0)
+      val data = file.data
+      while (data.size < fileOffset) {
+        data.writeByte(0)
       }
-      buffer.write(array, arrayOffset, byteCount)
-      if (buffer.size < file.data.size) {
-        buffer.write(file.data, buffer.size.toInt(), file.data.size - buffer.size.toInt())
+      val toOverwrite = minOf(byteCount.toLong(), data.size - fileOffset).toInt()
+      if (toOverwrite > 0) {
+        data.readAndWriteUnsafe().use { cursor ->
+          cursor.seek(fileOffset)
+          var copied = 0
+          while (copied < toOverwrite) {
+            val count = minOf(cursor.end - cursor.start, toOverwrite - copied)
+            array.copyInto(cursor.data!!, cursor.start, arrayOffset + copied, arrayOffset + copied + count)
+            copied += count
+            if (copied < toOverwrite) cursor.next()
+          }
+        }
       }
-      file.data = buffer.snapshot()
+      data.write(array, arrayOffset + toOverwrite, byteCount - toOverwrite)
       file.access(nowMillis = clockNowMillis(), modified = true)
     }
 
