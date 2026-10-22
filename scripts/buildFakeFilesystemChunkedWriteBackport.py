@@ -23,10 +23,12 @@ def command(*args):
 
 
 def normalized_signatures(output):
-    # Method declaration order is not part of the JVM API; keep each class's members together.
+    # Source filenames and method declaration order are not part of the JVM API.
     blocks = []
     members = []
     for line in output.splitlines():
+        if line.startswith('Compiled from '):
+            continue
         if line.startswith('  '):
             members.append(line)
         else:
