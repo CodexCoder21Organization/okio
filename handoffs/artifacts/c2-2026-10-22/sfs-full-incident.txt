@@ -1,0 +1,25 @@
+SFS full-suite termination evidence
+Captured at: 2026-10-22 03:12:21 UTC
+
+Suite command: env COURSIER_EXTRA_MIRRORS=/tmp/c2-local-okio-mirrors.properties scripts/test.bash --local --test . --log /tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/sfs-full.xml
+Suite started: 2026-10-22 03:01:39 UTC, after origin/main fetch/rebase guard passed on head ede34dcb8d6d5c71d69f844a97953a59cd12ec5d, tree 181dd763798d17b5c1c5c4b02e0db26cb3afe0aa.
+Suite wrapper terminal result: exit 137; no aggregate XML at sfs-full.xml. Captured terminal output: "scripts/test.bash: line 48: 77239 Killed JAVA_OPTS=\"$JAVA_PROXY_OPTS\" \"$JAR_PATH\" --cache-location \"$CACHE_PATH\" -w \"$SCRIPT_PATH/..\" \"$@\"" followed by "PROBLEM: full suite ended without aggregate XML (exit 137)."
+Last confirmed-live check before launcher exit: 2026-10-22 03:08:37 UTC; test JVMs with -Xmx128m were active. The terminal result surfaced after the next 60-second polling interval and before the 03:09:40 UTC resource probe; exact signal time was not recorded by the shell wrapper.
+
+Orphan left after parent launcher exit, observed at 2026-10-22 03:11 UTC:
+PID 42701, PPID 1, Java test process. State:	S (sleeping)
+Command line: java -ea -Dkotlinx.coroutines.debug=off -Xmx128m -XX:ParallelGCThreads=1 -XX:ConcGCThreads=1 -XX:TieredStopAtLevel=1 -javaagent:/home/leslie/.aibuildcaches/_tmp_claude-501_-code_2abf611d-5e04-4919-84a8-d7b72869d40c_scratchpad_workspace_r1-C2_SimpleFileSystemServiceServer/prepared-test-classpath17829387287807487576/classpath/unittest-native-sha256-agent.jar=/home/leslie/.aibuildcaches/_tmp_claude-501_-code_2abf611d-5e04-4919-84a8-d7b72869d40c_scratchpad_workspace_r1-C2_SimpleFileSystemServiceServer/prepared-test-classpath17829387287807487576/classpath/conscrypt-openjdk-2.6.3-linux-aarch_64.jar -Dsun.net.client.defaultConnectTimeout=15000 -Dsun.net.client.defaultReadTimeout=60000 -Djava.security.egd=file:/dev/urandom @/tmp/jvm-classpath-5717673999415202833.txt community.kotlin.kompile.testrunner.bootstrap.BootstrapRunner localhost 35251 kompile.TestRunner executeTest simplefilesystemservice.server.tests.TestConcurrentMultiFilePublishOverUrlKeepsMoveWorkBoundedKt testConcurrentMultiFilePublishOverUrlKeepsMoveWorkBounded 600000 fd97fc57-d39c-443e-a99a-4491417186f7
+Descriptor targets:
+fd0: pipe:[104586805]; pos:	0; flags:	00; mnt_id:	15; ino:	104586805; 
+fd1: pipe:[104586806]; pos:	0; flags:	01; mnt_id:	15; ino:	104586806; 
+fd2: pipe:[104586807]; pos:	0; flags:	01; mnt_id:	15; ino:	104586807; 
+FIONREAD on stdout/stderr pipe fds was 0 bytes. No visible process held a read end in this proc namespace. No file target exists for stdout/stderr. Recent /tmp/test-scratch*/test_output.txt files contained no output naming this scenario, so there is no child output file to copy from these locations.
+
+Resource observations at 2026-10-22 03:09:40 UTC:
+/sys/fs/cgroup/memory.events: low 0; high 0; max 348641; oom 10; oom_kill 3; oom_group_kill 0.
+memory.current 9,038,770,176 bytes; memory.max 10,737,418,240 bytes.
+/proc/pressure/memory: some avg10=1.70 avg60=2.68 avg300=1.98 total=355018344; full avg10=0.76 avg60=1.15 avg300=0.84 total=176834195.
+Host free output then showed 62 GiB total, 4.4 GiB free, 43 GiB available, 3.9 GiB swap used of 4.0 GiB.
+These cgroup counters are cumulative; no pre-run baseline was captured, so they do not attribute the kill. journalctl is not installed; dmesg produced no output. No test assertion result or aggregate XML exists.
+
+Console lines captured during execution before termination included the runner notice: "Control socket idle for 60000ms with no RPC from the child; child process is still alive, so continuing to wait (the independent monotonic per-test watchdog still bounds the run)." This appeared twice while the scenario JVM remained active; it was not itself a test verdict.
