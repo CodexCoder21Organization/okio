@@ -1,0 +1,143 @@
+<tests>
+  <buildrule name="simplefilesystemservice.server.buildWireMaven()" success="true" time="45672" output-files="3" output-bytes="1741380" executions="1"/>
+  <buildrule name="simplefilesystemservice.server.buildMaven()" success="true" time="34459" output-files="1" output-bytes="1793448" executions="1"/>
+  <buildrule name="simplefilesystemservice.server.buildClientMaven()" success="true" time="36618" output-files="1" output-bytes="38987" executions="1"/>
+  <test file="/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/workspace/r1-C2/SimpleFileSystemServiceServer/scripts/../tests/testConcurrentMultiFilePublishOverUrlKeepsMoveWorkBounded.kts" name="simplefilesystemservice.server.tests.testConcurrentMultiFilePublishOverUrlKeepsMoveWorkBounded" success="false" time="454569">
+    <stacktrace>simplefilesystem.SimpleFileSystemException: failed to create directory: /managed/.filesystems/f76ee58f-a4e2-4805-aff8-bcec4fb75f50/.sfsemb-staging
+	at simplefilesystemservice.client.SimpleFileSystemClientKt.throwRemote(SimpleFileSystemClient.kt:477)
+	at simplefilesystemservice.client.SimpleFileSystemClientKt.envelopeValue(SimpleFileSystemClient.kt:446)
+	at simplefilesystemservice.client.SimpleFileSystemClientKt.value(SimpleFileSystemClient.kt:442)
+	at simplefilesystemservice.client.SimpleFileSystemClientKt.access$value(SimpleFileSystemClient.kt:1)
+	at simplefilesystemservice.client.RemoteSimpleFileSystem.sessionSink(SimpleFileSystemClient.kt:221)
+	at simplefilesystemservice.client.RemoteSimpleFileSystem.sink(SimpleFileSystemClient.kt:216)
+	at simplefilesystemservice.server.tests.TestConcurrentMultiFilePublishOverUrlKeepsMoveWorkBoundedKt.testConcurrentMultiFilePublishOverUrlKeepsMoveWorkBounded$lambda$8$lambda$7(testConcurrentMultiFilePublishOverUrlKeepsMoveWorkBounded.kt:265)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+</stacktrace>
+    <console-output>java.lang.reflect.InvocationTargetException
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:118)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at community.kotlin.kompile.testrunner.bootstrap.BootstrapRunner.main(BootstrapRunner.java:449)
+Caused by: simplefilesystem.SimpleFileSystemException: failed to create directory: /managed/.filesystems/f76ee58f-a4e2-4805-aff8-bcec4fb75f50/.sfsemb-staging
+	at simplefilesystemservice.client.SimpleFileSystemClientKt.throwRemote(SimpleFileSystemClient.kt:477)
+	at simplefilesystemservice.client.SimpleFileSystemClientKt.envelopeValue(SimpleFileSystemClient.kt:446)
+	at simplefilesystemservice.client.SimpleFileSystemClientKt.value(SimpleFileSystemClient.kt:442)
+	at simplefilesystemservice.client.SimpleFileSystemClientKt.access$value(SimpleFileSystemClient.kt:1)
+	at simplefilesystemservice.client.RemoteSimpleFileSystem.sessionSink(SimpleFileSystemClient.kt:221)
+	at simplefilesystemservice.client.RemoteSimpleFileSystem.sink(SimpleFileSystemClient.kt:216)
+	at simplefilesystemservice.server.tests.TestConcurrentMultiFilePublishOverUrlKeepsMoveWorkBoundedKt.testConcurrentMultiFilePublishOverUrlKeepsMoveWorkBounded$lambda$8$lambda$7(testConcurrentMultiFilePublishOverUrlKeepsMoveWorkBounded.kt:265)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+</console-output>
+  </test>
+  <attempt-history file="/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/workspace/r1-C2/SimpleFileSystemServiceServer/scripts/../tests/testConcurrentMultiFilePublishOverUrlKeepsMoveWorkBounded.kts" name="simplefilesystemservice.server.tests.testConcurrentMultiFilePublishOverUrlKeepsMoveWorkBounded">
+    <attempt number="1" success="false" time="454569">
+      <stacktrace>simplefilesystem.SimpleFileSystemException: failed to create directory: /managed/.filesystems/f76ee58f-a4e2-4805-aff8-bcec4fb75f50/.sfsemb-staging
+	at simplefilesystemservice.client.SimpleFileSystemClientKt.throwRemote(SimpleFileSystemClient.kt:477)
+	at simplefilesystemservice.client.SimpleFileSystemClientKt.envelopeValue(SimpleFileSystemClient.kt:446)
+	at simplefilesystemservice.client.SimpleFileSystemClientKt.value(SimpleFileSystemClient.kt:442)
+	at simplefilesystemservice.client.SimpleFileSystemClientKt.access$value(SimpleFileSystemClient.kt:1)
+	at simplefilesystemservice.client.RemoteSimpleFileSystem.sessionSink(SimpleFileSystemClient.kt:221)
+	at simplefilesystemservice.client.RemoteSimpleFileSystem.sink(SimpleFileSystemClient.kt:216)
+	at simplefilesystemservice.server.tests.TestConcurrentMultiFilePublishOverUrlKeepsMoveWorkBoundedKt.testConcurrentMultiFilePublishOverUrlKeepsMoveWorkBounded$lambda$8$lambda$7(testConcurrentMultiFilePublishOverUrlKeepsMoveWorkBounded.kt:265)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+</stacktrace>
+      <console-output>java.lang.reflect.InvocationTargetException
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:118)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at community.kotlin.kompile.testrunner.bootstrap.BootstrapRunner.main(BootstrapRunner.java:449)
+Caused by: simplefilesystem.SimpleFileSystemException: failed to create directory: /managed/.filesystems/f76ee58f-a4e2-4805-aff8-bcec4fb75f50/.sfsemb-staging
+	at simplefilesystemservice.client.SimpleFileSystemClientKt.throwRemote(SimpleFileSystemClient.kt:477)
+	at simplefilesystemservice.client.SimpleFileSystemClientKt.envelopeValue(SimpleFileSystemClient.kt:446)
+	at simplefilesystemservice.client.SimpleFileSystemClientKt.value(SimpleFileSystemClient.kt:442)
+	at simplefilesystemservice.client.SimpleFileSystemClientKt.access$value(SimpleFileSystemClient.kt:1)
+	at simplefilesystemservice.client.RemoteSimpleFileSystem.sessionSink(SimpleFileSystemClient.kt:221)
+	at simplefilesystemservice.client.RemoteSimpleFileSystem.sink(SimpleFileSystemClient.kt:216)
+	at simplefilesystemservice.server.tests.TestConcurrentMultiFilePublishOverUrlKeepsMoveWorkBoundedKt.testConcurrentMultiFilePublishOverUrlKeepsMoveWorkBounded$lambda$8$lambda$7(testConcurrentMultiFilePublishOverUrlKeepsMoveWorkBounded.kt:265)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+</console-output>
+    </attempt>
+    <attempt number="2" success="false" time="476459">
+      <stacktrace>simplefilesystem.SimpleFileSystemException: failed to create directory: /managed/.filesystems/044c4283-ed01-4904-8b28-02b336c4a62e/.sfsemb-staging
+	at simplefilesystemservice.client.SimpleFileSystemClientKt.throwRemote(SimpleFileSystemClient.kt:477)
+	at simplefilesystemservice.client.SimpleFileSystemClientKt.envelopeValue(SimpleFileSystemClient.kt:446)
+	at simplefilesystemservice.client.SimpleFileSystemClientKt.value(SimpleFileSystemClient.kt:442)
+	at simplefilesystemservice.client.SimpleFileSystemClientKt.access$value(SimpleFileSystemClient.kt:1)
+	at simplefilesystemservice.client.RemoteSimpleFileSystem.sessionSink(SimpleFileSystemClient.kt:221)
+	at simplefilesystemservice.client.RemoteSimpleFileSystem.sink(SimpleFileSystemClient.kt:216)
+	at simplefilesystemservice.server.tests.TestConcurrentMultiFilePublishOverUrlKeepsMoveWorkBoundedKt.testConcurrentMultiFilePublishOverUrlKeepsMoveWorkBounded$lambda$8$lambda$7(testConcurrentMultiFilePublishOverUrlKeepsMoveWorkBounded.kt:265)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+</stacktrace>
+      <console-output>java.lang.reflect.InvocationTargetException
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:118)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at community.kotlin.kompile.testrunner.bootstrap.BootstrapRunner.main(BootstrapRunner.java:449)
+Caused by: simplefilesystem.SimpleFileSystemException: failed to create directory: /managed/.filesystems/044c4283-ed01-4904-8b28-02b336c4a62e/.sfsemb-staging
+	at simplefilesystemservice.client.SimpleFileSystemClientKt.throwRemote(SimpleFileSystemClient.kt:477)
+	at simplefilesystemservice.client.SimpleFileSystemClientKt.envelopeValue(SimpleFileSystemClient.kt:446)
+	at simplefilesystemservice.client.SimpleFileSystemClientKt.value(SimpleFileSystemClient.kt:442)
+	at simplefilesystemservice.client.SimpleFileSystemClientKt.access$value(SimpleFileSystemClient.kt:1)
+	at simplefilesystemservice.client.RemoteSimpleFileSystem.sessionSink(SimpleFileSystemClient.kt:221)
+	at simplefilesystemservice.client.RemoteSimpleFileSystem.sink(SimpleFileSystemClient.kt:216)
+	at simplefilesystemservice.server.tests.TestConcurrentMultiFilePublishOverUrlKeepsMoveWorkBoundedKt.testConcurrentMultiFilePublishOverUrlKeepsMoveWorkBounded$lambda$8$lambda$7(testConcurrentMultiFilePublishOverUrlKeepsMoveWorkBounded.kt:265)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+</console-output>
+    </attempt>
+    <attempt number="3" success="false" time="263691">
+      <stacktrace>simplefilesystem.SimpleFileSystemException: failed to create directory: /managed/.filesystems/bc365421-c9fa-4e7a-85ad-91b6a1777ba4/.sfsemb-staging
+	at simplefilesystemservice.client.SimpleFileSystemClientKt.throwRemote(SimpleFileSystemClient.kt:477)
+	at simplefilesystemservice.client.SimpleFileSystemClientKt.envelopeValue(SimpleFileSystemClient.kt:446)
+	at simplefilesystemservice.client.SimpleFileSystemClientKt.value(SimpleFileSystemClient.kt:442)
+	at simplefilesystemservice.client.SimpleFileSystemClientKt.access$value(SimpleFileSystemClient.kt:1)
+	at simplefilesystemservice.client.RemoteSimpleFileSystem.sessionSink(SimpleFileSystemClient.kt:221)
+	at simplefilesystemservice.client.RemoteSimpleFileSystem.sink(SimpleFileSystemClient.kt:216)
+	at simplefilesystemservice.server.tests.TestConcurrentMultiFilePublishOverUrlKeepsMoveWorkBoundedKt.testConcurrentMultiFilePublishOverUrlKeepsMoveWorkBounded$lambda$8$lambda$7(testConcurrentMultiFilePublishOverUrlKeepsMoveWorkBounded.kt:265)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+</stacktrace>
+      <console-output>java.lang.reflect.InvocationTargetException
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:118)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at community.kotlin.kompile.testrunner.bootstrap.BootstrapRunner.main(BootstrapRunner.java:449)
+Caused by: simplefilesystem.SimpleFileSystemException: failed to create directory: /managed/.filesystems/bc365421-c9fa-4e7a-85ad-91b6a1777ba4/.sfsemb-staging
+	at simplefilesystemservice.client.SimpleFileSystemClientKt.throwRemote(SimpleFileSystemClient.kt:477)
+	at simplefilesystemservice.client.SimpleFileSystemClientKt.envelopeValue(SimpleFileSystemClient.kt:446)
+	at simplefilesystemservice.client.SimpleFileSystemClientKt.value(SimpleFileSystemClient.kt:442)
+	at simplefilesystemservice.client.SimpleFileSystemClientKt.access$value(SimpleFileSystemClient.kt:1)
+	at simplefilesystemservice.client.RemoteSimpleFileSystem.sessionSink(SimpleFileSystemClient.kt:221)
+	at simplefilesystemservice.client.RemoteSimpleFileSystem.sink(SimpleFileSystemClient.kt:216)
+	at simplefilesystemservice.server.tests.TestConcurrentMultiFilePublishOverUrlKeepsMoveWorkBoundedKt.testConcurrentMultiFilePublishOverUrlKeepsMoveWorkBounded$lambda$8$lambda$7(testConcurrentMultiFilePublishOverUrlKeepsMoveWorkBounded.kt:265)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+</console-output>
+    </attempt>
+  </attempt-history>
+</tests>

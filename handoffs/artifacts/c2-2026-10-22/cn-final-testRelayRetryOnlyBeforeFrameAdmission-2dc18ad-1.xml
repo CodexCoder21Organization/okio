@@ -1,0 +1,4 @@
+<tests>
+  <buildrule name="containernursery.buildMaven()" success="true" time="151279" output-files="196" output-bytes="118253116" executions="1"/>
+  <test file="/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/workspace/r1-C2/ContainerNursery/tests/testRelayRetryOnlyBeforeFrameAdmission.kts" name="containernursery.testRelayRetryOnlyBeforeFrameAdmission" success="true" time="6080"/>
+</tests>

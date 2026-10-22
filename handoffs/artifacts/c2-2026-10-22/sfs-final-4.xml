@@ -1,0 +1,6 @@
+<tests>
+  <buildrule name="simplefilesystemservice.server.buildWireMaven()" success="true" time="11340" output-files="3" output-bytes="1741380" executions="0"/>
+  <buildrule name="simplefilesystemservice.server.buildMaven()" success="true" time="1477" output-files="1" output-bytes="1793514" executions="0"/>
+  <buildrule name="simplefilesystemservice.server.buildClientMaven()" success="true" time="740" output-files="1" output-bytes="38987" executions="0"/>
+  <test file="/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/workspace/r1-C2/SimpleFileSystemServiceServer/scripts/../tests/testConcurrentMultiFilePublishOverUrlKeepsMoveWorkBounded.kts" name="simplefilesystemservice.server.tests.testConcurrentMultiFilePublishOverUrlKeepsMoveWorkBounded" success="true" time="463581"/>
+</tests>

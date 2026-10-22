@@ -1,0 +1,2 @@
+XML_FILES 261
+TOTAL {'tests': 5121, 'failures': 0, 'errors': 0, 'skipped': 104}
