@@ -1,0 +1,2 @@
+3c4ceee561cdaa08f28214b911d5201b7d8ba540c647745e8ff93eebcccabd07  okio-jvm-3.4.0.3.jar
+41bc94abe6e90d5629cc5375aa1af66aad91cdd1084d9e4fce97d71509449c97  okio-jvm-3.4.0.3.pom

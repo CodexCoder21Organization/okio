@@ -1,0 +1,93 @@
+  public void createDirectory(okio.Path, boolean);
+    Code:
+       0: aload_1
+       1: ldc           #105                // String dir
+       3: invokestatic  #15                 // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+       6: aload_0
+       7: aload_1
+       8: invokevirtual #304                // Method metadataOrNull:(Lokio/Path;)Lokio/FileMetadata;
+      11: dup
+      12: ifnull        30
+      15: invokevirtual #309                // Method okio/FileMetadata.isDirectory:()Z
+      18: iconst_1
+      19: if_icmpne     26
+      22: iconst_1
+      23: goto          32
+      26: iconst_0
+      27: goto          32
+      30: pop
+      31: iconst_0
+      32: istore_3
+      33: iload_3
+      34: ifeq          69
+      37: iload_2
+      38: ifeq          69
+      41: new           #138                // class java/io/IOException
+      44: dup
+      45: new           #78                 // class java/lang/StringBuilder
+      48: dup
+      49: invokespecial #79                 // Method java/lang/StringBuilder."<init>":()V
+      52: aload_1
+      53: invokevirtual #88                 // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+      56: ldc_w         #311                // String  already exist.
+      59: invokevirtual #85                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      62: invokevirtual #89                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      65: invokespecial #141                // Method java/io/IOException."<init>":(Ljava/lang/String;)V
+      68: athrow
+      69: nop
+      70: aload_0
+      71: aload_1
+      72: invokespecial #58                 // Method resolve:(Lokio/Path;)Ljava/nio/file/Path;
+      75: iconst_0
+      76: anewarray     #313                // class java/nio/file/attribute/FileAttribute
+      79: dup
+      80: arraylength
+      81: invokestatic  #128                // Method java/util/Arrays.copyOf:([Ljava/lang/Object;I)[Ljava/lang/Object;
+      84: checkcast     #315                // class "[Ljava/nio/file/attribute/FileAttribute;"
+      87: invokestatic  #318                // Method java/nio/file/Files.createDirectory:(Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;
+      90: dup
+      91: ldc_w         #320                // String createDirectory(this, *attributes)
+      94: invokestatic  #44                 // Method kotlin/jvm/internal/Intrinsics.checkNotNullExpressionValue:(Ljava/lang/Object;Ljava/lang/String;)V
+      97: pop
+      98: goto          178
+     101: astore        4
+     103: iload_2
+     104: ifne          145
+     107: aload         4
+     109: instanceof    #322                // class java/nio/file/FileAlreadyExistsException
+     112: ifeq          145
+     115: aload_0
+     116: aload_1
+     117: invokevirtual #304                // Method metadataOrNull:(Lokio/Path;)Lokio/FileMetadata;
+     120: dup
+     121: ifnull        139
+     124: invokevirtual #309                // Method okio/FileMetadata.isDirectory:()Z
+     127: iconst_1
+     128: if_icmpne     135
+     131: iconst_1
+     132: goto          141
+     135: iconst_0
+     136: goto          141
+     139: pop
+     140: iconst_0
+     141: ifeq          145
+     144: return
+     145: new           #138                // class java/io/IOException
+     148: dup
+     149: new           #78                 // class java/lang/StringBuilder
+     152: dup
+     153: invokespecial #79                 // Method java/lang/StringBuilder."<init>":()V
+     156: ldc_w         #324                // String failed to create directory:
+     159: invokevirtual #85                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     162: aload_1
+     163: invokevirtual #88                 // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     166: invokevirtual #89                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     169: aload         4
+     171: checkcast     #326                // class java/lang/Throwable
+     174: invokespecial #329                // Method java/io/IOException."<init>":(Ljava/lang/String;Ljava/lang/Throwable;)V
+     177: athrow
+     178: return
+    Exception table:
+       from    to  target type
+          69    98   101   Class java/io/IOException
+

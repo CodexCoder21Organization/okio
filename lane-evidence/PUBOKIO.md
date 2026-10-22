@@ -41,3 +41,22 @@ Plan update: initial verification DONE; build and regressions DONE; publication 
 OBSERVED: Pre-publication checks returned HTTP 404 for both exact target POM and JAR. Directory contained only the authorized coordinate JAR/POM; parsed POM coordinate matched exactly.
 OBSERVED: Published via community.kotlin.maven.artifact.publishing:community-kotlin-maven-artifact-publishing:0.0.6, --artifact-dir, --api-url https://api.kotlin.directory/upload, --force. Process completed with exit 0. The explicit coordinate authorization supplies approval; no other coordinate was submitted. Publication log retained in lane-evidence/PUBOKIO-publish.log.
 Plan update: initial verification DONE; build/regressions DONE; publication DONE; published download/hash/bytecode verification IN PROGRESS.
+
+## 2026-10-22T06:54:27.787241+00:00 — final verification
+
+OBSERVED: Downloaded both published files with HTTP 200; each is byte-for-byte identical to the local build.
+OBSERVED: Published okio-jvm-3.4.0.3.jar SHA-256 3c4ceee561cdaa08f28214b911d5201b7d8ba540c647745e8ff93eebcccabd07.
+OBSERVED: Published okio-jvm-3.4.0.3.pom SHA-256 41bc94abe6e90d5629cc5375aa1af66aad91cdd1084d9e4fce97d71509449c97.
+OBSERVED: javap of the downloaded JAR confirms createDirectory checks mustCreate at offsets 103–104, FileAlreadyExistsException at 109, refreshed metadataOrNull at 117, and FileMetadata.isDirectory at 124 before successful return at 144. Evidence is PUBOKIO-published-javap.txt.
+OBSERVED: An initial local verification-script assertion expected the accessor spelling getIsDirectory, but javap names it isDirectory. Corrected only that inspection assumption; manual bytecode inspection and explicit instruction checks then passed. No artifact or test changed.
+OBSERVED: Downloaded POM dependencies are exactly org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0 (compile), org.jetbrains.kotlin:kotlin-stdlib-common:1.8.0 (compile).
+OBSERVED: All tracked long-command sessions have exited; the stopped lock-wait PIDs are absent in final ps -eo pid,args -ww. No background wait remains from this lane. No implementation changes, PRs, merges, deployment, service restart, or other coordinate publication occurred.
+
+Brief audit:
+- DONE: Initial exact POM check HTTP 404; immediately before publication both POM and JAR HTTP 404.
+- DONE: Fresh clone at required merged main, rebase succeeded; build exit 0; selected scenarios 3/3 attempt 1 with zero skips/retries.
+- DONE: Only authorized coordinate published using skill CLI, exit 0.
+- DONE: Published downloads HTTP 200, matching SHA-256 and exact bytes; published NIO adapter check confirmed by javap.
+- DONE: Coordinate, full hashes and POM dependencies recorded, with evidence on a separate wip branch.
+
+Status: DONE. No remaining work or blockers.
