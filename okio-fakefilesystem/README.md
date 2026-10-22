@@ -7,7 +7,10 @@ linear work. Random-access positioning has bounded work independent of file size
 replacement writable open preserves the previous handles' independent view;
 shrinking and regrowing either view does not change the other. Each byte-array
 read observes a consistent file size and byte range during concurrent writes
-and resize calls through the same file view.
+and resize calls through the same file view. A negative resize size throws
+`IllegalArgumentException("endIndex < beginIndex")` and leaves the size and bytes
+unchanged. Metadata and new readers see complete contents while a replacement
+writable open waits to copy an existing view.
 
 ```kotlin
 import okio.Path.Companion.toPath
@@ -18,6 +21,9 @@ val fs = FakeFileSystem().apply { allowWritesWhileWriting = true }
 val path = "/document".toPath()
 fs.openReadWrite(path, mustCreate = true).use { original ->
   original.write(0, byteArrayOf(1, 2, 3), 0, 3)
+  val rejection = runCatching { original.resize(-1) }.exceptionOrNull()
+  check(rejection is IllegalArgumentException)
+  check(original.size() == 3L)
   fs.openReadWrite(path, mustExist = true).use { replacement ->
     original.resize(1)
     original.resize(3)
