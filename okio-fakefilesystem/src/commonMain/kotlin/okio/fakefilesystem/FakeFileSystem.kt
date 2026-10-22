@@ -18,6 +18,8 @@ package okio.fakefilesystem
 import kotlin.jvm.JvmName
 import kotlin.reflect.KClass
 import kotlin.time.Instant
+import kotlinx.atomicfu.locks.SynchronizedObject
+import kotlinx.atomicfu.locks.synchronized
 import kotlinx.datetime.Clock
 import okio.ArrayIndexOutOfBoundsException
 import okio.Buffer
@@ -385,7 +387,9 @@ class FakeFileSystem private constructor(
       operation = WRITE
 
       if (existing is File) {
-        element.data = existing.data.copy()
+        synchronized(existing.contentLock) {
+          element.data = existing.data.copy()
+        }
       }
     } else {
       val existing = lookupResult?.element
@@ -638,17 +642,21 @@ class FakeFileSystem private constructor(
     val extras = mutableMapOf<KClass<*>, Any>()
 
     class File(createdAtMillis: Long) : Element(createdAtMillis) {
+      val contentLock = SynchronizedObject()
       var data: Buffer = Buffer()
+      var readCursor: Buffer.UnsafeCursor? = null
 
       override val metadata: FileMetadata
-        get() = FileMetadata(
-          isRegularFile = true,
-          size = data.size.toLong(),
-          createdAtMillis = createdAtMillis,
-          lastModifiedAtMillis = lastModifiedAtMillis,
-          lastAccessedAtMillis = lastAccessedAtMillis,
-          extras = extras,
-        )
+        get() = synchronized(contentLock) {
+          FileMetadata(
+            isRegularFile = true,
+            size = data.size.toLong(),
+            createdAtMillis = createdAtMillis,
+            lastModifiedAtMillis = lastModifiedAtMillis,
+            lastAccessedAtMillis = lastAccessedAtMillis,
+            extras = extras,
+          )
+        }
     }
 
     class Directory(createdAtMillis: Long) : Element(createdAtMillis) {
@@ -731,23 +739,29 @@ class FakeFileSystem private constructor(
     private var closed = false
 
     override fun protectedResize(size: Long) {
-      check(!closed) { "closed" }
-
-      file.data.readAndWriteUnsafe().use { cursor ->
-        val previousSize = cursor.resizeBuffer(size)
-        if (size > previousSize) {
-          do {
-            cursor.data!!.fill(0, cursor.start, cursor.end)
-          } while (cursor.next() != -1)
+      synchronized(file.contentLock) {
+        check(!closed) { "closed" }
+        file.readCursor?.close()
+        file.readCursor = null
+        file.data.readAndWriteUnsafe().use { cursor ->
+          // Shrinking an owned shared tail must copy it before its limit changes. Otherwise
+          // later growth could reuse bytes that are still visible in a replacement file view.
+          if (size > 0 && size < file.data.size) cursor.seek(size - 1)
+          val previousSize = cursor.resizeBuffer(size)
+          if (size > previousSize) {
+            do {
+              cursor.data!!.fill(0, cursor.start, cursor.end)
+            } while (cursor.next() != -1)
+          }
         }
       }
 
       file.access(nowMillis = clockNowMillis(), modified = true)
     }
 
-    override fun protectedSize(): Long {
+    override fun protectedSize(): Long = synchronized(file.contentLock) {
       check(!closed) { "closed" }
-      return file.data.size.toLong()
+      file.data.size
     }
 
     override fun protectedRead(
@@ -755,7 +769,7 @@ class FakeFileSystem private constructor(
       array: ByteArray,
       arrayOffset: Int,
       byteCount: Int,
-    ): Int {
+    ): Int = synchronized(file.contentLock) {
       check(!closed) { "closed" }
       checkOffsetAndCount(array.size.toLong(), arrayOffset.toLong(), byteCount.toLong())
       require(fileOffset >= 0L) { "fileOffset=$fileOffset must be non-negative" }
@@ -764,17 +778,17 @@ class FakeFileSystem private constructor(
       if (fileOffset >= data.size) return -1
       val toCopy = minOf(data.size - fileOffset, byteCount.toLong()).toInt()
       if (toCopy <= 0) return -1
-      data.readUnsafe().use { cursor ->
-        cursor.seek(fileOffset)
-        var copied = 0
-        while (copied < toCopy) {
-          val count = minOf(cursor.end - cursor.start, toCopy - copied)
-          cursor.data!!.copyInto(array, arrayOffset + copied, cursor.start, cursor.start + count)
-          copied += count
-          if (copied < toCopy) cursor.next()
-        }
+      // Keep the cursor's current segment between reads. Every mutation closes it first.
+      val cursor = file.readCursor ?: data.readUnsafe().also { file.readCursor = it }
+      cursor.seek(fileOffset)
+      var copied = 0
+      while (copied < toCopy) {
+        val count = minOf(cursor.end - cursor.start, toCopy - copied)
+        cursor.data!!.copyInto(array, arrayOffset + copied, cursor.start, cursor.start + count)
+        copied += count
+        if (copied < toCopy) cursor.next()
       }
-      return toCopy
+      toCopy
     }
 
     override fun protectedWrite(
@@ -783,40 +797,54 @@ class FakeFileSystem private constructor(
       arrayOffset: Int,
       byteCount: Int,
     ) {
-      check(!closed) { "closed" }
-      checkOffsetAndCount(array.size.toLong(), arrayOffset.toLong(), byteCount.toLong())
-      require(fileOffset >= 0L) { "fileOffset=$fileOffset must be non-negative" }
+      synchronized(file.contentLock) {
+        check(!closed) { "closed" }
+        checkOffsetAndCount(array.size.toLong(), arrayOffset.toLong(), byteCount.toLong())
+        require(fileOffset >= 0L) { "fileOffset=$fileOffset must be non-negative" }
 
-      val data = file.data
-      while (data.size < fileOffset) {
-        data.writeByte(0)
-      }
-      val toOverwrite = minOf(byteCount.toLong(), data.size - fileOffset).toInt()
-      if (toOverwrite > 0) {
-        data.readAndWriteUnsafe().use { cursor ->
-          cursor.seek(fileOffset)
-          var copied = 0
-          while (copied < toOverwrite) {
-            val count = minOf(cursor.end - cursor.start, toOverwrite - copied)
-            array.copyInto(cursor.data!!, cursor.start, arrayOffset + copied, arrayOffset + copied + count)
-            copied += count
-            if (copied < toOverwrite) cursor.next()
+        file.readCursor?.close()
+        file.readCursor = null
+        val data = file.data
+        while (data.size < fileOffset) {
+          data.writeByte(0)
+        }
+        val toOverwrite = minOf(byteCount.toLong(), data.size - fileOffset).toInt()
+        if (toOverwrite > 0) {
+          data.readAndWriteUnsafe().use { cursor ->
+            cursor.seek(fileOffset)
+            var copied = 0
+            while (copied < toOverwrite) {
+              val count = minOf(cursor.end - cursor.start, toOverwrite - copied)
+              array.copyInto(cursor.data!!, cursor.start, arrayOffset + copied, arrayOffset + copied + count)
+              copied += count
+              if (copied < toOverwrite) cursor.next()
+            }
           }
         }
+        data.write(array, arrayOffset + toOverwrite, byteCount - toOverwrite)
       }
-      data.write(array, arrayOffset + toOverwrite, byteCount - toOverwrite)
       file.access(nowMillis = clockNowMillis(), modified = true)
     }
 
     override fun protectedFlush() {
-      check(!closed) { "closed" }
+      synchronized(file.contentLock) {
+        check(!closed) { "closed" }
+      }
     }
 
     override fun protectedClose() {
-      if (closed) return
-      closed = true
-      file.access(nowMillis = clockNowMillis(), modified = readWrite)
-      openFiles -= openFile
+      synchronized(file.contentLock) {
+        if (closed) return
+        closed = true
+        file.readCursor?.close()
+        file.readCursor = null
+      }
+      try {
+        file.access(nowMillis = clockNowMillis(), modified = readWrite)
+      } finally {
+        // Always release the registration, including when the clock callback fails.
+        openFiles -= openFile
+      }
     }
 
     override fun toString() = "FileHandler(${openFile.canonicalPath})"

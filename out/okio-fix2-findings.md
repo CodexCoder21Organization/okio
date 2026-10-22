@@ -22,3 +22,12 @@ Invariant table (before implementation):
 | Handle lifecycle | FileSystem creates; caller closes; FileHandle retains streams | Closed handle fails; open streams keep their existing contract | Close cannot race buffer mutation outside content lock; callbacks cannot publish stale cursor state |
 
 Test design: test-only Java instrumentation counts Segment.next/prev reads in UnsafeCursor.seek and supplies a scheduling pause before read seek. Tests still open/read/write/resize through public FileHandle only; production exposes no test member. No wall-clock performance verdict, reflection, or external service in tests. Existing tests will not be edited.
+
+2026-10-22 10:13 UTC — baseline checkpoint
+OBSERVED: First execution https://github.com/CodexCoder21Organization/okio/actions/runs/39761248950 built the unchanged compatible implementation and executed four tests: 0 passed / 4 assertion failures / 0 skipped. Both original-owner replacement tests changed the replacement array; 256 sequential reads visited exactly 16,384 segment links against a 1,024 bound; ordered read/resize reported NullPointerException. No compile failure. Exported API/checksum checks passed. Test reports are uploaded on that run.
+OBSERVED: Local disk now has 35 GiB free. All compilation is still restricted to the GitHub runner. Test source checkpoint: aefa52df (pushed to wip/usage-okio-fix2-ckpt); disposable runner head 48e48ada.
+INFER: All three source mechanisms are now reproduced with deterministic assertions. Native will use the same portable atomicfu lock primitive already used by the compatible registry (new native dependency); no production test hooks are needed.
+
+2026-10-22 10:16 UTC
+OBSERVED: Implemented file-content locks, cursor reuse/reset, and pre-shrink tail copy in both source versions. The portable native source adds implementation dependency kotlinx.atomicfu:atomicfu:0.29.0 for real per-file synchronization across platforms; compatible sources reuse their existing atomicfu primitive and keep dependencies unchanged. Common ownership tests also cover segment boundaries and cursor refresh after overwrite/resize/another handle close. Existing test files remain unchanged.
+INFER: Clock callbacks remain outside the content lock; compatible registry acquisition therefore cannot form a content-lock-to-registry-lock cycle. A writable-open copy holds only the original file's lock; each replacement owns a separate lock and cursor.

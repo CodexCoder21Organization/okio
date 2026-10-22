@@ -43,6 +43,7 @@ kotlin {
     val commonMain by getting {
       dependencies {
         api(libs.kotlin.time)
+        implementation("org.jetbrains.kotlinx:atomicfu:0.29.0")
         api(projects.okio)
       }
     }
