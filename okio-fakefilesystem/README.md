@@ -2,7 +2,8 @@ Okio Fake File System
 ---------------------
 
 This module contains an in-memory file system for tests. Open file handles
-support sequential chunked writes and reads with amortized linear work. A
+support sequential chunked reads, writes, appends and overwrites with amortized
+linear work. Random-access positioning has bounded work independent of file size. A
 replacement writable open preserves the previous handles' independent view;
 shrinking and regrowing either view does not change the other. Each byte-array
 read observes a consistent file size and byte range during concurrent writes
@@ -30,7 +31,8 @@ fs.checkNoOpenFiles()
 
 From the repository root, build with `./gradlew :okio-fakefilesystem:jvmJar`
 and run the JVM tests with `./gradlew :okio-fakefilesystem:jvmTest`. The JVM task
-includes deterministic chunked-read work and concurrent read/resize regressions.
+includes deterministic sequential-read, random-read and overwrite work counts,
+plus concurrent read/resize and independent-view regressions.
 Common behavior tests also run on the configured JavaScript and native targets.
 The [root README](../README.md#chunked-fakefilesystem-writes) documents the
 compatible 3.4.0 candidate and its standalone build and test commands.

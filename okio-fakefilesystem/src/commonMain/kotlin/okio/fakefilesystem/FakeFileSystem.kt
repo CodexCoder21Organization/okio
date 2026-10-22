@@ -388,7 +388,8 @@ class FakeFileSystem private constructor(
 
       if (existing is File) {
         synchronized(existing.contentLock) {
-          element.data = existing.data.copy()
+          element.data = existing.data.map { it.copy() }.toMutableList()
+          element.contentSize = existing.contentSize
         }
       }
     } else {
@@ -643,14 +644,14 @@ class FakeFileSystem private constructor(
 
     class File(createdAtMillis: Long) : Element(createdAtMillis) {
       val contentLock = SynchronizedObject()
-      var data: Buffer = Buffer()
-      var readCursor: Buffer.UnsafeCursor? = null
+      var data = mutableListOf<Buffer>()
+      var contentSize = 0L
 
       override val metadata: FileMetadata
         get() = synchronized(contentLock) {
           FileMetadata(
             isRegularFile = true,
-            size = data.size.toLong(),
+            size = contentSize,
             createdAtMillis = createdAtMillis,
             lastModifiedAtMillis = lastModifiedAtMillis,
             lastAccessedAtMillis = lastAccessedAtMillis,
@@ -741,19 +742,8 @@ class FakeFileSystem private constructor(
     override fun protectedResize(size: Long) {
       synchronized(file.contentLock) {
         check(!closed) { "closed" }
-        file.readCursor?.close()
-        file.readCursor = null
-        file.data.readAndWriteUnsafe().use { cursor ->
-          // Shrinking an owned shared tail must copy it before its limit changes. Otherwise
-          // later growth could reuse bytes that are still visible in a replacement file view.
-          if (size > 0 && size < file.data.size) cursor.seek(size - 1)
-          val previousSize = cursor.resizeBuffer(size)
-          if (size > previousSize) {
-            do {
-              cursor.data!!.fill(0, cursor.start, cursor.end)
-            } while (cursor.next() != -1)
-          }
-        }
+        resizeFilePages(file.data, file.contentSize, size)
+        file.contentSize = size
       }
 
       file.access(nowMillis = clockNowMillis(), modified = true)
@@ -761,7 +751,7 @@ class FakeFileSystem private constructor(
 
     override fun protectedSize(): Long = synchronized(file.contentLock) {
       check(!closed) { "closed" }
-      file.data.size
+      file.contentSize
     }
 
     override fun protectedRead(
@@ -774,19 +764,25 @@ class FakeFileSystem private constructor(
       checkOffsetAndCount(array.size.toLong(), arrayOffset.toLong(), byteCount.toLong())
       require(fileOffset >= 0L) { "fileOffset=$fileOffset must be non-negative" }
 
-      val data = file.data
-      if (fileOffset >= data.size) return -1
-      val toCopy = minOf(data.size - fileOffset, byteCount.toLong()).toInt()
+      if (fileOffset >= file.contentSize) return -1
+      val toCopy = minOf(file.contentSize - fileOffset, byteCount.toLong()).toInt()
       if (toCopy <= 0) return -1
-      // Keep the cursor's current segment between reads. Every mutation closes it first.
-      val cursor = file.readCursor ?: data.readUnsafe().also { file.readCursor = it }
-      cursor.seek(fileOffset)
       var copied = 0
       while (copied < toCopy) {
-        val count = minOf(cursor.end - cursor.start, toCopy - copied)
-        cursor.data!!.copyInto(array, arrayOffset + copied, cursor.start, cursor.start + count)
-        copied += count
-        if (copied < toCopy) cursor.next()
+        val position = fileOffset + copied
+        val page = file.data[(position / FILE_PAGE_SIZE).toInt()]
+        page.readUnsafe().use { cursor ->
+          cursor.seek(position % FILE_PAGE_SIZE)
+          val pageCount = minOf(page.size - position % FILE_PAGE_SIZE, (toCopy - copied).toLong()).toInt()
+          var pageCopied = 0
+          while (pageCopied < pageCount) {
+            val count = minOf(cursor.end - cursor.start, pageCount - pageCopied)
+            cursor.data!!.copyInto(array, arrayOffset + copied, cursor.start, cursor.start + count)
+            copied += count
+            pageCopied += count
+            if (pageCopied < pageCount) cursor.next()
+          }
+        }
       }
       toCopy
     }
@@ -802,26 +798,26 @@ class FakeFileSystem private constructor(
         checkOffsetAndCount(array.size.toLong(), arrayOffset.toLong(), byteCount.toLong())
         require(fileOffset >= 0L) { "fileOffset=$fileOffset must be non-negative" }
 
-        file.readCursor?.close()
-        file.readCursor = null
-        val data = file.data
-        while (data.size < fileOffset) {
-          data.writeByte(0)
-        }
-        val toOverwrite = minOf(byteCount.toLong(), data.size - fileOffset).toInt()
-        if (toOverwrite > 0) {
-          data.readAndWriteUnsafe().use { cursor ->
-            cursor.seek(fileOffset)
-            var copied = 0
-            while (copied < toOverwrite) {
-              val count = minOf(cursor.end - cursor.start, toOverwrite - copied)
+        val newSize = maxOf(file.contentSize, fileOffset + byteCount)
+        resizeFilePages(file.data, file.contentSize, newSize)
+        file.contentSize = newSize
+        var copied = 0
+        while (copied < byteCount) {
+          val position = fileOffset + copied
+          val page = file.data[(position / FILE_PAGE_SIZE).toInt()]
+          page.readAndWriteUnsafe().use { cursor ->
+            cursor.seek(position % FILE_PAGE_SIZE)
+            val pageCount = minOf(page.size - position % FILE_PAGE_SIZE, (byteCount - copied).toLong()).toInt()
+            var pageCopied = 0
+            while (pageCopied < pageCount) {
+              val count = minOf(cursor.end - cursor.start, pageCount - pageCopied)
               array.copyInto(cursor.data!!, cursor.start, arrayOffset + copied, arrayOffset + copied + count)
               copied += count
-              if (copied < toOverwrite) cursor.next()
+              pageCopied += count
+              if (pageCopied < pageCount) cursor.next()
             }
           }
         }
-        data.write(array, arrayOffset + toOverwrite, byteCount - toOverwrite)
       }
       file.access(nowMillis = clockNowMillis(), modified = true)
     }
@@ -836,8 +832,6 @@ class FakeFileSystem private constructor(
       synchronized(file.contentLock) {
         if (closed) return
         closed = true
-        file.readCursor?.close()
-        file.readCursor = null
       }
       try {
         file.access(nowMillis = clockNowMillis(), modified = readWrite)
@@ -861,4 +855,39 @@ private fun pathPrefix(path: Path, count: Int): Path {
   var result = path.root!!
   for (segment in path.segmentsBytes.take(count)) result /= segment
   return result
+}
+
+// Each indexed page bounds cursor traversal independently of the file's total size.
+private const val FILE_PAGE_SIZE = 64 * 1024
+
+@Suppress("NOTHING_TO_INLINE")
+private inline fun resizeFilePages(pages: MutableList<Buffer>, oldSize: Long, newSize: Long) {
+  if (newSize == oldSize) return
+  if (newSize < oldSize) {
+    val pageCount = if (newSize == 0L) 0 else ((newSize - 1) / FILE_PAGE_SIZE + 1).toInt()
+    while (pages.size > pageCount) pages.removeAt(pages.lastIndex)
+    if (pages.isNotEmpty()) {
+      val tailSize = newSize - (pages.size - 1L) * FILE_PAGE_SIZE
+      pages.last().readAndWriteUnsafe().use { cursor ->
+        // Unshare the retained tail before changing its limit or later reusing its bytes.
+        cursor.seek(tailSize - 1)
+        cursor.resizeBuffer(tailSize)
+      }
+    }
+    return
+  }
+
+  var position = oldSize
+  while (position < newSize) {
+    val pageIndex = (position / FILE_PAGE_SIZE).toInt()
+    if (pageIndex == pages.size) pages.add(Buffer())
+    val pageSize = minOf(FILE_PAGE_SIZE.toLong(), newSize - pageIndex.toLong() * FILE_PAGE_SIZE)
+    pages[pageIndex].readAndWriteUnsafe().use { cursor ->
+      cursor.resizeBuffer(pageSize)
+      do {
+        cursor.data!!.fill(0, cursor.start, cursor.end)
+      } while (cursor.next() != -1)
+    }
+    position = pageIndex.toLong() * FILE_PAGE_SIZE + pageSize
+  }
 }

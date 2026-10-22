@@ -134,7 +134,8 @@ It retains the 3.4.0 public API, directory concurrency corrections and bulk-read
 behavior. Overwrites preserve the remaining bytes, and extending a file fills
 the new range with zeroes. A replacement writable open keeps prior handles'
 content views independent, including when the original handle shrinks and then
-regrows or appends. Sequential chunked reads use amortized linear segment work.
+regrows or appends. Sequential chunked reads and overwrites use amortized linear segment work.
+Random-access positioning has bounded work independent of file size.
 Each byte-array read observes one consistent size and content state when another
 caller resizes or writes through the same file view. Negative file offsets are rejected with an
 `IllegalArgumentException` that names the offset. The candidate is built locally; it is not published
@@ -150,6 +151,10 @@ val chunk = ByteArray(8192) { 42 }
 fileSystem.openReadWrite(path, mustCreate = true).use { handle ->
   repeat(1024) { index -> handle.write(index.toLong() * chunk.size, chunk, 0, chunk.size) }
   check(handle.size() == 8L * 1024 * 1024)
+  repeat(1024) { index -> handle.write(index.toLong() * chunk.size, chunk, 0, chunk.size) }
+  val sample = ByteArray(1)
+  check(handle.read(6L * 1024 * 1024, sample, 0, 1) == 1)
+  check(sample[0] == 42.toByte())
 }
 fileSystem.checkNoOpenFiles()
 ```
@@ -170,7 +175,8 @@ behavior scenarios run with `./gradlew :okio-fakefilesystem:jvmTest` (and the ot
 platforms for the common behavior scenarios).
 
 The JVM suite also counts actual segment traversal for 256 and 1,024 sequential
-8 KiB reads and checks an ordered concurrent read/resize. These tests use a
+8 KiB reads, sequential overwrites and alternating distant one-byte reads,
+and checks an ordered concurrent read/resize. These tests use a
 local test-only Java agent, rather than elapsed-time performance assertions.
 Replacement-view tests cover original-handle shrink/regrow and shrink/append,
 including segment boundaries. Run them with `./gradlew :okio-fakefilesystem:jvmTest`;

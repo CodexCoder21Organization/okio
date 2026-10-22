@@ -62,7 +62,7 @@ public class FakeFileSystemAccessWorkTest {
   }
 
   @Test public void replacementViewsSurviveBoundaryMutations() throws Exception {
-    for (int size : new int[] {1, 2, 8191, 8192, 8193, 16384, 16385, 24579}) {
+    for (int size : new int[] {1, 2, 8191, 8192, 8193, 16384, 16385, 24579, 65535, 65536, 65537, 131075}) {
       for (int shrink : new int[] {0, 1, size/2, size-1, size}) {
         FakeFileSystem fs = new FakeFileSystem();
         fs.setAllowReadsWhileWriting(true);
@@ -146,11 +146,11 @@ public class FakeFileSystemAccessWorkTest {
         byte[] before=models.get(view);
         int operation=random.nextInt(4);
         if(operation==0) {
-          int size=random.nextInt(32770);
+          int size=random.nextInt(4 * 65536 + 2);
           handle.resize(size);
           models.set(view,Arrays.copyOf(before,size));
         } else if(operation<=2) {
-          int offset=operation==2 ? before.length : random.nextInt(32770);
+          int offset=operation==2 ? before.length : random.nextInt(4 * 65536 + 2);
           byte[] patch=new byte[random.nextInt(8196)];
           random.nextBytes(patch);
           byte[] expected=Arrays.copyOf(before,Math.max(before.length,offset+patch.length));
