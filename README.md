@@ -128,7 +128,8 @@ Chunked FakeFileSystem writes
 ----------------------------
 
 The compatible `com.squareup.okio:okio-fakefilesystem-jvm:3.4.0.2` candidate
-adds amortized linear allocation for sequential chunked writes and appends.
+adds amortized linear allocation for sequential chunked writes and appends
+through an open file handle.
 It retains the 3.4.0 public API, directory concurrency corrections and bulk-read
 behavior. Overwrites preserve the remaining bytes, and extending a file fills
 the new range with zeroes. A replacement writable open keeps prior handles'
