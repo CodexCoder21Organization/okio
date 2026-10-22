@@ -17,34 +17,18 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - name: red-registry-tests-on-stock-3.10.0
-            sha: b096f39e43f62e5ac49851d86f3c1b2c7f3e128b
-            mutation: none
-            scope: fakefs
-          - name: red-tree-tests-on-registry-lock-only
-            sha: 1791b38e0ab6ff168b66a231281d8b636dcdc39b
-            mutation: none
-            scope: fakefs
-          - name: control-new-tests-on-stock-3.10.0-source
-            sha: 1791b38e0ab6ff168b66a231281d8b636dcdc39b
+          - name: red-directory-tests-on-stock-3.10.0-source
+            sha: 743488f46023a88d7286de04cba65894bb3e818d
             mutation: stock-source
             scope: fakefs
-          - name: control-head-without-observer-locks
-            sha: 96284029d6adf7e0518d82e427f42a2737903fb2
-            mutation: unlocked-observers
+          - name: control-head-without-directory-preservation
+            sha: 743488f46023a88d7286de04cba65894bb3e818d
+            mutation: no-directory-preservation
             scope: fakefs
-          - name: green-fix-commit
-            sha: 2bc09c30c366372762dcca3805b1390ea10deaf5
+          - name: green-head-743488f4
+            sha: 743488f46023a88d7286de04cba65894bb3e818d
             mutation: none
-            scope: fakefs
-          - name: green-head-selected
-            sha: 96284029d6adf7e0518d82e427f42a2737903fb2
-            mutation: none
-            scope: selected
-          - name: green-head-full-jvm-build
-            sha: 96284029d6adf7e0518d82e427f42a2737903fb2
-            mutation: none
-            scope: full-jvm
+            scope: fakefs-all
     name: ${{ matrix.name }}
     steps:
       - name: Checkout evidence scripts
@@ -70,6 +54,10 @@ jobs:
           case "${{ matrix.mutation }}" in
             none) ;;
             stock-source) git checkout 3.10.0 -- "$F" ;;
+            no-directory-preservation)
+              test "$(grep -c '^      if (lookupResult?.element is Directory) return$' "$F")" = 1
+              sed -i '/^      if (lookupResult?.element is Directory) return$/d' "$F"
+              ;;
             unlocked-observers)
               python3 - "$F" <<'PY'
           import sys
@@ -93,7 +81,8 @@ jobs:
         run: |
           set +e
           case "${{ matrix.scope }}" in
-            fakefs) ARGS=":okio-fakefilesystem:jvmTest --tests $FAKEFS_SELECTOR" ;;
+            fakefs) ARGS=":okio-fakefilesystem:jvmTest --tests okio.fakefilesystem.FakeFileSystemDirectoryTest --tests okio.fakefilesystem.FakeFileSystemTreeConcurrencyTest" ;;
+            fakefs-all) ARGS=":okio-fakefilesystem:jvmTest --tests $FAKEFS_SELECTOR" ;;
             selected) ARGS=":okio-fakefilesystem:apiCheck :okio-fakefilesystem:spotlessCheck :okio-fakefilesystem:jvmTest --tests $FAKEFS_SELECTOR :okio:jvmTest --tests okio.FakeUnixFileSystemTest --tests okio.FakeWindowsFileSystemTest --tests okio.StrictFakeFileSystemTest --tests okio.ForwardingFileSystemTest --tests okio.UseTest --tests okio.FileSystemJavaTest --tests okio.FileLeakTest" ;;
             full-jvm) ARGS="build" ;;
           esac
