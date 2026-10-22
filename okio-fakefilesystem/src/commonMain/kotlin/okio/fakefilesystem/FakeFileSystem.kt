@@ -18,6 +18,8 @@ package okio.fakefilesystem
 import kotlin.jvm.JvmField
 import kotlin.jvm.JvmName
 import kotlin.reflect.KClass
+import kotlinx.atomicfu.locks.SynchronizedObject
+import kotlinx.atomicfu.locks.synchronized
 import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
 import okio.ArrayIndexOutOfBoundsException
@@ -73,6 +75,15 @@ class FakeFileSystem(
 
   /** File system roots. Each element is a Directory and is created on-demand. */
   private val roots = mutableMapOf<Path, Directory>()
+
+  /**
+   * Guards [openFiles]. Everything that admits, registers, retires, or reads an open file holds
+   * this lock, so those steps are indivisible even when several threads share one file system.
+   * Reading the clock is deliberately kept outside of it: a clock may call back into this file
+   * system, and a callback that ran between an admission check and its registration could open a
+   * competing handle that the check had already passed.
+   */
+  private val openFilesLock = SynchronizedObject()
 
   /** Files that are currently open and need to be closed to avoid resource leaks. */
   private val openFiles = mutableListOf<OpenFile>()
@@ -155,7 +166,7 @@ class FakeFileSystem(
    */
   @get:JvmName("openPaths")
   val openPaths: List<Path>
-    get() = openFiles.map { it.canonicalPath }
+    get() = synchronized(openFilesLock) { openFiles.map { it.canonicalPath } }
 
   /**
    * Confirm that all files that have been opened on this file system (with [source], [sink], and
@@ -171,11 +182,12 @@ class FakeFileSystem(
    * @throws IllegalStateException if any files are open when this function is called.
    */
   fun checkNoOpenFiles() {
-    val firstOpenFile = openFiles.firstOrNull() ?: return
+    val snapshot = synchronized(openFilesLock) { openFiles.toList() }
+    val firstOpenFile = snapshot.firstOrNull() ?: return
     throw IllegalStateException(
       """
       |expected 0 open files, but found:
-      |    ${openFiles.joinToString(separator = "\n    ") { it.canonicalPath.toString() }}
+      |    ${snapshot.joinToString(separator = "\n    ") { it.canonicalPath.toString() }}
       """.trimMargin(),
       firstOpenFile.backtrace,
     )
@@ -321,9 +333,11 @@ class FakeFileSystem(
 
     val canonicalPath = canonicalizeInternal(file)
     val lookupResult = lookupPath(canonicalPath, createRootOnDemand = readWrite)
+
+    // Read the clock before the section below rather than inside it. A clock may call back into
+    // this file system, and a callback running between the checks and the registration could open
+    // a competing handle that the checks had already passed.
     val now = clock.now()
-    val element: File
-    val operation: Operation
 
     if (lookupResult?.element == null && mustExist) {
       throw IOException("$file doesn't exist.")
@@ -332,57 +346,64 @@ class FakeFileSystem(
       throw IOException("$file already exists.")
     }
 
-    if (readWrite) {
-      // Note that this case is used for both write and read/write.
-      if (lookupResult?.element is Directory) {
-        throw IOException("destination is a directory: $file")
-      }
-      if (!allowWritesWhileWriting) {
-        findOpenFile(canonicalPath, operation = WRITE)?.let {
-          throw IOException("file is already open for writing $file", it.backtrace)
+    // Admit and register as one step, so a handle another thread is registering cannot be missed
+    // by these checks and then conflict with the handle they admit.
+    return synchronized(openFilesLock) {
+      val element: File
+      val operation: Operation
+
+      if (readWrite) {
+        // Note that this case is used for both write and read/write.
+        if (lookupResult?.element is Directory) {
+          throw IOException("destination is a directory: $file")
+        }
+        if (!allowWritesWhileWriting) {
+          findOpenFile(canonicalPath, operation = WRITE)?.let {
+            throw IOException("file is already open for writing $file", it.backtrace)
+          }
+        }
+        if (!allowReadsWhileWriting) {
+          findOpenFile(canonicalPath, operation = READ)?.let {
+            throw IOException("file is already open for reading $file", it.backtrace)
+          }
+        }
+
+        val parent = lookupResult?.parent
+          ?: throw FileNotFoundException("parent directory does not exist")
+        parent.access(now, true)
+
+        val existing = lookupResult.element
+        element = File(createdAt = existing?.createdAt ?: now)
+        parent.children[lookupResult.segment!!] = element
+        operation = WRITE
+
+        if (existing is File) {
+          element.data = existing.data
+        }
+      } else {
+        val existing = lookupResult?.element
+          ?: throw FileNotFoundException("no such file: $file")
+        element = existing as? File ?: throw IOException("not a file: $file")
+        operation = READ
+
+        if (!allowReadsWhileWriting) {
+          findOpenFile(canonicalPath, operation = WRITE)?.let {
+            throw IOException("file is already open for writing $file", it.backtrace)
+          }
         }
       }
-      if (!allowReadsWhileWriting) {
-        findOpenFile(canonicalPath, operation = READ)?.let {
-          throw IOException("file is already open for reading $file", it.backtrace)
-        }
-      }
 
-      val parent = lookupResult?.parent
-        ?: throw FileNotFoundException("parent directory does not exist")
-      parent.access(now, true)
+      element.access(now = now, modified = readWrite)
 
-      val existing = lookupResult.element
-      element = File(createdAt = existing?.createdAt ?: now)
-      parent.children[lookupResult.segment!!] = element
-      operation = WRITE
+      val openFile = OpenFile(canonicalPath, operation, Exception("file opened for $operation here"))
+      openFiles += openFile
 
-      if (existing is File) {
-        element.data = existing.data
-      }
-    } else {
-      val existing = lookupResult?.element
-        ?: throw FileNotFoundException("no such file: $file")
-      element = existing as? File ?: throw IOException("not a file: $file")
-      operation = READ
-
-      if (!allowReadsWhileWriting) {
-        findOpenFile(canonicalPath, operation = WRITE)?.let {
-          throw IOException("file is already open for writing $file", it.backtrace)
-        }
-      }
+      FakeFileHandle(
+        readWrite = readWrite,
+        openFile = openFile,
+        file = element,
+      )
     }
-
-    element.access(now = clock.now(), modified = readWrite)
-
-    val openFile = OpenFile(canonicalPath, operation, Exception("file opened for $operation here"))
-    openFiles += openFile
-
-    return FakeFileHandle(
-      readWrite = readWrite,
-      openFile = openFile,
-      file = element,
-    )
   }
 
   override fun createDirectory(dir: Path, mustCreate: Boolean) {
@@ -666,8 +687,10 @@ class FakeFileSystem(
     canonicalPath: Path,
     operation: Operation? = null,
   ): OpenFile? {
-    return openFiles.firstOrNull {
-      it.canonicalPath == canonicalPath && (operation == null || operation == it.operation)
+    return synchronized(openFilesLock) {
+      openFiles.firstOrNull {
+        it.canonicalPath == canonicalPath && (operation == null || operation == it.operation)
+      }
     }
   }
 
@@ -765,8 +788,13 @@ class FakeFileSystem(
     override fun protectedClose() {
       if (closed) return
       closed = true
-      file.access(now = clock.now(), modified = readWrite)
-      openFiles -= openFile
+      try {
+        file.access(now = clock.now(), modified = readWrite)
+      } finally {
+        // Retire the registration even if reading the clock fails, so a failed close cannot leak
+        // an entry that no caller can ever remove. The original failure still reaches the caller.
+        synchronized(openFilesLock) { openFiles -= openFile }
+      }
     }
 
     override fun toString() = "FileHandler(${openFile.canonicalPath})"

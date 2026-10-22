@@ -40,6 +40,7 @@ kotlin {
       dependencies {
         api(libs.kotlin.time)
         api(projects.okio)
+        implementation(libs.kotlinx.atomicfu)
       }
     }
     val commonTest by getting {
