@@ -5,8 +5,8 @@ Plan:
 - [complete] Read contract, probe evidence, README and required testing sections; locate consumer/fork coordinates.
 - [complete] Design the storage change and public-API allocation regression; establish assertion-red.
 - [complete] Implement both source lines, verify green/reverted-red/restored-green, checkpoint.
-- [in progress] Full JVM verification on GitHub; compatible suites and separate reviews complete; publishing/consumption instructions recorded.
-- [pending] Rebase, targeted tests, single PR push, open fork PR, clean processes.
+- [complete] Full JVM and compatible suites; module JVM/JS/Linux native tests; separate reviews; publishing/consumption instructions.
+- [gate complete] Rebase and targeted tests passed; source ready for the single PR push/open command after this checkpoint; no CI watching afterwards.
 
 OBSERVED: Checkout is the manager-provided fresh clone, main aa6f2aae. Read all CONTRACT.md, README.md, he-timeouts2 findings and FakeFsWorkProbe.java/run-fakefs-probe.bash. Read TESTING.md sections Test-Driven Development and Tests Must Be Hermetically Sealed through authenticated GitHub API. No root AGENTS.md exists. No agents started. Disk initially 4.9 GiB free.
 OBSERVED: Higher-priority skill requirements required reading GitHub/status skill instructions despite the user's no-skills request. Actual work uses this checkout only and the brief's workflow; no sibling checkout is modified.
@@ -71,3 +71,14 @@ OBSERVED: Shared GitHub REST quota is exhausted: HTTP 403 "API rate limit exceed
 FINAL REVIEW (separate pass): Reviewed the final source diff, module dependency changes, test files, compatible builder, runner and README. No existing test file differs from origin/main. New tests use only public API and in-memory storage; test cleanup restores counter state even when open-file verification fails. The private buffer copy on replacement writable open is intentional view isolation; the allocation contract applies to write sequences through an open handle, as measured and documented. Both code lines use scoped common cursor cleanup and explicit offset checks. No further code findings.
 
 09:39 UTC OBSERVED: Final compatible POM dependencies are unchanged: kotlin-stdlib-jdk8:1.8.0, kotlinx-datetime-jvm:0.4.0, okio-jvm:3.4.0, kotlin-stdlib-common:1.8.0. Target published POM still HTTP 404. README now states the measured amortized allocation contract explicitly for writes through an open handle. All six source/test checkpoint commits carry the required co-author trailer. Source/build/test directories are identical between usage-tracking and the green temporary verification head; only workflow files and subsequent prose differ.
+
+09:46 UTC OBSERVED: Shared REST quota reset; all final XML reports downloaded and parsed. Final JVM: core 5102 cases (4998 pass, 104 existing skips), owning fakefilesystem module 5 pass, samples 19 pass = 5022 passed / 0 failed / 104 existing skips. JS module 4 passed / 0 failed; Linux native module 4/0. Final compatible remote artifact: 105 existing + 4 new = 109 passed / 0 failed, no skips, first execution of guarded source. The final PR gate after fetch/rebase passed 5/0 plus apiCheck: https://github.com/CodexCoder21Organization/okio/actions/runs/39757158068 . No tests retried after failure on final source.
+
+Brief audit at final saved checkpoint:
+- DONE step 1: consumer aggregate/JVM 3.4.0 traced, 215 consumers counted, fork 3.4.0.1 publication and builder/history verified.
+- DONE step 2: public FileHandle allocation assertion fails first (0/1), then fails again after rebuilding reverted source (2/1 including preserved-behavior neighbors).
+- DONE step 3: native and compatible fixes; original failure flips green; ownership/resize/offset/close tests and two separate review passes complete.
+- DONE step 4 tests: full JVM 5022/0 (104 pre-existing skips), compatible 109/0, JS module 4/0, Linux native module 4/0; broader non-JVM core suite feasibility REFUTED by unchanged UseNullableResultTest compilation errors, documented above.
+- DONE publication/consumer instructions: candidate com.squareup.okio:okio-fakefilesystem-jvm:3.4.0.2 remains unpublished; no coordinates were authorized for publication. Exact future command after separate approval: coursier launch community.kotlin.maven.artifact.publishing:community-kotlin-maven-artifact-publishing:0.0.6 -r https://kotlin.directory -- --artifact-dir <candidate-directory> --api-url https://api.kotlin.directory/upload . HandoffEmbedded must explicitly request the corrected JVM coordinate in its 215 fakefilesystem test declarations.
+- PR gate DONE: latest-main rebase and targeted checks passed; single usage-tracking push/open follows this saved checkpoint. Final user report supplies the resulting fork PR URL and head SHA. No merge, deployment, consumer edit or artifact publication.
+Existing-test edits: NONE. No changed existing assertion, iteration count, timeout, or skip flag. All runtime source and test directories match the successful temporary verification head.
