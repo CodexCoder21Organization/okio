@@ -1,0 +1,537 @@
+Thu Oct 22 06:51:23 UTC 2026
+10255269888
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/FileHandle.kt:165:9: warning: name shadowed: source
+    var source = source
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/FileHandle.kt:244:9: warning: name shadowed: sink
+    var sink = sink
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:147:9: warning: name shadowed: path
+    val path = onPathParameter(path, "canonicalize", "path")
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:154:9: warning: name shadowed: path
+    val path = onPathParameter(path, "metadataOrNull", "path")
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:164:9: warning: name shadowed: dir
+    val dir = onPathParameter(dir, "list", "dir")
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:172:9: warning: name shadowed: dir
+    val dir = onPathParameter(dir, "listOrNull", "dir")
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:180:9: warning: name shadowed: dir
+    val dir = onPathParameter(dir, "listRecursively", "dir")
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:187:9: warning: name shadowed: file
+    val file = onPathParameter(file, "openReadOnly", "file")
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:193:9: warning: name shadowed: file
+    val file = onPathParameter(file, "openReadWrite", "file")
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:199:9: warning: name shadowed: file
+    val file = onPathParameter(file, "source", "file")
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:205:9: warning: name shadowed: file
+    val file = onPathParameter(file, "sink", "file")
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:211:9: warning: name shadowed: file
+    val file = onPathParameter(file, "appendingSink", "file")
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:217:9: warning: name shadowed: dir
+    val dir = onPathParameter(dir, "createDirectory", "dir")
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:223:9: warning: name shadowed: source
+    val source = onPathParameter(source, "atomicMove", "source")
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:224:9: warning: name shadowed: target
+    val target = onPathParameter(target, "atomicMove", "target")
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:230:9: warning: name shadowed: path
+    val path = onPathParameter(path, "delete", "path")
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:236:9: warning: name shadowed: source
+    val source = onPathParameter(source, "createSymlink", "source")
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:237:9: warning: name shadowed: target
+    val target = onPathParameter(target, "createSymlink", "target")
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/Options.kt:121:11: warning: name shadowed: fromIndex
+      var fromIndex = fromIndex
+          ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/Util.kt:59:10: warning: expected performance impact from inlining is insignificant. Inlining works best for functions with parameters of functional types
+internal inline infix fun Int.leftRotate(bitCount: Int): Int {
+         ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/Util.kt:63:10: warning: expected performance impact from inlining is insignificant. Inlining works best for functions with parameters of functional types
+internal inline infix fun Long.rightRotate(bitCount: Int): Long {
+         ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:62:7: warning: name shadowed: segment
+  var segment = segment
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:63:7: warning: name shadowed: segmentPos
+  var segmentPos = segmentPos
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:244:7: warning: name shadowed: offset
+  var offset = offset
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:245:7: warning: name shadowed: byteCount
+  var byteCount = byteCount
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:423:7: warning: name shadowed: byteCount
+  var byteCount = byteCount
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:449:7: warning: name shadowed: v
+  var v = v
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:543:7: warning: name shadowed: v
+  var v = v
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:610:7: warning: name shadowed: offset
+  var offset = offset
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1125:7: warning: name shadowed: byteCount
+  var byteCount = byteCount
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1183:7: warning: name shadowed: byteCount
+  var byteCount = byteCount
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1276:7: warning: name shadowed: byteCount
+  var byteCount = byteCount
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1285:7: warning: name shadowed: fromIndex
+  var fromIndex = fromIndex
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1286:7: warning: name shadowed: toIndex
+  var toIndex = toIndex
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1293:9: warning: name shadowed: s
+    var s = s ?: return -1L
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1294:9: warning: name shadowed: offset
+    var offset = offset
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1319:7: warning: name shadowed: fromIndex
+  var fromIndex = fromIndex
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1324:9: warning: name shadowed: s
+    var s = s ?: return -1L
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1325:9: warning: name shadowed: offset
+    var offset = offset
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1354:7: warning: name shadowed: fromIndex
+  var fromIndex = fromIndex
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1358:9: warning: name shadowed: s
+    var s = s ?: return -1L
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1359:9: warning: name shadowed: offset
+    var offset = offset
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1549:7: warning: name shadowed: unsafeCursor
+  val unsafeCursor = resolveDefaultParameter(unsafeCursor)
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1558:7: warning: name shadowed: unsafeCursor
+  val unsafeCursor = resolveDefaultParameter(unsafeCursor)
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/ByteString.kt:131:7: warning: name shadowed: endIndex
+  val endIndex = resolveDefaultParameter(endIndex)
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/ByteString.kt:223:7: warning: name shadowed: fromIndex
+  val fromIndex = resolveDefaultParameter(fromIndex)
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/ByteString.kt:275:7: warning: name shadowed: byteCount
+  val byteCount = resolveDefaultParameter(byteCount)
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/FileSystem.kt:50:17: warning: 'addFirst(E!): Unit' is deprecated. Overrides deprecated member in 'kotlin.collections.AbstractMutableList'. This member is not fully supported by Kotlin compiler, so it may be absent or have different signature in next major version
+    directories.addFirst(path)
+                ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/FileSystem.kt:94:11: warning: 'addLast(E!): Unit' is deprecated. Overrides deprecated member in 'kotlin.collections.AbstractMutableList'. This member is not fully supported by Kotlin compiler, so it may be absent or have different signature in next major version
+    stack.addLast(dir)
+          ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/FileSystem.kt:132:13: warning: 'addLast(E!): Unit' is deprecated. Overrides deprecated member in 'kotlin.collections.AbstractMutableList'. This member is not fully supported by Kotlin compiler, so it may be absent or have different signature in next major version
+      stack.addLast(symlinkPath)
+            ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/FileSystem.kt:138:15: warning: 'removeLast(): E!' is deprecated. Overrides deprecated member in 'kotlin.collections.AbstractMutableList'. This member is not fully supported by Kotlin compiler, so it may be absent or have different signature in next major version
+        stack.removeLast()
+              ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/RealBufferedSink.kt:105:7: warning: name shadowed: byteCount
+  var byteCount = byteCount
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/RealBufferedSource.kt:301:7: warning: name shadowed: byteCount
+  var byteCount = byteCount
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/RealBufferedSource.kt:314:7: warning: name shadowed: fromIndex
+  var fromIndex = fromIndex
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/RealBufferedSource.kt:334:7: warning: name shadowed: fromIndex
+  var fromIndex = fromIndex
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/RealBufferedSource.kt:350:7: warning: name shadowed: fromIndex
+  var fromIndex = fromIndex
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/SegmentedByteString.kt:104:7: warning: name shadowed: endIndex
+  val endIndex = resolveDefaultParameter(endIndex)
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/SegmentedByteString.kt:160:54: warning: name shadowed: offset
+  forEachSegment(offset, offset + byteCount) { data, offset, byteCount ->
+                                                     ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/SegmentedByteString.kt:160:62: warning: name shadowed: byteCount
+  forEachSegment(offset, offset + byteCount) { data, offset, byteCount ->
+                                                             ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/SegmentedByteString.kt:181:7: warning: name shadowed: otherOffset
+  var otherOffset = otherOffset
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/SegmentedByteString.kt:182:54: warning: name shadowed: offset
+  forEachSegment(offset, offset + byteCount) { data, offset, byteCount ->
+                                                     ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/SegmentedByteString.kt:182:62: warning: name shadowed: byteCount
+  forEachSegment(offset, offset + byteCount) { data, offset, byteCount ->
+                                                             ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/SegmentedByteString.kt:201:7: warning: name shadowed: otherOffset
+  var otherOffset = otherOffset
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/SegmentedByteString.kt:202:54: warning: name shadowed: offset
+  forEachSegment(offset, offset + byteCount) { data, offset, byteCount ->
+                                                     ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/SegmentedByteString.kt:202:62: warning: name shadowed: byteCount
+  forEachSegment(offset, offset + byteCount) { data, offset, byteCount ->
+                                                             ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/SegmentedByteString.kt:218:7: warning: name shadowed: targetOffset
+  var targetOffset = targetOffset
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/SegmentedByteString.kt:219:54: warning: name shadowed: offset
+  forEachSegment(offset, offset + byteCount) { data, offset, byteCount ->
+                                                     ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/SegmentedByteString.kt:219:62: warning: name shadowed: byteCount
+  forEachSegment(offset, offset + byteCount) { data, offset, byteCount ->
+                                                             ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/jvmMain/kotlin/okio/AsyncTimeout.kt:184:41: warning: variable 'timedOut' initializer is redundant
+          var timedOut: AsyncTimeout? = null
+                                        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/jvmMain/kotlin/okio/Buffer.kt:83:16: warning: this declaration overrides deprecated member but not marked as deprecated itself. This deprecation won't be inherited in future releases. Please add @Deprecated annotation or suppress. See https://youtrack.jetbrains.com/issue/KT-47902 for details
+  override fun buffer() = this
+               ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/jvmMain/kotlin/okio/Buffer.kt:152:9: warning: name shadowed: offset
+    var offset = offset
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/jvmMain/kotlin/okio/Buffer.kt:153:9: warning: name shadowed: byteCount
+    var byteCount = byteCount
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/jvmMain/kotlin/okio/Buffer.kt:192:9: warning: name shadowed: byteCount
+    var byteCount = byteCount
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/jvmMain/kotlin/okio/Buffer.kt:232:9: warning: name shadowed: byteCount
+    var byteCount = byteCount
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/jvmMain/kotlin/okio/DeprecatedUpgrade.kt:20:12: warning: '`-DeprecatedOkio`' is deprecated. changed in Okio 2.x
+val Okio = `-DeprecatedOkio`
+           ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/jvmMain/kotlin/okio/DeprecatedUpgrade.kt:21:12: warning: '`-DeprecatedUtf8`' is deprecated. changed in Okio 2.x
+val Utf8 = `-DeprecatedUtf8`
+           ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/jvmMain/kotlin/okio/GzipSource.kt:175:9: warning: name shadowed: offset
+    var offset = offset
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/jvmMain/kotlin/okio/GzipSource.kt:176:9: warning: name shadowed: byteCount
+    var byteCount = byteCount
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/jvmMain/kotlin/okio/Pipe.kt:59:11: warning: name shadowed: byteCount
+      var byteCount = byteCount
+          ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/jvmMain/kotlin/okio/RealBufferedSink.kt:53:16: warning: this declaration overrides deprecated member but not marked as deprecated itself. This deprecation won't be inherited in future releases. Please add @Deprecated annotation or suppress. See https://youtrack.jetbrains.com/issue/KT-47902 for details
+  override fun buffer() = bufferField
+               ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/jvmMain/kotlin/okio/RealBufferedSource.kt:64:16: warning: this declaration overrides deprecated member but not marked as deprecated itself. This deprecation won't be inherited in future releases. Please add @Deprecated annotation or suppress. See https://youtrack.jetbrains.com/issue/KT-47902 for details
+  override fun buffer() = bufferField
+               ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/jvmMain/kotlin/okio/SegmentPool.kt:126:46: warning: 'getter for id: Long' is deprecated. Deprecated in Java
+    val hashBucket = (Thread.currentThread().id and (HASH_BUCKET_COUNT - 1L)).toInt()
+                                             ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/jvmMain/kotlin/okio/Timeout.kt:230:21: warning: this class shouldn't be used in Kotlin. Use kotlin.Any instead.
+        (monitor as Object).wait() // There is no timeout: wait forever.
+                    ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/jvmMain/kotlin/okio/Timeout.kt:249:21: warning: this class shouldn't be used in Kotlin. Use kotlin.Any instead.
+        (monitor as Object).wait(waitMillis, (waitNanos - waitMillis * 1000000L).toInt())
+                    ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/FileHandle.kt:165:9: warning: name shadowed: source
+    var source = source
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/FileHandle.kt:244:9: warning: name shadowed: sink
+    var sink = sink
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:147:9: warning: name shadowed: path
+    val path = onPathParameter(path, "canonicalize", "path")
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:154:9: warning: name shadowed: path
+    val path = onPathParameter(path, "metadataOrNull", "path")
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:164:9: warning: name shadowed: dir
+    val dir = onPathParameter(dir, "list", "dir")
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:172:9: warning: name shadowed: dir
+    val dir = onPathParameter(dir, "listOrNull", "dir")
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:180:9: warning: name shadowed: dir
+    val dir = onPathParameter(dir, "listRecursively", "dir")
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:187:9: warning: name shadowed: file
+    val file = onPathParameter(file, "openReadOnly", "file")
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:193:9: warning: name shadowed: file
+    val file = onPathParameter(file, "openReadWrite", "file")
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:199:9: warning: name shadowed: file
+    val file = onPathParameter(file, "source", "file")
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:205:9: warning: name shadowed: file
+    val file = onPathParameter(file, "sink", "file")
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:211:9: warning: name shadowed: file
+    val file = onPathParameter(file, "appendingSink", "file")
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:217:9: warning: name shadowed: dir
+    val dir = onPathParameter(dir, "createDirectory", "dir")
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:223:9: warning: name shadowed: source
+    val source = onPathParameter(source, "atomicMove", "source")
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:224:9: warning: name shadowed: target
+    val target = onPathParameter(target, "atomicMove", "target")
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:230:9: warning: name shadowed: path
+    val path = onPathParameter(path, "delete", "path")
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:236:9: warning: name shadowed: source
+    val source = onPathParameter(source, "createSymlink", "source")
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/ForwardingFileSystem.kt:237:9: warning: name shadowed: target
+    val target = onPathParameter(target, "createSymlink", "target")
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/Options.kt:121:11: warning: name shadowed: fromIndex
+      var fromIndex = fromIndex
+          ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/Util.kt:59:10: warning: expected performance impact from inlining is insignificant. Inlining works best for functions with parameters of functional types
+internal inline infix fun Int.leftRotate(bitCount: Int): Int {
+         ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/Util.kt:63:10: warning: expected performance impact from inlining is insignificant. Inlining works best for functions with parameters of functional types
+internal inline infix fun Long.rightRotate(bitCount: Int): Long {
+         ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:62:7: warning: name shadowed: segment
+  var segment = segment
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:63:7: warning: name shadowed: segmentPos
+  var segmentPos = segmentPos
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:244:7: warning: name shadowed: offset
+  var offset = offset
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:245:7: warning: name shadowed: byteCount
+  var byteCount = byteCount
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:423:7: warning: name shadowed: byteCount
+  var byteCount = byteCount
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:449:7: warning: name shadowed: v
+  var v = v
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:543:7: warning: name shadowed: v
+  var v = v
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:610:7: warning: name shadowed: offset
+  var offset = offset
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1125:7: warning: name shadowed: byteCount
+  var byteCount = byteCount
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1183:7: warning: name shadowed: byteCount
+  var byteCount = byteCount
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1276:7: warning: name shadowed: byteCount
+  var byteCount = byteCount
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1285:7: warning: name shadowed: fromIndex
+  var fromIndex = fromIndex
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1286:7: warning: name shadowed: toIndex
+  var toIndex = toIndex
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1293:9: warning: name shadowed: s
+    var s = s ?: return -1L
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1294:9: warning: name shadowed: offset
+    var offset = offset
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1319:7: warning: name shadowed: fromIndex
+  var fromIndex = fromIndex
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1324:9: warning: name shadowed: s
+    var s = s ?: return -1L
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1325:9: warning: name shadowed: offset
+    var offset = offset
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1354:7: warning: name shadowed: fromIndex
+  var fromIndex = fromIndex
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1358:9: warning: name shadowed: s
+    var s = s ?: return -1L
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1359:9: warning: name shadowed: offset
+    var offset = offset
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1549:7: warning: name shadowed: unsafeCursor
+  val unsafeCursor = resolveDefaultParameter(unsafeCursor)
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/Buffer.kt:1558:7: warning: name shadowed: unsafeCursor
+  val unsafeCursor = resolveDefaultParameter(unsafeCursor)
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/ByteString.kt:131:7: warning: name shadowed: endIndex
+  val endIndex = resolveDefaultParameter(endIndex)
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/ByteString.kt:223:7: warning: name shadowed: fromIndex
+  val fromIndex = resolveDefaultParameter(fromIndex)
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/ByteString.kt:275:7: warning: name shadowed: byteCount
+  val byteCount = resolveDefaultParameter(byteCount)
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/FileSystem.kt:50:17: warning: 'addFirst(E!): Unit' is deprecated. Overrides deprecated member in 'kotlin.collections.AbstractMutableList'. This member is not fully supported by Kotlin compiler, so it may be absent or have different signature in next major version
+    directories.addFirst(path)
+                ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/FileSystem.kt:94:11: warning: 'addLast(E!): Unit' is deprecated. Overrides deprecated member in 'kotlin.collections.AbstractMutableList'. This member is not fully supported by Kotlin compiler, so it may be absent or have different signature in next major version
+    stack.addLast(dir)
+          ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/FileSystem.kt:132:13: warning: 'addLast(E!): Unit' is deprecated. Overrides deprecated member in 'kotlin.collections.AbstractMutableList'. This member is not fully supported by Kotlin compiler, so it may be absent or have different signature in next major version
+      stack.addLast(symlinkPath)
+            ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/FileSystem.kt:138:15: warning: 'removeLast(): E!' is deprecated. Overrides deprecated member in 'kotlin.collections.AbstractMutableList'. This member is not fully supported by Kotlin compiler, so it may be absent or have different signature in next major version
+        stack.removeLast()
+              ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/RealBufferedSink.kt:105:7: warning: name shadowed: byteCount
+  var byteCount = byteCount
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/RealBufferedSource.kt:301:7: warning: name shadowed: byteCount
+  var byteCount = byteCount
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/RealBufferedSource.kt:314:7: warning: name shadowed: fromIndex
+  var fromIndex = fromIndex
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/RealBufferedSource.kt:334:7: warning: name shadowed: fromIndex
+  var fromIndex = fromIndex
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/RealBufferedSource.kt:350:7: warning: name shadowed: fromIndex
+  var fromIndex = fromIndex
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/SegmentedByteString.kt:104:7: warning: name shadowed: endIndex
+  val endIndex = resolveDefaultParameter(endIndex)
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/SegmentedByteString.kt:160:54: warning: name shadowed: offset
+  forEachSegment(offset, offset + byteCount) { data, offset, byteCount ->
+                                                     ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/SegmentedByteString.kt:160:62: warning: name shadowed: byteCount
+  forEachSegment(offset, offset + byteCount) { data, offset, byteCount ->
+                                                             ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/SegmentedByteString.kt:181:7: warning: name shadowed: otherOffset
+  var otherOffset = otherOffset
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/SegmentedByteString.kt:182:54: warning: name shadowed: offset
+  forEachSegment(offset, offset + byteCount) { data, offset, byteCount ->
+                                                     ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/SegmentedByteString.kt:182:62: warning: name shadowed: byteCount
+  forEachSegment(offset, offset + byteCount) { data, offset, byteCount ->
+                                                             ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/SegmentedByteString.kt:201:7: warning: name shadowed: otherOffset
+  var otherOffset = otherOffset
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/SegmentedByteString.kt:202:54: warning: name shadowed: offset
+  forEachSegment(offset, offset + byteCount) { data, offset, byteCount ->
+                                                     ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/SegmentedByteString.kt:202:62: warning: name shadowed: byteCount
+  forEachSegment(offset, offset + byteCount) { data, offset, byteCount ->
+                                                             ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/SegmentedByteString.kt:218:7: warning: name shadowed: targetOffset
+  var targetOffset = targetOffset
+      ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/SegmentedByteString.kt:219:54: warning: name shadowed: offset
+  forEachSegment(offset, offset + byteCount) { data, offset, byteCount ->
+                                                     ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/commonMain/kotlin/okio/internal/SegmentedByteString.kt:219:62: warning: name shadowed: byteCount
+  forEachSegment(offset, offset + byteCount) { data, offset, byteCount ->
+                                                             ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/jvmMain/kotlin/okio/AsyncTimeout.kt:184:41: warning: variable 'timedOut' initializer is redundant
+          var timedOut: AsyncTimeout? = null
+                                        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/jvmMain/kotlin/okio/Buffer.kt:83:16: warning: this declaration overrides deprecated member but not marked as deprecated itself. This deprecation won't be inherited in future releases. Please add @Deprecated annotation or suppress. See https://youtrack.jetbrains.com/issue/KT-47902 for details
+  override fun buffer() = this
+               ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/jvmMain/kotlin/okio/Buffer.kt:152:9: warning: name shadowed: offset
+    var offset = offset
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/jvmMain/kotlin/okio/Buffer.kt:153:9: warning: name shadowed: byteCount
+    var byteCount = byteCount
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/jvmMain/kotlin/okio/Buffer.kt:192:9: warning: name shadowed: byteCount
+    var byteCount = byteCount
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/jvmMain/kotlin/okio/Buffer.kt:232:9: warning: name shadowed: byteCount
+    var byteCount = byteCount
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/jvmMain/kotlin/okio/DeprecatedUpgrade.kt:20:12: warning: '`-DeprecatedOkio`' is deprecated. changed in Okio 2.x
+val Okio = `-DeprecatedOkio`
+           ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/jvmMain/kotlin/okio/DeprecatedUpgrade.kt:21:12: warning: '`-DeprecatedUtf8`' is deprecated. changed in Okio 2.x
+val Utf8 = `-DeprecatedUtf8`
+           ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/jvmMain/kotlin/okio/GzipSource.kt:175:9: warning: name shadowed: offset
+    var offset = offset
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/jvmMain/kotlin/okio/GzipSource.kt:176:9: warning: name shadowed: byteCount
+    var byteCount = byteCount
+        ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/jvmMain/kotlin/okio/Pipe.kt:59:11: warning: name shadowed: byteCount
+      var byteCount = byteCount
+          ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/jvmMain/kotlin/okio/RealBufferedSink.kt:53:16: warning: this declaration overrides deprecated member but not marked as deprecated itself. This deprecation won't be inherited in future releases. Please add @Deprecated annotation or suppress. See https://youtrack.jetbrains.com/issue/KT-47902 for details
+  override fun buffer() = bufferField
+               ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/jvmMain/kotlin/okio/RealBufferedSource.kt:64:16: warning: this declaration overrides deprecated member but not marked as deprecated itself. This deprecation won't be inherited in future releases. Please add @Deprecated annotation or suppress. See https://youtrack.jetbrains.com/issue/KT-47902 for details
+  override fun buffer() = bufferField
+               ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/jvmMain/kotlin/okio/SegmentPool.kt:126:46: warning: 'getter for id: Long' is deprecated. Deprecated in Java
+    val hashBucket = (Thread.currentThread().id and (HASH_BUCKET_COUNT - 1L)).toInt()
+                                             ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/jvmMain/kotlin/okio/Timeout.kt:230:21: warning: this class shouldn't be used in Kotlin. Use kotlin.Any instead.
+        (monitor as Object).wait() // There is no timeout: wait forever.
+                    ^
+/tmp/claude-501/-code/2abf611d-5e04-4919-84a8-d7b72869d40c/scratchpad/out/nio-directory-eq65kvto/okio/src/jvmMain/kotlin/okio/Timeout.kt:249:21: warning: this class shouldn't be used in Kotlin. Use kotlin.Any instead.
+        (monitor as Object).wait(waitMillis, (waitNanos - waitMillis * 1000000L).toInt())
+                    ^
+Updated class bodies: okio/NioFileSystemWrappingFileSystem.class
+3c4ceee561cdaa08f28214b911d5201b7d8ba540c647745e8ff93eebcccabd07  okio-jvm-3.4.0.3.jar
+41bc94abe6e90d5629cc5375aa1af66aad91cdd1084d9e4fce97d71509449c97  okio-jvm-3.4.0.3.pom
+9702133760
+[36m╷[0m
+[36m├─[0m [36mJUnit Jupiter[0m [32m✔[0m
+[36m│  ├─[0m [36mConcurrentNioDirectoryCreationTest[0m [32m✔[0m
+[36m│  │  └─[0m [34mconcurrentDirectoryCreationUsesCurrentEntry()[0m [32m✔[0m
+[36m│  ├─[0m [36mReplacedNioDirectoryCreationTest[0m [32m✔[0m
+[36m│  │  └─[0m [34mdirectoryReplacedByFileDoesNotCountAsCreatedDirectory()[0m [32m✔[0m
+[36m│  └─[0m [36mExistingNioDirectoryFailureTest[0m [32m✔[0m
+[36m│     └─[0m [34mexistingDirectoryDoesNotHideOtherCreationFailures()[0m [32m✔[0m
+[36m├─[0m [36mJUnit Vintage[0m [32m✔[0m
+[36m└─[0m [36mJUnit Platform Suite[0m [32m✔[0m
+
+Test run finished after 259 ms
+[         6 containers found      ]
+[         0 containers skipped    ]
+[         6 containers started    ]
+[         0 containers aborted    ]
+[         6 containers successful ]
+[         0 containers failed     ]
+[         3 tests found           ]
+[         0 tests skipped         ]
+[         3 tests started         ]
+[         0 tests aborted         ]
+[         3 tests successful      ]
+[         0 tests failed          ]
+
+10426494976
+Thu Oct 22 06:52:02 UTC 2026
