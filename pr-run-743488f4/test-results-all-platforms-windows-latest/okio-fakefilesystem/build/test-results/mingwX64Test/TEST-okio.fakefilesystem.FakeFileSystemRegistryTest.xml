@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="okio.fakefilesystem.FakeFileSystemRegistryTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-10-22T23:09:48" hostname="runnervm0xl3a" time="0.005">
+  <properties/>
+  <testcase name="clockReentryCannotAdmitTwoWriters[mingwX64]" classname="okio.fakefilesystem.FakeFileSystemRegistryTest" time="0.001"/>
+  <testcase name="clockFailureOnCloseStillRemovesRegistration[mingwX64]" classname="okio.fakefilesystem.FakeFileSystemRegistryTest" time="0.0"/>
+  <testcase name="clockFailureOnDeferredSourceCloseStillRemovesRegistration[mingwX64]" classname="okio.fakefilesystem.FakeFileSystemRegistryTest" time="0.0"/>
+  <testcase name="clockFailureOnDeferredSinkCloseStillRemovesRegistration[mingwX64]" classname="okio.fakefilesystem.FakeFileSystemRegistryTest" time="0.0"/>
+  <testcase name="openPathsIsASnapshotAndSourcesRetainRegistration[mingwX64]" classname="okio.fakefilesystem.FakeFileSystemRegistryTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

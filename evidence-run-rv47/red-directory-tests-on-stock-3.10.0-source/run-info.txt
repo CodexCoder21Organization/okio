@@ -1,0 +1,5 @@
+sha=743488f46023a88d7286de04cba65894bb3e818d
+mutation=stock-source
+scope=fakefs
+args=:okio-fakefilesystem:jvmTest --tests okio.fakefilesystem.FakeFileSystemDirectoryTest --tests okio.fakefilesystem.FakeFileSystemTreeConcurrencyTest
+gradle_exit=1

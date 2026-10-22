@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="okio.fakefilesystem.FakeFileSystemConcurrencyTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-10-22T22:50:06" hostname="runnervm8k3b6" time="16.523">
+  <properties/>
+  <testcase name="registryObserversSeeConsistentSnapshotsWhileHandlesChurn[jvm]" classname="okio.fakefilesystem.FakeFileSystemConcurrencyTest" time="10.495"/>
+  <testcase name="concurrentDistinctFileOpenClose[jvm]" classname="okio.fakefilesystem.FakeFileSystemConcurrencyTest" time="6.028"/>
+  <system-out><![CDATA[observer trial 1: PASS
+observer trial 2: PASS
+observer trial 3: PASS
+observer trial 4: PASS
+observer trial 5: PASS
+observer trial 6: PASS
+observer trial 7: PASS
+observer trial 8: PASS
+observer trial 9: PASS
+observer trial 10: PASS
+observer trial 11: PASS
+observer trial 12: PASS
+observer trial 13: PASS
+observer trial 14: PASS
+observer trial 15: PASS
+observer trial 16: PASS
+observer trial 17: PASS
+observer trial 18: PASS
+observer trial 19: PASS
+observer trial 20: PASS
+OBSERVER RESULT: 0 failures / 20 runs; 8 workers x 10000 operations, 1 observer x 10000 reads per run
+trial 1: PASS
+trial 2: PASS
+trial 3: PASS
+trial 4: PASS
+trial 5: PASS
+trial 6: PASS
+trial 7: PASS
+trial 8: PASS
+trial 9: PASS
+trial 10: PASS
+trial 11: PASS
+trial 12: PASS
+trial 13: PASS
+trial 14: PASS
+trial 15: PASS
+trial 16: PASS
+trial 17: PASS
+trial 18: PASS
+trial 19: PASS
+trial 20: PASS
+RESULT: 0 failures / 20 runs; 9 callers x 10000 operations maximum per run
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

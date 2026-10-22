@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="okio.PipeTest" tests="16" skipped="2" failures="0" errors="0" timestamp="2026-10-22T23:06:42" hostname="runnervm0xl3a" time="9.631">
+  <properties/>
+  <testcase name="sinkWriteFailsByClosedReader[jvm]" classname="okio.PipeTest" time="1.002"/>
+  <testcase name="sinkFlushDoesntWaitForReader[jvm]" classname="okio.PipeTest" time="0.0"/>
+  <testcase name="sinkClose[jvm]" classname="okio.PipeTest" time="0.0"/>
+  <testcase name="sourceTimeout[jvm]" classname="okio.PipeTest" time="0.001">
+    <skipped/>
+  </testcase>
+  <testcase name="sinkCloseDoesntWaitForSourceRead[jvm]" classname="okio.PipeTest" time="0.0"/>
+  <testcase name="sinkMultipleClose[jvm]" classname="okio.PipeTest" time="0.0"/>
+  <testcase name="largeDataset[jvm]" classname="okio.PipeTest" time="0.619"/>
+  <testcase name="sourceMultipleClose[jvm]" classname="okio.PipeTest" time="0.0"/>
+  <testcase name="sourceReadUnblockedByClosedSink[jvm]" classname="okio.PipeTest" time="1.002"/>
+  <testcase name="sourceClose[jvm]" classname="okio.PipeTest" time="0.0"/>
+  <testcase name="test[jvm]" classname="okio.PipeTest" time="0.0"/>
+  <testcase name="sinkFlushFailsIfReaderIsClosedBeforeAllDataIsRead[jvm]" classname="okio.PipeTest" time="0.0"/>
+  <testcase name="sinkBlocksOnSlowReader[jvm]" classname="okio.PipeTest" time="3.003"/>
+  <testcase name="sinkTimeout[jvm]" classname="okio.PipeTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="sourceBlocksOnSlowWriter[jvm]" classname="okio.PipeTest" time="4.004"/>
+  <testcase name="sinkCloseFailsIfReaderIsClosedBeforeAllDataIsRead[jvm]" classname="okio.PipeTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

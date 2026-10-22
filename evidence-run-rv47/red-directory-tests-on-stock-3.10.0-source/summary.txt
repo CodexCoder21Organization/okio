@@ -1,0 +1,12 @@
+okio-fakefilesystem/build/test-results/jvmTest/TEST-okio.fakefilesystem.FakeFileSystemDirectoryTest.xml: okio.fakefilesystem.FakeFileSystemDirectoryTest tests=2 failures=1 errors=0 skipped=0 time=0.044
+okio-fakefilesystem/build/test-results/jvmTest/TEST-okio.fakefilesystem.FakeFileSystemTreeConcurrencyTest.xml: okio.fakefilesystem.FakeFileSystemTreeConcurrencyTest tests=6 failures=6 errors=0 skipped=0 time=0.237
+    TREE RESULT (lister=false): 20 failures / 20 runs; 8 workers x 500 x 4 operations per run
+    TREE RESULT (lister=true): 20 failures / 20 runs; 8 workers x 500 x 4 operations per run, 1 lister x 200 listings
+TOTAL tests=8 failures=7 errors=0 skipped=0 passed=1
+FAILURE: okio.fakefilesystem.FakeFileSystemDirectoryTest.createDirectoryKeepsAnExistingDirectory[jvm]: org.junit.ComparisonFailure: expected:<...irectory, createdAt=[1000, lastModifiedAt=1000, lastAccessedAt=1000, extras={class java.lang.String (Kotlin reflection is not available)=extra on parent}])> but was:<...irectory, createdAt=[61000, lastModifiedAt=61000, lastAccessedAt=61000])>
+FAILURE: okio.fakefilesystem.FakeFileSystemTreeConcurrencyTest.rootCreationKeepsAnIndependentFile[jvm]: java.io.FileNotFoundException: no such file: /b
+FAILURE: okio.fakefilesystem.FakeFileSystemTreeConcurrencyTest.rootCreationBySymlinkKeepsAnIndependentFile[jvm]: java.io.FileNotFoundException: no such file: /b
+FAILURE: okio.fakefilesystem.FakeFileSystemTreeConcurrencyTest.directoryCreationAfterParentJudgedMissingKeepsSibling[jvm]: java.io.FileNotFoundException: no such file: /parent/b/file
+FAILURE: okio.fakefilesystem.FakeFileSystemTreeConcurrencyTest.independentChildrenOfASharedParentAreAllKept[jvm]: java.lang.AssertionError: Independent changes under one parent must all be kept expected:<0> but was:<20>
+FAILURE: okio.fakefilesystem.FakeFileSystemTreeConcurrencyTest.listingASharedParentWhileIndependentChildrenChange[jvm]: java.lang.AssertionError: Independent changes under one parent must all be kept expected:<0> but was:<20>
+FAILURE: okio.fakefilesystem.FakeFileSystemTreeConcurrencyTest.directoryCreationKeepsAnIndependentSibling[jvm]: java.io.FileNotFoundException: no such file: /parent/b/file

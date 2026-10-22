@@ -51,3 +51,26 @@ summary and the FakeFileSystem XML (the full artifacts remain on the run page).
 | [test-results-jvm-17](pr-run/test-results-jvm-17/summary.txt) | TOTAL tests=4915 failures=0 errors=0 skipped=47 passed=4868 |
 | [test-results-jvm-19](pr-run/test-results-jvm-19/summary.txt) | TOTAL tests=4915 failures=0 errors=0 skipped=47 passed=4868 |
 | [test-results-jvm-8](pr-run/test-results-jvm-8/summary.txt) | TOTAL tests=4915 failures=0 errors=0 skipped=47 passed=4868 |
+
+## RV47 follow-up: createDirectory keeps an existing directory (head 743488f4)
+
+Evidence run: https://github.com/CodexCoder21Organization/okio/actions/runs/39867473016 (workflow
+commit 8e17cb4e on `gha-run/ok1-evidence`). Every job is run attempt 1, with no retries.
+
+| Job | Source SHA | Mutation | Counts |
+| --- | --- | --- | --- |
+| [red-directory-tests-on-stock-3.10.0-source](evidence-run-rv47/red-directory-tests-on-stock-3.10.0-source) | `743488f4` | `FakeFileSystem.kt` from 3.10.0 | 8 tests, 7 failed, 1 passed (`createDirectoryMustCreateRejectsAnExistingDirectory`, which 3.10.0 already satisfies) |
+| [control-head-without-directory-preservation](evidence-run-rv47/control-head-without-directory-preservation) | `743488f4` | the `if (lookupResult?.element is Directory) return` line deleted | 8 tests, 2 failed (`createDirectoryKeepsAnExistingDirectory`, `directoryCreationAfterParentJudgedMissingKeepsSibling`), 6 passed |
+| [green-head-743488f4](evidence-run-rv47/green-head-743488f4) | `743488f4` | none | 15 tests, 15 passed |
+
+The first two jobs ran `:okio-fakefilesystem:jvmTest --tests okio.fakefilesystem.FakeFileSystemDirectoryTest --tests okio.fakefilesystem.FakeFileSystemTreeConcurrencyTest`. The green job ran `--tests okio.fakefilesystem.*`.
+
+PR build run on 743488f4: https://github.com/CodexCoder21Organization/okio/actions/runs/39867438127.
+jvm 8/11/17/19, loom, ubuntu and windows passed. macos-14 failed on one test,
+`okio.PipeTest.sourceBlocksOnSlowWriter[jvm]` (`expected:<4000.0> but was:<4250.91233400011>`),
+a wall-clock timing assertion in okio core's Pipe tests. That test uses no FakeFileSystem code, and
+none of this PR's commits touch it. It passed on macos-14 in the previous head's run. Upstream later
+rewrote these tests to use position signals instead of wall-clock time:
+https://github.com/CodexCoder21Organization/okio/commit/214134f7 (#1686, first released in 3.16.2).
+Because of that failure Gradle stopped early, so macos-14 reports 27086 tests instead of 27346. The
+summaries for each artifact are in `pr-run-743488f4/`.

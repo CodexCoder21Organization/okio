@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="okio.fakefilesystem.FakeFileSystemDirectoryTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-10-22T22:57:51" hostname="runnervm8k3b6" time="0.002">
+  <properties/>
+  <testcase name="createDirectoryKeepsAnExistingDirectory[linuxX64]" classname="okio.fakefilesystem.FakeFileSystemDirectoryTest" time="0.001"/>
+  <testcase name="createDirectoryMustCreateRejectsAnExistingDirectory[linuxX64]" classname="okio.fakefilesystem.FakeFileSystemDirectoryTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

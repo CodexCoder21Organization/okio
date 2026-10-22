@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="okio.fakefilesystem.FakeFileSystemTreeConcurrencyTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-10-22T23:09:03" hostname="runnervm0xl3a" time="6.592">
+  <properties/>
+  <testcase name="rootCreationKeepsAnIndependentFile[jvm]" classname="okio.fakefilesystem.FakeFileSystemTreeConcurrencyTest" time="0.004"/>
+  <testcase name="rootCreationBySymlinkKeepsAnIndependentFile[jvm]" classname="okio.fakefilesystem.FakeFileSystemTreeConcurrencyTest" time="0.002"/>
+  <testcase name="directoryCreationAfterParentJudgedMissingKeepsSibling[jvm]" classname="okio.fakefilesystem.FakeFileSystemTreeConcurrencyTest" time="0.003"/>
+  <testcase name="independentChildrenOfASharedParentAreAllKept[jvm]" classname="okio.fakefilesystem.FakeFileSystemTreeConcurrencyTest" time="2.936"/>
+  <testcase name="listingASharedParentWhileIndependentChildrenChange[jvm]" classname="okio.fakefilesystem.FakeFileSystemTreeConcurrencyTest" time="3.641"/>
+  <testcase name="directoryCreationKeepsAnIndependentSibling[jvm]" classname="okio.fakefilesystem.FakeFileSystemTreeConcurrencyTest" time="0.003"/>
+  <system-out><![CDATA[tree trial 1: PASS
+tree trial 2: PASS
+tree trial 3: PASS
+tree trial 4: PASS
+tree trial 5: PASS
+tree trial 6: PASS
+tree trial 7: PASS
+tree trial 8: PASS
+tree trial 9: PASS
+tree trial 10: PASS
+tree trial 11: PASS
+tree trial 12: PASS
+tree trial 13: PASS
+tree trial 14: PASS
+tree trial 15: PASS
+tree trial 16: PASS
+tree trial 17: PASS
+tree trial 18: PASS
+tree trial 19: PASS
+tree trial 20: PASS
+TREE RESULT (lister=false): 0 failures / 20 runs; 8 workers x 500 x 4 operations per run
+tree trial 1: PASS
+tree trial 2: PASS
+tree trial 3: PASS
+tree trial 4: PASS
+tree trial 5: PASS
+tree trial 6: PASS
+tree trial 7: PASS
+tree trial 8: PASS
+tree trial 9: PASS
+tree trial 10: PASS
+tree trial 11: PASS
+tree trial 12: PASS
+tree trial 13: PASS
+tree trial 14: PASS
+tree trial 15: PASS
+tree trial 16: PASS
+tree trial 17: PASS
+tree trial 18: PASS
+tree trial 19: PASS
+tree trial 20: PASS
+TREE RESULT (lister=true): 0 failures / 20 runs; 8 workers x 500 x 4 operations per run, 1 lister x 200 listings
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

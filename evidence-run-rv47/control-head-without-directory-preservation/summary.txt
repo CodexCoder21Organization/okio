@@ -1,0 +1,7 @@
+okio-fakefilesystem/build/test-results/jvmTest/TEST-okio.fakefilesystem.FakeFileSystemDirectoryTest.xml: okio.fakefilesystem.FakeFileSystemDirectoryTest tests=2 failures=1 errors=0 skipped=0 time=0.074
+okio-fakefilesystem/build/test-results/jvmTest/TEST-okio.fakefilesystem.FakeFileSystemTreeConcurrencyTest.xml: okio.fakefilesystem.FakeFileSystemTreeConcurrencyTest tests=6 failures=1 errors=0 skipped=0 time=5.664
+    TREE RESULT (lister=false): 0 failures / 20 runs; 8 workers x 500 x 4 operations per run
+    TREE RESULT (lister=true): 0 failures / 20 runs; 8 workers x 500 x 4 operations per run, 1 lister x 200 listings
+TOTAL tests=8 failures=2 errors=0 skipped=0 passed=6
+FAILURE: okio.fakefilesystem.FakeFileSystemDirectoryTest.createDirectoryKeepsAnExistingDirectory[jvm]: org.junit.ComparisonFailure: expected:<...irectory, createdAt=[1000, lastModifiedAt=1000, lastAccessedAt=1000, extras={class java.lang.String (Kotlin reflection is not available)=extra on parent}])> but was:<...irectory, createdAt=[61000, lastModifiedAt=61000, lastAccessedAt=61000])>
+FAILURE: okio.fakefilesystem.FakeFileSystemTreeConcurrencyTest.directoryCreationAfterParentJudgedMissingKeepsSibling[jvm]: java.io.FileNotFoundException: no such file: /parent/b/file

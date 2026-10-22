@@ -1,0 +1,5 @@
+sha=743488f46023a88d7286de04cba65894bb3e818d
+mutation=none
+scope=fakefs-all
+args=:okio-fakefilesystem:jvmTest --tests okio.fakefilesystem.*
+gradle_exit=0
