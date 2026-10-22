@@ -22,6 +22,21 @@ def command(*args):
     return subprocess.check_output(args, text=True, timeout=180).strip()
 
 
+def normalized_signatures(output):
+    # Method declaration order is not part of the JVM API; keep each class's members together.
+    blocks = []
+    members = []
+    for line in output.splitlines():
+        if line.startswith('  '):
+            members.append(line)
+        else:
+            if line == '}':
+                blocks.extend(sorted(members))
+                members = []
+            blocks.append(line)
+    return '\n'.join(blocks)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output-directory', required=True, type=Path)
@@ -70,11 +85,11 @@ def main():
         # Nested Element.File is private storage, not exported JVM API.
         public_classes = [name[:-6].replace('/', '.') for name in class_names
                           if name != 'okio/fakefilesystem/FakeFileSystem$Element$File.class']
-        before = command('javap', '-public', '-classpath', str(temp / 'previous.jar'), *public_classes)
-        after = command('javap', '-public', '-classpath', str(jar), *public_classes)
+        before = normalized_signatures(command('javap', '-public', '-classpath', str(temp / 'previous.jar'), *public_classes))
+        after = normalized_signatures(command('javap', '-public', '-classpath', str(jar), *public_classes))
         if before != after:
-            raise ValueError('Public javap API differs from the 3.4.0.1 artifact:\n' +\
-                             '\n'.join(difflib.unified_diff(before.splitlines(), after.splitlines(),\
+            raise ValueError('Public javap API differs from the 3.4.0.1 artifact:\n' +
+                             '\n'.join(difflib.unified_diff(before.splitlines(), after.splitlines(),
                                                             fromfile='3.4.0.1', tofile=VERSION)))
         print('Exported javap API is identical to 3.4.0.1; private Element.File storage is excluded.')
         with urllib.request.urlopen(f'{REPOSITORY}/{PREVIOUS}/{ARTIFACT}-{PREVIOUS}.pom', timeout=60) as response:
