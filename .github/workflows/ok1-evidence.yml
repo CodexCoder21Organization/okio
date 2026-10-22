@@ -1,0 +1,117 @@
+name: ok1 FakeFileSystem evidence
+
+on:
+  push:
+    branches:
+      - 'gha-run/ok1-evidence'
+
+env:
+  GRADLE_OPTS: "-Dorg.gradle.jvmargs=-Xmx2g -Dorg.gradle.daemon=false -Dkotlin.incremental=false"
+  FAKEFS_SELECTOR: "okio.fakefilesystem.*"
+
+jobs:
+  evidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: red-registry-tests-on-stock-3.10.0
+            sha: b096f39e43f62e5ac49851d86f3c1b2c7f3e128b
+            mutation: none
+            scope: fakefs
+          - name: red-tree-tests-on-registry-lock-only
+            sha: 1791b38e0ab6ff168b66a231281d8b636dcdc39b
+            mutation: none
+            scope: fakefs
+          - name: control-new-tests-on-stock-3.10.0-source
+            sha: 1791b38e0ab6ff168b66a231281d8b636dcdc39b
+            mutation: stock-source
+            scope: fakefs
+          - name: control-head-without-observer-locks
+            sha: 96284029d6adf7e0518d82e427f42a2737903fb2
+            mutation: unlocked-observers
+            scope: fakefs
+          - name: green-fix-commit
+            sha: 2bc09c30c366372762dcca3805b1390ea10deaf5
+            mutation: none
+            scope: fakefs
+          - name: green-head-selected
+            sha: 96284029d6adf7e0518d82e427f42a2737903fb2
+            mutation: none
+            scope: selected
+          - name: green-head-full-jvm-build
+            sha: 96284029d6adf7e0518d82e427f42a2737903fb2
+            mutation: none
+            scope: full-jvm
+    name: ${{ matrix.name }}
+    steps:
+      - name: Checkout evidence scripts
+        uses: actions/checkout@v4
+        with:
+          path: evidence
+      - name: Checkout source under test
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ matrix.sha }}
+          fetch-depth: 0
+          path: src
+      - name: Configure JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: 19
+      - name: Apply mutation
+        working-directory: src
+        run: |
+          set -eu
+          F=okio-fakefilesystem/src/commonMain/kotlin/okio/fakefilesystem/FakeFileSystem.kt
+          case "${{ matrix.mutation }}" in
+            none) ;;
+            stock-source) git checkout 3.10.0 -- "$F" ;;
+            unlocked-observers)
+              python3 - "$F" <<'PY'
+          import sys
+          p = sys.argv[1]
+          s = open(p).read()
+          a = "get() = synchronized(openFilesLock) { openFiles.map { it.canonicalPath } }"
+          b = "val snapshot = synchronized(openFilesLock) { openFiles.toList() }"
+          assert s.count(a) == 1 and s.count(b) == 1
+          s = s.replace(a, "get() = openFiles.map { it.canonicalPath }")
+          s = s.replace(b, "val snapshot = openFiles")
+          open(p, "w").write(s)
+          PY
+              ;;
+          esac
+          echo "Source SHA: $(git rev-parse HEAD)"
+          echo "Mutation: ${{ matrix.mutation }}"
+          git status --short
+          git diff
+      - name: Test
+        working-directory: src
+        run: |
+          set +e
+          case "${{ matrix.scope }}" in
+            fakefs) ARGS=":okio-fakefilesystem:jvmTest --tests $FAKEFS_SELECTOR" ;;
+            selected) ARGS=":okio-fakefilesystem:apiCheck :okio-fakefilesystem:spotlessCheck :okio-fakefilesystem:jvmTest --tests $FAKEFS_SELECTOR :okio:jvmTest --tests okio.FakeUnixFileSystemTest --tests okio.FakeWindowsFileSystemTest --tests okio.StrictFakeFileSystemTest --tests okio.ForwardingFileSystemTest --tests okio.UseTest --tests okio.FileSystemJavaTest --tests okio.FileLeakTest" ;;
+            full-jvm) ARGS="build" ;;
+          esac
+          echo "Source SHA: $(git rev-parse HEAD)"
+          echo "Command: ./gradlew -Dkjs=false -Dknative=false -Dkwasm=false -Dtest.java.version=19 --continue $ARGS"
+          ./gradlew -Dkjs=false -Dknative=false -Dkwasm=false -Dtest.java.version=19 --continue $ARGS 2>&1 | tee ../console.txt
+          status=${PIPESTATUS[0]}
+          echo "Gradle exit status: $status"
+          python3 ../evidence/summarize.py | tee ../summary.txt
+          { echo "sha=$(git rev-parse HEAD)"; echo "mutation=${{ matrix.mutation }}"; echo "scope=${{ matrix.scope }}"; echo "args=$ARGS"; echo "gradle_exit=$status"; } > ../run-info.txt
+          exit $status
+      - name: Save results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.name }}
+          path: |
+            console.txt
+            summary.txt
+            run-info.txt
+            src/**/build/test-results/**/*.xml
