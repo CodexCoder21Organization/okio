@@ -140,7 +140,7 @@ val fileSystem = FakeFileSystem()
 val path = "/document".toPath()
 val chunk = ByteArray(8192) { 42 }
 fileSystem.openReadWrite(path, mustCreate = true).use { handle ->
-  repeat(1024) { index -> handle.write(index.toLong() * chunk.size, chunk) }
+  repeat(1024) { index -> handle.write(index.toLong() * chunk.size, chunk, 0, chunk.size) }
   check(handle.size() == 8L * 1024 * 1024)
 }
 fileSystem.checkNoOpenFiles()

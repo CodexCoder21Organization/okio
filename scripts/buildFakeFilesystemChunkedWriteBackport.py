@@ -40,7 +40,7 @@ def main():
                            'org.jetbrains.kotlinx:kotlinx-datetime-jvm:0.4.0',
                            'org.jetbrains.kotlinx:atomicfu-jvm:0.20.2', '--classpath')
     sources = sorted((root / 'backports/fakefilesystem-3.4.0/src').glob('*.kt'))
-    with tempfile.TemporaryDirectory(prefix='okio-bulk-read-', dir=output.parent) as temporary:
+    with tempfile.TemporaryDirectory(prefix='okio-chunked-write-', dir=output.parent) as temporary:
         temp = Path(temporary)
         with urllib.request.urlopen(f'{REPOSITORY}/{PREVIOUS}/{ARTIFACT}-{PREVIOUS}.jar', timeout=60) as response:
             previous = response.read()
@@ -73,7 +73,7 @@ def main():
         after = command('javap', '-public', '-classpath', str(jar), *public_classes)
         if before != after:
             raise ValueError('Public javap API differs from the 3.4.0.1 artifact')
-        print('Public javap API is identical to 3.4.0.1 for all previous classes.')
+        print('Exported javap API is identical to 3.4.0.1; private Element.File storage is excluded.')
         with urllib.request.urlopen(f'{REPOSITORY}/{PREVIOUS}/{ARTIFACT}-{PREVIOUS}.pom', timeout=60) as response:
             pom = response.read().decode()
         if pom.count(f'<version>{PREVIOUS}</version>') != 1:

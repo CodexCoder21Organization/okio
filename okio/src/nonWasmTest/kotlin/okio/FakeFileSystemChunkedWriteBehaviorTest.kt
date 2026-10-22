@@ -30,7 +30,7 @@ class FakeFileSystemChunkedWriteBehaviorTest {
     val original = ByteArray(3 * 8192 + 17) { (it * 31 + 7).toByte() }
     try {
       fs.openReadWrite(path, mustCreate = true).use { handle ->
-        handle.write(0, original)
+        handle.write(0, original, 0, original.size)
         val patch = ByteArray(8192 + 11) { 93 }
         val offset = 8192 - 3
         handle.write(offset.toLong(), patch, 2, patch.size - 4)
@@ -47,15 +47,15 @@ class FakeFileSystemChunkedWriteBehaviorTest {
         original.fill(0, 8192 + 5, original.size)
         assertEquals(original.size, handle.read(0, actual, 3, original.size))
         assertContentEquals(original, actual.copyOfRange(3, actual.size - 3))
-        handle.write(original.size + 11L, byteArrayOf(9, 8, 7))
+        handle.write(original.size + 11L, byteArrayOf(9, 8, 7), 0, 3)
         val gap = ByteArray(14)
-        assertEquals(14, handle.read(original.size.toLong(), gap))
+        assertEquals(14, handle.read(original.size.toLong(), gap, 0, gap.size))
         assertContentEquals(ByteArray(11) + byteArrayOf(9, 8, 7), gap)
         assertEquals(original.size + 14L, fs.metadata(path).size)
       }
       fs.openReadOnly(path).use { reopened ->
         assertEquals(original.size + 14L, reopened.size())
-        assertEquals(-1, reopened.read(1L shl 32, ByteArray(1)))
+        assertEquals(-1, reopened.read(1L shl 32, ByteArray(1), 0, 1))
       }
     } finally {
       fs.checkNoOpenFiles()
@@ -72,18 +72,18 @@ class FakeFileSystemChunkedWriteBehaviorTest {
     val original = ByteArray(8192 + 13) { 17 }
     try {
       fs.openReadWrite(path, mustCreate = true).use { first ->
-        first.write(0, original)
+        first.write(0, original, 0, original.size)
         fs.openReadOnly(path).use { reader ->
           fs.openReadWrite(path, mustExist = true).use { replacement ->
-            replacement.write(8190, byteArrayOf(1, 2, 3, 4, 5))
+            replacement.write(8190, byteArrayOf(1, 2, 3, 4, 5), 0, 5)
             replacement.resize(original.size + 20L)
             val prior = ByteArray(original.size)
-            assertEquals(prior.size, reader.read(0, prior))
+            assertEquals(prior.size, reader.read(0, prior, 0, prior.size))
             assertContentEquals(original, prior)
             assertEquals(original.size.toLong(), first.size())
-            first.write(0, byteArrayOf(77))
+            first.write(0, byteArrayOf(77), 0, 1)
             val current = ByteArray(6)
-            assertEquals(current.size, replacement.read(0, current))
+            assertEquals(current.size, replacement.read(0, current, 0, current.size))
             assertContentEquals(ByteArray(6) { 17 }, current)
             assertEquals(5, replacement.read(8190, current, 0, 5))
             assertContentEquals(byteArrayOf(1, 2, 3, 4, 5), current.copyOf(5))
@@ -101,12 +101,12 @@ class FakeFileSystemChunkedWriteBehaviorTest {
     val path = "/closed".toPath()
     try {
       val handle = fs.openReadWrite(path)
-      handle.use { it.write(0, byteArrayOf(1, 2, 3)) }
-      assertEquals("closed", assertFailsWith<IllegalStateException> { handle.write(0, byteArrayOf(9)) }.message)
+      handle.use { it.write(0, byteArrayOf(1, 2, 3), 0, 3) }
+      assertEquals("closed", assertFailsWith<IllegalStateException> { handle.write(0, byteArrayOf(9), 0, 1) }.message)
       assertEquals("closed", assertFailsWith<IllegalStateException> { handle.resize(0) }.message)
       fs.openReadOnly(path).use { reopened ->
         val actual = ByteArray(3)
-        assertEquals(3, reopened.read(0, actual))
+        assertEquals(3, reopened.read(0, actual, 0, actual.size))
         assertContentEquals(byteArrayOf(1, 2, 3), actual)
       }
     } finally {

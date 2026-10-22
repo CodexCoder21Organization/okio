@@ -41,11 +41,11 @@ class FakeFileSystemChunkedWriteTest {
         val chunks = if (run % 2 == 0) 256 else 1024
         fs.openReadWrite(path, mustCreate = true).use { handle ->
           val before = counter.getThreadAllocatedBytes(thread)
-          repeat(chunks) { handle.write(it.toLong() * chunk.size, chunk) }
+          repeat(chunks) { handle.write(it.toLong() * chunk.size, chunk, 0, chunk.size) }
           val allocated = counter.getThreadAllocatedBytes(thread) - before
           assertEquals(chunks.toLong() * chunk.size, handle.size())
           val actual = ByteArray(chunk.size)
-          assertEquals(actual.size, handle.read(handle.size() - actual.size, actual))
+          assertEquals(actual.size, handle.read(handle.size() - actual.size, actual, 0, actual.size))
           assertContentEquals(chunk, actual)
           if (run >= 4) allocations[run - 4] = allocated
         }
