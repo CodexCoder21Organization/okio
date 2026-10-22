@@ -21,10 +21,11 @@ if [ -n "${3:-}" ]; then
 fi
 javac -J-Xmx256m -cp "$okioReviewClasspath" -d "$okioReviewTemporary/classes" \
   "$okioReviewRoot/backports/fakefilesystem-3.4.0/review-tests/FakeFileSystemWorkAgent.java" \
-  "$okioReviewRoot/backports/fakefilesystem-3.4.0/review-tests/FakeFileSystemReviewTest.java"
+  "$okioReviewRoot/backports/fakefilesystem-3.4.0/review-tests/FakeFileSystemReviewTest.java" \
+  "$okioReviewRoot/backports/fakefilesystem-3.4.0/review-tests/FakeFileSystemAccessWorkTest.java"
 printf 'Premain-Class: FakeFileSystemWorkAgent\n' > "$okioReviewTemporary/MANIFEST.MF"
 jar cfm "$okioReviewTemporary/work-agent.jar" "$okioReviewTemporary/MANIFEST.MF" -C "$okioReviewTemporary/classes" .
 java -Xmx256m -javaagent:"$okioReviewTemporary/work-agent.jar" \
   -cp "$okioReviewTemporary/classes:$okioReviewClasspath" \
   org.junit.platform.console.ConsoleLauncher execute \
-  --select-class FakeFileSystemReviewTest --reports-dir "$okioReviewReports" --disable-banner
+  --select-class FakeFileSystemReviewTest --select-class FakeFileSystemAccessWorkTest --reports-dir "$okioReviewReports" --disable-banner
