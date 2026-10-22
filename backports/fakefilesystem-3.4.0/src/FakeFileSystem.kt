@@ -13,6 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+@file:JvmName("-Time")
+
 package okio.fakefilesystem
 
 import kotlin.jvm.JvmField
@@ -891,4 +893,27 @@ private inline fun resizeFilePages(pages: MutableList<Buffer>, oldSize: Long, ne
     }
     position = pageIndex.toLong() * FILE_PAGE_SIZE + pageSize
   }
+}
+
+@JvmName("newFileMetadata")
+internal fun FileMetadata(
+  isRegularFile: Boolean = false,
+  isDirectory: Boolean = false,
+  symlinkTarget: Path? = null,
+  size: Long? = null,
+  createdAt: Instant? = null,
+  lastModifiedAt: Instant? = null,
+  lastAccessedAt: Instant? = null,
+  extras: Map<KClass<*>, Any> = mapOf(),
+): FileMetadata {
+  return FileMetadata(
+    isRegularFile = isRegularFile,
+    isDirectory = isDirectory,
+    symlinkTarget = symlinkTarget,
+    size = size,
+    createdAtMillis = createdAt?.toEpochMilliseconds(),
+    lastModifiedAtMillis = lastModifiedAt?.toEpochMilliseconds(),
+    lastAccessedAtMillis = lastAccessedAt?.toEpochMilliseconds(),
+    extras = extras,
+  )
 }
