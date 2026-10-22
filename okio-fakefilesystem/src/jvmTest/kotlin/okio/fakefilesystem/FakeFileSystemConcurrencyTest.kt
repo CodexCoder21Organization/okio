@@ -105,4 +105,119 @@ class FakeFileSystemConcurrencyTest {
       "Concurrent distinct-file opens and closes must preserve the registry",
     )
   }
+
+  /**
+   * [FakeFileSystem.openPaths] and [FakeFileSystem.checkNoOpenFiles] must report a consistent
+   * registry while other threads are opening and closing handles, not only after they stop. An
+   * anchor handle stays open throughout, so every report must contain it first, and may otherwise
+   * list only paths the workers actually open.
+   */
+  @Test
+  fun registryObserversSeeConsistentSnapshotsWhileHandlesChurn() {
+    val trials = 20
+    val workers = 8
+    val operations = 10_000
+    val observations = 10_000
+    var failedRuns = 0
+    repeat(trials) { trial ->
+      val fileSystem = FakeFileSystem()
+      val anchorPath = "/anchor".toPath()
+      fileSystem.write(anchorPath) { writeUtf8("anchor") }
+      val paths = (0 until workers).map { "/file-$it".toPath() }
+      paths.forEach { path -> fileSystem.write(path) { writeUtf8(path.name) } }
+      val allowed = (paths + anchorPath).toSet()
+      val anchor = fileSystem.openReadOnly(anchorPath)
+
+      val errors = ConcurrentLinkedQueue<Throwable>()
+      val start = CountDownLatch(1)
+      val stop = AtomicBoolean(false)
+      val workerThreads = paths.mapIndexed { index, path ->
+        Thread(
+          {
+            try {
+              start.await()
+              repeat(operations) {
+                if (stop.get()) return@Thread
+                fileSystem.openReadOnly(path).use { handle ->
+                  assertEquals(path.name.length.toLong(), handle.size())
+                }
+              }
+            } catch (t: Throwable) {
+              errors.add(t)
+              stop.set(true)
+            }
+          },
+          "fakefs-worker-$trial-$index",
+        )
+      }
+      val observer = Thread(
+        {
+          try {
+            start.await()
+            repeat(observations) {
+              if (stop.get()) return@Thread
+              val snapshot = fileSystem.openPaths
+              assertEquals(anchorPath, snapshot.firstOrNull(), "anchor missing from $snapshot")
+              check(snapshot.all { it in allowed }) { "unexpected path in $snapshot" }
+              check(snapshot.size == snapshot.toSet().size) { "duplicate path in $snapshot" }
+
+              val report = try {
+                fileSystem.checkNoOpenFiles()
+                throw AssertionError("checkNoOpenFiles passed while $anchorPath was open")
+              } catch (expected: IllegalStateException) {
+                expected
+              }
+              val lines = report.message!!.lines()
+              assertEquals("expected 0 open files, but found:", lines.first())
+              val reported = lines.drop(1).map { it.removePrefix("    ").toPath() }
+              assertEquals(anchorPath, reported.firstOrNull(), "anchor missing from $reported")
+              check(reported.all { it in allowed }) { "unexpected path in ${report.message}" }
+              check(lines.drop(1).all { it.startsWith("    /") }) {
+                "malformed report ${report.message}"
+              }
+              assertEquals("file opened for READ here", report.cause?.message)
+            }
+          } catch (t: Throwable) {
+            errors.add(t)
+            stop.set(true)
+          }
+        },
+        "fakefs-observer-$trial",
+      )
+      val threads = workerThreads + observer
+      try {
+        threads.forEach { it.start() }
+        start.countDown()
+        threads.forEach { it.join() }
+        anchor.close()
+        try {
+          fileSystem.checkNoOpenFiles()
+          assertEquals(emptyList(), fileSystem.openPaths)
+        } catch (t: Throwable) {
+          errors.add(t)
+        }
+        if (errors.isNotEmpty()) {
+          failedRuns++
+          println("observer trial ${trial + 1}: FAIL (${errors.size} errors)")
+          errors.forEach { it.printStackTrace(System.out) }
+        } else {
+          println("observer trial ${trial + 1}: PASS")
+        }
+      } finally {
+        stop.set(true)
+        start.countDown()
+        threads.forEach { it.join() }
+        anchor.close()
+      }
+    }
+    println(
+      "OBSERVER RESULT: $failedRuns failures / $trials runs; " +
+        "$workers workers x $operations operations, 1 observer x $observations reads per run",
+    )
+    assertEquals(
+      0,
+      failedRuns,
+      "Registry snapshots taken during concurrent opens and closes must be consistent",
+    )
+  }
 }

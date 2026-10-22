@@ -21,7 +21,9 @@ import kotlin.test.assertFailsWith
 import kotlin.test.assertTrue
 import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
+import okio.Buffer
 import okio.FileHandle
+import okio.IOException
 import okio.Path.Companion.toPath
 import okio.buffer
 
@@ -120,6 +122,100 @@ class FakeFileSystemRegistryTest {
     }
     assertEquals(emptyList(), fileSystem.openPaths)
     fileSystem.checkNoOpenFiles()
+  }
+
+  /**
+   * A handle whose streams outlive it is retired by its last stream's close. When the clock read in
+   * that deferred close fails, the failure must reach the caller and the registration must still
+   * be removed, so later closes are harmless and the path can be opened for writing again.
+   */
+  @Test
+  fun clockFailureOnDeferredSourceCloseStillRemovesRegistration() {
+    val clock = FailingClock()
+    val fileSystem = FakeFileSystem(clock)
+    val path = "/file".toPath()
+    fileSystem.write(path) { writeUtf8("content") }
+
+    val handle = fileSystem.openReadOnly(path)
+    val first = handle.source()
+    val second = handle.source()
+    handle.close()
+    first.close()
+    // The second source still holds the handle open.
+    assertEquals(listOf(path), fileSystem.openPaths)
+
+    clock.fail = true
+    try {
+      val error = assertFailsWith<IllegalStateException> { second.close() }
+      assertEquals("Cannot read the clock: injected close failure", error.message)
+      assertEquals(emptyList(), fileSystem.openPaths)
+
+      // Repeating every close must not retire anything twice or read the clock again.
+      second.close()
+      first.close()
+      handle.close()
+    } finally {
+      clock.fail = false
+    }
+    assertEquals(emptyList(), fileSystem.openPaths)
+    fileSystem.checkNoOpenFiles()
+
+    // Nothing still claims the path, so a writer is admitted.
+    fileSystem.write(path) { writeUtf8("replaced") }
+    assertEquals("replaced", fileSystem.read(path) { readUtf8() })
+    fileSystem.checkNoOpenFiles()
+  }
+
+  /** Like [clockFailureOnDeferredSourceCloseStillRemovesRegistration], for a write handle's sinks. */
+  @Test
+  fun clockFailureOnDeferredSinkCloseStillRemovesRegistration() {
+    val clock = FailingClock()
+    val fileSystem = FakeFileSystem(clock)
+    val path = "/file".toPath()
+
+    val handle = fileSystem.openReadWrite(path)
+    val first = handle.sink()
+    val second = handle.sink(fileOffset = 3L)
+    first.write(Buffer().writeUtf8("abc"), 3L)
+    second.write(Buffer().writeUtf8("def"), 3L)
+    handle.close()
+    first.close()
+    // The second sink still holds the handle, and therefore the write admission, open.
+    assertEquals(listOf(path), fileSystem.openPaths)
+    val blocked = assertFailsWith<IOException> { fileSystem.openReadWrite(path) }
+    assertEquals("file is already open for writing $path", blocked.message)
+
+    clock.fail = true
+    try {
+      val error = assertFailsWith<IllegalStateException> { second.close() }
+      assertEquals("Cannot read the clock: injected close failure", error.message)
+      assertEquals(emptyList(), fileSystem.openPaths)
+
+      // Repeating every close must not retire anything twice or read the clock again.
+      second.close()
+      first.close()
+      handle.close()
+    } finally {
+      clock.fail = false
+    }
+    assertEquals(emptyList(), fileSystem.openPaths)
+    fileSystem.checkNoOpenFiles()
+    assertEquals("abcdef", fileSystem.read(path) { readUtf8() })
+
+    // Nothing still claims the path, so a new writer is admitted.
+    fileSystem.write(path) { writeUtf8("replaced") }
+    assertEquals("replaced", fileSystem.read(path) { readUtf8() })
+    fileSystem.checkNoOpenFiles()
+  }
+
+  /** A clock that throws while [fail] is set. */
+  private class FailingClock : Clock {
+    var fail = false
+
+    override fun now(): Instant {
+      check(!fail) { "Cannot read the clock: injected close failure" }
+      return Instant.fromEpochMilliseconds(0)
+    }
   }
 
   /**
