@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Build the compatible 3.4.0 FakeFileSystem chunked-write correction locally."""
 import argparse
+import difflib
 import hashlib
 import re
 from pathlib import Path
@@ -72,7 +73,9 @@ def main():
         before = command('javap', '-public', '-classpath', str(temp / 'previous.jar'), *public_classes)
         after = command('javap', '-public', '-classpath', str(jar), *public_classes)
         if before != after:
-            raise ValueError('Public javap API differs from the 3.4.0.1 artifact')
+            raise ValueError('Public javap API differs from the 3.4.0.1 artifact:\n' +\
+                             '\n'.join(difflib.unified_diff(before.splitlines(), after.splitlines(),\
+                                                            fromfile='3.4.0.1', tofile=VERSION)))
         print('Exported javap API is identical to 3.4.0.1; private Element.File storage is excluded.')
         with urllib.request.urlopen(f'{REPOSITORY}/{PREVIOUS}/{ARTIFACT}-{PREVIOUS}.pom', timeout=60) as response:
             pom = response.read().decode()
