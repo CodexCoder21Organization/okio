@@ -1,4 +1,7 @@
 import java.util.Arrays;
+import java.lang.management.ManagementFactory;
+import java.lang.management.ThreadInfo;
+import java.util.concurrent.locks.LockSupport;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
@@ -115,10 +118,17 @@ public class FakeFileSystemReviewTest {
           resizer.start();
           assertTrue(resizeStarted.await(10, TimeUnit.SECONDS), "Resize did not start");
           long deadline = System.nanoTime() + TimeUnit.SECONDS.toNanos(10);
-          while (resizer.isAlive() && resizer.getState() != Thread.State.BLOCKED
-              && resizer.getState() != Thread.State.WAITING && System.nanoTime() < deadline) Thread.yield();
-          assertTrue(!resizer.isAlive() || resizer.getState() == Thread.State.BLOCKED
-              || resizer.getState() == Thread.State.WAITING, "Resize neither finished nor waited for the content lock");
+          boolean waitingForReader = false;
+          while (resizer.isAlive() && System.nanoTime() < deadline) {
+            ThreadInfo state = ManagementFactory.getThreadMXBean().getThreadInfo(resizer.getId());
+            if (state != null && state.getLockOwnerId() == reader.getId()) {
+              waitingForReader = true;
+              break;
+            }
+            LockSupport.parkNanos(100000);
+          }
+          assertTrue(!resizer.isAlive() || waitingForReader,
+              "Resize neither finished nor waited for the reader's content lock");
         } finally {
           FakeFileSystemWorkAgent.resumeRead.countDown();
           reader.join(10000);
@@ -127,8 +137,8 @@ public class FakeFileSystemReviewTest {
         }
         assertFalse(reader.isAlive(), "Reader did not finish");
         assertFalse(resizer.isAlive(), "Resizer did not finish");
-        assertNull(readFailure.get(), "Read failed at the ordered resize: " + readFailure.get());
-        assertNull(resizeFailure.get(), "Resize failed: " + resizeFailure.get());
+        if (readFailure.get() != null) throw new AssertionError("Read failed at the ordered resize", readFailure.get());
+        if (resizeFailure.get() != null) throw new AssertionError("Resize failed", resizeFailure.get());
         assertEquals(0, handle.size());
       }
     } finally { fs.checkNoOpenFiles(); }
