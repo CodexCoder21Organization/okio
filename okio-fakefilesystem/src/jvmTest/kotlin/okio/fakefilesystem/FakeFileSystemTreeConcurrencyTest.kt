@@ -25,6 +25,7 @@ import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
+import okio.ForwardingFileSystem
 import okio.Path
 import okio.Path.Companion.toPath
 
@@ -36,19 +37,24 @@ import okio.Path.Companion.toPath
 class FakeFileSystemTreeConcurrencyTest {
   /**
    * Pauses one chosen thread inside its first clock read, so a test can place another thread's
-   * complete operation exactly there. Every other read returns immediately.
+   * complete operation exactly there. Every other read returns immediately. With
+   * [pauseOnClockRead] off, the pause happens instead wherever the test calls [pauseIfChosen].
    */
-  private class PausingClock : Clock {
+  private class PausingClock(private val pauseOnClockRead: Boolean = true) : Clock {
     @Volatile var pausedThread: Thread? = null
     val paused = CountDownLatch(1)
     val release = CountDownLatch(1)
     private val pausedOnce = AtomicBoolean(false)
 
-    override fun now(): Instant {
+    fun pauseIfChosen() {
       if (Thread.currentThread() === pausedThread && pausedOnce.compareAndSet(false, true)) {
         paused.countDown()
         release.await()
       }
+    }
+
+    override fun now(): Instant {
+      if (pauseOnClockRead) pauseIfChosen()
       return Instant.fromEpochMilliseconds(0)
     }
   }
@@ -80,7 +86,7 @@ class FakeFileSystemTreeConcurrencyTest {
     interleavedThread.isDaemon = true
     try {
       pausedThread.start()
-      assertTrue(clock.paused.await(30, TimeUnit.SECONDS), "the paused operation never read the clock")
+      assertTrue(clock.paused.await(30, TimeUnit.SECONDS), "the paused operation never reached its pause")
       interleavedThread.start()
       interleavedThread.join(30_000)
       assertTrue(
@@ -145,8 +151,10 @@ class FakeFileSystemTreeConcurrencyTest {
 
   /**
    * Two callers creating independent directories that share a new parent must both keep their
-   * contents: the caller that finds the parent missing first must not replace the parent the other
-   * caller created and populated in the meantime.
+   * contents. Caller A pauses at its first clock read: on the unsynchronized implementation that
+   * is inside createDirectory(/parent), after it found /parent missing, so it then replaced the
+   * parent B had created and populated. See [directoryCreationAfterParentJudgedMissingKeepsSibling]
+   * for the ordering that pauses A after discovery on every implementation.
    */
   @Test
   fun directoryCreationKeepsAnIndependentSibling() {
@@ -168,6 +176,51 @@ class FakeFileSystemTreeConcurrencyTest {
     assertEquals("b", fileSystem.read(file) { readUtf8() })
     assertTrue(fileSystem.metadata(parent / "a").isDirectory)
     assertEquals(listOf(parent / "a", parent / "b"), fileSystem.list(parent))
+    fileSystem.checkNoOpenFiles()
+  }
+
+  /**
+   * Like [directoryCreationKeepsAnIndependentSibling], but A is paused after createDirectories has
+   * finished deciding which directories are missing and immediately before it calls
+   * createDirectory(/parent). B then creates and populates /parent/b. When A resumes, its
+   * createDirectory(/parent) finds a directory that already exists and must keep it, children and
+   * all, instead of replacing it with an empty one.
+   */
+  @Test
+  fun directoryCreationAfterParentJudgedMissingKeepsSibling() {
+    val clock = PausingClock(pauseOnClockRead = false)
+    val fileSystem = FakeFileSystem(clock)
+    fileSystem.write("/existing".toPath()) { writeUtf8("root exists") }
+    val parent = "/parent".toPath()
+    val file = parent / "b" / "file"
+    val content = "content written by B ".repeat(64)
+    val createdDirectories = ConcurrentLinkedQueue<Path>()
+    // createDirectories calls exists() and createDirectory() on the file system it is invoked on,
+    // so this wrapper sees each createDirectory that A's createDirectories decided to make.
+    val pausingBeforeParent = object : ForwardingFileSystem(fileSystem) {
+      override fun createDirectory(dir: Path, mustCreate: Boolean) {
+        createdDirectories += dir
+        if (dir == parent) clock.pauseIfChosen()
+        super.createDirectory(dir, mustCreate)
+      }
+    }
+
+    interleave(
+      clock,
+      paused = { pausingBeforeParent.createDirectories(parent / "a") },
+      interleaved = {
+        fileSystem.createDirectories(parent / "b")
+        fileSystem.write(file) { writeUtf8(content) }
+      },
+    )
+
+    // A really did judge /parent missing before B created it.
+    assertEquals(listOf(parent, parent / "a"), createdDirectories.toList())
+    assertEquals(content, fileSystem.read(file) { readUtf8() })
+    assertTrue(fileSystem.metadata(parent / "a").isDirectory)
+    assertTrue(fileSystem.metadata(parent / "b").isDirectory)
+    assertEquals(listOf(parent / "a", parent / "b"), fileSystem.list(parent))
+    assertEquals(listOf(file), fileSystem.list(parent / "b"))
     fileSystem.checkNoOpenFiles()
   }
 
