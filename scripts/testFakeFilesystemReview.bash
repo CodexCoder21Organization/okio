@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
-if [ "$#" -lt 2 ]; then
+if [ "$#" -lt 2 ] || [ "$#" -gt 3 ]; then
   echo "Usage: $0 <fakefilesystem-jar> <report-directory> [additional-classpath]" >&2
   exit 2
 fi
@@ -15,7 +15,10 @@ coursier fetch --classpath -r https://kotlin.directory \
   org.jetbrains.kotlinx:kotlinx-datetime-jvm:0.4.0 \
   org.junit.platform:junit-platform-console-standalone:1.10.0 \
   org.ow2.asm:asm:9.7.1 > "$okioReviewTemporary/classpath"
-okioReviewClasspath="$okioReviewJar:${3:-}:$(cat "$okioReviewTemporary/classpath")"
+okioReviewClasspath="$okioReviewJar:$(cat "$okioReviewTemporary/classpath")"
+if [ -n "${3:-}" ]; then
+  okioReviewClasspath="$okioReviewJar:$3:$(cat "$okioReviewTemporary/classpath")"
+fi
 javac -J-Xmx256m -cp "$okioReviewClasspath" -d "$okioReviewTemporary/classes" \
   "$okioReviewRoot/backports/fakefilesystem-3.4.0/review-tests/FakeFileSystemWorkAgent.java" \
   "$okioReviewRoot/backports/fakefilesystem-3.4.0/review-tests/FakeFileSystemReviewTest.java"
