@@ -90,57 +90,61 @@ public class FakeFileSystemReviewTest {
   }
 
   @Test public void readAndResizeObserveOneConsistentContentState() throws Exception {
-    FakeFileSystem fs = new FakeFileSystem();
-    Path path = Path.Companion.get("/concurrent", false);
-    AtomicReference<Throwable> readFailure = new AtomicReference<>();
-    AtomicReference<Throwable> resizeFailure = new AtomicReference<>();
-    CountDownLatch resizeStarted = new CountDownLatch(1);
-    FakeFileSystemWorkAgent.readPaused = new CountDownLatch(1);
-    FakeFileSystemWorkAgent.resumeRead = new CountDownLatch(1);
-    try {
-      try (FileHandle handle = fs.openReadWrite(path, true, false)) {
-        handle.write(0, new byte[] {1, 2, 3}, 0, 3);
-        Thread reader = new Thread(() -> {
+    for (boolean separateHandle : new boolean[] {false, true}) {
+      FakeFileSystem fs = new FakeFileSystem();
+      fs.setAllowReadsWhileWriting(true);
+      Path path = Path.Companion.get("/concurrent", false);
+      AtomicReference<Throwable> readFailure = new AtomicReference<>();
+      AtomicReference<Throwable> resizeFailure = new AtomicReference<>();
+      CountDownLatch resizeStarted = new CountDownLatch(1);
+      FakeFileSystemWorkAgent.readPaused = new CountDownLatch(1);
+      FakeFileSystemWorkAgent.resumeRead = new CountDownLatch(1);
+      try {
+        try (FileHandle handle = fs.openReadWrite(path, true, false);
+             FileHandle readHandle = separateHandle ? fs.openReadOnly(path) : handle) {
+          handle.write(0, new byte[] {1, 2, 3}, 0, 3);
+          Thread reader = new Thread(() -> {
+            try {
+              byte[] actual = new byte[3];
+              assertEquals(3, readHandle.read(0, actual, 0, 3));
+              assertArrayEquals(new byte[] {1, 2, 3}, actual);
+            } catch (Throwable failure) { readFailure.set(failure); }
+          }, "review-reader");
+          Thread resizer = new Thread(() -> {
+            resizeStarted.countDown();
+            try { handle.resize(0); } catch (Throwable failure) { resizeFailure.set(failure); }
+          }, "review-resizer");
+          FakeFileSystemWorkAgent.pausedReader = reader;
           try {
-            byte[] actual = new byte[3];
-            assertEquals(3, handle.read(0, actual, 0, 3));
-            assertArrayEquals(new byte[] {1, 2, 3}, actual);
-          } catch (Throwable failure) { readFailure.set(failure); }
-        }, "review-reader");
-        Thread resizer = new Thread(() -> {
-          resizeStarted.countDown();
-          try { handle.resize(0); } catch (Throwable failure) { resizeFailure.set(failure); }
-        }, "review-resizer");
-        FakeFileSystemWorkAgent.pausedReader = reader;
-        try {
-          reader.start();
-          assertTrue(FakeFileSystemWorkAgent.readPaused.await(10, TimeUnit.SECONDS), "Read did not reach seek");
-          resizer.start();
-          assertTrue(resizeStarted.await(10, TimeUnit.SECONDS), "Resize did not start");
-          long deadline = System.nanoTime() + TimeUnit.SECONDS.toNanos(10);
-          boolean waitingForReader = false;
-          while (resizer.isAlive() && System.nanoTime() < deadline) {
-            ThreadInfo state = ManagementFactory.getThreadMXBean().getThreadInfo(resizer.getId());
-            if (state != null && state.getLockOwnerId() == reader.getId()) {
-              waitingForReader = true;
-              break;
+            reader.start();
+            assertTrue(FakeFileSystemWorkAgent.readPaused.await(10, TimeUnit.SECONDS), "Read did not reach seek");
+            resizer.start();
+            assertTrue(resizeStarted.await(10, TimeUnit.SECONDS), "Resize did not start");
+            long deadline = System.nanoTime() + TimeUnit.SECONDS.toNanos(10);
+            boolean waitingForReader = false;
+            while (resizer.isAlive() && System.nanoTime() < deadline) {
+              ThreadInfo state = ManagementFactory.getThreadMXBean().getThreadInfo(resizer.getId());
+              if (state != null && state.getLockOwnerId() == reader.getId()) {
+                waitingForReader = true;
+                break;
+              }
+              LockSupport.parkNanos(100000);
             }
-            LockSupport.parkNanos(100000);
+            assertTrue(!resizer.isAlive() || waitingForReader,
+                "Resize neither finished nor waited for the reader's content lock");
+          } finally {
+            FakeFileSystemWorkAgent.resumeRead.countDown();
+            reader.join(10000);
+            if (resizer.getState() != Thread.State.NEW) resizer.join(10000);
+            FakeFileSystemWorkAgent.pausedReader = null;
           }
-          assertTrue(!resizer.isAlive() || waitingForReader,
-              "Resize neither finished nor waited for the reader's content lock");
-        } finally {
-          FakeFileSystemWorkAgent.resumeRead.countDown();
-          reader.join(10000);
-          if (resizer.getState() != Thread.State.NEW) resizer.join(10000);
-          FakeFileSystemWorkAgent.pausedReader = null;
+          assertFalse(reader.isAlive(), "Reader did not finish");
+          assertFalse(resizer.isAlive(), "Resizer did not finish");
+          if (readFailure.get() != null) throw new AssertionError("Read failed at the ordered resize", readFailure.get());
+          if (resizeFailure.get() != null) throw new AssertionError("Resize failed", resizeFailure.get());
+          assertEquals(0, handle.size());
         }
-        assertFalse(reader.isAlive(), "Reader did not finish");
-        assertFalse(resizer.isAlive(), "Resizer did not finish");
-        if (readFailure.get() != null) throw new AssertionError("Read failed at the ordered resize", readFailure.get());
-        if (resizeFailure.get() != null) throw new AssertionError("Resize failed", resizeFailure.get());
-        assertEquals(0, handle.size());
-      }
-    } finally { fs.checkNoOpenFiles(); }
+      } finally { fs.checkNoOpenFiles(); }
+    }
   }
 }

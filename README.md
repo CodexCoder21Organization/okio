@@ -133,7 +133,10 @@ through an open file handle.
 It retains the 3.4.0 public API, directory concurrency corrections and bulk-read
 behavior. Overwrites preserve the remaining bytes, and extending a file fills
 the new range with zeroes. A replacement writable open keeps prior handles'
-content views independent. Negative file offsets are rejected with an
+content views independent, including when the original handle shrinks and then
+regrows or appends. Sequential chunked reads use amortized linear segment work.
+Each byte-array read observes one consistent size and content state when another
+caller resizes or writes through the same file view. Negative file offsets are rejected with an
 `IllegalArgumentException` that names the offset. The candidate is built locally; it is not published
 by these commands.
 
@@ -156,6 +159,7 @@ Build and test the compatible candidate with Java, Python 3 and Coursier:
 ```bash
 python3 scripts/buildFakeFilesystemChunkedWriteBackport.py --output-directory /tmp/okio-chunked-artifact
 scripts/testFakeFilesystemChunkedWriteBackport.bash /tmp/okio-chunked-artifact/okio-fakefilesystem-jvm-3.4.0.2.jar /tmp/okio-chunked-results
+scripts/testFakeFilesystemReview.bash /tmp/okio-chunked-artifact/okio-fakefilesystem-jvm-3.4.0.2.jar /tmp/okio-review-results
 scripts/testFakeFilesystemDirectoryBackport.bash /tmp/okio-chunked-artifact /tmp/okio-chunked-directory-results
 ```
 
@@ -164,3 +168,12 @@ thread-allocation counter. Quadrupling input may allocate at most six times as
 many bytes; it uses no elapsed-time limit. The allocation regression and filesystem
 behavior scenarios run with `./gradlew :okio-fakefilesystem:jvmTest` (and the other configured
 platforms for the common behavior scenarios).
+
+The JVM suite also counts actual segment traversal for 256 and 1,024 sequential
+8 KiB reads and checks an ordered concurrent read/resize. These tests use a
+local test-only Java agent, rather than elapsed-time performance assertions.
+Replacement-view tests cover original-handle shrink/regrow and shrink/append,
+including segment boundaries. Run them with `./gradlew :okio-fakefilesystem:jvmTest`;
+the standalone review command above runs the same Java regressions against the
+compatible candidate. The compatible builder uses Java 17 with its Kotlin 1.8
+compiler; the native Gradle build uses the Java version in `.github/workflows/.java-version`.

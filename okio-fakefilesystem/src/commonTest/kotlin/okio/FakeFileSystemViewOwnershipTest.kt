@@ -18,6 +18,7 @@ package okio
 import kotlin.test.Test
 import kotlin.test.assertContentEquals
 import kotlin.test.assertEquals
+import kotlin.time.Instant
 import okio.Path.Companion.toPath
 import okio.fakefilesystem.FakeFileSystem
 
@@ -97,6 +98,35 @@ class FakeFileSystemViewOwnershipTest {
         val actual = ByteArray(original.size)
         assertEquals(actual.size, handle.read(0, actual, 0, actual.size))
         assertContentEquals(original, actual)
+      }
+    } finally {
+      fs.checkNoOpenFiles()
+    }
+  }
+
+  @Test
+  fun clockCallbackCanReenterAfterContentMutation() {
+    var callback: () -> Unit = {}
+    val fs = FakeFileSystem(object : kotlin.time.Clock {
+      override fun now(): Instant {
+        callback()
+        return Instant.fromEpochMilliseconds(0)
+      }
+    })
+    val path = "/callback".toPath()
+    try {
+      fs.openReadWrite(path, mustCreate = true).use { handle ->
+        handle.write(0, byteArrayOf(1, 2, 3), 0, 3)
+        val actual = ByteArray(3)
+        assertEquals(3, handle.read(0, actual, 0, 3))
+        callback = {
+          callback = {}
+          handle.resize(1)
+          handle.resize(3)
+        }
+        handle.write(0, byteArrayOf(4), 0, 1)
+        assertEquals(3, handle.read(0, actual, 0, 3))
+        assertContentEquals(byteArrayOf(4, 0, 0), actual)
       }
     } finally {
       fs.checkNoOpenFiles()
