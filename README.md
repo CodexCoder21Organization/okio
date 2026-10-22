@@ -111,7 +111,10 @@ repetitions. It compares current-thread CPU time with an equivalent
 `ByteString.copyInto` bulk-copy control, with an 8x ceiling, and retains the
 existing exact-byte, destination-range, and EOF assertions.
 
-With Java, Python 3 and Coursier on PATH, build locally without publishing (the output directory must be absent or empty):
+The historical `3.4.0.1` build is reproducible from the
+[bulk-read source revision](https://github.com/CodexCoder21Organization/okio/commit/3c154e20).
+Run its commands from that revision with Java, Python 3 and Coursier on PATH
+(the output directory must be absent or empty):
 
 ```bash
 python3 scripts/buildFakeFilesystemBulkReadBackport.py --output-directory /tmp/okio-bulk-read-artifact

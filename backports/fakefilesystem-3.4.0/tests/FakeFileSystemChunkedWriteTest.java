@@ -42,8 +42,11 @@ public class FakeFileSystemChunkedWriteTest {
           "Quadrupling chunked writes must allocate at most six times as much: N="
               + allocations[0] + " bytes, 4N=" + allocations[1] + " bytes");
     } finally {
-      fs.checkNoOpenFiles();
-      counter.setThreadAllocatedMemoryEnabled(enabled);
+      try {
+        fs.checkNoOpenFiles();
+      } finally {
+        counter.setThreadAllocatedMemoryEnabled(enabled);
+      }
     }
   }
 

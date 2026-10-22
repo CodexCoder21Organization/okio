@@ -36,6 +36,7 @@ import okio.fakefilesystem.FakeFileSystem.Element.File
 import okio.fakefilesystem.FakeFileSystem.Element.Symlink
 import okio.fakefilesystem.FakeFileSystem.Operation.READ
 import okio.fakefilesystem.FakeFileSystem.Operation.WRITE
+import okio.use
 
 /**
  * A fully in-memory file system useful for testing. It includes features to support writing
