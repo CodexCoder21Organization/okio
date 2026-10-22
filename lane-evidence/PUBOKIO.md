@@ -35,3 +35,9 @@ OBSERVED: okio-jvm-3.4.0.3.pom SHA-256 41bc94abe6e90d5629cc5375aa1af66aad91cdd10
 OBSERVED: POM compile dependencies are org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0 and org.jetbrains.kotlin:kotlin-stdlib-common:1.8.0.
 OBSERVED: Build/test ran 06:51:23–06:52:02 UTC. memory.current: start=10255269888; after build=9702133760; end=10426494976. During sample=10734374912; subsequent memory.events still oom=0, oom_kill=0. No process was killed during build/test.
 Plan update: initial verification DONE; build and regressions DONE; publication IN PROGRESS; published download verification TODO.
+
+## 2026-10-22T06:53:21.402941+00:00 — publication completed
+
+OBSERVED: Pre-publication checks returned HTTP 404 for both exact target POM and JAR. Directory contained only the authorized coordinate JAR/POM; parsed POM coordinate matched exactly.
+OBSERVED: Published via community.kotlin.maven.artifact.publishing:community-kotlin-maven-artifact-publishing:0.0.6, --artifact-dir, --api-url https://api.kotlin.directory/upload, --force. Process completed with exit 0. The explicit coordinate authorization supplies approval; no other coordinate was submitted. Publication log retained in lane-evidence/PUBOKIO-publish.log.
+Plan update: initial verification DONE; build/regressions DONE; publication DONE; published download/hash/bytecode verification IN PROGRESS.
