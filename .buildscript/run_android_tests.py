@@ -90,11 +90,13 @@ def main():
         while True:
             try:
                 code = test_process.wait(timeout=0.2)
-                return code if code >= 0 else 128 - code
             except subprocess.TimeoutExpired:
-                emulator_code = emulator.poll()
-                if emulator_code is not None:
-                    raise RuntimeError(f'Android emulator exited while tests were running (exit code {emulator_code}).')
+                code = None
+            emulator_code = emulator.poll()
+            if emulator_code is not None:
+                raise RuntimeError(f'Android emulator exited while tests were running (exit code {emulator_code}).')
+            if code is not None:
+                return code if code >= 0 else 128 - code
     finally:
         try:
             stop_process(test_process)

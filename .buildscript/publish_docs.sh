@@ -54,6 +54,30 @@ site_git() {
 
 site_git read-tree --empty
 site_git add --force --all -- .
+# Read the destination without changing checkout refs, FETCH_HEAD or its index.
+if previous_ref=$(git -C "$repository_root" ls-remote --exit-code -- "$destination_url" refs/heads/gh-pages); then
+  previous_oid=${previous_ref%%$'\t'*}
+  if ! git -C "$repository_root" fetch --no-write-fetch-head --no-tags --no-recurse-submodules \
+      --refmap= -- "$destination_url" "$previous_oid"; then
+    printf 'publish_docs.sh: failed to read documentation from branch gh-pages\n' >&2
+    exit 1
+  fi
+  for file in .nojekyll CNAME; do
+    if [[ ! -e "$site_directory/$file" && ! -L "$site_directory/$file" ]]; then
+      previous_entry=$(site_git ls-tree "$previous_oid" -- "$file")
+      if [[ -n "$previous_entry" ]]; then
+        printf '%s\n' "$previous_entry" | site_git update-index --index-info
+      fi
+    fi
+  done
+else
+  read_status=$?
+  if [[ $read_status -ne 2 ]]; then
+    printf 'publish_docs.sh: failed to publish documentation to branch gh-pages\n' >&2
+    exit 1
+  fi
+  # Exit status 2 means the repository exists but has no gh-pages branch yet.
+fi
 tree=$(site_git write-tree)
 
 bot_name='github-actions[bot]'

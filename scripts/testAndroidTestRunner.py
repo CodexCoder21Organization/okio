@@ -28,7 +28,8 @@ class AndroidTestRunnerTest(unittest.TestCase):
     def sdk_programs(self, *, boot='1', emulator_exit=False, settings_fail=False):
         emulator = self.sdk / 'emulator/emulator'
         emulator.write_text('#!' + sys.executable + '\n' +
-                            'import os, pathlib, sys, time\n' +
+                            'import os, pathlib, signal, sys, time\n' +
+                            'signal.signal(signal.SIGUSR1, lambda *_: sys.exit(0))\n' +
                             f'root = pathlib.Path({str(self.root)!r})\n' +
                             '(root / "emulator.args").write_text("\\n".join(sys.argv[1:]))\n' +
                             '(root / "emulator.pid").write_text(str(os.getpid()))\n' +
@@ -122,8 +123,12 @@ class AndroidTestRunnerTest(unittest.TestCase):
                 self.assertLess(time.monotonic(), deadline, message)
                 time.sleep(0.01)
 
-        for command_code in (0, 23):
-            with self.subTest(command_exit_code=command_code):
+        cases = ((command_code, emulator_signal, emulator_code)
+                 for command_code in (0, 23, -signal.SIGTERM)
+                 for emulator_signal, emulator_code in ((signal.SIGTERM, -signal.SIGTERM), (signal.SIGUSR1, 0)))
+        for command_code, emulator_signal, emulator_code in cases:
+            with self.subTest(command_exit_code=command_code, emulator_exit_code=emulator_code):
+                (self.root / 'emulator.pid').unlink(missing_ok=True)
                 command_pid = self.root / 'joint-command.pid'
                 release = self.root / 'release-command'
                 command = textwrap.dedent(f"""
@@ -137,6 +142,8 @@ class AndroidTestRunnerTest(unittest.TestCase):
                         if time.monotonic() >= deadline:
                             raise RuntimeError('Test harness did not release the command')
                         time.sleep(0.01)
+                    if {command_code} < 0:
+                        os.kill(os.getpid(), -{command_code})
                     raise SystemExit({command_code})
                 """)
                 process = subprocess.Popen(
@@ -148,14 +155,14 @@ class AndroidTestRunnerTest(unittest.TestCase):
                     pid = int(command_pid.read_text())
                     emulator_pid = int((self.root / 'emulator.pid').read_text())
                     self.assertNotIn(state(pid), (None, 'Z'), 'Command must still be running when emulator exits')
-                    os.kill(emulator_pid, signal.SIGTERM)
+                    os.kill(emulator_pid, emulator_signal)
                     await_condition(lambda: state(emulator_pid) == 'Z', 'Emulator did not exit')
                     release.touch()
                     await_condition(lambda: state(pid) == 'Z', 'Command did not complete while runner was paused')
                     self.assertEqual('T', state(process.pid))
                     os.kill(process.pid, signal.SIGCONT)
                     stdout, stderr = process.communicate(timeout=20)
-                    self.assertEqual('Android emulator exited while tests were running (exit code -15).\n', stderr)
+                    self.assertEqual(f'Android emulator exited while tests were running (exit code {emulator_code}).\n', stderr)
                     self.assertEqual(1, process.returncode, stdout + stderr)
                     with self.assertRaises(ProcessLookupError):
                         os.kill(pid, 0)
