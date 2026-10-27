@@ -182,6 +182,8 @@ public class FakeFileSystemContentOwnershipTest {
           throw new AssertionError("Opening the next generation was interrupted.", e);
         } catch (ExecutionException | TimeoutException e) {
           throw new AssertionError("The next generation must open before the clock callback returns.", e);
+        } catch (Exception e) {
+          throw new AssertionError("The next generation must contain the completed write.", e);
         }
       };
       first.write(0, new byte[] {1, 2, 3}, 0, 3);
