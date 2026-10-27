@@ -59,10 +59,17 @@ jobs:
 
       - uses: gradle/actions/setup-gradle@9c971963bec38e04b3d30dcc455b5382be2fdbfb # v6.3.0
 
-      - uses: reactivecircus/android-emulator-runner@a421e43855164a8197daf9d8d40fe71c6996bb0d # v2.38.0
-        with:
-          api-level: 24
-          script: ./gradlew :okio-assetfilesystem:connectedCheck
+      - name: Run Android tests on API 24
+        run: |
+          export PATH="$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$PATH"
+          # Keep the old action's API, image, architecture, and two-core AVD.
+          (set +o pipefail; yes | sdkmanager --licenses > /dev/null)
+          sdkmanager --install 'build-tools;37.0.0' platform-tools 'platforms;android-24' emulator 'system-images;android-24;default;x86' --channel=0
+          export ANDROID_AVD_HOME="$(mktemp -d "$RUNNER_TEMP/okio-avd.XXXXXX")"
+          trap 'rm -rf "$ANDROID_AVD_HOME"' EXIT
+          echo no | avdmanager create avd --force -n test --package 'system-images;android-24;default;x86'
+          printf '\nhw.cpu.ncore=2\n' >> "$ANDROID_AVD_HOME/test.avd/config.ini"
+          python3 .buildscript/run_android_tests.py --sdk-root "$ANDROID_HOME" -- ./gradlew :okio-assetfilesystem:connectedCheck
 
   loom:
     runs-on: ubuntu-latest
@@ -181,8 +188,14 @@ jobs:
 
       - name: Deploy docs
         if: success()
-        uses: JamesIves/github-pages-deploy-action@fa24774553152dd7873cd16ebd8d959b010c5445 # v4.9.0
-        with:
-          branch: gh-pages
-          folder: site
-          single-commit: true
+        run: bash .buildscript/publish_docs.sh site "$(git remote get-url origin)"
+
+  workflow-scripts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Test workflow scripts
+        run: |
+          python3 scripts/testWorkflowActionPolicy.py
+          python3 scripts/testAndroidTestRunner.py
+          python3 scripts/testPublishDocs.py
