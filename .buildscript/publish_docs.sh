@@ -73,7 +73,8 @@ if previous_ref=$(git -C "$repository_root" ls-remote --exit-code -- "$destinati
 else
   read_status=$?
   if [[ $read_status -ne 2 ]]; then
-    printf 'publish_docs.sh: failed to publish documentation to branch gh-pages\n' >&2
+    printf 'publish_docs.sh: could not read destination repository %s: git ls-remote exited with status %s\n' \
+      "$destination_url" "$read_status" >&2
     exit 1
   fi
   # Exit status 2 means the repository exists but has no gh-pages branch yet.
