@@ -375,7 +375,11 @@ class FakeFileSystem(
         operation = WRITE
 
         if (existing is File) {
+          // A new writer is a new file generation. Active older handles keep their bytes
+          // and logical length; an ordinary close/reopen transfers exclusive storage.
+          existing.data.shared = openFiles.any { it.file.data === existing.data }
           element.data = existing.data
+          element.size = existing.size
         }
       } else {
         val existing = lookupResult?.element
@@ -392,7 +396,7 @@ class FakeFileSystem(
 
       element.access(now = now, modified = readWrite)
 
-      val openFile = OpenFile(canonicalPath, operation, Exception("file opened for $operation here"))
+      val openFile = OpenFile(canonicalPath, operation, Exception("file opened for $operation here"), element)
       openFiles += openFile
 
       FakeFileHandle(
@@ -648,12 +652,13 @@ class FakeFileSystem(
     val extras = mutableMapOf<KClass<*>, Any>()
 
     class File(createdAt: Instant) : Element(createdAt) {
-      var data: ByteString = ByteString.EMPTY
+      var data = FileData()
+      var size = 0
 
       override val metadata: FileMetadata
         get() = FileMetadata(
           isRegularFile = true,
-          size = data.size.toLong(),
+          size = size.toLong(),
           createdAt = createdAt,
           lastModifiedAt = lastModifiedAt,
           lastAccessedAt = lastAccessedAt,
@@ -728,6 +733,7 @@ class FakeFileSystem(
     val canonicalPath: Path,
     val operation: Operation,
     val backtrace: Throwable,
+    val file: File,
   )
 
   private enum class Operation {
@@ -743,24 +749,26 @@ class FakeFileSystem(
     private var closed = false
 
     override fun protectedResize(size: Long) {
-      check(!closed) { "closed" }
-
-      val delta = size - file.data.size
-      if (delta > 0) {
-        file.data = Buffer()
-          .write(file.data)
-          .write(ByteArray(delta.toInt()))
-          .readByteString()
-      } else {
-        file.data = file.data.substring(0, size.toInt())
+      synchronized(openFilesLock) {
+        check(!closed) { "closed" }
+        require(size <= Int.MAX_VALUE) { "file size exceeds ${Int.MAX_VALUE} bytes: $size" }
+        val newSize = size.toInt()
+        if (newSize > file.size) {
+          file.data = writableFileData(file.data, file.size, file.size, newSize)
+          file.data.bytes.fill(0, file.size, newSize)
+        } else if (newSize < file.data.bytes.size / 4) {
+          // Release oversized storage after truncation, without retaining discarded bytes.
+          file.data = FileData(file.data.bytes.copyOf(newSize), newSize)
+        }
+        file.size = newSize
+        file.data.extent = if (file.data.shared) maxOf(file.data.extent, newSize) else newSize
       }
-
       file.access(now = clock.now(), modified = true)
     }
 
-    override fun protectedSize(): Long {
+    override fun protectedSize(): Long = synchronized(openFilesLock) {
       check(!closed) { "closed" }
-      return file.data.size.toLong()
+      file.size.toLong()
     }
 
     override fun protectedRead(
@@ -768,17 +776,15 @@ class FakeFileSystem(
       array: ByteArray,
       arrayOffset: Int,
       byteCount: Int,
-    ): Int {
+    ): Int = synchronized(openFilesLock) {
       check(!closed) { "closed" }
       checkOffsetAndCount(array.size.toLong(), arrayOffset.toLong(), byteCount.toLong())
-
-      val data = file.data
-      if (fileOffset >= data.size) return -1
+      if (fileOffset >= file.size) return@synchronized -1
       val fileOffsetInt = fileOffset.toInt()
-      val toCopy = minOf(data.size - fileOffsetInt, byteCount)
-      if (toCopy <= 0) return -1
-      data.copyInto(fileOffsetInt, array, arrayOffset, toCopy)
-      return toCopy
+      val toCopy = minOf(file.size - fileOffsetInt, byteCount)
+      if (toCopy <= 0) return@synchronized -1
+      file.data.bytes.copyInto(array, arrayOffset, fileOffsetInt, fileOffsetInt + toCopy)
+      toCopy
     }
 
     override fun protectedWrite(
@@ -787,19 +793,20 @@ class FakeFileSystem(
       arrayOffset: Int,
       byteCount: Int,
     ) {
-      check(!closed) { "closed" }
-      checkOffsetAndCount(array.size.toLong(), arrayOffset.toLong(), byteCount.toLong())
-
-      val buffer = Buffer()
-      buffer.write(file.data, 0, minOf(fileOffset.toInt(), file.data.size))
-      while (buffer.size < fileOffset) {
-        buffer.writeByte(0)
+      synchronized(openFilesLock) {
+        check(!closed) { "closed" }
+        checkOffsetAndCount(array.size.toLong(), arrayOffset.toLong(), byteCount.toLong())
+        require(fileOffset <= Int.MAX_VALUE - byteCount.toLong()) {
+          "file size exceeds ${Int.MAX_VALUE} bytes: offset=$fileOffset byteCount=$byteCount"
+        }
+        val start = fileOffset.toInt()
+        val end = start + byteCount
+        file.data = writableFileData(file.data, file.size, start, end)
+        if (start > file.size) file.data.bytes.fill(0, file.size, start)
+        array.copyInto(file.data.bytes, start, arrayOffset, arrayOffset + byteCount)
+        file.size = maxOf(file.size, end)
+        file.data.extent = maxOf(file.data.extent, file.size)
       }
-      buffer.write(array, arrayOffset, byteCount)
-      if (buffer.size < file.data.size) {
-        buffer.write(file.data, buffer.size.toInt(), file.data.size - buffer.size.toInt())
-      }
-      file.data = buffer.snapshot()
       file.access(now = clock.now(), modified = true)
     }
 
@@ -808,8 +815,10 @@ class FakeFileSystem(
     }
 
     override fun protectedClose() {
-      if (closed) return
-      closed = true
+      synchronized(openFilesLock) {
+        if (closed) return
+        closed = true
+      }
       try {
         file.access(now = clock.now(), modified = readWrite)
       } finally {
@@ -823,4 +832,27 @@ class FakeFileSystem(
   }
 
   override fun toString() = "FakeFileSystem"
+}
+
+/** Shared bytes below extent are immutable; each file generation keeps its own logical length. */
+private class FileData(
+  var bytes: ByteArray = ByteArray(0),
+  var extent: Int = 0,
+  var shared: Boolean = false,
+)
+
+/** Called under the filesystem lock. Geometric growth makes successive appends linear overall. */
+private fun writableFileData(data: FileData, size: Int, start: Int, end: Int): FileData {
+  val detach = data.shared && start < data.extent
+  val required = maxOf(size, end)
+  if (detach) {
+    val capacity = maxOf(required, 8192)
+    return FileData(data.bytes.copyOf(capacity), size)
+  }
+  if (required > data.bytes.size) {
+    val capacity = maxOf(required.toLong(), 8192L, data.bytes.size.toLong() * 2L)
+      .coerceAtMost(Int.MAX_VALUE.toLong()).toInt()
+    data.bytes = data.bytes.copyOf(capacity)
+  }
+  return data
 }

@@ -35,5 +35,6 @@ java -Xmx256m -cp "$okioTemporary/classes:$okioClasspath" \
   --select-class DirectoryProof --select-class DirectoryConcurrencyTest \
   --select-class NeighborEntryReviewTest --select-class EntryAdmissionConcurrencyTest --select-class EntryAdmissionBoundaryTest --select-class EntryMetadataAdmissionTest \
   --select-class FakeFileSystemBulkReadTest \
+  --select-class FakeFileSystemAppendWorkTest --select-class FakeFileSystemContentOwnershipTest \
   --select-class okio.fakefilesystem.FakeFileSystemRegistryTest \
   --select-class RegistryConcurrencyTest --reports-dir "$okioReports" --disable-banner

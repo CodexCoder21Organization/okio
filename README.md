@@ -94,7 +94,7 @@ plus the [previous registry correction](https://github.com/CodexCoder21Organizat
 
 This is the historical registry-lock-4 artifact and build. The source and build
 script remain available for provenance, but the current full selected regression
-suite below includes the bulk-read test and therefore requires version `3.4.0.1`.
+suite below includes the append-work tests and therefore requires version `3.4.0.2`.
 That build also checks the prior artifact checksum and preserves the public API
 and dependency versions. The directory concurrency tests continue to use an
 in-memory filesystem, three repetitions of each directory and entry-admission
@@ -115,8 +115,32 @@ With Java, Python 3 and Coursier on PATH, build locally without publishing (the 
 
 ```bash
 python3 scripts/buildFakeFilesystemBulkReadBackport.py --output-directory /tmp/okio-bulk-read-artifact
-scripts/testFakeFilesystemDirectoryBackport.bash /tmp/okio-bulk-read-artifact /tmp/okio-bulk-read-results
 scripts/testFakeFilesystemBulkReadBackport.bash /tmp/okio-bulk-read-artifact/okio-fakefilesystem-jvm-3.4.0.1.jar /tmp/okio-bulk-read-core-3.4.0-results
 ```
 
-The directory runner executes the full selected native regression suite against core `okio-jvm:3.4.0.2`; the focused runner exercises the read behavior against consumer core `okio-jvm:3.4.0`.
+The focused runner exercises the historical bulk-read artifact against consumer core `okio-jvm:3.4.0`. Use the append artifact below with the directory runner for the full selected regression suite against core `okio-jvm:3.4.0.2`; that suite includes the newer append-work guards.
+
+Compatible 3.4.0 FakeFileSystem append JVM artifact
+-------------------------------------------------
+
+`com.squareup.okio:okio-fakefilesystem-jvm:3.4.0.2` retains the bulk-read and
+registry corrections above and makes sequential appends amortized linear in the
+bytes appended, including append sinks reopened between blocks. Old open file
+handles retain their generation's bytes and length when a new writer is opened.
+Writes and reads copy caller arrays; truncation followed by extension fills the
+new range with zeroes. The end-user JVM API and dependency versions are unchanged.
+
+Build and run the compatible regression suite locally (the artifact output
+must be absent or empty):
+
+```bash
+python3 scripts/buildFakeFilesystemAppendBackport.py --output-directory /tmp/okio-append-artifact
+scripts/testFakeFilesystemDirectoryBackport.bash /tmp/okio-append-artifact /tmp/okio-append-results
+scripts/testFakeFilesystemAppendBackport.bash /tmp/okio-append-artifact/okio-fakefilesystem-jvm-3.4.0.2.jar /tmp/okio-append-core-results
+```
+
+The append regression counts bytes allocated by the current JVM thread while
+writing 8 MiB and 32 MiB through public file handles and reopened append sinks.
+Its verdict uses allocation growth and byte bounds, with exact-content and
+resource-cleanup checks. It does not use a timing threshold. The focused runner
+uses core Okio 3.4.0, matching consumers that keep that API version.
