@@ -44,6 +44,16 @@ public class FakeFileSystemAppendWorkTest {
         SMALL_BLOCK_COUNT * BLOCK_SIZE, LARGE_BLOCK_COUNT * BLOCK_SIZE);
   }
 
+  @Test
+  public void reopenedAppendingSinksStayLinearWithAnOlderReaderOpen() throws Exception {
+    com.sun.management.ThreadMXBean counter = allocationBean();
+    measureAppendingSinkAppends(counter, WARM_UP_BLOCK_COUNT, true);
+    long small = measureAppendingSinkAppends(counter, SMALL_BLOCK_COUNT, true);
+    long large = measureAppendingSinkAppends(counter, LARGE_BLOCK_COUNT, true);
+    assertBoundedAllocationGrowth("reopened appendingSink with old reader", small, large,
+        SMALL_BLOCK_COUNT * BLOCK_SIZE, LARGE_BLOCK_COUNT * BLOCK_SIZE);
+  }
+
   private static com.sun.management.ThreadMXBean allocationBean() {
     java.lang.management.ThreadMXBean managementBean = ManagementFactory.getThreadMXBean();
     assertTrue(managementBean instanceof com.sun.management.ThreadMXBean,
@@ -97,8 +107,21 @@ public class FakeFileSystemAppendWorkTest {
 
   private static long measureAppendingSinkAppends(com.sun.management.ThreadMXBean allocationBean, int blockCount)
       throws IOException {
+    return measureAppendingSinkAppends(allocationBean, blockCount, false);
+  }
+
+  private static long measureAppendingSinkAppends(com.sun.management.ThreadMXBean allocationBean,
+      int blockCount, boolean retainReader) throws IOException {
     FakeFileSystem fileSystem = new FakeFileSystem();
+    FileHandle olderReader = null;
     try {
+      if (retainReader) {
+        fileSystem.setAllowReadsWhileWriting(true);
+        try (BufferedSink seed = Okio.buffer(fileSystem.sink(PATH, false))) {
+          seed.write(BLOCK);
+        }
+        olderReader = fileSystem.openReadOnly(PATH);
+      }
       long threadId = Thread.currentThread().getId();
       long allocatedBefore = allocationBean.getThreadAllocatedBytes(threadId);
       if (allocatedBefore < 0L) throw new AssertionError("The JVM did not report current-thread allocations");
@@ -111,10 +134,12 @@ public class FakeFileSystemAppendWorkTest {
       if (allocatedAfter < allocatedBefore) throw new AssertionError("The current-thread allocation counter decreased");
       long allocatedBytes = allocatedAfter - allocatedBefore;
       try (FileHandle handle = fileSystem.openReadOnly(PATH)) {
-        assertExactContents(handle, (long) blockCount * BLOCK_SIZE);
+        assertExactContents(handle, ((long) blockCount + (retainReader ? 1 : 0)) * BLOCK_SIZE);
       }
+      if (olderReader != null) assertExactContents(olderReader, BLOCK_SIZE);
       return allocatedBytes;
     } finally {
+      if (olderReader != null) olderReader.close();
       fileSystem.checkNoOpenFiles();
     }
   }

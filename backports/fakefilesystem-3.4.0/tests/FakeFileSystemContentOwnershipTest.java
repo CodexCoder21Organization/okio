@@ -1,8 +1,11 @@
 import java.util.Arrays;
+import java.util.concurrent.*;
+import java.util.concurrent.atomic.AtomicReference;
 import kotlinx.datetime.Clock;
 import kotlinx.datetime.Instant;
 import okio.ByteString;
 import okio.FileHandle;
+import okio.FileSystem;
 import okio.Path;
 import okio.fakefilesystem.FakeFileSystem;
 import org.junit.jupiter.api.Test;
@@ -10,6 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class FakeFileSystemContentOwnershipTest {
   private static final Path PATH = Path.Companion.get("/contents", false);
+  private static final Path TARGET = Path.Companion.get("/target", false);
 
   private static byte[] read(FileHandle file) throws Exception {
     byte[] bytes = new byte[(int) file.size()];
@@ -77,6 +81,42 @@ public class FakeFileSystemContentOwnershipTest {
     }
   }
 
+  @Test public void movingOpenFileKeepsOldHandlesOnTheirGeneration() throws Exception {
+    FakeFileSystem fs = new FakeFileSystem();
+    fs.setAllowMovingOpenFiles(true);
+    fs.setAllowReadsWhileWriting(true);
+    fs.setAllowWritesWhileWriting(true);
+    try (FileHandle first = fs.openReadWrite(PATH, false, false)) {
+      first.write(0, new byte[] {1, 2, 3, 4}, 0, 4);
+      try (FileHandle reader = fs.openReadOnly(PATH)) {
+        ((FileSystem) fs).atomicMove(PATH, TARGET);
+        assertFalse(fs.exists(PATH));
+        assertTrue(fs.exists(TARGET));
+
+        try (FileHandle targetWriter = fs.openReadWrite(TARGET, false, true)) {
+          first.write(4, new byte[] {5}, 0, 1);
+          first.write(1, new byte[] {9}, 0, 1);
+          byte[] oldGeneration = new byte[] {1, 9, 3, 4, 5};
+          assertArrayEquals(oldGeneration, read(first));
+          assertArrayEquals(oldGeneration, read(reader));
+          assertArrayEquals(new byte[] {1, 2, 3, 4}, read(targetWriter));
+
+          targetWriter.write(4, new byte[] {6}, 0, 1);
+          targetWriter.write(2, new byte[] {8}, 0, 1);
+          byte[] currentTarget = new byte[] {1, 2, 8, 4, 6};
+          assertArrayEquals(oldGeneration, read(first));
+          assertArrayEquals(oldGeneration, read(reader));
+          assertArrayEquals(currentTarget, read(targetWriter));
+          assertEquals(5L, fs.metadata(TARGET).getSize());
+          assertNull(fs.metadataOrNull(PATH));
+          assertFalse(fs.exists(PATH));
+        }
+      }
+    } finally {
+      fs.checkNoOpenFiles();
+    }
+  }
+
   @Test public void writePublishesBeforeClockCallbackOpensTheNextGeneration() throws Exception {
     final Runnable[] callback = {null};
     FakeFileSystem fs = new FakeFileSystem(new Clock() {
@@ -106,6 +146,78 @@ public class FakeFileSystemContentOwnershipTest {
     } finally {
       if (next[0] != null) next[0].close();
       fs.checkNoOpenFiles();
+    }
+  }
+
+  @Test public void writeClockCallbackCanOpenNextGenerationOnAnotherThread() throws Exception {
+    final Runnable[] callback = {null};
+    FakeFileSystem fs = new FakeFileSystem(new Clock() {
+      @Override public Instant now() {
+        Runnable action = callback[0];
+        callback[0] = null;
+        if (action != null) action.run();
+        return Instant.Companion.fromEpochMilliseconds(1234L);
+      }
+    });
+    fs.setAllowReadsWhileWriting(true);
+    fs.setAllowWritesWhileWriting(true);
+    ExecutorService executor = Executors.newSingleThreadExecutor();
+    AtomicReference<Future<FileHandle>> pendingOpen = new AtomicReference<>();
+    AtomicReference<FileHandle> next = new AtomicReference<>();
+    FileHandle first = null;
+    try {
+      first = fs.openReadWrite(PATH, false, false);
+      callback[0] = () -> {
+        Future<FileHandle> result = executor.submit(() -> {
+          FileHandle opened = fs.openReadWrite(PATH, false, true);
+          next.set(opened);
+          return opened;
+        });
+        pendingOpen.set(result);
+        try {
+          FileHandle opened = result.get(5, TimeUnit.SECONDS);
+          assertArrayEquals(new byte[] {1, 2, 3}, read(opened));
+        } catch (InterruptedException e) {
+          Thread.currentThread().interrupt();
+          throw new AssertionError("Opening the next generation was interrupted.", e);
+        } catch (ExecutionException | TimeoutException e) {
+          throw new AssertionError("The next generation must open before the clock callback returns.", e);
+        }
+      };
+      first.write(0, new byte[] {1, 2, 3}, 0, 3);
+      assertNotNull(next.get());
+      assertArrayEquals(new byte[] {1, 2, 3}, read(next.get()));
+      next.get().write(3, new byte[] {4}, 0, 1);
+      assertArrayEquals(new byte[] {1, 2, 3, 4}, read(next.get()));
+      assertEquals(4L, fs.metadata(PATH).getSize());
+    } finally {
+      try {
+        if (first != null) first.close();
+      } finally {
+        executor.shutdown();
+        try {
+          Future<FileHandle> result = pendingOpen.get();
+          if (result != null) {
+            try {
+              result.get(5, TimeUnit.SECONDS);
+            } catch (ExecutionException e) {
+              throw new AssertionError("Opening the next generation failed.", e.getCause());
+            } catch (TimeoutException e) {
+              result.cancel(true);
+              throw new AssertionError("The next generation did not finish opening during cleanup.", e);
+            }
+          }
+        } finally {
+          executor.shutdownNow();
+          try {
+            assertTrue(executor.awaitTermination(5, TimeUnit.SECONDS), "The clock callback executor did not stop.");
+          } finally {
+            FileHandle opened = next.getAndSet(null);
+            if (opened != null) opened.close();
+            fs.checkNoOpenFiles();
+          }
+        }
+      }
     }
   }
 }
