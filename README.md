@@ -111,7 +111,10 @@ repetitions. It compares current-thread CPU time with an equivalent
 `ByteString.copyInto` bulk-copy control, with an 8x ceiling, and retains the
 existing exact-byte, destination-range, and EOF assertions.
 
-With Java, Python 3 and Coursier on PATH, build locally without publishing (the output directory must be absent or empty):
+The historical `3.4.0.1` build is reproducible from the
+[bulk-read source revision](https://github.com/CodexCoder21Organization/okio/commit/3c154e20).
+Run its commands from that revision with Java, Python 3 and Coursier on PATH
+(the output directory must be absent or empty):
 
 ```bash
 python3 scripts/buildFakeFilesystemBulkReadBackport.py --output-directory /tmp/okio-bulk-read-artifact
@@ -120,3 +123,67 @@ scripts/testFakeFilesystemBulkReadBackport.bash /tmp/okio-bulk-read-artifact/oki
 ```
 
 The directory runner executes the full selected native regression suite against core `okio-jvm:3.4.0.2`; the focused runner exercises the read behavior against consumer core `okio-jvm:3.4.0`.
+
+Chunked FakeFileSystem writes
+----------------------------
+
+The compatible `com.squareup.okio:okio-fakefilesystem-jvm:3.4.0.2` candidate
+adds amortized linear allocation for sequential chunked writes and appends
+through an open file handle.
+It retains the 3.4.0 public API, directory concurrency corrections and bulk-read
+behavior. Overwrites preserve the remaining bytes, and extending a file fills
+the new range with zeroes. A replacement writable open keeps prior handles'
+content views independent, including when the original handle shrinks and then
+regrows or appends. Sequential chunked reads and overwrites use amortized linear segment work.
+Random-access positioning has bounded work independent of file size.
+Each byte-array read observes one consistent size and content state when another
+caller resizes or writes through the same file view. Negative file offsets are rejected with an
+`IllegalArgumentException` that names the offset. Negative resize sizes are rejected with
+`IllegalArgumentException` before changing the file's size or bytes, retaining the previous
+error wording after writes, growth and shrink.
+A replacement writable open becomes visible to metadata and new readers only after its
+contents have been copied. The candidate is built locally; it is not published
+by these commands.
+
+```kotlin
+import okio.Path.Companion.toPath
+import okio.fakefilesystem.FakeFileSystem
+
+val fileSystem = FakeFileSystem()
+val path = "/document".toPath()
+val chunk = ByteArray(8192) { 42 }
+fileSystem.openReadWrite(path, mustCreate = true).use { handle ->
+  repeat(1024) { index -> handle.write(index.toLong() * chunk.size, chunk, 0, chunk.size) }
+  check(handle.size() == 8L * 1024 * 1024)
+  repeat(1024) { index -> handle.write(index.toLong() * chunk.size, chunk, 0, chunk.size) }
+  val sample = ByteArray(1)
+  check(handle.read(6L * 1024 * 1024, sample, 0, 1) == 1)
+  check(sample[0] == 42.toByte())
+}
+fileSystem.checkNoOpenFiles()
+```
+
+Build and test the compatible candidate with Java, Python 3 and Coursier:
+
+```bash
+python3 scripts/buildFakeFilesystemChunkedWriteBackport.py --output-directory /tmp/okio-chunked-artifact
+scripts/testFakeFilesystemChunkedWriteBackport.bash /tmp/okio-chunked-artifact/okio-fakefilesystem-jvm-3.4.0.2.jar /tmp/okio-chunked-results
+scripts/testFakeFilesystemReview.bash /tmp/okio-chunked-artifact/okio-fakefilesystem-jvm-3.4.0.2.jar /tmp/okio-review-results
+scripts/testFakeFilesystemDirectoryBackport.bash /tmp/okio-chunked-artifact /tmp/okio-chunked-directory-results
+```
+
+The allocation regression compares 256 and 1,024 writes of 8 KiB with a JVM
+thread-allocation counter. Quadrupling input may allocate at most six times as
+many bytes; it uses no elapsed-time limit. The allocation regression and filesystem
+behavior scenarios run with `./gradlew :okio-fakefilesystem:jvmTest` (and the other configured
+platforms for the common behavior scenarios).
+
+The JVM suite also counts actual segment traversal for 256 and 1,024 sequential
+8 KiB reads, sequential overwrites and alternating distant one-byte reads,
+and checks an ordered concurrent read/resize. These tests use a
+local test-only Java agent, rather than elapsed-time performance assertions.
+Replacement-view tests cover original-handle shrink/regrow and shrink/append,
+including segment boundaries. Run them with `./gradlew :okio-fakefilesystem:jvmTest`;
+the standalone review command above runs the same Java regressions against the
+compatible candidate. The compatible builder uses Java 17 with its Kotlin 1.8
+compiler; the native Gradle build uses the Java version in `.github/workflows/.java-version`.

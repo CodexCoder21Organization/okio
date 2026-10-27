@@ -13,6 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+@file:JvmName("-Time")
+
 package okio.fakefilesystem
 
 import kotlin.jvm.JvmField
@@ -39,6 +41,7 @@ import okio.fakefilesystem.FakeFileSystem.Element.File
 import okio.fakefilesystem.FakeFileSystem.Element.Symlink
 import okio.fakefilesystem.FakeFileSystem.Operation.READ
 import okio.fakefilesystem.FakeFileSystem.Operation.WRITE
+import okio.use
 
 /**
  * A fully in-memory file system useful for testing. It includes features to support writing
@@ -371,12 +374,16 @@ class FakeFileSystem(
 
         val existing = lookupResult.element
         element = File(createdAt = existing?.createdAt ?: now)
-        parent.children[lookupResult.segment!!] = element
         operation = WRITE
 
         if (existing is File) {
-          element.data = existing.data
+          synchronized(existing.contentLock) {
+            element.data = existing.data.map { it.copy() }.toMutableList()
+            element.contentSize = existing.contentSize
+            element.resizeErrorHasIndexes = existing.resizeErrorHasIndexes
+          }
         }
+        parent.children[lookupResult.segment!!] = element
       } else {
         val existing = lookupResult?.element
           ?: throw FileNotFoundException("no such file: $file")
@@ -648,17 +655,22 @@ class FakeFileSystem(
     val extras = mutableMapOf<KClass<*>, Any>()
 
     class File(createdAt: Instant) : Element(createdAt) {
-      var data: ByteString = ByteString.EMPTY
+      val contentLock = SynchronizedObject()
+      var data = mutableListOf<Buffer>()
+      var contentSize = 0L
+      var resizeErrorHasIndexes = false
 
       override val metadata: FileMetadata
-        get() = FileMetadata(
-          isRegularFile = true,
-          size = data.size.toLong(),
-          createdAt = createdAt,
-          lastModifiedAt = lastModifiedAt,
-          lastAccessedAt = lastAccessedAt,
-          extras = extras,
-        )
+        get() = synchronized(contentLock) {
+          FileMetadata(
+            isRegularFile = true,
+            size = contentSize,
+            createdAt = createdAt,
+            lastModifiedAt = lastModifiedAt,
+            lastAccessedAt = lastAccessedAt,
+            extras = extras,
+          )
+        }
     }
 
     class Directory(createdAt: Instant) : Element(createdAt) {
@@ -743,24 +755,26 @@ class FakeFileSystem(
     private var closed = false
 
     override fun protectedResize(size: Long) {
-      check(!closed) { "closed" }
-
-      val delta = size - file.data.size
-      if (delta > 0) {
-        file.data = Buffer()
-          .write(file.data)
-          .write(ByteArray(delta.toInt()))
-          .readByteString()
-      } else {
-        file.data = file.data.substring(0, size.toInt())
+      synchronized(file.contentLock) {
+        check(!closed) { "closed" }
+        require(size >= 0L) {
+          if (file.resizeErrorHasIndexes) "endIndex=$size < beginIndex=0" else "endIndex < beginIndex"
+        }
+        resizeFilePages(file.data, file.contentSize, size)
+        if (size > file.contentSize) {
+          file.resizeErrorHasIndexes = size >= RESIZE_MESSAGE_THRESHOLD
+        } else if (size == 0L) {
+          file.resizeErrorHasIndexes = false
+        }
+        file.contentSize = size
       }
 
       file.access(now = clock.now(), modified = true)
     }
 
-    override fun protectedSize(): Long {
+    override fun protectedSize(): Long = synchronized(file.contentLock) {
       check(!closed) { "closed" }
-      return file.data.size.toLong()
+      file.contentSize
     }
 
     override fun protectedRead(
@@ -768,17 +782,32 @@ class FakeFileSystem(
       array: ByteArray,
       arrayOffset: Int,
       byteCount: Int,
-    ): Int {
+    ): Int = synchronized(file.contentLock) {
       check(!closed) { "closed" }
       checkOffsetAndCount(array.size.toLong(), arrayOffset.toLong(), byteCount.toLong())
+      require(fileOffset >= 0L) { "fileOffset=$fileOffset must be non-negative" }
 
-      val data = file.data
-      if (fileOffset >= data.size) return -1
-      val fileOffsetInt = fileOffset.toInt()
-      val toCopy = minOf(data.size - fileOffsetInt, byteCount)
+      if (fileOffset >= file.contentSize) return -1
+      val toCopy = minOf(file.contentSize - fileOffset, byteCount.toLong()).toInt()
       if (toCopy <= 0) return -1
-      data.copyInto(fileOffsetInt, array, arrayOffset, toCopy)
-      return toCopy
+      var copied = 0
+      while (copied < toCopy) {
+        val position = fileOffset + copied
+        val page = file.data[(position / FILE_PAGE_SIZE).toInt()]
+        page.readUnsafe().use { cursor ->
+          cursor.seek(position % FILE_PAGE_SIZE)
+          val pageCount = minOf(page.size - position % FILE_PAGE_SIZE, (toCopy - copied).toLong()).toInt()
+          var pageCopied = 0
+          while (pageCopied < pageCount) {
+            val count = minOf(cursor.end - cursor.start, pageCount - pageCopied)
+            cursor.data!!.copyInto(array, arrayOffset + copied, cursor.start, cursor.start + count)
+            copied += count
+            pageCopied += count
+            if (pageCopied < pageCount) cursor.next()
+          }
+        }
+      }
+      toCopy
     }
 
     override fun protectedWrite(
@@ -787,34 +816,51 @@ class FakeFileSystem(
       arrayOffset: Int,
       byteCount: Int,
     ) {
-      check(!closed) { "closed" }
-      checkOffsetAndCount(array.size.toLong(), arrayOffset.toLong(), byteCount.toLong())
+      synchronized(file.contentLock) {
+        check(!closed) { "closed" }
+        checkOffsetAndCount(array.size.toLong(), arrayOffset.toLong(), byteCount.toLong())
+        require(fileOffset >= 0L) { "fileOffset=$fileOffset must be non-negative" }
 
-      val buffer = Buffer()
-      buffer.write(file.data, 0, minOf(fileOffset.toInt(), file.data.size))
-      while (buffer.size < fileOffset) {
-        buffer.writeByte(0)
+        val newSize = maxOf(file.contentSize, fileOffset + byteCount)
+        resizeFilePages(file.data, file.contentSize, newSize)
+        file.contentSize = newSize
+        file.resizeErrorHasIndexes = newSize != 0L
+        var copied = 0
+        while (copied < byteCount) {
+          val position = fileOffset + copied
+          val page = file.data[(position / FILE_PAGE_SIZE).toInt()]
+          page.readAndWriteUnsafe().use { cursor ->
+            cursor.seek(position % FILE_PAGE_SIZE)
+            val pageCount = minOf(page.size - position % FILE_PAGE_SIZE, (byteCount - copied).toLong()).toInt()
+            var pageCopied = 0
+            while (pageCopied < pageCount) {
+              val count = minOf(cursor.end - cursor.start, pageCount - pageCopied)
+              array.copyInto(cursor.data!!, cursor.start, arrayOffset + copied, arrayOffset + copied + count)
+              copied += count
+              pageCopied += count
+              if (pageCopied < pageCount) cursor.next()
+            }
+          }
+        }
       }
-      buffer.write(array, arrayOffset, byteCount)
-      if (buffer.size < file.data.size) {
-        buffer.write(file.data, buffer.size.toInt(), file.data.size - buffer.size.toInt())
-      }
-      file.data = buffer.snapshot()
       file.access(now = clock.now(), modified = true)
     }
 
     override fun protectedFlush() {
-      check(!closed) { "closed" }
+      synchronized(file.contentLock) {
+        check(!closed) { "closed" }
+      }
     }
 
     override fun protectedClose() {
-      if (closed) return
-      closed = true
+      synchronized(file.contentLock) {
+        if (closed) return
+        closed = true
+      }
       try {
         file.access(now = clock.now(), modified = readWrite)
       } finally {
-        // Retire the registration even if reading the clock fails, so a failed close cannot leak
-        // an entry that no caller can ever remove. The original failure still reaches the caller.
+        // Always release the registration, including when the clock callback fails.
         synchronized(openFilesLock) { openFiles -= openFile }
       }
     }
@@ -823,4 +869,65 @@ class FakeFileSystem(
   }
 
   override fun toString() = "FakeFileSystem"
+}
+
+// Each indexed page bounds cursor traversal independently of the file's total size.
+private const val FILE_PAGE_SIZE = 64 * 1024
+
+// Preserve the prior resize error wording after growth, shrink and writes.
+private const val RESIZE_MESSAGE_THRESHOLD = 4096L
+
+@Suppress("NOTHING_TO_INLINE")
+private inline fun resizeFilePages(pages: MutableList<Buffer>, oldSize: Long, newSize: Long) {
+  if (newSize == oldSize) return
+  if (newSize < oldSize) {
+    val pageCount = if (newSize == 0L) 0 else ((newSize - 1) / FILE_PAGE_SIZE + 1).toInt()
+    while (pages.size > pageCount) pages.removeAt(pages.lastIndex)
+    if (pages.isNotEmpty()) {
+      val tailSize = newSize - (pages.size - 1L) * FILE_PAGE_SIZE
+      pages.last().readAndWriteUnsafe().use { cursor ->
+        // Unshare the retained tail before changing its limit or later reusing its bytes.
+        cursor.seek(tailSize - 1)
+        cursor.resizeBuffer(tailSize)
+      }
+    }
+    return
+  }
+
+  var position = oldSize
+  while (position < newSize) {
+    val pageIndex = (position / FILE_PAGE_SIZE).toInt()
+    if (pageIndex == pages.size) pages.add(Buffer())
+    val pageSize = minOf(FILE_PAGE_SIZE.toLong(), newSize - pageIndex.toLong() * FILE_PAGE_SIZE)
+    pages[pageIndex].readAndWriteUnsafe().use { cursor ->
+      cursor.resizeBuffer(pageSize)
+      do {
+        cursor.data!!.fill(0, cursor.start, cursor.end)
+      } while (cursor.next() != -1)
+    }
+    position = pageIndex.toLong() * FILE_PAGE_SIZE + pageSize
+  }
+}
+
+@JvmName("newFileMetadata")
+internal fun FileMetadata(
+  isRegularFile: Boolean = false,
+  isDirectory: Boolean = false,
+  symlinkTarget: Path? = null,
+  size: Long? = null,
+  createdAt: Instant? = null,
+  lastModifiedAt: Instant? = null,
+  lastAccessedAt: Instant? = null,
+  extras: Map<KClass<*>, Any> = mapOf(),
+): FileMetadata {
+  return FileMetadata(
+    isRegularFile = isRegularFile,
+    isDirectory = isDirectory,
+    symlinkTarget = symlinkTarget,
+    size = size,
+    createdAtMillis = createdAt?.toEpochMilliseconds(),
+    lastModifiedAtMillis = lastModifiedAt?.toEpochMilliseconds(),
+    lastAccessedAtMillis = lastAccessedAt?.toEpochMilliseconds(),
+    extras = extras,
+  )
 }
