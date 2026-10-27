@@ -23,7 +23,6 @@ import kotlinx.atomicfu.locks.synchronized
 import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
 import okio.ArrayIndexOutOfBoundsException
-import okio.Buffer
 import okio.ByteString
 import okio.FileHandle
 import okio.FileMetadata

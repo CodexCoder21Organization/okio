@@ -4,7 +4,6 @@ import argparse
 import hashlib
 import re
 from pathlib import Path
-import shutil
 import subprocess
 import tempfile
 import urllib.request
@@ -31,8 +30,8 @@ def main():
         raise ValueError(f'Output directory must be absent or empty: {output}')
     output.mkdir(parents=True, exist_ok=True)
     cs = str(Path.home() / 'bin/coursier')
-    if cs is None:
-        raise RuntimeError('Coursier is required on PATH')
+    if not Path(cs).is_file():
+        raise RuntimeError(f'Coursier is required at {cs}')
     compiler = command(cs, 'fetch', '-r', 'https://kotlin.directory',
                        'org.jetbrains.kotlin:kotlin-compiler-embeddable:1.8.0', '--classpath')
     dependencies = command(cs, 'fetch', '-r', 'https://kotlin.directory',
@@ -61,8 +60,6 @@ def main():
                 if re.search(r'= (?:Class|Methodref|Fieldref|InterfaceMethodref).*kotlinx/atomicfu', bytecode):
                     raise ValueError(f'Unexpected atomicfu runtime reference in {name}')
         (temp / 'previous.jar').write_bytes(previous)
-        classes = command('jar', 'tf', str(temp / 'previous.jar')).splitlines()
-        class_names = sorted(name for name in classes if name.endswith('.class'))
         # Private storage and handle classes may change. Verify the end-user JVM API,
         # rather than public accessors emitted inside private implementation classes.
         public_classes = ['okio.fakefilesystem.FakeFileSystem']
