@@ -280,27 +280,109 @@ class PublishDocsTest(unittest.TestCase):
 
     def test_invalid_destination_fails_and_preserves_checkout_worktree(self):
         self.write_site_file("index.html", "published site\n")
-        invalid_destination = self.root / "not-a-git-repository.git"
+        invalid_destination = self.root / "not a git repository.git"
         status_before = self.git("status", "--porcelain", "--untracked-files=all").stdout
         head_before = self.git("rev-parse", "HEAD").stdout
+        refs_before = self.git("for-each-ref", "--format=%(refname) %(objectname)").stdout
+        git_directory = Path(self.git("rev-parse", "--absolute-git-dir").stdout.strip())
+        metadata_before = {name: (git_directory / name).read_bytes()
+                           if (git_directory / name).exists() else None
+                           for name in ("index", "FETCH_HEAD", "shallow")}
 
         result = self.run_publisher(destination=invalid_destination)
 
-        self.assertNotEqual(result.returncode, 0)
-        self.assertIn(
-            "publish_docs.sh: failed to publish documentation to branch gh-pages",
-            result.stderr,
+        self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+        self.assertEqual(
+            result.stderr.splitlines()[-1],
+            "publish_docs.sh: could not read destination repository "
+            f"{invalid_destination}: git ls-remote exited with status 128",
         )
+        self.assertEqual(result.stdout, "")
         self.assertEqual(
             self.git("status", "--porcelain", "--untracked-files=all").stdout,
             status_before,
         )
         self.assertEqual(self.git("rev-parse", "HEAD").stdout, head_before)
+        self.assertEqual(self.git("for-each-ref", "--format=%(refname) %(objectname)").stdout,
+                         refs_before)
+        for name, contents in metadata_before.items():
+            path = git_directory / name
+            self.assertEqual(contents, path.read_bytes() if path.exists() else None, name)
         self.assertEqual(
             list(self.temporary_files.iterdir()),
             [],
-            "publisher left a temporary directory behind after a failed push",
+            "publisher left a temporary directory behind after a failed destination read",
         )
+
+    def test_rejected_push_preserves_destination_and_checkout(self):
+        pre_receive = self.destination / "hooks" / "pre-receive"
+        hook_marker = self.destination / "hooks" / "rejected-push"
+        # The first rejected attempt leaves no branch; the next scenario seeds it.
+        for existing_site in (False, True):
+            with self.subTest(existing_site=existing_site):
+                if existing_site:
+                    (self.site / "new.html").unlink()
+                    self.write_site_file("index.html", "old site\n")
+                    self.write_site_file("stale.html", "old page\n")
+                    seed_result = self.run_publisher()
+                    self.assertEqual(seed_result.returncode, 0,
+                                     seed_result.stdout + seed_result.stderr)
+                destination_refs_before = self.git(
+                    "--git-dir", str(self.destination), "for-each-ref",
+                    "--format=%(objectname) %(refname)",
+                ).stdout
+                status_before = self.git("status", "--porcelain", "--untracked-files=all").stdout
+                head_before = self.git("rev-parse", "HEAD").stdout
+                refs_before = self.git("for-each-ref", "--format=%(refname) %(objectname)").stdout
+                git_directory = Path(self.git("rev-parse", "--absolute-git-dir").stdout.strip())
+                metadata_before = {name: (git_directory / name).read_bytes()
+                                   if (git_directory / name).exists() else None
+                                   for name in ("index", "FETCH_HEAD", "shallow")}
+                self.write_site_file("index.html", "replacement site\n")
+                self.write_site_file("new.html", "new page\n")
+                pre_receive.write_text(
+                    "#!/bin/sh\ncat > hooks/rejected-push\nexit 1\n",
+                    encoding="utf-8",
+                )
+                pre_receive.chmod(0o755)
+                try:
+                    result = self.run_publisher()
+
+                    self.assertTrue(hook_marker.is_file(), result.stdout + result.stderr)
+                    old_oid, new_oid, ref = hook_marker.read_text(encoding="utf-8").split()
+                    expected_old_oid = destination_refs_before.split()[0] if existing_site else "0" * 40
+                    self.assertEqual(old_oid, expected_old_oid)
+                    self.assertNotEqual(new_oid, old_oid)
+                    self.assertEqual(ref, "refs/heads/gh-pages")
+                    self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+                    self.assertEqual(
+                        result.stderr.splitlines()[-1],
+                        "publish_docs.sh: failed to publish documentation to branch gh-pages",
+                    )
+                    self.assertEqual(result.stdout, "")
+                    self.assertNotIn("Published documentation to branch gh-pages.", result.stderr)
+                    destination_refs_after = self.git(
+                        "--git-dir", str(self.destination), "for-each-ref",
+                        "--format=%(objectname) %(refname)",
+                    ).stdout
+                    self.assertEqual(destination_refs_after, destination_refs_before)
+                    if existing_site:
+                        self.assertEqual(self.remote_files(), {"index.html", "stale.html"})
+                        self.assertEqual(self.remote_file_contents("index.html"), "old site\n")
+                        self.assertEqual(self.remote_file_contents("stale.html"), "old page\n")
+                    self.assertEqual(self.git("status", "--porcelain", "--untracked-files=all").stdout,
+                                     status_before)
+                    self.assertEqual(self.git("rev-parse", "HEAD").stdout, head_before)
+                    self.assertEqual(self.git("for-each-ref", "--format=%(refname) %(objectname)").stdout,
+                                     refs_before)
+                    for name, contents in metadata_before.items():
+                        path = git_directory / name
+                        self.assertEqual(contents, path.read_bytes() if path.exists() else None, name)
+                    self.assertEqual([], list(self.temporary_files.iterdir()))
+                finally:
+                    pre_receive.unlink()
+                    if hook_marker.exists():
+                        hook_marker.unlink()
 
     def test_checkout_scoped_git_config_is_available_during_push(self):
         self.write_site_file("index.html", "published site\n")
