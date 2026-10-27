@@ -222,4 +222,20 @@ public class FakeFileSystemContentOwnershipTest {
       }
     }
   }
+
+  @Test public void sizesBeyondTheRepresentableRangeFailBeforeChangingBytes() throws Exception {
+    FakeFileSystem fs = new FakeFileSystem();
+    try (FileHandle file = fs.openReadWrite(PATH, false, false)) {
+      file.write(0, new byte[] {1, 2, 3}, 0, 3);
+      assertEquals("file size exceeds 2147483647 bytes: 9223372036854775807",
+          assertThrows(IllegalArgumentException.class, () -> file.resize(Long.MAX_VALUE)).getMessage());
+      assertEquals("file size exceeds 2147483647 bytes: offset=9223372036854775807 byteCount=1",
+          assertThrows(IllegalArgumentException.class,
+              () -> file.write(Long.MAX_VALUE, new byte[] {4}, 0, 1)).getMessage());
+      assertArrayEquals(new byte[] {1, 2, 3}, read(file));
+    } finally {
+      fs.checkNoOpenFiles();
+    }
+  }
+
 }
