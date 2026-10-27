@@ -11,6 +11,7 @@ import subprocess
 import sys
 import tempfile
 import time
+import textwrap
 import unittest
 
 
@@ -105,6 +106,77 @@ class AndroidTestRunnerTest(unittest.TestCase):
             if process.poll() is None:
                 process.terminate()
             process.communicate(timeout=20)
+
+    def test_emulator_exit_is_reported_when_command_has_also_completed(self):
+        self.sdk_programs()
+
+        def state(pid):
+            try:
+                return pathlib.Path(f'/proc/{pid}/stat').read_text().split()[2]
+            except FileNotFoundError:
+                return None
+
+        def await_condition(condition, message):
+            deadline = time.monotonic() + 15
+            while not condition():
+                self.assertLess(time.monotonic(), deadline, message)
+                time.sleep(0.01)
+
+        for command_code in (0, 23):
+            with self.subTest(command_exit_code=command_code):
+                command_pid = self.root / 'joint-command.pid'
+                release = self.root / 'release-command'
+                command = textwrap.dedent(f"""
+                    import os, pathlib, signal, time
+                    pid_file = pathlib.Path({str(command_pid)!r})
+                    pid_file.write_text(str(os.getpid()))
+                    os.kill(os.getppid(), signal.SIGSTOP)
+                    release = pathlib.Path({str(release)!r})
+                    deadline = time.monotonic() + 15
+                    while not release.exists():
+                        if time.monotonic() >= deadline:
+                            raise RuntimeError('Test harness did not release the command')
+                        time.sleep(0.01)
+                    raise SystemExit({command_code})
+                """)
+                process = subprocess.Popen(
+                    [sys.executable, str(self.runner), '--sdk-root', str(self.sdk), '--',
+                     sys.executable, '-c', command],
+                    stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+                try:
+                    await_condition(lambda: state(process.pid) == 'T', 'Runner was not paused by its command')
+                    pid = int(command_pid.read_text())
+                    emulator_pid = int((self.root / 'emulator.pid').read_text())
+                    self.assertNotIn(state(pid), (None, 'Z'), 'Command must still be running when emulator exits')
+                    os.kill(emulator_pid, signal.SIGTERM)
+                    await_condition(lambda: state(emulator_pid) == 'Z', 'Emulator did not exit')
+                    release.touch()
+                    await_condition(lambda: state(pid) == 'Z', 'Command did not complete while runner was paused')
+                    self.assertEqual('T', state(process.pid))
+                    os.kill(process.pid, signal.SIGCONT)
+                    stdout, stderr = process.communicate(timeout=20)
+                    self.assertEqual('Android emulator exited while tests were running (exit code -15).\n', stderr)
+                    self.assertEqual(1, process.returncode, stdout + stderr)
+                    with self.assertRaises(ProcessLookupError):
+                        os.kill(pid, 0)
+                    self.assert_emulator_reaped()
+                finally:
+                    if process.poll() is None:
+                        process.send_signal(signal.SIGCONT)
+                        process.terminate()
+                        try:
+                            process.communicate(timeout=20)
+                        except subprocess.TimeoutExpired:
+                            process.kill()
+                            process.communicate(timeout=20)
+                    for pid_file in (command_pid, self.root / 'emulator.pid'):
+                        if pid_file.exists():
+                            try:
+                                os.killpg(int(pid_file.read_text()), signal.SIGKILL)
+                            except ProcessLookupError:
+                                pass  # The runner has already cleaned its owned group.
+                    command_pid.unlink(missing_ok=True)
+                    release.unlink(missing_ok=True)
 
     def test_settings_failure_fails_without_running_tests(self):
         self.sdk_programs(settings_fail=True)

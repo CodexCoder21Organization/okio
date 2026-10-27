@@ -200,6 +200,61 @@ class PublishDocsTest(unittest.TestCase):
         self.assertEqual(self.remote_file_contents("index.html"), "replacement site\n")
         self.assertEqual(self.remote_commit_count(), 1)
 
+    def test_destination_configuration_is_preserved_unless_source_replaces_it(self):
+        seed = self.root / "seed"
+        self.git("init", "--initial-branch=gh-pages", str(seed))
+        previous = {".nojekyll": "keep generated assets as-is\n", "CNAME": "docs.example.test\n"}
+        for name, contents in previous.items():
+            (seed / name).write_text(contents, encoding="utf-8")
+        (seed / ".nojekyll").chmod(0o755)
+        (seed / "stale.html").write_text("old page\n", encoding="utf-8")
+        self.git("add", "--all", cwd=seed)
+        self.git("-c", "user.name=Test", "-c", "user.email=test@example.test",
+                 "commit", "-m", "Seed destination configuration", cwd=seed)
+        seed_head = self.git("rev-parse", "HEAD", cwd=seed).stdout.strip()
+        status_before = self.git("status", "--porcelain", "--untracked-files=all").stdout
+        head_before = self.git("rev-parse", "HEAD").stdout
+        refs_before = self.git("for-each-ref", "--format=%(refname) %(objectname)").stdout
+        git_directory = Path(self.git("rev-parse", "--absolute-git-dir").stdout.strip())
+        metadata_before = {name: (git_directory / name).read_bytes()
+                           if (git_directory / name).exists() else None
+                           for name in ("index", "FETCH_HEAD", "shallow")}
+        self.write_site_file("index.html", "new page\n")
+        self.write_site_file("_static/asset.css", "new asset\n")
+        self.write_site_file("1.x/index.html", "restored docs\n")
+
+        # Reset the destination between scenarios; publication itself is the public CLI.
+        for replacement in (None, ".nojekyll", "CNAME"):
+            with self.subTest(source_replacement=replacement):
+                self.git("push", "--force", str(self.destination), f"{seed_head}:refs/heads/gh-pages", cwd=seed)
+                expected = dict(previous)
+                if replacement is not None:
+                    expected[replacement] = f"replacement {replacement}\n"
+                    self.write_site_file(replacement, expected[replacement])
+                try:
+                    result = self.run_publisher()
+                    self.assertEqual(0, result.returncode, result.stdout + result.stderr)
+                    self.assertEqual(set(previous) | {"index.html", "_static/asset.css", "1.x/index.html"},
+                                     self.remote_files())
+                    for name, contents in expected.items():
+                        self.assertEqual(contents, self.remote_file_contents(name))
+                    self.assertEqual("new page\n", self.remote_file_contents("index.html"))
+                    self.assertEqual("new asset\n", self.remote_file_contents("_static/asset.css"))
+                    self.assertEqual("restored docs\n", self.remote_file_contents("1.x/index.html"))
+                    self.assertEqual(1, self.remote_commit_count())
+                    marker_mode = self.git("--git-dir", str(self.destination), "ls-tree", "gh-pages", ".nojekyll").stdout.split()[0]
+                    self.assertEqual("100644" if replacement == ".nojekyll" else "100755", marker_mode)
+                    self.assertEqual(status_before, self.git("status", "--porcelain", "--untracked-files=all").stdout)
+                    self.assertEqual(head_before, self.git("rev-parse", "HEAD").stdout)
+                    self.assertEqual(refs_before, self.git("for-each-ref", "--format=%(refname) %(objectname)").stdout)
+                    for name, contents in metadata_before.items():
+                        path = git_directory / name
+                        self.assertEqual(contents, path.read_bytes() if path.exists() else None, name)
+                    self.assertEqual([], list(self.temporary_files.iterdir()))
+                finally:
+                    if replacement is not None:
+                        (self.site / replacement).unlink()
+
     def test_missing_site_fails_with_descriptive_error(self):
         missing_site = self.root / "missing-site"
 
