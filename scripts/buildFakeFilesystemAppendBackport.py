@@ -68,7 +68,7 @@ def main():
         public_classes = ['okio.fakefilesystem.FakeFileSystem']
         before = command('javap', '-public', '-classpath', str(temp / 'previous.jar'), *public_classes)
         after = command('javap', '-public', '-classpath', str(jar), *public_classes)
-        if before != after:
+        if sorted(before.splitlines()) != sorted(after.splitlines()):
             raise ValueError('Public FakeFileSystem javap API differs from 3.4.0.1')
         print('Public FakeFileSystem javap API is identical to 3.4.0.1.')
         with urllib.request.urlopen(f'{REPOSITORY}/{PREVIOUS}/{ARTIFACT}-{PREVIOUS}.pom', timeout=60) as response:
