@@ -47,10 +47,11 @@ class UseNullableResultTest {
     var closeCount = 0
     val fileSystem = object : ForwardingFileSystem(delegate) {
       override fun sink(file: Path, mustCreate: Boolean): Sink {
-        return object : ForwardingSink(super.sink(file, mustCreate)) {
+        val sink = super.sink(file, mustCreate)
+        return object : Sink by sink {
           override fun close() {
             closeCount++
-            super.close()
+            sink.close()
           }
         }
       }
@@ -88,10 +89,11 @@ class UseNullableResultTest {
   @Test
   fun nullResultClosesExactlyOnce() {
     var closeCount = 0
-    val sink = object : ForwardingSink(Buffer()) {
+    val buffer = Buffer()
+    val sink = object : Sink by buffer {
       override fun close() {
         closeCount++
-        super.close()
+        buffer.close()
       }
     }
 
@@ -105,10 +107,11 @@ class UseNullableResultTest {
   @Test
   fun throwingBlockClosesExactlyOnce() {
     var closeCount = 0
-    val sink = object : ForwardingSink(Buffer()) {
+    val buffer = Buffer()
+    val sink = object : Sink by buffer {
       override fun close() {
         closeCount++
-        super.close()
+        buffer.close()
       }
     }
     val failure = IOException("block could not read the record")
@@ -124,10 +127,11 @@ class UseNullableResultTest {
   fun nullResultStillPropagatesCloseFailure() {
     var closeCount = 0
     val failure = IOException("sink could not close")
-    val sink = object : ForwardingSink(Buffer()) {
+    val buffer = Buffer()
+    val sink = object : Sink by buffer {
       override fun close() {
         closeCount++
-        super.close()
+        buffer.close()
         throw failure
       }
     }
@@ -144,10 +148,11 @@ class UseNullableResultTest {
     var closeCount = 0
     val blockFailure = IOException("block could not read the record")
     val closeFailure = IOException("sink could not close")
-    val sink = object : ForwardingSink(Buffer()) {
+    val buffer = Buffer()
+    val sink = object : Sink by buffer {
       override fun close() {
         closeCount++
-        super.close()
+        buffer.close()
         throw closeFailure
       }
     }
