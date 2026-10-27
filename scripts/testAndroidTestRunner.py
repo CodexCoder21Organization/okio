@@ -29,8 +29,8 @@ class AndroidTestRunnerTest(unittest.TestCase):
         emulator.write_text('#!' + sys.executable + '\n' +
                             'import os, pathlib, sys, time\n' +
                             f'root = pathlib.Path({str(self.root)!r})\n' +
-                            '(root / "emulator.pid").write_text(str(os.getpid()))\n' +
                             '(root / "emulator.args").write_text("\\n".join(sys.argv[1:]))\n' +
+                            '(root / "emulator.pid").write_text(str(os.getpid()))\n' +
                             ('print("emulator failed", flush=True)\nsys.exit(31)\n' if emulator_exit else
                              'while True: time.sleep(1)\n'))
         emulator.chmod(0o755)
@@ -39,7 +39,7 @@ class AndroidTestRunnerTest(unittest.TestCase):
                        'import pathlib, sys\n' +
                        f'root = pathlib.Path({str(self.root)!r})\n' +
                        'with (root / "adb.calls").open("a") as out: out.write(" ".join(sys.argv[1:]) + "\\n")\n' +
-                       f'print({boot!r}) if "getprop" in sys.argv else None\n' +
+                       f'print({boot!r} if (root / "emulator.pid").exists() else "0") if "getprop" in sys.argv else None\n' +
                        ('sys.exit(19) if "settings" in sys.argv else None\n' if settings_fail else ''))
         adb.chmod(0o755)
 
@@ -80,7 +80,7 @@ class AndroidTestRunnerTest(unittest.TestCase):
         self.sdk_programs(boot='0', emulator_exit=True)
         result = self.invoke()
         self.assertNotEqual(0, result.returncode)
-        self.assertIn('Android emulator exited before boot completed (exit code 31).', result.stderr)
+        self.assertEqual('Android emulator exited before boot completed (exit code 31).\n', result.stderr)
         self.assertFalse((self.root / 'ran').exists())
         self.assert_emulator_reaped()
 
@@ -99,7 +99,7 @@ class AndroidTestRunnerTest(unittest.TestCase):
                 process.communicate(timeout=20)
                 self.fail('Runner kept waiting for tests after its emulator exited')
             self.assertNotEqual(0, process.returncode)
-            self.assertIn('Android emulator exited while tests were running (exit code -15).', stderr)
+            self.assertEqual('Android emulator exited while tests were running (exit code -15).\n', stderr)
             self.assert_emulator_reaped()
         finally:
             if process.poll() is None:
@@ -118,15 +118,60 @@ class AndroidTestRunnerTest(unittest.TestCase):
         # Deliberately exhaust the configurable budget; do not wait 600 seconds.
         result = self.invoke(timeout='0')
         self.assertNotEqual(0, result.returncode)
-        self.assertIn('Android emulator did not complete boot within 0 seconds.', result.stderr)
+        self.assertEqual('Android emulator did not complete boot within 0 seconds.\n', result.stderr)
         self.assertFalse((self.root / 'ran').exists())
         self.assert_emulator_reaped()
+
+    def test_nonfinite_boot_budget_is_rejected_before_start(self):
+        self.sdk_programs()
+        for budget in ('nan', 'inf'):
+            with self.subTest(budget=budget):
+                result = self.invoke(timeout=budget)
+                self.assertEqual(2, result.returncode, result.stdout + result.stderr)
+                self.assertEqual('run_android_tests.py: error: --boot-timeout must be finite and non-negative',
+                                 result.stderr.splitlines()[-1])
+                self.assertFalse((self.root / 'emulator.pid').exists())
 
     def test_missing_sdk_has_descriptive_error(self):
         result = self.invoke()
         self.assertNotEqual(0, result.returncode)
-        self.assertIn(f'Android SDK executable does not exist: {self.sdk / "emulator/emulator"}', result.stderr)
+        self.assertEqual(f'run_android_tests.py: error: Android SDK executable does not exist: {self.sdk / "emulator/emulator"}', result.stderr.splitlines()[-1])
         self.assertFalse((self.root / 'ran').exists())
+
+    def test_test_descendant_cannot_outlive_finished_command(self):
+        self.sdk_programs()
+        child_pid_file = self.root / 'descendant.pid'
+        child_code = (f'import os,signal,time; from pathlib import Path; '
+                      f'signal.signal(signal.SIGTERM, signal.SIG_IGN); '
+                      f'Path({str(child_pid_file)!r}).write_text(str(os.getpid())); time.sleep(600)')
+        parent_code = (f'import subprocess,sys,time; from pathlib import Path; '
+                       f'subprocess.Popen([sys.executable, "-c", {child_code!r}], '
+                       f'stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL); '
+                       f'p=Path({str(child_pid_file)!r}); '
+                       'exec("while not p.exists(): time.sleep(0.01)")')
+        try:
+            result = self.invoke([sys.executable, '-c', parent_code])
+            self.assertEqual(0, result.returncode, result.stdout + result.stderr)
+            pid = int(child_pid_file.read_text())
+            # The runner cannot reap a grandchild, but must leave it exited.
+            # These process-group tests run on the workflow's Linux runner.
+            deadline = time.monotonic() + 15
+            state = pathlib.Path(f'/proc/{pid}/stat')
+            while True:
+                try:
+                    running = state.read_text().split()[2] != 'Z'
+                except FileNotFoundError:
+                    running = False
+                if not running or time.monotonic() >= deadline:
+                    break
+                time.sleep(0.02)
+            self.assertFalse(running, 'A test descendant ignored TERM and remained running after the runner returned')
+        finally:
+            if child_pid_file.exists():
+                try:
+                    os.kill(int(child_pid_file.read_text()), signal.SIGKILL)
+                except ProcessLookupError:
+                    pass
 
     def test_cancellation_reaps_emulator_and_test_process(self):
         self.sdk_programs()

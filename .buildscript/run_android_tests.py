@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Run the Android test command with an owned API 24 emulator process."""
 import argparse
+import math
 import os
 from pathlib import Path
 import signal
@@ -20,7 +21,13 @@ def stop_process(process):
     try:
         process.wait(timeout=10)
     except subprocess.TimeoutExpired:
-        os.killpg(process.pid, signal.SIGKILL)
+        pass  # The final group kill below also handles a leader that ignores TERM.
+    finally:
+        # The leader may have exited while a descendant ignored TERM.
+        try:
+            os.killpg(process.pid, signal.SIGKILL)
+        except ProcessLookupError:
+            pass  # Every member of this owned group has already exited.
         process.wait(timeout=10)
 
 
@@ -38,8 +45,8 @@ def main():
     command = args.command[1:] if args.command[:1] == ['--'] else args.command
     if not command:
         parser.error('Provide the Android test command after --')
-    if args.boot_timeout < 0:
-        parser.error('--boot-timeout must be non-negative')
+    if not math.isfinite(args.boot_timeout) or args.boot_timeout < 0:
+        parser.error('--boot-timeout must be finite and non-negative')
     emulator_path = args.sdk_root / 'emulator/emulator'
     adb_path = args.sdk_root / 'platform-tools/adb'
     for executable in (emulator_path, adb_path):
@@ -80,11 +87,19 @@ def main():
                             'put', 'global', setting, '0.0'], check=True, timeout=10)
         environment = dict(os.environ, ANDROID_SERIAL='emulator-5554', EMULATOR_PORT='5554')
         test_process = subprocess.Popen(command, env=environment, start_new_session=True)
-        code = test_process.wait()
-        return code if code >= 0 else 128 - code
+        while True:
+            try:
+                code = test_process.wait(timeout=0.2)
+                return code if code >= 0 else 128 - code
+            except subprocess.TimeoutExpired:
+                emulator_code = emulator.poll()
+                if emulator_code is not None:
+                    raise RuntimeError(f'Android emulator exited while tests were running (exit code {emulator_code}).')
     finally:
-        stop_process(test_process)
-        stop_process(emulator)
+        try:
+            stop_process(test_process)
+        finally:
+            stop_process(emulator)
 
 
 if __name__ == '__main__':
