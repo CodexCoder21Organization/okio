@@ -36,11 +36,16 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: 'zulu'
-          java-version: 19
+          # Install the matrix JDK for Gradle's test toolchain as well as JDK 19 for Gradle itself
+          # (the last entry becomes JAVA_HOME). ubuntu-latest moved to ubuntu-26.04, which no longer
+          # preinstalls JDK 8, so the test toolchain must be installed explicitly.
+          java-version: |
+            ${{ matrix.java-version }}
+            19
 
       - name: Test
         run: |
-          ./gradlew -Dkjs=false -Dknative=false -Dkwasm=false -Dtest.java.version=${{ matrix.java-version }} build --stacktrace
+          ./gradlew -Dkjs=false -Dknative=false -Dkwasm=false -Dtest.java.version=${{ matrix.java-version }} -Porg.gradle.java.installations.fromEnv=JAVA_HOME_${{ matrix.java-version }}_X64 build --stacktrace
 
       - name: Save Test Results
         if: always()
